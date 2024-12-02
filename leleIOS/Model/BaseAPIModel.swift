@@ -116,17 +116,11 @@ struct Community: Codable {
     }
 }
 
-enum Title: String, Codable {
-    case 報修回覆 = "報修回覆"
-    case 社區通知 = "社區通知"
-    case 退件通知 = "退件通知"
-    case 郵務通知 = "郵務通知"
-}
-
 // MARK: - NotificationModel
 struct NotificationModel: Codable {
     let id: String
-    let title: Title
+    // 報修回覆 社區通知 退件通知 郵務通知
+    let title: String
     let body, createAt: String
     let notification: String?
     let type: Int

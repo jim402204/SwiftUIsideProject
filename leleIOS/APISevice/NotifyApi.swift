@@ -13,12 +13,11 @@ enum NotifyApi {
     //MARK: - 通知列表
     struct NotificationList: BaseTargetType {
         typealias ResponseDataType = [NotificationModel]
-        enum Status: Int {
+        enum Status: Int, CaseIterable {
             case 全部 = -1
             case 未讀 = 0
             case 已讀 = 1
         }
-        
         var path: String { return "user/notification" }
         var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.default) }
         private var parameters: [String:Any] = [:]

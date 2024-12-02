@@ -30,6 +30,11 @@
 		375D8A7A2CFD4B8700A1E02B /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 375D8A792CFD4B8700A1E02B /* CombineMoya */; };
 		375D8A7C2CFD4B8700A1E02B /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 375D8A7B2CFD4B8700A1E02B /* Moya */; };
 		375D8A7F2CFD4BA900A1E02B /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 375D8A7E2CFD4BA900A1E02B /* RxMoya */; };
+		37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F76B2CFD905200F32A5C /* MainTabView.swift */; };
+		37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7712CFD912400F32A5C /* ProfileView.swift */; };
+		37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7742CFD917B00F32A5C /* NotificationView.swift */; };
+		37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7772CFD91FC00F32A5C /* HomeView.swift */; };
+		37C7F77C2CFD9A9900F32A5C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +58,11 @@
 		375D8A5F2CFD4A6100A1E02B /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		375D8A612CFD4A6100A1E02B /* BaseAPIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAPIModel.swift; sourceTree = "<group>"; };
 		375D8A622CFD4A6100A1E02B /* FeatureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
+		37C7F76B2CFD905200F32A5C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		37C7F7712CFD912400F32A5C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		37C7F7742CFD917B00F32A5C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		37C7F7772CFD91FC00F32A5C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,8 +110,7 @@
 				375D8A522CFD4A6100A1E02B /* Extension */,
 				375D8A602CFD4A6100A1E02B /* APISevice */,
 				375D8A632CFD4A6100A1E02B /* Model */,
-				375D8A432CFD48C800A1E02B /* leleIOSApp.swift */,
-				375D8A452CFD48C800A1E02B /* ContentView.swift */,
+				37C7F76D2CFD907700F32A5C /* swiftUI */,
 				375D8A472CFD48C900A1E02B /* Assets.xcassets */,
 				375D8A492CFD48C900A1E02B /* Preview Content */,
 			);
@@ -174,13 +183,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		37C7F76D2CFD907700F32A5C /* swiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				37C7F76F2CFD90BB00F32A5C /* Window */,
+				37C7F7762CFD91F300F32A5C /* HomeView */,
+				37C7F7732CFD917100F32A5C /* NotificationView */,
+				37C7F7702CFD90F700F32A5C /* ProfileView */,
+			);
+			path = swiftUI;
+			sourceTree = "<group>";
+		};
+		37C7F76F2CFD90BB00F32A5C /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				375D8A432CFD48C800A1E02B /* leleIOSApp.swift */,
+				37C7F76B2CFD905200F32A5C /* MainTabView.swift */,
+				375D8A452CFD48C800A1E02B /* ContentView.swift */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		37C7F7702CFD90F700F32A5C /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				37C7F7712CFD912400F32A5C /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		37C7F7732CFD917100F32A5C /* NotificationView */ = {
+			isa = PBXGroup;
+			children = (
+				37C7F7742CFD917B00F32A5C /* NotificationView.swift */,
+				37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */,
+			);
+			path = NotificationView;
+			sourceTree = "<group>";
+		};
+		37C7F7762CFD91F300F32A5C /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		81E1E02BE7B6D796B56403E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */,
 				80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -320,11 +374,16 @@
 				375D8A702CFD4A6100A1E02B /* BaseAPIModel.swift in Sources */,
 				375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */,
 				375D8A6B2CFD4A6100A1E02B /* HomeApi.swift in Sources */,
+				37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */,
 				375D8A712CFD4A6100A1E02B /* FeatureModel.swift in Sources */,
+				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
+				37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */,
 				375D8A672CFD4A6100A1E02B /* APIService.swift in Sources */,
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,
+				37C7F77C2CFD9A9900F32A5C /* NotificationViewModel.swift in Sources */,
 				375D8A6A2CFD4A6100A1E02B /* FeatureApi.swift in Sources */,
+				37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */,
 				375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,7 +520,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"leleIOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 5LFNW732DV;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -494,7 +555,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"leleIOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 5LFNW732DV;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
