@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374A5EAD2CFEEC1100A36375 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EAC2CFEEC1100A36375 /* Register.swift */; };
+		374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB52CFEF90E00A36375 /* NewPasswordViewModel.swift */; };
+		374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB42CFEF90E00A36375 /* NewPasswordView.swift */; };
+		374A5EB92CFEF90E00A36375 /* JimTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB22CFEF90E00A36375 /* JimTextFieldStyle.swift */; };
+		374A5EBA2CFEF90E00A36375 /* ButtonTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB12CFEF90E00A36375 /* ButtonTextStyle.swift */; };
+		374A5EBB2CFEF90E00A36375 /* BaseTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB02CFEF90E00A36375 /* BaseTextStyle.swift */; };
+		374A5EBD2CFEFA5A00A36375 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EBC2CFEFA5A00A36375 /* UIColor+.swift */; };
+		374A5EBF2CFEFA8900A36375 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EBE2CFEFA8900A36375 /* String+.swift */; };
+		374A5EC12CFEFAB600A36375 /* APPColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EC02CFEFAB600A36375 /* APPColor.swift */; };
+		374A5EC32CFF044600A36375 /* BaseButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EC22CFF044600A36375 /* BaseButtonStyle.swift */; };
+		374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EC42CFF0A3D00A36375 /* BaseButtonContent.swift */; };
+		374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EC62D00070700A36375 /* ProfileViewModel.swift */; };
 		375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A432CFD48C800A1E02B /* leleIOSApp.swift */; };
 		375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A452CFD48C800A1E02B /* ContentView.swift */; };
 		375D8A482CFD48C900A1E02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 375D8A472CFD48C900A1E02B /* Assets.xcassets */; };
@@ -35,10 +47,28 @@
 		37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7742CFD917B00F32A5C /* NotificationView.swift */; };
 		37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7772CFD91FC00F32A5C /* HomeView.swift */; };
 		37C7F77C2CFD9A9900F32A5C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */; };
+		37C7F77F2CFDB9F700F32A5C /* SegmentedTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F77E2CFDB9F700F32A5C /* SegmentedTabView.swift */; };
+		37C7F7812CFDBA5200F32A5C /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7802CFDBA5200F32A5C /* NotificationCell.swift */; };
+		37C7F7842CFE9E7600F32A5C /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 37C7F7832CFE9E7600F32A5C /* SegmentedPicker */; };
+		37C7F7872CFED1B700F32A5C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7862CFED1B700F32A5C /* LoginView.swift */; };
+		37C7F7892CFED2FF00F32A5C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7882CFED2FF00F32A5C /* LoginViewModel.swift */; };
+		37C7F78E2CFED9D400F32A5C /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F78D2CFED9D400F32A5C /* ForgotPasswordView.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		374A5EAC2CFEEC1100A36375 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		374A5EB02CFEF90E00A36375 /* BaseTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextStyle.swift; sourceTree = "<group>"; };
+		374A5EB12CFEF90E00A36375 /* ButtonTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextStyle.swift; sourceTree = "<group>"; };
+		374A5EB22CFEF90E00A36375 /* JimTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimTextFieldStyle.swift; sourceTree = "<group>"; };
+		374A5EB42CFEF90E00A36375 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
+		374A5EB52CFEF90E00A36375 /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
+		374A5EBC2CFEFA5A00A36375 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		374A5EBE2CFEFA8900A36375 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		374A5EC02CFEFAB600A36375 /* APPColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPColor.swift; sourceTree = "<group>"; };
+		374A5EC22CFF044600A36375 /* BaseButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonStyle.swift; sourceTree = "<group>"; };
+		374A5EC42CFF0A3D00A36375 /* BaseButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonContent.swift; sourceTree = "<group>"; };
+		374A5EC62D00070700A36375 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		375D8A402CFD48C800A1E02B /* leleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		375D8A432CFD48C800A1E02B /* leleIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leleIOSApp.swift; sourceTree = "<group>"; };
 		375D8A452CFD48C800A1E02B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +93,11 @@
 		37C7F7742CFD917B00F32A5C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		37C7F7772CFD91FC00F32A5C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		37C7F77E2CFDB9F700F32A5C /* SegmentedTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTabView.swift; sourceTree = "<group>"; };
+		37C7F7802CFDBA5200F32A5C /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		37C7F7862CFED1B700F32A5C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		37C7F7882CFED2FF00F32A5C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		37C7F78D2CFED9D400F32A5C /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				375D8A7F2CFD4BA900A1E02B /* RxMoya in Frameworks */,
+				37C7F7842CFE9E7600F32A5C /* SegmentedPicker in Frameworks */,
 				375D8A772CFD4B5000A1E02B /* SwiftyJSON in Frameworks */,
 				375D8A742CFD4B4400A1E02B /* RxSwift in Frameworks */,
 				375D8A7C2CFD4B8700A1E02B /* Moya in Frameworks */,
@@ -85,6 +121,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374A5EAB2CFEEC0800A36375 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				374A5EAC2CFEEC1100A36375 /* Register.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		374A5EAF2CFEF7E900A36375 /* refence swiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				374A5EB32CFEF90E00A36375 /* ViewStyle */,
+				374A5EB42CFEF90E00A36375 /* NewPasswordView.swift */,
+				374A5EB52CFEF90E00A36375 /* NewPasswordViewModel.swift */,
+			);
+			path = "refence swiftUI";
+			sourceTree = "<group>";
+		};
+		374A5EB32CFEF90E00A36375 /* ViewStyle */ = {
+			isa = PBXGroup;
+			children = (
+				374A5EB02CFEF90E00A36375 /* BaseTextStyle.swift */,
+				374A5EB12CFEF90E00A36375 /* ButtonTextStyle.swift */,
+				374A5EB22CFEF90E00A36375 /* JimTextFieldStyle.swift */,
+				374A5EC22CFF044600A36375 /* BaseButtonStyle.swift */,
+				374A5EC42CFF0A3D00A36375 /* BaseButtonContent.swift */,
+			);
+			path = ViewStyle;
+			sourceTree = "<group>";
+		};
 		375D8A372CFD48C800A1E02B = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +172,7 @@
 		375D8A422CFD48C800A1E02B /* leleIOS */ = {
 			isa = PBXGroup;
 			children = (
+				374A5EAF2CFEF7E900A36375 /* refence swiftUI */,
 				375D8A542CFD4A6100A1E02B /* APPConfig */,
 				375D8A522CFD4A6100A1E02B /* Extension */,
 				375D8A602CFD4A6100A1E02B /* APISevice */,
@@ -129,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				375D8A512CFD4A6100A1E02B /* Date+.swift */,
+				374A5EBC2CFEFA5A00A36375 /* UIColor+.swift */,
+				374A5EBE2CFEFA8900A36375 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -137,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				375D8A532CFD4A6100A1E02B /* UserDefault.swift */,
+				374A5EC02CFEFAB600A36375 /* APPColor.swift */,
 			);
 			path = APPConfig;
 			sourceTree = "<group>";
@@ -186,6 +256,8 @@
 		37C7F76D2CFD907700F32A5C /* swiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				37C7F77D2CFDB9BB00F32A5C /* CommonView */,
+				37C7F78A2CFED99500F32A5C /* LoginFlow */,
 				37C7F76F2CFD90BB00F32A5C /* Window */,
 				37C7F7762CFD91F300F32A5C /* HomeView */,
 				37C7F7732CFD917100F32A5C /* NotificationView */,
@@ -198,8 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				375D8A432CFD48C800A1E02B /* leleIOSApp.swift */,
-				37C7F76B2CFD905200F32A5C /* MainTabView.swift */,
 				375D8A452CFD48C800A1E02B /* ContentView.swift */,
+				37C7F76B2CFD905200F32A5C /* MainTabView.swift */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -208,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				37C7F7712CFD912400F32A5C /* ProfileView.swift */,
+				374A5EC62D00070700A36375 /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -217,6 +290,7 @@
 			children = (
 				37C7F7742CFD917B00F32A5C /* NotificationView.swift */,
 				37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */,
+				37C7F7802CFDBA5200F32A5C /* NotificationCell.swift */,
 			);
 			path = NotificationView;
 			sourceTree = "<group>";
@@ -227,6 +301,41 @@
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		37C7F77D2CFDB9BB00F32A5C /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				37C7F77E2CFDB9F700F32A5C /* SegmentedTabView.swift */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
+		37C7F7852CFED19F00F32A5C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				37C7F7862CFED1B700F32A5C /* LoginView.swift */,
+				37C7F7882CFED2FF00F32A5C /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		37C7F78A2CFED99500F32A5C /* LoginFlow */ = {
+			isa = PBXGroup;
+			children = (
+				374A5EAB2CFEEC0800A36375 /* Register */,
+				37C7F78C2CFED9C200F32A5C /* ForgotPassword */,
+				37C7F7852CFED19F00F32A5C /* Login */,
+			);
+			path = LoginFlow;
+			sourceTree = "<group>";
+		};
+		37C7F78C2CFED9C200F32A5C /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				37C7F78D2CFED9D400F32A5C /* ForgotPasswordView.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		81E1E02BE7B6D796B56403E8 /* Pods */ = {
@@ -262,6 +371,7 @@
 				375D8A792CFD4B8700A1E02B /* CombineMoya */,
 				375D8A7B2CFD4B8700A1E02B /* Moya */,
 				375D8A7E2CFD4BA900A1E02B /* RxMoya */,
+				37C7F7832CFE9E7600F32A5C /* SegmentedPicker */,
 			);
 			productName = leleIOS;
 			productReference = 375D8A402CFD48C800A1E02B /* leleIOS.app */;
@@ -295,6 +405,7 @@
 				375D8A722CFD4B4400A1E02B /* XCRemoteSwiftPackageReference "RxSwift" */,
 				375D8A752CFD4B5000A1E02B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				375D8A782CFD4B8700A1E02B /* XCRemoteSwiftPackageReference "Moya" */,
+				37C7F7822CFE9E7600F32A5C /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
 			);
 			productRefGroup = 375D8A412CFD48C800A1E02B /* Products */;
 			projectDirPath = "";
@@ -365,24 +476,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				375D8A6E2CFD4A6100A1E02B /* PublicFacilitiesApi.swift in Sources */,
+				37C7F77F2CFDB9F700F32A5C /* SegmentedTabView.swift in Sources */,
+				37C7F7812CFDBA5200F32A5C /* NotificationCell.swift in Sources */,
 				375D8A652CFD4A6100A1E02B /* UserDefault.swift in Sources */,
 				375D8A6D2CFD4A6100A1E02B /* NotifyApi.swift in Sources */,
 				375D8A642CFD4A6100A1E02B /* Date+.swift in Sources */,
+				37C7F7872CFED1B700F32A5C /* LoginView.swift in Sources */,
 				375D8A662CFD4A6100A1E02B /* ApiProtocol.swift in Sources */,
+				374A5EC32CFF044600A36375 /* BaseButtonStyle.swift in Sources */,
+				37C7F78E2CFED9D400F32A5C /* ForgotPasswordView.swift in Sources */,
 				375D8A6F2CFD4A6100A1E02B /* UserApi.swift in Sources */,
 				375D8A682CFD4A6100A1E02B /* ApiService+.swift in Sources */,
 				375D8A702CFD4A6100A1E02B /* BaseAPIModel.swift in Sources */,
+				374A5EAD2CFEEC1100A36375 /* Register.swift in Sources */,
 				375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */,
+				374A5EBF2CFEFA8900A36375 /* String+.swift in Sources */,
 				375D8A6B2CFD4A6100A1E02B /* HomeApi.swift in Sources */,
+				37C7F7892CFED2FF00F32A5C /* LoginViewModel.swift in Sources */,
 				37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */,
 				375D8A712CFD4A6100A1E02B /* FeatureModel.swift in Sources */,
+				374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */,
 				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
+				374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */,
+				374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */,
+				374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */,
+				374A5EB92CFEF90E00A36375 /* JimTextFieldStyle.swift in Sources */,
+				374A5EBA2CFEF90E00A36375 /* ButtonTextStyle.swift in Sources */,
+				374A5EBB2CFEF90E00A36375 /* BaseTextStyle.swift in Sources */,
 				37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */,
 				375D8A672CFD4A6100A1E02B /* APIService.swift in Sources */,
+				374A5EBD2CFEFA5A00A36375 /* UIColor+.swift in Sources */,
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,
 				37C7F77C2CFD9A9900F32A5C /* NotificationViewModel.swift in Sources */,
 				375D8A6A2CFD4A6100A1E02B /* FeatureApi.swift in Sources */,
+				374A5EC12CFEFAB600A36375 /* APPColor.swift in Sources */,
 				37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */,
 				375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */,
 			);
@@ -628,6 +756,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		37C7F7822CFE9E7600F32A5C /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KazaiMazai/SwiftySegmentedPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -655,6 +791,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 375D8A782CFD4B8700A1E02B /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		37C7F7832CFE9E7600F32A5C /* SegmentedPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37C7F7822CFE9E7600F32A5C /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */;
+			productName = SegmentedPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct leleIOSApp: App {
+    @StateObject private var appState = AppState()
+
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            ContentView()
+                .environmentObject(appState)
         }
     }
+}
+
+class AppState: ObservableObject {
+    @Published var isLoggedIn: Bool = false
 }

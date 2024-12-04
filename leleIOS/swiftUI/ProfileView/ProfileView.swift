@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var receiveNotifications = true
-    
+    @EnvironmentObject var appState: AppState
+    @StateObject private var viewModel = ProfileViewModel()
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
                     // 個人信息卡片
@@ -38,13 +39,14 @@ struct ProfileView: View {
                         // 個人設置選項
                         VStack(spacing: 0) {
                             // 限本人接受包裹通知
-                            HStack {
-                                Text("限本人接受包裹通知")
-                                Spacer()
-                                Toggle("", isOn: $receiveNotifications)
-                            }
-                            .padding()
-                            Divider()
+//                            HStack {
+//                                Text("限本人接受包裹通知")
+//                                Spacer()
+//                                Toggle("", isOn: $viewModel.receiveNotifications)
+//                            }
+//                            .padding()
+//                            
+//                            Divider()
                             
                             // 其他選項
                             NavigationLink(destination: Text("個人資料")) {
@@ -84,7 +86,7 @@ struct ProfileView: View {
                             Divider()
                             
                             Button(action: {
-                                // 處理登出邏輯
+                                viewModel.logout()
                             }) {
                                 HStack {
                                     Text("登出")
@@ -176,11 +178,15 @@ struct ProfileView: View {
                 }
             )
         }
+        .onAppear {
+            viewModel.setAppState(appState)
+        }
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(AppState())
     }
 }
