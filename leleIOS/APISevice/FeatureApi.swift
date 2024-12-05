@@ -42,8 +42,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             apiModelInfo: ApiModelInfo = ApiModelInfo(),
             status: Status = .寄放
         ) {
@@ -75,7 +75,7 @@ enum FeatureApi {
         private var myPath: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             status: Status = .同戶
         ) {
@@ -98,8 +98,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             did: String = "6745670f61094f5e3d832061"
         ) {
             self.communityAdmin = communityAdmin
@@ -125,8 +125,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             did: String = "6745670f61094f5e3d832061",
             model: IntercomSettingModel = IntercomSettingModel(community: nil, device: nil, enabled: true, enabledCommunity: true, enabledFamily: true, enabledHouseHold: true, enabledService: true, disturbSetting: nil)
         ) {
@@ -155,7 +155,7 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f"
+            communityAdmin: String = UserDefaultsHelper.communityAdmin
         ) {
             self.communityAdmin = communityAdmin
         }
@@ -171,7 +171,7 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f"
+            communityAdmin: String = UserDefaultsHelper.communityAdmin
         ) {
             self.communityAdmin = communityAdmin
         }
@@ -202,7 +202,7 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             apiModelInfo: ApiModelInfo = ApiModelInfo(l: 30),
             top: Top = .一般,
             type: Status = .全部
@@ -227,7 +227,7 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f"
+            communityAdmin: String = UserDefaultsHelper.communityAdmin
         ) {
             self.communityAdmin = communityAdmin
         }
@@ -243,8 +243,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo()
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
             
@@ -264,8 +264,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             apiModelInfo: ApiModelInfo = ApiModelInfo()
         ) {
             self.communityAdmin = communityAdmin
@@ -288,8 +288,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo()
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
             
@@ -309,8 +309,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo()
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
             
@@ -330,8 +330,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo()
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
             
@@ -351,8 +351,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             dateString: String = "2024-11"
         ) {
             self.communityAdmin = communityAdmin
@@ -376,8 +376,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             newValue: String = "1001"
         ) {
             self.communityAdmin = communityAdmin
@@ -400,8 +400,8 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo()
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
             
@@ -421,7 +421,7 @@ enum FeatureApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             startDate: String = "2024-10-25",
             endDate: String = "2024-12-07"
         ) {

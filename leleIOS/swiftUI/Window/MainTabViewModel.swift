@@ -29,9 +29,10 @@ class MainTabViewModel: ObservableObject {
                         doorPlate: model.doorPlate,
                         floor: model.floor
                     )
-                
-                UserDefaultsHelper.userBuilding = userInfo
-            })
+                    
+                    UserDefaultsHelper.communityAdmin = model.community.id
+                    UserDefaultsHelper.userBuilding = userInfo
+                })
             .disposed(by: disposeBag)
         
     }

@@ -20,8 +20,8 @@ enum PublicFacilitiesApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo()
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
             
@@ -50,8 +50,8 @@ enum PublicFacilitiesApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             type: Status = .全部
         ) {
             self.communityAdmin = communityAdmin
@@ -77,8 +77,8 @@ enum PublicFacilitiesApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             apiModelInfo: ApiModelInfo = ApiModelInfo(),
             status: Status = .歷史紀錄
         ) {
@@ -118,9 +118,9 @@ enum PublicFacilitiesApi {
         private var facilityID: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             facilityID: String = "640e93a6d740668d09258dc1",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             startＤate: String = "2024-11-30",
             start: String = "08:30"
         ) {
@@ -149,9 +149,9 @@ enum PublicFacilitiesApi {
         private var facilityID: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             facilityID: String = "640e93a6d740668d09258dc1",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             startＤate: String = "2024-11-30",
             start: String = "08:30"
         )  {
@@ -190,7 +190,7 @@ enum PublicFacilitiesApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f"
+            communityAdmin: String = UserDefaultsHelper.communityAdmin
         ) {
             self.communityAdmin = communityAdmin
         }
@@ -216,7 +216,7 @@ enum PublicFacilitiesApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             apiModelInfo: ApiModelInfo = ApiModelInfo(),
             type: Status = .全部
         ) {
@@ -246,8 +246,8 @@ enum PublicFacilitiesApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             apiModelInfo: ApiModelInfo = ApiModelInfo(),
             type: Status = .全部
         ) {
@@ -273,8 +273,8 @@ enum PublicFacilitiesApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo()
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
             
@@ -305,7 +305,7 @@ enum PublicFacilitiesApi {
        private var communityAdmin: String
        
        init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             feedbackType: String,
             feedbackContent: String,
             imageData: Data // 可能是多個圖片 最多一次上傳5張
@@ -354,8 +354,8 @@ extension PublicFacilitiesApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             apiModelInfo: ApiModelInfo = ApiModelInfo(),
             tab: Tab = .截止
         ) {
@@ -382,8 +382,8 @@ extension PublicFacilitiesApi {
         private var voteID: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             apiModelInfo: ApiModelInfo = ApiModelInfo(),
             voteID: String = "65d80b71b274549885813d2b"
         ) {
@@ -409,8 +409,8 @@ extension PublicFacilitiesApi {
         private var voteID: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             apiModelInfo: ApiModelInfo = ApiModelInfo(),
             voteID: String = "65d80b71b274549885813d2b"
         ) {

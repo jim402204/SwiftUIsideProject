@@ -40,7 +40,7 @@ enum NotifyApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
@@ -65,7 +65,7 @@ enum NotifyApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             type: Status = .全部,
             l: Int = 20,
             sk: Int = 0,
@@ -102,7 +102,7 @@ enum NotifyApi {
         private var communityAdmin: String
         
         init(
-            communityAdmin: String = "63b9b8452cb6973afe2b988f",
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
             l: Int = 20,
             sk: Int = 0,
             building: String = "A1棟",
