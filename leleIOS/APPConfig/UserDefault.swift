@@ -12,6 +12,7 @@ import Foundation
 
 struct UserDefaultsHelper {
     @UserDefault(key: "token") static var token: String?
+    @UserDefaultValue(key: "communityInfo", defaultValue: CommunityInfo()) static var userBuilding: CommunityInfo
 }
 
 @propertyWrapper

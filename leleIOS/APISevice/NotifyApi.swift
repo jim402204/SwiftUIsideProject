@@ -41,14 +41,12 @@ enum NotifyApi {
         
         init(
             communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            building: String = "A1棟",
-            doorPlate: String = "1號",
-            floor: String = "1樓"
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding
         ) {
             self.communityAdmin = communityAdmin
-            parameters["b"] = building
-            parameters["d"] = doorPlate
-            parameters["f"] = floor
+            parameters["b"] = communityInfo.building
+            parameters["d"] = communityInfo.doorPlate
+            parameters["f"] = communityInfo.floor
         }
     }
     

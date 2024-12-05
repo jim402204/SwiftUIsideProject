@@ -25,7 +25,7 @@ enum PublicFacilitiesApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }
@@ -56,7 +56,7 @@ enum PublicFacilitiesApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
@@ -86,7 +86,7 @@ enum PublicFacilitiesApi {
             
             parameters["l"] = apiModelInfo.l
             parameters["sk"] = apiModelInfo.sk
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
@@ -128,7 +128,7 @@ enum PublicFacilitiesApi {
             //哪裡來還不知道
             self.facilityID = facilityID
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             // 明天
@@ -158,7 +158,7 @@ enum PublicFacilitiesApi {
             self.communityAdmin = communityAdmin
             self.facilityID = facilityID
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
@@ -255,7 +255,7 @@ enum PublicFacilitiesApi {
             
             parameters["l"] = apiModelInfo.l
             parameters["sk"] = apiModelInfo.sk
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
@@ -278,7 +278,7 @@ enum PublicFacilitiesApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }
@@ -363,7 +363,7 @@ extension PublicFacilitiesApi {
             
             parameters["l"] = apiModelInfo.l
             parameters["sk"] = apiModelInfo.sk
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
@@ -392,7 +392,7 @@ extension PublicFacilitiesApi {
             
             parameters["l"] = apiModelInfo.l
             parameters["sk"] = apiModelInfo.sk
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }
@@ -419,7 +419,7 @@ extension PublicFacilitiesApi {
             
             parameters["l"] = apiModelInfo.l
             parameters["sk"] = apiModelInfo.sk
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }

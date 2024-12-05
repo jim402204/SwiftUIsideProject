@@ -1,19 +1,19 @@
 //
-//  NotificationView.swift
+//  IntercomView.swift
 //  leleIOS
 //
-//  Created by 江俊瑩 on 2024/12/2.
+//  Created by 江俊瑩 on 2024/12/5.
 //
 
 import SwiftUI
 
-struct NotificationView: View {
-    @StateObject private var viewModel = NotificationViewModel()
+struct IntercomView: View {
+    @StateObject private var viewModel = IntercomViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack(spacing: 0) {
-                // 使用泛型版本的分段控制器
+                // 分段控制器
                 SegmentedTabView(
                     tabs: viewModel.tabs,
                     selectedTab: viewModel.selectedTab,
@@ -22,17 +22,25 @@ struct NotificationView: View {
                     Text("\(tab)")
                 }
                 
-                // 通知列表
+                // 對講列表
                 ScrollView {
                     LazyVStack(spacing: 0) {
-                        ForEach(viewModel.notifications, id: \.id) { notification in
-                            NotificationCell(model: notification)
+                        ForEach(viewModel.intercomList, id: \.id) { item in
+                            IntercomCell(viewModel: item)
                         }
                     }
                 }
             }
-            .navigationTitle("通知")
+            .navigationTitle("智慧對講")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: 
+                Button(action: {
+                    // 設置按鈕動作
+                }) {
+                    Image(systemName: "gearshape")
+                        .foregroundColor(.primary)
+                }
+            )
             .background(Color(UIColor.systemGroupedBackground))
         }
         .onAppear {
@@ -41,10 +49,6 @@ struct NotificationView: View {
     }
 }
 
-
-
-struct NotificationView_Previews: PreviewProvider {
-    static var previews: some View {
-        NotificationView()
-    }
+#Preview {
+    IntercomView()
 }

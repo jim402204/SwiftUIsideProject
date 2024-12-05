@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @StateObject private var viewModel = MainTabViewModel()
     @State private var selectedTab = 0
     
     var body: some View {
@@ -36,15 +37,6 @@ struct MainTabView: View {
                     Text("個人")
                 }
                 .tag(3)
-        }
-    }
-}
-
-struct IntercomView: View {
-    var body: some View {
-        NavigationView {
-            Text("雲對講內容")
-                .navigationTitle("雲對講")
         }
     }
 }

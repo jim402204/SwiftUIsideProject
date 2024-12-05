@@ -19,6 +19,13 @@
 		374A5EC32CFF044600A36375 /* BaseButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EC22CFF044600A36375 /* BaseButtonStyle.swift */; };
 		374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EC42CFF0A3D00A36375 /* BaseButtonContent.swift */; };
 		374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EC62D00070700A36375 /* ProfileViewModel.swift */; };
+		374A5EC92D0032E900A36375 /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EC82D0032E900A36375 /* MainTabViewModel.swift */; };
+		374A5ECB2D00489C00A36375 /* ProfileOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ECA2D00489C00A36375 /* ProfileOptionView.swift */; };
+		374A5ECD2D00527F00A36375 /* UserInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ECC2D00527F00A36375 /* UserInfoCardView.swift */; };
+		374A5ECF2D0054A400A36375 /* CommunityInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ECE2D0054A400A36375 /* CommunityInfoCardView.swift */; };
+		374A5ED32D01361100A36375 /* IntercomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ED22D01361100A36375 /* IntercomView.swift */; };
+		374A5ED52D0138DA00A36375 /* IntercomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ED42D0138DA00A36375 /* IntercomCell.swift */; };
+		374A5ED72D0138F600A36375 /* IntercomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ED62D0138F600A36375 /* IntercomViewModel.swift */; };
 		375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A432CFD48C800A1E02B /* leleIOSApp.swift */; };
 		375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A452CFD48C800A1E02B /* ContentView.swift */; };
 		375D8A482CFD48C900A1E02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 375D8A472CFD48C900A1E02B /* Assets.xcassets */; };
@@ -69,6 +76,13 @@
 		374A5EC22CFF044600A36375 /* BaseButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonStyle.swift; sourceTree = "<group>"; };
 		374A5EC42CFF0A3D00A36375 /* BaseButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonContent.swift; sourceTree = "<group>"; };
 		374A5EC62D00070700A36375 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		374A5EC82D0032E900A36375 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		374A5ECA2D00489C00A36375 /* ProfileOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionView.swift; sourceTree = "<group>"; };
+		374A5ECC2D00527F00A36375 /* UserInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCardView.swift; sourceTree = "<group>"; };
+		374A5ECE2D0054A400A36375 /* CommunityInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityInfoCardView.swift; sourceTree = "<group>"; };
+		374A5ED22D01361100A36375 /* IntercomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomView.swift; sourceTree = "<group>"; };
+		374A5ED42D0138DA00A36375 /* IntercomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomCell.swift; sourceTree = "<group>"; };
+		374A5ED62D0138F600A36375 /* IntercomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomViewModel.swift; sourceTree = "<group>"; };
 		375D8A402CFD48C800A1E02B /* leleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		375D8A432CFD48C800A1E02B /* leleIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leleIOSApp.swift; sourceTree = "<group>"; };
 		375D8A452CFD48C800A1E02B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +163,16 @@
 				374A5EC42CFF0A3D00A36375 /* BaseButtonContent.swift */,
 			);
 			path = ViewStyle;
+			sourceTree = "<group>";
+		};
+		374A5ED12D0135C800A36375 /* IntercomView */ = {
+			isa = PBXGroup;
+			children = (
+				374A5ED22D01361100A36375 /* IntercomView.swift */,
+				374A5ED62D0138F600A36375 /* IntercomViewModel.swift */,
+				374A5ED42D0138DA00A36375 /* IntercomCell.swift */,
+			);
+			path = IntercomView;
 			sourceTree = "<group>";
 		};
 		375D8A372CFD48C800A1E02B = {
@@ -260,6 +284,7 @@
 				37C7F78A2CFED99500F32A5C /* LoginFlow */,
 				37C7F76F2CFD90BB00F32A5C /* Window */,
 				37C7F7762CFD91F300F32A5C /* HomeView */,
+				374A5ED12D0135C800A36375 /* IntercomView */,
 				37C7F7732CFD917100F32A5C /* NotificationView */,
 				37C7F7702CFD90F700F32A5C /* ProfileView */,
 			);
@@ -272,6 +297,7 @@
 				375D8A432CFD48C800A1E02B /* leleIOSApp.swift */,
 				375D8A452CFD48C800A1E02B /* ContentView.swift */,
 				37C7F76B2CFD905200F32A5C /* MainTabView.swift */,
+				374A5EC82D0032E900A36375 /* MainTabViewModel.swift */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -280,6 +306,9 @@
 			isa = PBXGroup;
 			children = (
 				37C7F7712CFD912400F32A5C /* ProfileView.swift */,
+				374A5ECC2D00527F00A36375 /* UserInfoCardView.swift */,
+				374A5ECE2D0054A400A36375 /* CommunityInfoCardView.swift */,
+				374A5ECA2D00489C00A36375 /* ProfileOptionView.swift */,
 				374A5EC62D00070700A36375 /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
@@ -476,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				375D8A6E2CFD4A6100A1E02B /* PublicFacilitiesApi.swift in Sources */,
+				374A5ECD2D00527F00A36375 /* UserInfoCardView.swift in Sources */,
 				37C7F77F2CFDB9F700F32A5C /* SegmentedTabView.swift in Sources */,
 				37C7F7812CFDBA5200F32A5C /* NotificationCell.swift in Sources */,
 				375D8A652CFD4A6100A1E02B /* UserDefault.swift in Sources */,
@@ -492,16 +522,20 @@
 				375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */,
 				374A5EBF2CFEFA8900A36375 /* String+.swift in Sources */,
 				375D8A6B2CFD4A6100A1E02B /* HomeApi.swift in Sources */,
+				374A5ECF2D0054A400A36375 /* CommunityInfoCardView.swift in Sources */,
+				374A5ED72D0138F600A36375 /* IntercomViewModel.swift in Sources */,
 				37C7F7892CFED2FF00F32A5C /* LoginViewModel.swift in Sources */,
 				37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */,
 				375D8A712CFD4A6100A1E02B /* FeatureModel.swift in Sources */,
 				374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */,
 				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
 				374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */,
+				374A5ECB2D00489C00A36375 /* ProfileOptionView.swift in Sources */,
 				374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */,
 				374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */,
 				374A5EB92CFEF90E00A36375 /* JimTextFieldStyle.swift in Sources */,
 				374A5EBA2CFEF90E00A36375 /* ButtonTextStyle.swift in Sources */,
+				374A5ED52D0138DA00A36375 /* IntercomCell.swift in Sources */,
 				374A5EBB2CFEF90E00A36375 /* BaseTextStyle.swift in Sources */,
 				37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */,
 				375D8A672CFD4A6100A1E02B /* APIService.swift in Sources */,
@@ -509,7 +543,9 @@
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,
 				37C7F77C2CFD9A9900F32A5C /* NotificationViewModel.swift in Sources */,
+				374A5ED32D01361100A36375 /* IntercomView.swift in Sources */,
 				375D8A6A2CFD4A6100A1E02B /* FeatureApi.swift in Sources */,
+				374A5EC92D0032E900A36375 /* MainTabViewModel.swift in Sources */,
 				374A5EC12CFEFAB600A36375 /* APPColor.swift in Sources */,
 				37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */,
 				375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */,

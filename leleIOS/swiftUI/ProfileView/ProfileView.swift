@@ -7,179 +7,80 @@
 
 import SwiftUI
 
+let arrowIcon = "chevron.right"
+
 struct ProfileView: View {
     @EnvironmentObject var appState: AppState
     @StateObject private var viewModel = ProfileViewModel()
 
+    let cardCornerRadius: CGFloat = 20
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
+                    
                     // 個人信息卡片
-                    VStack(spacing: 0) {
-                        // 用戶基本信息
-                        HStack {
-                            Image(systemName: "person.3.fill")
-                                .resizable()
-                                .frame(width: 40, height: 25)
-                                .foregroundColor(.teal)
-                            
-                            VStack(alignment: .leading) {
-                                Text("王大明1")
-                                    .font(.title2)
-                                    .bold()
-                                Text("0987654321")
-                                    .foregroundColor(.gray)
-                            }
-                            Spacer()
-                        }
-                        .padding()
-                        .background(Color.white)
-                        
-                        // 個人設置選項
-                        VStack(spacing: 0) {
-                            // 限本人接受包裹通知
-//                            HStack {
-//                                Text("限本人接受包裹通知")
-//                                Spacer()
-//                                Toggle("", isOn: $viewModel.receiveNotifications)
-//                            }
-//                            .padding()
-//                            
-//                            Divider()
-                            
-                            // 其他選項
-                            NavigationLink(destination: Text("個人資料")) {
-                                HStack {
-                                    Text("個人資料")
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.gray)
-                                }
-                                .padding()
-                            }
-                            
-                            Divider()
-                            
-                            NavigationLink(destination: Text("變更密碼")) {
-                                HStack {
-                                    Text("變更密碼")
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.gray)
-                                }
-                                .padding()
-                            }
-                            
-                            Divider()
-                            
-                            NavigationLink(destination: Text("已登入的裝置")) {
-                                HStack {
-                                    Text("已登入的裝置")
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.gray)
-                                }
-                                .padding()
-                            }
-                            
-                            Divider()
-                            
-                            Button(action: {
-                                viewModel.logout()
-                            }) {
-                                HStack {
-                                    Text("登出")
-                                    Spacer()
-                                    Image(systemName: "arrow.right.square")
-                                        .foregroundColor(.gray)
-                                }
-                                .padding()
-                            }
-                        }
-                        .background(Color.white)
-                    }
-                    .cornerRadius(10)
-                    .shadow(radius: 1)
+                    UserInfoCardView(viewModel: viewModel)
+                        .cornerRadius(cardCornerRadius)
+                        .shadow(radius: 1)
                     
                     // 社區資訊卡片
-                    VStack(spacing: 0) {
-                        Text("社區資訊")
+                    CommunityInfoCardView(viewModel: viewModel, cardCornerRadius: cardCornerRadius)
+                        
+                    
+                    VStack(spacing: 10) {
+                        Text("產品資訊")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                            .background(Color(UIColor.systemGroupedBackground))
                         
                         VStack(spacing: 0) {
-                            NavigationLink(destination: Text("家家測試社區")) {
+                            VStack(spacing: 0) {
+                                
                                 HStack {
-                                    Image(systemName: "person.fill")
-                                        .foregroundColor(.blue)
-                                    Text("家家測試社區")
-                                        .foregroundColor(.blue)
-                                    Text("現居")
-                                        .font(.caption)
-                                        .padding(.horizontal, 5)
-                                        .background(Color.blue.opacity(0.1))
-                                        .cornerRadius(4)
+                                    Text("版本資訊： v1.0.0")
                                     Spacer()
-                                    Image(systemName: "chevron.right")
+                                }
+                                .padding()
+                                
+                                Divider()
+                                
+                                HStack {
+                                    Link(destination: URL(string: "https://www.apple.com")!) {
+                                            Text("隱私權政策")
+                                                .foregroundColor(.black)
+                                        }
+                                    Spacer()
+                                    Image(systemName: arrowIcon)
                                         .foregroundColor(.gray)
                                 }
                                 .padding()
+                                
                             }
-                            
-                            Divider()
-                            
-                            HStack {
-                                Image(systemName: "mappin.circle.fill")
-                                    .foregroundColor(.gray)
-                                Text("新北市 三重區")
-                                Spacer()
-                            }
-                            .padding()
-                            
-                            Divider()
-                            
-                            HStack {
-                                Image(systemName: "house.fill")
-                                    .foregroundColor(.gray)
-                                Text("A1棟1號1樓")
-                                Spacer()
-                            }
-                            .padding()
-                            
-                            Divider()
-                            
-                            NavigationLink(destination: Text("點數管理")) {
-                                HStack {
-                                    Text("點數管理")
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.gray)
-                                }
-                                .padding()
-                            }
+                            .background(Color.white)
                         }
-                        .background(Color.white)
+                        .cornerRadius(cardCornerRadius)
+                        .shadow(radius: 1)
                     }
-                    .cornerRadius(10)
-                    .shadow(radius: 1)
+                    
                 }
                 .padding()
             }
             .background(Color(UIColor.systemGroupedBackground))
             .navigationTitle("個人")
-            .navigationBarItems(trailing: 
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing:
                 Button(action: {
                     // 處理信息按鈕點擊
                 }) {
-                    Image(systemName: "info.circle")
+                    Image(systemName: "info.circleX")
                         .foregroundColor(.primary)
                 }
-            )
+            )//navigationBarItems
+            
         }
         .onAppear {
             viewModel.setAppState(appState)
+            viewModel.pointAPI()
         }
     }
 }
@@ -190,3 +91,4 @@ struct ProfileView_Previews: PreviewProvider {
             .environmentObject(AppState())
     }
 }
+

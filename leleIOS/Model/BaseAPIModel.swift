@@ -32,7 +32,7 @@ struct UserInfoModel: Codable {
     let communityAdminRoleStatus: [String: RoleStatus]
     let active: Bool
     let created, lastLogin, defaultHouseHold: String
-    let privateNotify: Bool
+    let privateNotify: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id

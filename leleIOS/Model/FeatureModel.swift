@@ -71,12 +71,19 @@ struct IntercomListModel: Codable {
     let id: String
     /// 戶戶會為nil
     let name: String?
+    let canDial: Bool?
     let device: [Device]?
+    
+    let building, doorPlate, floor: String?
 
     enum CodingKeys: String, CodingKey {
         case id
         case name = "Name"
+        case canDial = "CanDial"
         case device = "Device"
+        case building = "Building"
+        case doorPlate = "DoorPlate"
+        case floor = "Floor"
     }
 }
 

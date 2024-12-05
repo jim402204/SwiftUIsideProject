@@ -8,10 +8,13 @@
 import Moya
 import Foundation
 
-class CommunityInfo {
-    var community: String = "A1棟"
-    var doorPlate: String = "1號"
-    var floor: String = "1樓"
+struct CommunityInfo: Codable {
+//    var building: String = "A1棟"
+//    var doorPlate: String = "1號"
+//    var floor: String = "1樓"
+    var building: String = ""
+    var doorPlate: String = ""
+    var floor: String = ""
 }
 
 struct ApiModelInfo {
@@ -45,7 +48,7 @@ enum FeatureApi {
             status: Status = .寄放
         ) {
             self.communityAdmin = communityAdmin
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
@@ -58,7 +61,7 @@ enum FeatureApi {
     //MARK: - 對講機列表
     struct IntercomList: BaseTargetType {
         typealias ResponseDataType = [IntercomListModel]
-        enum Status: String {
+        enum Status: String, CaseIterable {
             case 社區 = "community"
             case 同戶 = "family"
             case 戶戶 = "household"
@@ -73,11 +76,11 @@ enum FeatureApi {
         
         init(
             communityAdmin: String = "63b9b8452cb6973afe2b988f",
-            communityInfo: CommunityInfo = CommunityInfo(),
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             status: Status = .同戶
         ) {
             self.communityAdmin = communityAdmin
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         
@@ -100,7 +103,7 @@ enum FeatureApi {
             did: String = "6745670f61094f5e3d832061"
         ) {
             self.communityAdmin = communityAdmin
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         
@@ -128,7 +131,7 @@ enum FeatureApi {
             model: IntercomSettingModel = IntercomSettingModel(community: nil, device: nil, enabled: true, enabledCommunity: true, enabledFamily: true, enabledHouseHold: true, enabledService: true, disturbSetting: nil)
         ) {
             self.communityAdmin = communityAdmin
-            urlPara["b"] = communityInfo.community
+            urlPara["b"] = communityInfo.building
             urlPara["d"] = communityInfo.doorPlate
             urlPara["f"] = communityInfo.floor
         
@@ -245,7 +248,7 @@ enum FeatureApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }
@@ -269,7 +272,7 @@ enum FeatureApi {
             
             parameters["l"] = apiModelInfo.l
             parameters["sk"] = apiModelInfo.sk
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }
@@ -290,7 +293,7 @@ enum FeatureApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }
@@ -311,7 +314,7 @@ enum FeatureApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }
@@ -332,7 +335,7 @@ enum FeatureApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }
@@ -354,7 +357,7 @@ enum FeatureApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
@@ -379,7 +382,7 @@ enum FeatureApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
@@ -402,7 +405,7 @@ enum FeatureApi {
         ) {
             self.communityAdmin = communityAdmin
             
-            parameters["b"] = communityInfo.community
+            parameters["b"] = communityInfo.building
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
         }

@@ -13,8 +13,8 @@ class LoginViewModel: ObservableObject {
     @Published var errorMessage: String = ""
     
     // navigate To VC
-    @Published var navigateToRegister: Bool = false
-    @Published var navigateToForgotPassword: Bool = false
+    @Published var pushToRegister: Bool = false
+    @Published var pushToForgotPassword: Bool = false
     
     private var appState: AppState? = nil
     
@@ -54,12 +54,12 @@ class LoginViewModel: ObservableObject {
     
     // 處理忘記密碼
     func handleForgotPassword() {
-        navigateToForgotPassword = true
+        pushToForgotPassword = true
     }
     
     // 處理註冊
     func handleRegister() {
-        navigateToRegister = true
+        pushToRegister = true
     }
 } 
 

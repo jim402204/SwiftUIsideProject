@@ -126,10 +126,10 @@ struct LoginView: View {
             } message: {
                 Text(viewModel.errorMessage)
             }
-            .navigationDestination(isPresented: $viewModel.navigateToRegister) {
+            .navigationDestination(isPresented: $viewModel.pushToRegister) {
                  RegisterView()
             }
-            .navigationDestination(isPresented: $viewModel.navigateToForgotPassword) {
+            .navigationDestination(isPresented: $viewModel.pushToForgotPassword) {
                  ForgotPasswordView()
             }
         }
