@@ -16,3 +16,24 @@ extension Date {
     }
     
 }
+
+struct DateUtils {
+    /// 返回共享的 DateFormatter
+    private static var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX") // 確保格式一致性
+        formatter.timeZone = TimeZone.current // 設置為當前時區
+        return formatter
+    }()
+    
+    /// 將 ISO8601 日期字符串轉換為指定格式的日期字符串
+    static func formatISO8601Date(_ isoDate: String, to format: String = "yyyy-MM-dd HH:mm") -> String {
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ" // ISO8601 格式
+        guard let date = dateFormatter.date(from: isoDate) else {
+            return isoDate // 如果無法解析，返回原字符串
+        }
+        
+        dateFormatter.dateFormat = format // 設置目標格式
+        return dateFormatter.string(from: date)
+    }
+}

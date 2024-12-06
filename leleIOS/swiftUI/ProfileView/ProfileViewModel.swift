@@ -37,7 +37,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     func logout() {
-        appState?.isLoggedIn = false
+        appState?.logOut()
     }
 }
 

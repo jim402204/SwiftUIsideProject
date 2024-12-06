@@ -66,8 +66,7 @@ struct ProfileView: View {
                 .padding()
             }
             .background(Color(UIColor.systemGroupedBackground))
-            .navigationTitle("個人")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarStyle(title: "個人")
             .navigationBarItems(trailing:
                 Button(action: {
                     // 處理信息按鈕點擊
@@ -85,10 +84,9 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-            .environmentObject(AppState())
-    }
+#Preview {
+    ProfileView()
+        .environmentObject(AppState())
 }
+
 

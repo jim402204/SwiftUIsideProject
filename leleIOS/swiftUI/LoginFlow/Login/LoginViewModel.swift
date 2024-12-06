@@ -83,9 +83,7 @@ extension LoginViewModel {
             })
             .subscribe(onNext: { [weak self] model in
                 
-                UserDefaultsHelper.token = model.jwtToken
-                
-                self?.appState?.isLoggedIn = true
+                self?.appState?.logIn(token: model.jwtToken)
                 
                 handle?()
                 

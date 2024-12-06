@@ -8,13 +8,19 @@
 import Moya
 import Foundation
 
-struct CommunityInfo: Codable {
+struct CommunityInfo: Codable  {
 //    var building: String = "A1棟"
 //    var doorPlate: String = "1號"
 //    var floor: String = "1樓"
+    var id: String = ""
+    var name: String = ""
     var building: String = ""
     var doorPlate: String = ""
     var floor: String = ""
+    
+    var buildingText: String {
+        "\(building)\(doorPlate)\(floor)"
+    }
 }
 
 struct ApiModelInfo {
@@ -29,7 +35,7 @@ enum FeatureApi {
     //MARK: - 包裹資訊
     struct PackageList: BaseTargetType {
         typealias ResponseDataType = [PackageModel]
-        enum Status: String {
+        enum Status: String, CaseIterable {
             case 未領取 = "2"
             case 已領取 = "3"
             case 退貨 = "4,5"

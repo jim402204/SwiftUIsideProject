@@ -31,8 +31,7 @@ struct NotificationView: View {
                     }
                 }
             }
-            .navigationTitle("通知")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarStyle(title: "通知")
             .background(Color(UIColor.systemGroupedBackground))
         }
         .onAppear {
@@ -41,10 +40,6 @@ struct NotificationView: View {
     }
 }
 
-
-
-struct NotificationView_Previews: PreviewProvider {
-    static var previews: some View {
-        NotificationView()
-    }
+#Preview {
+    NotificationView()
 }

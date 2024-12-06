@@ -10,10 +10,11 @@ import SwiftUI
 // 各個頁面的基本結構
 struct HomeView: View {
     let icons = [
-        ("對講", "person.2.fill"),
-        ("郵務", "envelope.fill"),
-        ("公告", "megaphone.fill"),
+        ("雲對講", "phone.bubble.fill"),
+        ("郵務管理", "envelope.fill"),
+        ("社區公告", "megaphone.fill"),
         ("報修", "doc.text.fill"),
+        ("住戶意見", ""),
         ("訪客", "person.crop.circle.fill"),
         ("公設", "calendar"),
         ("投票", "hand.thumbsup.fill"),
@@ -23,7 +24,8 @@ struct HomeView: View {
         ("管理費", "dollarsign.circle.fill"),
         ("安控", "lock.shield.fill"),
         ("相簿", "photo.on.rectangle"),
-        ("遠端關懷", "antenna.radiowaves.left.and.right")
+        ("遠端關懷", "antenna.radiowaves.left.and.right"),
+        ("社區百問", "")
     ]
     
     var body: some View {
@@ -31,12 +33,21 @@ struct HomeView: View {
             VStack {
                 
                 VStack(spacing: 20) {
-                    Text("功能選單")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(10)
-                        .padding(.horizontal)
+                    
+                    HStack {
+                        
+//                        Text(UserDefaultsHelper.userBuilding.name)
+//                            .lineLimit(1)
+                        
+                        Text("功能選單")
+                            
+                        Spacer()
+                    }
+//                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(20)
+                    .padding(.horizontal)
                     
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 20) {
                         ForEach(icons, id: \.0) { icon in
@@ -64,8 +75,8 @@ struct HomeView: View {
                 
                 Spacer()
             }
-            .background(Color(.systemGray6))
-            .navigationTitle("首頁")
+            .navigationBarStyle(title: "首頁")
+//            .navigationBarHidden(true)
         }
     }
     
@@ -73,8 +84,8 @@ struct HomeView: View {
     @ViewBuilder
     func destinationView(for iconName: String) -> some View {
         switch iconName {
-        case "對講":
-            Text("對講")
+        case "郵務":
+            PostalServiceView()
         default:
 //            Text("\(iconName) 頁面")
             DetailView()
@@ -107,7 +118,9 @@ struct DetailView: View {
                     .cornerRadius(10)
             }
         }
-        .navigationTitle("詳細信息")
         .padding()
+//        .navigationTitle("詳細信息")
+        .navigationBarStyle(title: "詳細信息")
+        
     }
 }

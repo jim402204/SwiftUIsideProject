@@ -25,6 +25,8 @@ class MainTabViewModel: ObservableObject {
                     guard let model = respone.first else { return }
                     
                     let userInfo = CommunityInfo(
+                        id: model.community.id,
+                        name: model.community.name,
                         building: model.building,
                         doorPlate: model.doorPlate,
                         floor: model.floor

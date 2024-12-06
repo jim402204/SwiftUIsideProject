@@ -11,7 +11,7 @@ struct IntercomView: View {
     @StateObject private var viewModel = IntercomViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 0) {
                 // 分段控制器
                 SegmentedTabView(
@@ -31,9 +31,8 @@ struct IntercomView: View {
                     }
                 }
             }
-            .navigationTitle("智慧對講")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(trailing: 
+            .navigationBarStyle(title: "智慧對講")
+            .navigationBarItems(trailing:
                 Button(action: {
                     // 設置按鈕動作
                 }) {

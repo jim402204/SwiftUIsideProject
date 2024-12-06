@@ -26,6 +26,10 @@
 		374A5ED32D01361100A36375 /* IntercomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ED22D01361100A36375 /* IntercomView.swift */; };
 		374A5ED52D0138DA00A36375 /* IntercomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ED42D0138DA00A36375 /* IntercomCell.swift */; };
 		374A5ED72D0138F600A36375 /* IntercomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ED62D0138F600A36375 /* IntercomViewModel.swift */; };
+		374A5ED92D018F0500A36375 /* PostalServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5ED82D018F0500A36375 /* PostalServiceView.swift */; };
+		374A5EDB2D01994F00A36375 /* PostalServicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EDA2D01994F00A36375 /* PostalServicViewModel.swift */; };
+		374A5EDD2D019A9B00A36375 /* PostalServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */; };
+		374A5EDF2D02A3A400A36375 /* Navigation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EDE2D02A3A400A36375 /* Navigation+.swift */; };
 		375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A432CFD48C800A1E02B /* leleIOSApp.swift */; };
 		375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A452CFD48C800A1E02B /* ContentView.swift */; };
 		375D8A482CFD48C900A1E02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 375D8A472CFD48C900A1E02B /* Assets.xcassets */; };
@@ -83,6 +87,10 @@
 		374A5ED22D01361100A36375 /* IntercomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomView.swift; sourceTree = "<group>"; };
 		374A5ED42D0138DA00A36375 /* IntercomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomCell.swift; sourceTree = "<group>"; };
 		374A5ED62D0138F600A36375 /* IntercomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomViewModel.swift; sourceTree = "<group>"; };
+		374A5ED82D018F0500A36375 /* PostalServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalServiceView.swift; sourceTree = "<group>"; };
+		374A5EDA2D01994F00A36375 /* PostalServicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalServicViewModel.swift; sourceTree = "<group>"; };
+		374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalServiceCell.swift; sourceTree = "<group>"; };
+		374A5EDE2D02A3A400A36375 /* Navigation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+.swift"; sourceTree = "<group>"; };
 		375D8A402CFD48C800A1E02B /* leleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		375D8A432CFD48C800A1E02B /* leleIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leleIOSApp.swift; sourceTree = "<group>"; };
 		375D8A452CFD48C800A1E02B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 				375D8A512CFD4A6100A1E02B /* Date+.swift */,
 				374A5EBC2CFEFA5A00A36375 /* UIColor+.swift */,
 				374A5EBE2CFEFA8900A36375 /* String+.swift */,
+				374A5EDE2D02A3A400A36375 /* Navigation+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -328,6 +337,9 @@
 			isa = PBXGroup;
 			children = (
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
+				374A5ED82D018F0500A36375 /* PostalServiceView.swift */,
+				374A5EDA2D01994F00A36375 /* PostalServicViewModel.swift */,
+				374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -511,6 +523,7 @@
 				375D8A652CFD4A6100A1E02B /* UserDefault.swift in Sources */,
 				375D8A6D2CFD4A6100A1E02B /* NotifyApi.swift in Sources */,
 				375D8A642CFD4A6100A1E02B /* Date+.swift in Sources */,
+				374A5EDF2D02A3A400A36375 /* Navigation+.swift in Sources */,
 				37C7F7872CFED1B700F32A5C /* LoginView.swift in Sources */,
 				375D8A662CFD4A6100A1E02B /* ApiProtocol.swift in Sources */,
 				374A5EC32CFF044600A36375 /* BaseButtonStyle.swift in Sources */,
@@ -526,9 +539,11 @@
 				374A5ED72D0138F600A36375 /* IntercomViewModel.swift in Sources */,
 				37C7F7892CFED2FF00F32A5C /* LoginViewModel.swift in Sources */,
 				37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */,
+				374A5EDD2D019A9B00A36375 /* PostalServiceCell.swift in Sources */,
 				375D8A712CFD4A6100A1E02B /* FeatureModel.swift in Sources */,
 				374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */,
 				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
+				374A5ED92D018F0500A36375 /* PostalServiceView.swift in Sources */,
 				374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */,
 				374A5ECB2D00489C00A36375 /* ProfileOptionView.swift in Sources */,
 				374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */,
@@ -547,6 +562,7 @@
 				375D8A6A2CFD4A6100A1E02B /* FeatureApi.swift in Sources */,
 				374A5EC92D0032E900A36375 /* MainTabViewModel.swift in Sources */,
 				374A5EC12CFEFAB600A36375 /* APPColor.swift in Sources */,
+				374A5EDB2D01994F00A36375 /* PostalServicViewModel.swift in Sources */,
 				37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */,
 				375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */,
 			);
