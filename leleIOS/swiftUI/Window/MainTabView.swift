@@ -52,21 +52,34 @@ struct MainTabView: View {
                 .tag(0)
             
             // 雲對講
-            IntercomView()
-                .tabItem {
-                    Image(systemName: "phone.bubble.fill")
-                    Text("雲對講")
-                }
-                .tag(1)
+            NavigationStack{
+                IntercomView()
+            }
+            .tabItem {
+                Image(systemName: "phone.bubble.fill")
+                Text("雲對講")
+            }
+            .tag(1)
+            
+            // 郵務管理
+            NavigationStack {
+                PostalServiceView()
+            }
+            .tabItem {
+                Image(systemName: "envelope.fill")
+                Text("郵務管理")
+            }
+            .tag(2)
             
             // 通知
-            NotificationView()
-                .badge(0)
-                .tabItem {
-                    Image(systemName: "bell.fill")
-                    Text("通知")
-                }
-                .tag(2)
+            NavigationStack {
+                NotificationView()
+            }
+            .tabItem {
+                Image(systemName: "bell.fill")
+                Text("通知")
+            }
+            .tag(3)
             
             // 個人
             ProfileView()
@@ -74,7 +87,7 @@ struct MainTabView: View {
                     Image(systemName: "person.fill")
                     Text("個人")
                 }
-                .tag(3)
+                .tag(4)
         }
     }
 }

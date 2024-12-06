@@ -11,29 +11,28 @@ struct NotificationView: View {
     @StateObject private var viewModel = NotificationViewModel()
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 0) {
-                // 使用泛型版本的分段控制器
-                SegmentedTabView(
-                    tabs: viewModel.tabs,
-                    selectedTab: viewModel.selectedTab,
-                    onTabChanged: viewModel.tabChanged
-                ) { tab in
-                    Text("\(tab)")
-                }
-                
-                // 通知列表
-                ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(viewModel.notifications, id: \.id) { notification in
-                            NotificationCell(model: notification)
-                        }
+        VStack(spacing: 0) {
+            // 使用泛型版本的分段控制器
+            SegmentedTabView(
+                tabs: viewModel.tabs,
+                selectedTab: viewModel.selectedTab,
+                onTabChanged: viewModel.tabChanged
+            ) { tab in
+                Text("\(tab)")
+            }
+            
+            // 通知列表
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(viewModel.notifications, id: \.id) { notification in
+                        NotificationCell(model: notification)
                     }
                 }
             }
-            .navigationBarStyle(title: "通知")
-            .background(Color(UIColor.systemGroupedBackground))
         }
+        .navigationBarStyle(title: "通知")
+        .background(Color(UIColor.systemGroupedBackground))
+        
         .onAppear {
             viewModel.callAPI()
         }
@@ -41,5 +40,7 @@ struct NotificationView: View {
 }
 
 #Preview {
-    NotificationView()
+    NavigationStack {
+        NotificationView()
+    }
 }

@@ -38,5 +38,7 @@ struct PostalServiceView: View {
 }
 
 #Preview {
-    PostalServiceView()
+    NavigationStack {
+        PostalServiceView()
+    }
 }

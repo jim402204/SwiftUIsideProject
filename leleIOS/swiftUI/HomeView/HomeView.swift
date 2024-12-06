@@ -14,9 +14,9 @@ struct HomeView: View {
         ("郵務管理", "envelope.fill"),
         ("社區公告", "megaphone.fill"),
         ("報修", "doc.text.fill"),
-        ("住戶意見", ""),
+        ("住戶意見", "bubble.left.and.bubble.right.fill"),
         ("訪客", "person.crop.circle.fill"),
-        ("公設", "calendar"),
+        ("公設", "building.columns.fill"),
         ("投票", "hand.thumbsup.fill"),
         ("規約", "doc.plaintext.fill"),
         ("瓦斯", "flame.fill"),
@@ -25,7 +25,7 @@ struct HomeView: View {
         ("安控", "lock.shield.fill"),
         ("相簿", "photo.on.rectangle"),
         ("遠端關懷", "antenna.radiowaves.left.and.right"),
-        ("社區百問", "")
+        ("社區百問", "questionmark.circle.fill")
     ]
     
     var body: some View {
