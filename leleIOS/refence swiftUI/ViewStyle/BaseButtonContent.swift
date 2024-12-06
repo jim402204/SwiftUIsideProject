@@ -21,6 +21,6 @@ struct CustomButtonContent: View {
                 .padding(.horizontal, 20)
         }
         .fixedSize(horizontal: true, vertical: false)
-        .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+        .applyShadow()
     }
 }

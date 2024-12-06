@@ -77,16 +77,12 @@ struct PostalServiceCell: View {
             }
             
         }
-        .frame(maxWidth: .infinity)
-        .padding()
-        .background(Color(.white))
-        .cornerRadius(20)
-        .shadow(radius: 5)
-        .padding(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12))
+        .paddingCard()
+        .paddingCell(vertical: 6)
     }
 }
 
-#Preview {
+#Preview(traits: .sizeThatFitsLayout) {
     PostalServiceCell(model: PackageModel(
         id: "1",
         packageID: 23,

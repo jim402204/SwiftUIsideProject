@@ -22,7 +22,7 @@ struct ProfileView: View {
                 // 個人信息卡片
                 UserInfoCardView(viewModel: viewModel)
                     .cornerRadius(cardCornerRadius)
-                    .shadow(radius: 1)
+                    .applyShadow()
                 
                 // 社區資訊卡片
                 CommunityInfoCardView(viewModel: viewModel, cardCornerRadius: cardCornerRadius)
@@ -58,7 +58,7 @@ struct ProfileView: View {
                         .background(Color.white)
                     }
                     .cornerRadius(cardCornerRadius)
-                    .shadow(radius: 1)
+                    .applyShadow()
                 }
                 
             }

@@ -17,7 +17,7 @@ struct NotificationCell: View {
                 Text(model.title)
                     .font(.system(size: 16, weight: .medium))
                 Spacer()
-                Text(model.createAt)
+                Text(DateUtils.formatISO8601Date(model.createAt))
                     .font(.system(size: 14))
                     .foregroundColor(.gray)
             }
@@ -26,15 +26,12 @@ struct NotificationCell: View {
                 .font(.system(size: 15))
                 .lineLimit(2)
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(UIColor.systemBackground))
-        
-        Divider()
+        .paddingCard(cornerRadius: 10,vertical: 6)
+        .paddingCell(horizontal: 6, vertical: 3)
     }
 }
 
-#Preview {
+#Preview(traits: .sizeThatFitsLayout) {
     NotificationCell(model: NotificationCell.preview())
 }
 

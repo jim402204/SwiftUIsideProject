@@ -82,12 +82,14 @@ struct MainTabView: View {
             .tag(3)
             
             // 個人
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.fill")
-                    Text("個人")
-                }
-                .tag(4)
+            NavigationStack {
+                ProfileView()
+            }
+            .tabItem {
+                Image(systemName: "person.fill")
+                Text("個人")
+            }
+            .tag(4)
         }
     }
 }

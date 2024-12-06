@@ -68,7 +68,7 @@ struct CommunityInfoCardView: View {
                 .background(Color.white)
             }
             .cornerRadius(cardCornerRadius)
-            .shadow(radius: 1)
+            .applyShadow()
         }
     }
 }

@@ -16,7 +16,7 @@ struct BaseButtonStyle: ViewModifier {
             .frame(maxWidth: .infinity, minHeight: height, maxHeight: height)
             .background(RoundedRectangle(cornerRadius: (height/2)).fill(Color.teal))
             .foregroundColor(.white)
-            .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+            .applyShadow()
     }
 }
 

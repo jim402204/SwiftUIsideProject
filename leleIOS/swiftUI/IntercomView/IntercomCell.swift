@@ -28,12 +28,8 @@ struct IntercomCell: View {
             Image(systemName: viewModel.isEnable ? "phone.fill" : "phone.down.fill")
                 .foregroundColor(viewModel.isEnable ? .green : .red)
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 1)
-        .padding(.horizontal)
-        .padding(.vertical, 5)
+        .paddingCard(cornerRadius: 10)
+        .paddingCell()
     }
 }
 
