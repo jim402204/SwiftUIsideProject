@@ -17,9 +17,7 @@ struct IntercomView: View {
                 tabs: viewModel.tabs,
                 selectedTab: viewModel.selectedTab,
                 onTabChanged: viewModel.tabChanged
-            ) { tab in
-                Text("\(tab)")
-            }
+            )
             
             // 對講列表
             ScrollView {

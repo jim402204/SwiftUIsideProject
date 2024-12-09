@@ -17,9 +17,7 @@ struct NotificationView: View {
                 tabs: viewModel.tabs,
                 selectedTab: viewModel.selectedTab,
                 onTabChanged: viewModel.tabChanged
-            ) { tab in
-                Text("\(tab)")
-            }
+            )
             
             // 通知列表
             ScrollView {

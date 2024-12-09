@@ -8,22 +8,22 @@
 import SwiftUI
 
 // 泛型版本的分段控制器
-struct SegmentedTabView<T: Hashable, Content: View>: View {
+struct SegmentedTabView<T: Hashable>: View {
     let tabs: [T]
     let selectedTab: T
     let onTabChanged: (T) -> Void
-    let content: (T) -> Content
+//    let content: (T) -> Content
     
     init(
         tabs: [T],
         selectedTab: T,
-        onTabChanged: @escaping (T) -> Void,
-        @ViewBuilder content: @escaping (T) -> Content
+        onTabChanged: @escaping (T) -> Void
+//        @ViewBuilder content: @escaping (T) -> Content
     ) {
         self.tabs = tabs
         self.selectedTab = selectedTab
         self.onTabChanged = onTabChanged
-        self.content = content
+//        self.content = content
     }
     
     var body: some View {
@@ -32,20 +32,30 @@ struct SegmentedTabView<T: Hashable, Content: View>: View {
                 Button(action: {
                     onTabChanged(tab)
                 }) {
-                    VStack(spacing: 8) {
-                        content(tab)
+                    VStack(spacing: 0) {
+                        Text("\(tab)")
+                            .frame(height: 34)
                             .appFont(.title3)
                             .foregroundColor(selectedTab == tab ? .teal : .gray)
                         
                         Rectangle()
                             .frame(height: 2)
                             .foregroundColor(selectedTab == tab ? .teal : .clear)
+                            .padding(.horizontal,10)
                     }
+                    .padding(.vertical,3)
                 }
                 .frame(maxWidth: .infinity)
             }
         }
-        .padding(.horizontal)
         .background(Color.white)
     }
+}
+
+#Preview(traits: .sizeThatFitsLayout) {
+    SegmentedTabView(
+        tabs: ["Tab1", "Tab2", "Tab3"],
+        selectedTab: "Tab2",
+        onTabChanged: { _ in }
+    )
 }

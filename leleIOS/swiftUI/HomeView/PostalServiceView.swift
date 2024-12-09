@@ -17,12 +17,7 @@ struct PostalServiceView: View {
                 tabs: viewModel.tabs,
                 selectedTab: viewModel.selectedTab,
                 onTabChanged: viewModel.tabChanged
-            ) { tab in
-                VStack() {
-                    Text("\(tab)")
-                }
-                .frame(height: 34)
-            }
+            )
             
             // 對講列表
             ScrollView {

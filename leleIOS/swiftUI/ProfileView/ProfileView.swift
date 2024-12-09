@@ -27,7 +27,6 @@ struct ProfileView: View {
                 // 社區資訊卡片
                 CommunityInfoCardView(viewModel: viewModel, cardCornerRadius: cardCornerRadius)
                 
-                
                 VStack(spacing: 10) {
                     Text("產品資訊")
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -43,24 +42,23 @@ struct ProfileView: View {
                             
                             Divider()
                             
-                            HStack {
-                                Link(destination: URL(string: "https://www.apple.com")!) {
+                            Link(destination: URL(string: "https://www.apple.com")!) {
+                                HStack {
                                     Text("隱私權政策")
                                         .foregroundColor(.black)
+                                    Spacer()
+                                    Image(systemName: arrowIcon)
+                                        .foregroundColor(.gray)
                                 }
-                                Spacer()
-                                Image(systemName: arrowIcon)
-                                    .foregroundColor(.gray)
+                                .padding()
                             }
-                            .padding()
-                            
                         }
                         .background(Color.white)
                     }
                     .cornerRadius(cardCornerRadius)
                     .applyShadow()
                 }
-                
+
             }
             .padding()
         }
