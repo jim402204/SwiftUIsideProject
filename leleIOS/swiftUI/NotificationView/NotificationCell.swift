@@ -15,15 +15,14 @@ struct NotificationCell: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Text(model.title)
-                    .font(.system(size: 16, weight: .medium))
+                    .appFont(.body, weight: .medium)
                 Spacer()
                 Text(DateUtils.formatISO8601Date(model.createAt))
-                    .font(.system(size: 14))
-                    .foregroundColor(.gray)
+                    .appFont(.subheadline,color: .secondary)
             }
             
             Text(model.body)
-                .font(.system(size: 15))
+                .appFont(.size(16))
                 .lineLimit(2)
         }
         .paddingCard(cornerRadius: 10,vertical: 6)

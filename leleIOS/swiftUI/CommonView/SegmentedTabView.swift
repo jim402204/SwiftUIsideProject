@@ -34,6 +34,7 @@ struct SegmentedTabView<T: Hashable, Content: View>: View {
                 }) {
                     VStack(spacing: 8) {
                         content(tab)
+                            .appFont(.title3)
                             .foregroundColor(selectedTab == tab ? .teal : .gray)
                         
                         Rectangle()

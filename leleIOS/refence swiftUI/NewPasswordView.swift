@@ -39,7 +39,7 @@ struct NewPasswordView: View {
                 Spacer().frame(height: 16)
                 
                 TextField("Email", text: $viewModel.password)
-                    .font(.system(size: 16))
+                    .appFont(.size(16))
                     .keyboardType(.asciiCapable)
                     .textFieldStyle(.custom(height: 32, cornerRadius: 5))
 //                    .padding(-10)

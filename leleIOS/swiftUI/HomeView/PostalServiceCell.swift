@@ -31,50 +31,42 @@ struct PostalServiceCell: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 20) {
                 Text("#\(model.packageID)")
-                    .font(.largeTitle)
+                    .appFont(.largeTitle, color: .teal)
                     .bold()
-                    .foregroundColor(.teal)
 
                 Text(DateUtils.formatISO8601Date(model.initTime))
-                    .font(.subheadline)
+                    .appFont(.subheadline, color: .secondary)
                 
                 Text("已領取")
-                    .foregroundColor(.white)
-                    .padding(4)
-                    .background(Color.green)
-                    .cornerRadius(10)
+                    .tagStyle(background: .green)
             }
             
-            Text("收件人: \(model.recipientDetail?.name ?? UserDefaultsHelper.userBuilding.buildingText)")
-                .font(.body)
-            
-            HStack() {
-                Text("包裹内容: \(model.type.desc)")
-                    .font(.body)
+            Group {
+                Text("收件人: \(model.recipientDetail?.name ?? UserDefaultsHelper.userBuilding.buildingText)")
                 
-                if model.isFreezing == true {
-                    Text("❄️ 冷冻")
-                        .font(.body)
-                        .foregroundColor(.blue)
+                HStack() {
+                    Text("包裹内容: \(model.type.desc)")
+                    
+                    if model.isFreezing == true {
+                        Text("❄️ 冷冻")
+                            .foregroundColor(.blue)
+                    }
+                }
+                
+                Text("物流: \(model.shippingProvider?.desc ?? "")")
+                
+                Text("條碼: \(model.barCode)")
+                
+                if let mark = model.ps {
+                    Text("備註: \(mark)")
+                        .foregroundColor(.teal)
+                }
+                
+                if let checkTime = model.checkTime {
+                    Text("領取時間: \(DateUtils.formatISO8601Date(checkTime))")
                 }
             }
-            
-            Text("物流: \(model.shippingProvider?.desc ?? "")")
-                .font(.body)
-            
-            Text("條碼: \(model.barCode)")
-                .font(.body)
-            
-            if let mark = model.ps {
-                Text("備註: \(mark)")
-                    .font(.body)
-                    .foregroundColor(.teal)
-            }
-            
-            if let checkTime = model.checkTime {
-                Text("領取時間: \(DateUtils.formatISO8601Date(checkTime))")
-                    .font(.body)
-            }
+            .appFont(.body)
             
         }
         .paddingCard()

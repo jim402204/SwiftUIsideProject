@@ -20,7 +20,7 @@ struct IntercomCell: View {
             
             // 中間文字
             Text(viewModel.name)
-                .font(.system(size: 16))
+                .appFont(.body)
             
             Spacer()
             

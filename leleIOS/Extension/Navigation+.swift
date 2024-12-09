@@ -57,7 +57,7 @@ struct CustomNavigationBarStyle: ViewModifier {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text(title)
-                        .font(.title2)
+                        .appFont(.size(24))
                         .foregroundStyle(.white) // 設置標題樣式
                 }
             }

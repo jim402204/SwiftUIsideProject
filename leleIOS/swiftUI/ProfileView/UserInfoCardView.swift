@@ -19,17 +19,19 @@ struct UserInfoCardView: View {
                     .frame(width: 40, height: 25)
                     .foregroundColor(.teal)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text(viewModel.userName)
-                        .font(.title2)
+                        .appFont(.title2)
                         .bold()
                     Text(viewModel.accountID)
-                        .foregroundColor(.gray)
                 }
                 Spacer()
             }
-            .padding()
+            .padding(.vertical,8)
+            .padding(.horizontal)
             .background(Color.white)
+            
+            Divider()
             
             // 個人設置選項
             VStack(spacing: 0) {

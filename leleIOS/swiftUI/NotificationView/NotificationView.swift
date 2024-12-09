@@ -32,7 +32,6 @@ struct NotificationView: View {
         }
         .navigationBarStyle(title: "通知")
         .background(Color(UIColor.systemGroupedBackground))
-        
         .onAppear {
             viewModel.callAPI()
         }

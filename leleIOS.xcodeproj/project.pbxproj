@@ -31,6 +31,7 @@
 		374A5EDD2D019A9B00A36375 /* PostalServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */; };
 		374A5EDF2D02A3A400A36375 /* Navigation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EDE2D02A3A400A36375 /* Navigation+.swift */; };
 		374A5EE12D02F70F00A36375 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EE02D02F70F00A36375 /* View+.swift */; };
+		374A5EE32D067C7D00A36375 /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EE22D067C7D00A36375 /* AppText.swift */; };
 		375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A432CFD48C800A1E02B /* leleIOSApp.swift */; };
 		375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A452CFD48C800A1E02B /* ContentView.swift */; };
 		375D8A482CFD48C900A1E02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 375D8A472CFD48C900A1E02B /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalServiceCell.swift; sourceTree = "<group>"; };
 		374A5EDE2D02A3A400A36375 /* Navigation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+.swift"; sourceTree = "<group>"; };
 		374A5EE02D02F70F00A36375 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		374A5EE22D067C7D00A36375 /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		375D8A402CFD48C800A1E02B /* leleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		375D8A432CFD48C800A1E02B /* leleIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leleIOSApp.swift; sourceTree = "<group>"; };
 		375D8A452CFD48C800A1E02B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -169,7 +171,6 @@
 				374A5EB02CFEF90E00A36375 /* BaseTextStyle.swift */,
 				374A5EB12CFEF90E00A36375 /* ButtonTextStyle.swift */,
 				374A5EB22CFEF90E00A36375 /* JimTextFieldStyle.swift */,
-				374A5EC22CFF044600A36375 /* BaseButtonStyle.swift */,
 				374A5EC42CFF0A3D00A36375 /* BaseButtonContent.swift */,
 			);
 			path = ViewStyle;
@@ -243,6 +244,8 @@
 			children = (
 				375D8A532CFD4A6100A1E02B /* UserDefault.swift */,
 				374A5EC02CFEFAB600A36375 /* APPColor.swift */,
+				374A5EE22D067C7D00A36375 /* AppText.swift */,
+				374A5EC22CFF044600A36375 /* BaseButtonStyle.swift */,
 			);
 			path = APPConfig;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */,
 				374A5EB92CFEF90E00A36375 /* JimTextFieldStyle.swift in Sources */,
 				374A5EBA2CFEF90E00A36375 /* ButtonTextStyle.swift in Sources */,
+				374A5EE32D067C7D00A36375 /* AppText.swift in Sources */,
 				374A5ED52D0138DA00A36375 /* IntercomCell.swift in Sources */,
 				374A5EBB2CFEF90E00A36375 /* BaseTextStyle.swift in Sources */,
 				37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */,

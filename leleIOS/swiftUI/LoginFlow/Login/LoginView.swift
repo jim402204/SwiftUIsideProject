@@ -23,7 +23,7 @@ struct LoginView: View {
                         .foregroundColor(.teal)
                     
                     Text("樂樂")
-                        .font(.largeTitle)
+                        .appFont(.largeTitle)
                         .foregroundColor(.gray)
                 }
                 .padding(.top, 50)
@@ -79,7 +79,7 @@ struct LoginView: View {
                     viewModel.login()
                 } label: {
                     Text("登入")
-                        .font(.title2)
+                        .appFont(.title2)
                         .modifier(BaseButtonStyle(height: 44))
                 }
                 
@@ -102,13 +102,13 @@ struct LoginView: View {
                     .foregroundColor(.teal)
                     .padding(.horizontal, 15)
                 }
-                .font(.title2)
+                .appFont(.title2)
                 
                 Spacer()
                 
                 // 版本號
                 Text("樂樂 LeLeLink V1.0.0")
-                    .font(.system(size: 16))
+                    .appFont(.size(16))
                     .foregroundColor(.black)
                     .padding(.bottom)
             }

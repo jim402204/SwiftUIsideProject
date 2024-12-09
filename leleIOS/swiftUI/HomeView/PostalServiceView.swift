@@ -18,7 +18,10 @@ struct PostalServiceView: View {
                 selectedTab: viewModel.selectedTab,
                 onTabChanged: viewModel.tabChanged
             ) { tab in
-                Text("\(tab)")
+                VStack() {
+                    Text("\(tab)")
+                }
+                .frame(height: 34)
             }
             
             // 對講列表
@@ -31,6 +34,7 @@ struct PostalServiceView: View {
             }
         }
         .navigationBarStyle(title: "郵務")
+        .background(Color(UIColor.systemGroupedBackground))
         .onAppear {
             viewModel.callAPI()
         }

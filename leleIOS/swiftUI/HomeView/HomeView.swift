@@ -40,6 +40,7 @@ struct HomeView: View {
 //                            .lineLimit(1)
                         
                         Text("功能選單")
+                            .appFont(.title2)
                             
                         Spacer()
                     }
@@ -59,7 +60,7 @@ struct HomeView: View {
                                         .foregroundColor(.teal)
                                     Text(icon.0)
                                         .foregroundStyle(Color.black.opacity(0.7))
-                                        .font(.caption)
+                                        .appFont(.subheadline)
                                 }
                             }
                         }
@@ -104,14 +105,14 @@ struct DetailView: View {
     var body: some View {
         VStack {
             Text("這是詳細頁面")
-                .font(.largeTitle)
+                .appFont(.largeTitle)
                 .padding()
 
             Button(action: {
                 dismiss() // 點擊按鈕後返回上一頁
             }) {
                 Text("返回")
-                    .font(.title2)
+                    .appFont(.title2)
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)

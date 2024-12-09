@@ -33,3 +33,24 @@ struct BaseButtonStyle: ViewModifier {
 //}
 //.padding(.horizontal)
 //.shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+
+// MARK: - cell
+
+struct TagStyle: ViewModifier {
+    var backgroundColor: Color
+
+    func body(content: Content) -> some View {
+        content
+            .bold()
+            .foregroundColor(.white)
+            .padding(4)
+            .background(backgroundColor)
+            .cornerRadius(10)
+    }
+}
+
+extension View {
+    func tagStyle(background: Color) -> some View {
+        self.modifier(TagStyle(backgroundColor: background))
+    }
+}

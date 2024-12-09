@@ -13,7 +13,7 @@ class NewPasswordViewModel: ObservableObject {
     @Published var password = ""
     @Published var isNextPage: Bool = false
     var isButtonEnable: Bool { password.trimming().count > 0 }
-    var bgColor: Color { isButtonEnable ? Color.app(.primary500) : Color.app(.grey100) }
+    var bgColor: Color { isButtonEnable ? Color.app(.primary500) : Color.app(.primary500) }
     
     private let disposeBag = DisposeBag()
     

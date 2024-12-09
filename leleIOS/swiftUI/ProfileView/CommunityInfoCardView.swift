@@ -17,12 +17,12 @@ struct CommunityInfoCardView: View {
                             VStack() {
                                 Image(systemName: "person.fill")
                                 Text("現居")
-                                    .font(.caption)
+                                    .appFont(.caption)
                             }
                             .foregroundColor(.blue)
                             
                             Text("家家測試社區")
-                                .font(.title2)
+                                .appFont(.title3)
                                 .bold()
                                 .foregroundColor(.black)
                             
