@@ -185,7 +185,7 @@ enum FeatureApi {
     
     //MARK: - 公告列表
     struct NewsList: BaseTargetType {
-        typealias ResponseDataType = NewModel
+        typealias ResponseDataType = NewContainerModel
         enum Top: Int {
             case 置頂 = 1
             case 一般 = 0
@@ -210,7 +210,7 @@ enum FeatureApi {
         init(
             communityAdmin: String = UserDefaultsHelper.communityAdmin,
             apiModelInfo: ApiModelInfo = ApiModelInfo(l: 30),
-            top: Top = .一般,
+            top: Top = .置頂,
             type: Status = .全部
         ) {
             self.communityAdmin = communityAdmin

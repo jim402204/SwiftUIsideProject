@@ -189,14 +189,15 @@ struct NewTypeListModel: Codable {
 }
 
 // MARK: - NewModel
-struct NewModel: Codable {
-    let result: [Result]
+struct NewContainerModel: Codable {
+    let result: [NewModel]
     let total: Int
     
     
     // MARK: - Result
-    struct Result: Codable {
+    struct NewModel: Codable {
         let id, community, title, type: String
+        let top: Bool?
         let startTime: String
         let show: Bool
         let desc: String
@@ -225,6 +226,7 @@ struct NewModel: Codable {
             case readCount = "ReadCount"
             case create = "Create"
             case staff = "Staff"
+            case top = "Top"
         }
     }
 

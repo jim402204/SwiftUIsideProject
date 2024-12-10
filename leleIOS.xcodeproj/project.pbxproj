@@ -57,6 +57,13 @@
 		375D8A7C2CFD4B8700A1E02B /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 375D8A7B2CFD4B8700A1E02B /* Moya */; };
 		375D8A7F2CFD4BA900A1E02B /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 375D8A7E2CFD4BA900A1E02B /* RxMoya */; };
 		377F99972D08101500BE818A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99962D08101500BE818A /* LaunchScreenView.swift */; };
+		377F999B2D081D9000BE818A /* SecurityControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999A2D081D9000BE818A /* SecurityControlView.swift */; };
+		377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999C2D081DE400BE818A /* SecurityControlCell.swift */; };
+		377F999F2D081F4100BE818A /* SecurityControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999E2D081F4100BE818A /* SecurityControlViewModel.swift */; };
+		377F99A32D08266800BE818A /* BulletinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99A22D08266800BE818A /* BulletinView.swift */; };
+		377F99A52D08268100BE818A /* BulletinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99A42D08268100BE818A /* BulletinCell.swift */; };
+		377F99A72D08269400BE818A /* BulletinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99A62D08269400BE818A /* BulletinViewModel.swift */; };
+		377F99AA2D0834EE00BE818A /* BulletinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99A92D0834EE00BE818A /* BulletinDetailView.swift */; };
 		37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F76B2CFD905200F32A5C /* MainTabView.swift */; };
 		37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7712CFD912400F32A5C /* ProfileView.swift */; };
 		37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7742CFD917B00F32A5C /* NotificationView.swift */; };
@@ -68,6 +75,7 @@
 		37C7F7872CFED1B700F32A5C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7862CFED1B700F32A5C /* LoginView.swift */; };
 		37C7F7892CFED2FF00F32A5C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7882CFED2FF00F32A5C /* LoginViewModel.swift */; };
 		37C7F78E2CFED9D400F32A5C /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F78D2CFED9D400F32A5C /* ForgotPasswordView.swift */; };
+		37E57C062D083A6800C9B5EF /* SwiftUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +127,13 @@
 		375D8A622CFD4A6100A1E02B /* FeatureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
 		377F99962D08101500BE818A /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		377F99982D08125000BE818A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		377F999A2D081D9000BE818A /* SecurityControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityControlView.swift; sourceTree = "<group>"; };
+		377F999C2D081DE400BE818A /* SecurityControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityControlCell.swift; sourceTree = "<group>"; };
+		377F999E2D081F4100BE818A /* SecurityControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityControlViewModel.swift; sourceTree = "<group>"; };
+		377F99A22D08266800BE818A /* BulletinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinView.swift; sourceTree = "<group>"; };
+		377F99A42D08268100BE818A /* BulletinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinCell.swift; sourceTree = "<group>"; };
+		377F99A62D08269400BE818A /* BulletinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinViewModel.swift; sourceTree = "<group>"; };
+		377F99A92D0834EE00BE818A /* BulletinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinDetailView.swift; sourceTree = "<group>"; };
 		37C7F76B2CFD905200F32A5C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		37C7F7712CFD912400F32A5C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		37C7F7742CFD917B00F32A5C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -129,6 +144,7 @@
 		37C7F7862CFED1B700F32A5C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		37C7F7882CFED2FF00F32A5C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		37C7F78D2CFED9D400F32A5C /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextView.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -298,6 +314,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		377F99992D081D6400BE818A /* Security Control */ = {
+			isa = PBXGroup;
+			children = (
+				377F999A2D081D9000BE818A /* SecurityControlView.swift */,
+				377F999E2D081F4100BE818A /* SecurityControlViewModel.swift */,
+				377F999C2D081DE400BE818A /* SecurityControlCell.swift */,
+			);
+			path = "Security Control";
+			sourceTree = "<group>";
+		};
+		377F99A02D081F5000BE818A /* PostalService */ = {
+			isa = PBXGroup;
+			children = (
+				374A5ED82D018F0500A36375 /* PostalServiceView.swift */,
+				374A5EDA2D01994F00A36375 /* PostalServicViewModel.swift */,
+				374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */,
+				374A5EE42D06D22F00A36375 /* PostalServiceCellViewModel.swift */,
+			);
+			path = PostalService;
+			sourceTree = "<group>";
+		};
+		377F99A12D08264A00BE818A /* Bulletin */ = {
+			isa = PBXGroup;
+			children = (
+				377F99A82D0834D400BE818A /* BulletinDetail */,
+				377F99A22D08266800BE818A /* BulletinView.swift */,
+				377F99A62D08269400BE818A /* BulletinViewModel.swift */,
+				377F99A42D08268100BE818A /* BulletinCell.swift */,
+			);
+			path = Bulletin;
+			sourceTree = "<group>";
+		};
+		377F99A82D0834D400BE818A /* BulletinDetail */ = {
+			isa = PBXGroup;
+			children = (
+				377F99A92D0834EE00BE818A /* BulletinDetailView.swift */,
+			);
+			path = BulletinDetail;
+			sourceTree = "<group>";
+		};
 		37C7F76D2CFD907700F32A5C /* swiftUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +362,7 @@
 				37C7F76F2CFD90BB00F32A5C /* Window */,
 				37C7F7762CFD91F300F32A5C /* HomeView */,
 				374A5ED12D0135C800A36375 /* IntercomView */,
+				377F99A02D081F5000BE818A /* PostalService */,
 				37C7F7732CFD917100F32A5C /* NotificationView */,
 				37C7F7702CFD90F700F32A5C /* ProfileView */,
 			);
@@ -350,10 +407,8 @@
 			isa = PBXGroup;
 			children = (
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
-				374A5ED82D018F0500A36375 /* PostalServiceView.swift */,
-				374A5EDA2D01994F00A36375 /* PostalServicViewModel.swift */,
-				374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */,
-				374A5EE42D06D22F00A36375 /* PostalServiceCellViewModel.swift */,
+				377F99A12D08264A00BE818A /* Bulletin */,
+				377F99992D081D6400BE818A /* Security Control */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -362,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				37C7F77E2CFDB9F700F32A5C /* SegmentedTabView.swift */,
+				37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -534,13 +590,18 @@
 				374A5ECD2D00527F00A36375 /* UserInfoCardView.swift in Sources */,
 				37C7F77F2CFDB9F700F32A5C /* SegmentedTabView.swift in Sources */,
 				37C7F7812CFDBA5200F32A5C /* NotificationCell.swift in Sources */,
+				377F99A52D08268100BE818A /* BulletinCell.swift in Sources */,
 				375D8A652CFD4A6100A1E02B /* UserDefault.swift in Sources */,
 				375D8A6D2CFD4A6100A1E02B /* NotifyApi.swift in Sources */,
+				377F999F2D081F4100BE818A /* SecurityControlViewModel.swift in Sources */,
+				37E57C062D083A6800C9B5EF /* SwiftUITextView.swift in Sources */,
 				375D8A642CFD4A6100A1E02B /* Date+.swift in Sources */,
 				374A5EDF2D02A3A400A36375 /* Navigation+.swift in Sources */,
 				37C7F7872CFED1B700F32A5C /* LoginView.swift in Sources */,
 				375D8A662CFD4A6100A1E02B /* ApiProtocol.swift in Sources */,
 				374A5EC32CFF044600A36375 /* BaseButtonStyle.swift in Sources */,
+				377F99A32D08266800BE818A /* BulletinView.swift in Sources */,
+				377F99A72D08269400BE818A /* BulletinViewModel.swift in Sources */,
 				377F99972D08101500BE818A /* LaunchScreenView.swift in Sources */,
 				37C7F78E2CFED9D400F32A5C /* ForgotPasswordView.swift in Sources */,
 				375D8A6F2CFD4A6100A1E02B /* UserApi.swift in Sources */,
@@ -561,6 +622,7 @@
 				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
 				374A5ED92D018F0500A36375 /* PostalServiceView.swift in Sources */,
 				374A5EE12D02F70F00A36375 /* View+.swift in Sources */,
+				377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */,
 				374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */,
 				374A5ECB2D00489C00A36375 /* ProfileOptionView.swift in Sources */,
 				374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */,
@@ -570,8 +632,10 @@
 				374A5EE32D067C7D00A36375 /* AppText.swift in Sources */,
 				374A5ED52D0138DA00A36375 /* IntercomCell.swift in Sources */,
 				374A5EBB2CFEF90E00A36375 /* BaseTextStyle.swift in Sources */,
+				377F999B2D081D9000BE818A /* SecurityControlView.swift in Sources */,
 				37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */,
 				375D8A672CFD4A6100A1E02B /* APIService.swift in Sources */,
+				377F99AA2D0834EE00BE818A /* BulletinDetailView.swift in Sources */,
 				374A5EBD2CFEFA5A00A36375 /* UIColor+.swift in Sources */,
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,

@@ -83,6 +83,13 @@ struct HomeView: View {
         switch iconName {
         case "郵務管理":
             PostalServiceView()
+        case "雲對講":
+            IntercomView()
+        case "安控":
+            SecurityControlView()
+        case "社區公告":
+            BulletinView()
+        
         default:
 //            Text("\(iconName) 頁面")
             DetailView()
