@@ -44,6 +44,10 @@ class BulletinCellViewModel {
     let date: String
     let content: String
     let isTop: Bool
+    // 規章用
+    var updateDate: String? = nil
+    // app 不能用要Date
+    var filePath: String = ""
     
     init (_ model: NewContainerModel.NewModel) {
         self.id = model.id
@@ -63,4 +67,17 @@ class BulletinCellViewModel {
         self.content = content
         self.isTop = isTop
     }
+    
+    /// 規章
+    init (_ model: RulesListModel) {
+        
+        self.id = model.id
+        self.type = model.type
+        self.title = model.title
+        self.date = String(DateUtils.formatISO8601Date(model.create).prefix(10))
+        self.content = "規約附件"
+        self.isTop = false
+        self.updateDate = String(DateUtils.formatISO8601Date(model.update ?? "").prefix(10))
+    }
+    
 }

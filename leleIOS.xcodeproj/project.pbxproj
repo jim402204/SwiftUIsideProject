@@ -76,6 +76,8 @@
 		37C7F7892CFED2FF00F32A5C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7882CFED2FF00F32A5C /* LoginViewModel.swift */; };
 		37C7F78E2CFED9D400F32A5C /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F78D2CFED9D400F32A5C /* ForgotPasswordView.swift */; };
 		37E57C062D083A6800C9B5EF /* SwiftUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */; };
+		37E57C092D083FF700C9B5EF /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C082D083FF700C9B5EF /* RuleView.swift */; };
+		37E57C0D2D08401100C9B5EF /* RuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C0C2D08401100C9B5EF /* RuleViewModel.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +147,8 @@
 		37C7F7882CFED2FF00F32A5C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		37C7F78D2CFED9D400F32A5C /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextView.swift; sourceTree = "<group>"; };
+		37E57C082D083FF700C9B5EF /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
+		37E57C0C2D08401100C9B5EF /* RuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewModel.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -338,10 +342,10 @@
 		377F99A12D08264A00BE818A /* Bulletin */ = {
 			isa = PBXGroup;
 			children = (
-				377F99A82D0834D400BE818A /* BulletinDetail */,
 				377F99A22D08266800BE818A /* BulletinView.swift */,
 				377F99A62D08269400BE818A /* BulletinViewModel.swift */,
 				377F99A42D08268100BE818A /* BulletinCell.swift */,
+				377F99A82D0834D400BE818A /* BulletinDetail */,
 			);
 			path = Bulletin;
 			sourceTree = "<group>";
@@ -407,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
+				37E57C072D083FA600C9B5EF /* Rule */,
 				377F99A12D08264A00BE818A /* Bulletin */,
 				377F99992D081D6400BE818A /* Security Control */,
 			);
@@ -447,6 +452,15 @@
 				37C7F78D2CFED9D400F32A5C /* ForgotPasswordView.swift */,
 			);
 			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		37E57C072D083FA600C9B5EF /* Rule */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C082D083FF700C9B5EF /* RuleView.swift */,
+				37E57C0C2D08401100C9B5EF /* RuleViewModel.swift */,
+			);
+			path = Rule;
 			sourceTree = "<group>";
 		};
 		81E1E02BE7B6D796B56403E8 /* Pods */ = {
@@ -604,6 +618,7 @@
 				377F99A72D08269400BE818A /* BulletinViewModel.swift in Sources */,
 				377F99972D08101500BE818A /* LaunchScreenView.swift in Sources */,
 				37C7F78E2CFED9D400F32A5C /* ForgotPasswordView.swift in Sources */,
+				37E57C0D2D08401100C9B5EF /* RuleViewModel.swift in Sources */,
 				375D8A6F2CFD4A6100A1E02B /* UserApi.swift in Sources */,
 				375D8A682CFD4A6100A1E02B /* ApiService+.swift in Sources */,
 				375D8A702CFD4A6100A1E02B /* BaseAPIModel.swift in Sources */,
@@ -620,6 +635,7 @@
 				375D8A712CFD4A6100A1E02B /* FeatureModel.swift in Sources */,
 				374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */,
 				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
+				37E57C092D083FF700C9B5EF /* RuleView.swift in Sources */,
 				374A5ED92D018F0500A36375 /* PostalServiceView.swift in Sources */,
 				374A5EE12D02F70F00A36375 /* View+.swift in Sources */,
 				377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */,

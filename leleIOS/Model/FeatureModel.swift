@@ -229,15 +229,15 @@ struct NewContainerModel: Codable {
             case top = "Top"
         }
     }
+}
 
-    // MARK: - Staff
-    struct Staff: Codable {
-        let id, name: String
+// MARK: - Staff
+struct Staff: Codable {
+    let id, name: String
 
-        enum CodingKeys: String, CodingKey {
-            case id
-            case name = "Name"
-        }
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name = "Name"
     }
 }
 
@@ -536,6 +536,32 @@ struct RulesTypeListModel: Codable {
         case community = "Community"
         case name = "Name"
         case index = "Index"
+    }
+}
+
+// MARK: - RulesListModel
+struct RulesListModel: Codable {
+    let id, community, title, type: String
+    let file: [String]
+//    let read: JSONNull?
+    let hasRead: Bool
+    let readCount: Int
+    let create: String
+    let update: String?
+    let staff: Staff
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case community = "Community"
+        case title = "Title"
+        case type = "Type"
+        case file = "File"
+//        case read = "Read"
+        case hasRead = "HasRead"
+        case readCount = "ReadCount"
+        case create = "Create"
+        case update = "Update"
+        case staff = "Staff"
     }
 }
 

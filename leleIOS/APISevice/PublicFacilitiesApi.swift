@@ -198,7 +198,7 @@ enum PublicFacilitiesApi {
     
     //MARK: - 社區規約
     struct RulesList: BaseTargetType {
-        typealias ResponseDataType = [RulesTypeListModel]
+        typealias ResponseDataType = [RulesListModel]
         enum Status: String {
             case 全部 = ""
             case 共用部分管理規則

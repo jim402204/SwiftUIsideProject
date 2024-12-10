@@ -26,7 +26,7 @@ struct BulletinCell: View {
                 .appFont(.footnote)
                 
                 Text(viewModel.title)
-                    .appFont(.body)
+                    .appFont(.body,color: .black)
                     .lineLimit(1)
                 
                 Spacer()
@@ -38,7 +38,6 @@ struct BulletinCell: View {
             
             Divider()
         }
-        .navigationTitle(viewModel.title)
     }
 }
 

@@ -25,6 +25,14 @@ struct BulletinDetailView: View {
                     .font(.subheadline)
             }
             
+            if let updateDate = viewModel.updateDate {
+                HStack(spacing: 6) {
+                    Text("最後更新")
+                    Text(updateDate)
+                        .appFont(.subheadline, color: .secondary)
+                }
+            }
+            
             Divider()
             
             SwiftUITextView(

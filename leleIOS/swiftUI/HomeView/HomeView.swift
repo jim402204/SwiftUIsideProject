@@ -89,6 +89,8 @@ struct HomeView: View {
             SecurityControlView()
         case "社區公告":
             BulletinView()
+        case "規約":
+            RuleView()
         
         default:
 //            Text("\(iconName) 頁面")
