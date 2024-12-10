@@ -14,7 +14,6 @@ struct UserDefaultsHelper {
     @UserDefault(key: "token") static var token: String?
     @UserDefaultValue(key: "communityInfo", defaultValue: CommunityInfo()) static var userBuilding: CommunityInfo
     @UserDefaultValue(key: "communityAdmin", defaultValue: "") static var communityAdmin: String
-//    @UserDefaultValue(key: "communityAdmin", defaultValue: "") static var communityAdmin: String
 }
 
 @propertyWrapper

@@ -47,3 +47,6 @@ class AppState: ObservableObject {
         checkLoginStatus() // 更新登錄狀態
     }
 }
+
+
+
