@@ -12,16 +12,22 @@ struct PackageModel: Codable {
     let id: String
     let packageID: Int
     let barCode: String
-    let type: ShippingFrom
+    let deposit: DepositData?
+    let type: NameDescModel?
     let status: Int
     let initTime: String
     /// 退貨會nil
     let checkTime: String?
-    let shippingProvider: ShippingFrom?
+    /// 寄件人
+    let sender: IdNameModel?
+    /// 收件人
+    let receiver: String?
+    /// 物流
+    let shippingProvider: NameDescModel?
     let ps: String?
-    let recipientDetail: RecipientDetail?
+    let recipientDetail: IdNameModel?
     let isFreezing: Bool?
-    let shippingFrom: ShippingFrom?
+    let shippingFrom: NameDescModel?
     let isRefrigeration: Bool?
     let recipientCustomName: String?
 
@@ -33,6 +39,8 @@ struct PackageModel: Codable {
         case status = "Status"
         case initTime = "InitTime"
         case checkTime = "CheckTime"
+        case sender = "SenderDetail"
+        case receiver = "ReceiverShippingProvider"
         case shippingProvider = "ShippingProvider"
         case ps = "PS"
         case recipientDetail = "RecipientDetail"
@@ -40,29 +48,63 @@ struct PackageModel: Codable {
         case shippingFrom = "ShippingFrom"
         case isRefrigeration = "IsRefrigeration"
         case recipientCustomName = "RecipientCustomName"
+        case deposit = "DepositData"
     }
     
-    // MARK: - RecipientDetail
-    struct RecipientDetail: Codable {
-        let id: String
-        let name: String
-        let privateNotify: Bool?
+    // 寄物
+    struct DepositData: Codable {
+        let typeCustomName: String?
+//        let cash: Bool
+//        let sendType: Int
+        let cashCount: Int?
+        let senderHouseHold: HouseHold?
+//        let sender: String?
+        let senderDetail: IdNameModel?
+        let senderOtherName: String?
+        let receiverDetail: IdNameModel?
+        let receiverOtherName: String?
+//        let receiverType: Int
+        let receiverProvider: String?
+        let senderProvider: String?
 
         enum CodingKeys: String, CodingKey {
-            case id
-            case name = "Name"
-            case privateNotify = "PrivateNotify"
+            case typeCustomName = "TypeCustomName"
+            case cashCount = "CashCount"
+//            case cash = "Cash"
+//            case sendType = "SendType"
+            case senderHouseHold = "SenderHouseHold"
+//            case sender = "Sender"
+            case senderDetail = "SenderDetail"
+            case senderOtherName = "SenderOtherName"
+            case receiverDetail = "ReceiverDetail"
+            case receiverOtherName = "ReceiverOtherName"
+//            case receiverType = "ReceiverType"
+            case senderProvider = "SenderShippingProvider"
+            case receiverProvider = "ReceiverShippingProvider"
         }
     }
+}
 
-    // MARK: - ShippingFrom
-    struct ShippingFrom: Codable {
-        let name, desc: String
+// MARK: - NameDescModel
+struct NameDescModel: Codable {
+    let name: String
+    let desc: String
+    enum CodingKeys: String, CodingKey {
+        case name = "Name"
+        case desc = "Desc"
+    }
+}
 
-        enum CodingKeys: String, CodingKey {
-            case name = "Name"
-            case desc = "Desc"
-        }
+// MARK: - IdNameModel
+struct IdNameModel: Codable {
+    let id: String
+    let name: String
+    let privateNotify: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name = "Name"
+        case privateNotify = "PrivateNotify"
     }
 }
 
@@ -436,7 +478,7 @@ struct VoteMessageModel: Codable {
     // MARK: - Result
     struct Result: Codable {
         let houseHold: HouseHold
-        let user: User
+        let user: IdNameModel
         let message, create: String
 
         enum CodingKeys: String, CodingKey {
@@ -444,18 +486,6 @@ struct VoteMessageModel: Codable {
             case user = "User"
             case message = "Message"
             case create = "Create"
-        }
-    }
-
-    // MARK: - User
-    struct User: Codable {
-        let id, name: String
-        let privateNotify: Bool
-
-        enum CodingKeys: String, CodingKey {
-            case id
-            case name = "Name"
-            case privateNotify = "PrivateNotify"
         }
     }
 }
@@ -626,7 +656,7 @@ struct FacilityModel: Codable {
 
 struct FacilityBookingＭodel: Codable {
     let id: String
-    let facility: Facility
+    let facility: IdNameModel
     let point, pointType: Int?
     let bookingCount, bookingMethod: Int
     let bookingStartTime, bookingEndTime: String
@@ -649,14 +679,6 @@ struct FacilityBookingＭodel: Codable {
         case checkTime = "CheckTime"
         case canCancelTime = "CanCancelTime"
         case disableCancel = "DisableCancel"
-    }
-    struct Facility: Codable {
-        let id, name: String
-
-        enum CodingKeys: String, CodingKey {
-            case id
-            case name = "Name"
-        }
     }
 }
 

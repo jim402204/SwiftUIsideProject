@@ -22,13 +22,15 @@ struct PostalServiceView: View {
             // 對講列表
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach(Array(viewModel.list.enumerated()), id: \.0) { index, item in
-                        PostalServiceCell(model: item)
+                    ForEach(Array(viewModel.list.enumerated()), id: \.0) {
+                        index,
+                        item in
+                        PostalServiceCell(viewModel: item)
                     }
                 }
             }
         }
-        .navigationBarStyle(title: "郵務")
+        .navigationBarStyle(title: "包裹寄物")
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {
             viewModel.callAPI()

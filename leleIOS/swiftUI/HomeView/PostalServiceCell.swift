@@ -12,83 +12,145 @@ struct IdentifiableModel<T>: Identifiable {
     let model: T    // 包裝的原始模型
 }
 
-struct FakeCell: View {
-    let wrapper: IdentifiableModel<PackageModel>
-    
-    var body: some View {
-        HStack {
-            Text("Hello, World!")
-            
-            Text("asdas\(wrapper.model.packageID)")
-        }
-    }
-}
-
 struct PostalServiceCell: View {
-    let model: PackageModel
-    
+    let viewModel: PostalServiceCellViewModel
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 20) {
-                Text("#\(model.packageID)")
+            
+            HStack(spacing: 0) {
+                Text("#\(viewModel.packageID)")
                     .appFont(.largeTitle, color: .teal)
                     .bold()
-
-                Text(DateUtils.formatISO8601Date(model.initTime))
-                    .appFont(.subheadline, color: .secondary)
+                Spacer()
                 
-                Text("已領取")
-                    .tagStyle(background: .green)
+                Text(viewModel.initTime)
+                    .appFont(.subheadline, color: .secondary)
+                Spacer()
+                
+                Text("\(viewModel.tagLabel)")
+                    .tagStyle(background: .teal.opacity(2))
             }
             
-            Group {
-                Text("收件人: \(model.recipientDetail?.name ?? UserDefaultsHelper.userBuilding.buildingText)")
+            let spacerWith: CGFloat = 100
+            VStack(alignment: .leading, spacing: 8) {
                 
-                HStack() {
-                    Text("包裹内容: \(model.type.desc)")
-                    
-                    if model.isFreezing == true {
-                        Text("❄️ 冷冻")
-                            .foregroundColor(.blue)
+                if let sender = viewModel.sender {
+                    HStack() {
+                        HStack {
+                            Text("寄件人:")
+                            Spacer()
+                        }.frame(width: spacerWith)
+                        Text(sender)
                     }
                 }
                 
-                Text("物流: \(model.shippingProvider?.desc ?? "")")
-                
-                Text("條碼: \(model.barCode)")
-                
-                if let mark = model.ps {
-                    Text("備註: \(mark)")
-                        .foregroundColor(.teal)
+                HStack() {
+                    HStack {
+                        Text("收件人:")
+                        Spacer()
+                    }.frame(width: spacerWith)
+                    Text(viewModel.receiver)
                 }
                 
-                if let checkTime = model.checkTime {
-                    Text("領取時間: \(DateUtils.formatISO8601Date(checkTime))")
+                if let package = viewModel.packageContent {
+                    HStack() {
+                        HStack {
+                            Text("包裹内容:")
+                            Spacer()
+                        }.frame(width: spacerWith)
+                        
+                        Text(package)
+                        
+                        if viewModel.isFreezing {
+                            HStack(spacing: 2) {
+                                    Image(systemName: "snowflake")
+                                    Text("冷凍")
+                                }
+                            .tagStyle(background: .teal.opacity(0.8))
+                            .appFont(.footnote)
+                        }
+                        
+                        if viewModel.isRefrigeration {
+                            HStack(spacing: 2) {
+                                    Image(systemName: "snowflake")
+                                    Text("冷藏")
+                                }
+                            .tagStyle(background: .teal.opacity(0.8))
+                            .appFont(.footnote)
+                        }
+                    }
                 }
+                
+                if let shippingProvider = viewModel.shippingProvider {
+                    HStack() {
+                        HStack {
+                            Text("物流:")
+                            Spacer()
+                        }.frame(width: spacerWith)
+                        Text(shippingProvider)
+                    }
+                }
+                
+                HStack() {
+                    HStack {
+                        Text("條碼:")
+                        Spacer()
+                    }.frame(width: spacerWith)
+                    Text(viewModel.barCode)
+                }
+                
+                if let mark = viewModel.mark {
+                    HStack() {
+                        HStack {
+                            Text("備註:")
+                            Spacer()
+                        }.frame(width: spacerWith)
+                        Text(mark)
+                            .appFont(.size(18))
+                            .foregroundColor(.teal)
+                    }
+                }
+                
+                if let checkTime = viewModel.checkTime {
+                    HStack() {
+                        HStack {
+                            Text("領取時間:")
+                            Spacer()
+                        }.frame(width: spacerWith)
+                        Text(checkTime)
+                    }
+                }
+                
             }
             .appFont(.body)
-            
         }
-        .paddingCard()
+        .paddingCard(horizontal: 16)
         .paddingCell(vertical: 6)
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    PostalServiceCell(model: PackageModel(
-        id: "1",
-        packageID: 23,
-        barCode: "123453123123",
-        type: PackageModel.ShippingFrom(name: "物流公司", desc: "描述"),
-        status: 1,
-        initTime: "2023-02-14 15:42",
-        checkTime: "2023-02-14 15:45",
-        shippingProvider: nil,
-        ps: "包裹",
-        recipientDetail: PackageModel.RecipientDetail(id: "1", name: "王大明1", privateNotify: nil),
-        isFreezing: true,
-        shippingFrom: nil,
-        isRefrigeration: nil,
-        recipientCustomName: nil
-    ))
-}
+//#Preview(traits: .sizeThatFitsLayout) {
+//    let packageModel = PackageModel(
+//        id: "1",
+//        packageID: 23,
+//        barCode: "123453123123",
+//        type: PackageModel.ShippingFrom(name: "物流公司", desc: "包裹内容"),
+//        status: 1,
+//        initTime: "2023-03-01T08:53:30.358Z",
+//        checkTime: "2023-03-01T08:54:05.358Z",
+//        sender: PackageModel.RecipientDetail(id: "1", name: "王大明1", privateNotify: nil) ,
+//        receiver: "寄件人姓名",
+//        shippingProvider: PackageModel.ShippingFrom(name: "物流公司", desc: "物流公司描述"),
+//        ps: "備註",
+//        recipientDetail: nil,
+//        isFreezing: nil,
+//        shippingFrom: nil,
+//        isRefrigeration: nil,
+//        recipientCustomName: "收件人姓名"
+//    )
+//
+//    let viewModel = PostalServiceCellViewModel(model: packageModel, type: .未領取)
+//    
+//    PostalServiceCell(viewModel: viewModel)
+//}

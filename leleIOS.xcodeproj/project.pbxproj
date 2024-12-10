@@ -32,6 +32,7 @@
 		374A5EDF2D02A3A400A36375 /* Navigation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EDE2D02A3A400A36375 /* Navigation+.swift */; };
 		374A5EE12D02F70F00A36375 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EE02D02F70F00A36375 /* View+.swift */; };
 		374A5EE32D067C7D00A36375 /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EE22D067C7D00A36375 /* AppText.swift */; };
+		374A5EE52D06D22F00A36375 /* PostalServiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EE42D06D22F00A36375 /* PostalServiceCellViewModel.swift */; };
 		375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A432CFD48C800A1E02B /* leleIOSApp.swift */; };
 		375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375D8A452CFD48C800A1E02B /* ContentView.swift */; };
 		375D8A482CFD48C900A1E02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 375D8A472CFD48C900A1E02B /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		374A5EDE2D02A3A400A36375 /* Navigation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+.swift"; sourceTree = "<group>"; };
 		374A5EE02D02F70F00A36375 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		374A5EE22D067C7D00A36375 /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
+		374A5EE42D06D22F00A36375 /* PostalServiceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalServiceCellViewModel.swift; sourceTree = "<group>"; };
 		375D8A402CFD48C800A1E02B /* leleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		375D8A432CFD48C800A1E02B /* leleIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leleIOSApp.swift; sourceTree = "<group>"; };
 		375D8A452CFD48C800A1E02B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				374A5ED82D018F0500A36375 /* PostalServiceView.swift */,
 				374A5EDA2D01994F00A36375 /* PostalServicViewModel.swift */,
 				374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */,
+				374A5EE42D06D22F00A36375 /* PostalServiceCellViewModel.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				374A5EAD2CFEEC1100A36375 /* Register.swift in Sources */,
 				375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */,
 				374A5EBF2CFEFA8900A36375 /* String+.swift in Sources */,
+				374A5EE52D06D22F00A36375 /* PostalServiceCellViewModel.swift in Sources */,
 				375D8A6B2CFD4A6100A1E02B /* HomeApi.swift in Sources */,
 				374A5ECF2D0054A400A36375 /* CommunityInfoCardView.swift in Sources */,
 				374A5ED72D0138F600A36375 /* IntercomViewModel.swift in Sources */,

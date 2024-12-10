@@ -29,63 +29,59 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                
-                VStack(spacing: 20) {
-                    
-                    HStack {
-                        
-//                        Text(UserDefaultsHelper.userBuilding.name)
-//                            .lineLimit(1)
-                        
-                        Text("功能選單")
-                            .appFont(.title2)
-                            
-                        Spacer()
-                    }
-//                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(20)
-                    .padding(.horizontal)
-                    
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 20) {
-                        ForEach(icons, id: \.0) { icon in
-                            NavigationLink(destination: destinationView(for: icon.0)) {
-                                VStack {
-                                    Image(systemName: icon.1)
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundColor(.teal)
-                                    Text(icon.0)
-                                        .foregroundStyle(Color.black.opacity(0.7))
-                                        .appFont(.subheadline)
-                                }
-                            }
-                        }
-                    }
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(Color.white)
-                            .applyShadow()
-                    )
-                    .padding(.horizontal)
-                }
-                
+        VStack(spacing: 10) {
+            
+            Spacer().frame(height: 10)
+            
+            HStack {
+                Text(UserDefaultsHelper.userBuilding.name)
+                    .appFont(.size(24),color: .teal)
+                    .lineLimit(1)
+                Text("功能選單")
+                    .appFont(.title2)
                 Spacer()
             }
-            .navigationBarStyle(title: "首頁")
-//            .navigationBarHidden(true)
+            .padding(.vertical,8)
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity)
+            .background(Color(.systemGray6))
+            .cornerRadius(20)
+            .padding(.horizontal)
+            
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 20) {
+                ForEach(icons, id: \.0) { icon in
+                    NavigationLink(destination: destinationView(for: icon.0)) {
+                        VStack {
+                            Image(systemName: icon.1)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.teal)
+                            Text(icon.0)
+                                .foregroundStyle(Color.black.opacity(0.7))
+                                .appFont(.subheadline)
+                        }
+                    }
+                }
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color.white)
+                    .applyShadow()
+            )
+            .padding(.horizontal)
+            
+            Spacer()
         }
+        .navigationBarStyle(title: "首頁")
+        //            .navigationBarHidden(true)
     }
     
     // 根據圖標名稱返回相應的視圖
     @ViewBuilder
     func destinationView(for iconName: String) -> some View {
         switch iconName {
-        case "郵務":
+        case "郵務管理":
             PostalServiceView()
         default:
 //            Text("\(iconName) 頁面")
@@ -94,7 +90,9 @@ struct HomeView: View {
     }
 }
 #Preview {
-    HomeView()
+    NavigationStack {
+        HomeView()
+    }
 }
 
 

@@ -11,8 +11,8 @@ import SwiftUI
 class PostalServicViewModel: ObservableObject {
     var disposeBag = DisposeBag()
     
-    @Published var selectedTab: FeatureApi.PackageList.Status = .未領取
-    @Published var list: [PackageModel] = []
+    @Published var selectedTab: FeatureApi.PackageList.Status = .寄放
+    @Published var list: [PostalServiceCellViewModel] = []
     
     let tabs = FeatureApi.PackageList.Status.allCases.map { $0 }
     
@@ -35,12 +35,14 @@ class PostalServicViewModel: ObservableObject {
         
         apiService.request(FeatureApi.PackageList(status: currentTab))
             .subscribe(
-                onSuccess: { [weak self] model in
+                onSuccess: { [weak self] models in
                     
                     guard let self = self else { return }
                     
 //                    let newModel: [IdentifiableModel<PackageModel>] = model.map { IdentifiableModel(model: $0) }
-                    self.list = model
+                    
+                    let models = models.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
+                    self.list = models
                 })
             .disposed(by: disposeBag)
         

@@ -44,12 +44,14 @@ struct MainTabView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             // 首頁
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("首頁")
-                }
-                .tag(0)
+            NavigationStack{
+                HomeView()
+            }
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("首頁")
+            }
+            .tag(0)
             
             // 雲對講
             NavigationStack{

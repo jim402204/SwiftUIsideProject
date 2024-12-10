@@ -20,7 +20,6 @@ extension View {
         vertical: CGFloat = 12
     ) -> some View {
         self
-            .frame(maxWidth: .infinity)
             .padding(.horizontal, horizontal)
             .padding(.vertical, vertical)
             .background(bgColor)
