@@ -40,6 +40,8 @@ let leleApiURL5026 = URL(string: ("https://lele-api.ez-ai.com.tw:5026"))!
 
 let leleApiURL = URL(string: ("https://api.lelelink.com"))!
 
+let imageApiDomain = "https://api.happylink.com.tw"
+
 /// 共用參數
 extension ApiTargetType {
     var baseURL: URL { return leleGoLinkURL }

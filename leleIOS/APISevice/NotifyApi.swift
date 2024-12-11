@@ -103,19 +103,16 @@ enum NotifyApi {
         
         init(
             communityAdmin: String = UserDefaultsHelper.communityAdmin,
-            l: Int = 20,
-            sk: Int = 0,
-            building: String = "A1棟",
-            doorPlate: String = "1號",
-            floor: String = "1樓",
-            s: Status = .home
+            apiModelInfo: ApiModelInfo = ApiModelInfo(),
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
+            s: Status = .detail
         ) {
             self.communityAdmin = communityAdmin
-            parameters["l"] = l
-            parameters["sk"] = sk
-            parameters["b"] = building
-            parameters["d"] = doorPlate
-            parameters["f"] = floor
+            parameters["l"] = apiModelInfo.l
+            parameters["sk"] = apiModelInfo.sk
+            parameters["b"] = communityInfo.building
+            parameters["d"] = communityInfo.doorPlate
+            parameters["f"] = communityInfo.floor
             parameters["s"] = s.rawValue
         }
     }

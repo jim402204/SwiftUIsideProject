@@ -79,6 +79,10 @@
 		37E57C092D083FF700C9B5EF /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C082D083FF700C9B5EF /* RuleView.swift */; };
 		37E57C0D2D08401100C9B5EF /* RuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C0C2D08401100C9B5EF /* RuleViewModel.swift */; };
 		37E57C0F2D0934A800C9B5EF /* HomeView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C0E2D0934A800C9B5EF /* HomeView+.swift */; };
+		37E57C122D095DCA00C9B5EF /* GuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C112D095DCA00C9B5EF /* GuestView.swift */; };
+		37E57C142D095F5000C9B5EF /* GuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C132D095F5000C9B5EF /* GuestCell.swift */; };
+		37E57C162D09676B00C9B5EF /* GuestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C152D09676B00C9B5EF /* GuestViewModel.swift */; };
+		37E57C192D0970D700C9B5EF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 37E57C182D0970D700C9B5EF /* Kingfisher */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +155,9 @@
 		37E57C082D083FF700C9B5EF /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
 		37E57C0C2D08401100C9B5EF /* RuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewModel.swift; sourceTree = "<group>"; };
 		37E57C0E2D0934A800C9B5EF /* HomeView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+.swift"; sourceTree = "<group>"; };
+		37E57C112D095DCA00C9B5EF /* GuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestView.swift; sourceTree = "<group>"; };
+		37E57C132D095F5000C9B5EF /* GuestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCell.swift; sourceTree = "<group>"; };
+		37E57C152D09676B00C9B5EF /* GuestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestViewModel.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +172,7 @@
 				37C7F7842CFE9E7600F32A5C /* SegmentedPicker in Frameworks */,
 				375D8A772CFD4B5000A1E02B /* SwiftyJSON in Frameworks */,
 				375D8A742CFD4B4400A1E02B /* RxSwift in Frameworks */,
+				37E57C192D0970D700C9B5EF /* Kingfisher in Frameworks */,
 				375D8A7C2CFD4B8700A1E02B /* Moya in Frameworks */,
 				375D8A7A2CFD4B8700A1E02B /* CombineMoya in Frameworks */,
 				45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */,
@@ -412,6 +420,7 @@
 		37C7F7762CFD91F300F32A5C /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				37E57C102D095DA000C9B5EF /* Guest */,
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
 				37E57C0E2D0934A800C9B5EF /* HomeView+.swift */,
 				37E57C072D083FA600C9B5EF /* Rule */,
@@ -466,6 +475,16 @@
 			path = Rule;
 			sourceTree = "<group>";
 		};
+		37E57C102D095DA000C9B5EF /* Guest */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C112D095DCA00C9B5EF /* GuestView.swift */,
+				37E57C152D09676B00C9B5EF /* GuestViewModel.swift */,
+				37E57C132D095F5000C9B5EF /* GuestCell.swift */,
+			);
+			path = Guest;
+			sourceTree = "<group>";
+		};
 		81E1E02BE7B6D796B56403E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +519,7 @@
 				375D8A7B2CFD4B8700A1E02B /* Moya */,
 				375D8A7E2CFD4BA900A1E02B /* RxMoya */,
 				37C7F7832CFE9E7600F32A5C /* SegmentedPicker */,
+				37E57C182D0970D700C9B5EF /* Kingfisher */,
 			);
 			productName = leleIOS;
 			productReference = 375D8A402CFD48C800A1E02B /* leleIOS.app */;
@@ -534,6 +554,7 @@
 				375D8A752CFD4B5000A1E02B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				375D8A782CFD4B8700A1E02B /* XCRemoteSwiftPackageReference "Moya" */,
 				37C7F7822CFE9E7600F32A5C /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
+				37E57C172D0970D700C9B5EF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 375D8A412CFD48C800A1E02B /* Products */;
 			projectDirPath = "";
@@ -605,6 +626,7 @@
 			files = (
 				375D8A6E2CFD4A6100A1E02B /* PublicFacilitiesApi.swift in Sources */,
 				374A5ECD2D00527F00A36375 /* UserInfoCardView.swift in Sources */,
+				37E57C142D095F5000C9B5EF /* GuestCell.swift in Sources */,
 				37C7F77F2CFDB9F700F32A5C /* SegmentedTabView.swift in Sources */,
 				37C7F7812CFDBA5200F32A5C /* NotificationCell.swift in Sources */,
 				377F99A52D08268100BE818A /* BulletinCell.swift in Sources */,
@@ -639,6 +661,7 @@
 				374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */,
 				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
 				37E57C092D083FF700C9B5EF /* RuleView.swift in Sources */,
+				37E57C122D095DCA00C9B5EF /* GuestView.swift in Sources */,
 				374A5ED92D018F0500A36375 /* PostalServiceView.swift in Sources */,
 				374A5EE12D02F70F00A36375 /* View+.swift in Sources */,
 				377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */,
@@ -657,6 +680,7 @@
 				377F99AA2D0834EE00BE818A /* BulletinDetailView.swift in Sources */,
 				374A5EBD2CFEFA5A00A36375 /* UIColor+.swift in Sources */,
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
+				37E57C162D09676B00C9B5EF /* GuestViewModel.swift in Sources */,
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,
 				37C7F77C2CFD9A9900F32A5C /* NotificationViewModel.swift in Sources */,
 				374A5ED32D01361100A36375 /* IntercomView.swift in Sources */,
@@ -920,6 +944,14 @@
 				minimumVersion = 0.0.4;
 			};
 		};
+		37E57C172D0970D700C9B5EF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -952,6 +984,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 37C7F7822CFE9E7600F32A5C /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */;
 			productName = SegmentedPicker;
+		};
+		37E57C182D0970D700C9B5EF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37E57C172D0970D700C9B5EF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

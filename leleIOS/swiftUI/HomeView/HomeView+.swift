@@ -24,6 +24,7 @@ extension HomeView {
         case securityControl
         case bulletin
         case rule
+        case guest
         case detail(String) // 可以攜帶額外參數的頁面
     }
    
@@ -34,7 +35,7 @@ extension HomeView {
             PageModel(name: "社區公告", systemImageName: "megaphone.fill", navigationPage: .bulletin),
             PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .detail("報修")),
             PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .detail("住戶意見")),
-            PageModel(name: "訪客", systemImageName: "person.crop.circle.fill", navigationPage: .detail("訪客")),
+            PageModel(name: "訪客", systemImageName: "person.crop.circle.fill", navigationPage: .guest),
             PageModel(name: "公設", systemImageName: "building.columns.fill", navigationPage: .detail("公設")),
             PageModel(name: "投票", systemImageName: "hand.thumbsup.fill", navigationPage: .detail("投票")),
             PageModel(name: "規約", systemImageName: "doc.plaintext.fill", navigationPage: .rule),
@@ -62,6 +63,8 @@ extension HomeView {
             RuleView()
         case .securityControl:
             SecurityControlView()
+        case .guest:
+            GuestView()
         case .detail(let message):
             DetailView()
         }
