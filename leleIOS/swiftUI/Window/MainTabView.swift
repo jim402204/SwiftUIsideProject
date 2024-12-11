@@ -4,7 +4,13 @@ import UIKit // 确保导入 UIKit
 //https://juejin.cn/post/7105021679633432606
 //要精細的控制tabBar只能用UIkit來轉
 
+class NavigationManager: ObservableObject {
+    // 目前只有homePage有用到
+    @Published var path = NavigationPath()
+}
+
 struct MainTabView: View {
+    @StateObject private var router = NavigationManager()
     @StateObject private var viewModel = MainTabViewModel()
     @State private var selectedTab = 0
     
@@ -44,8 +50,9 @@ struct MainTabView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             // 首頁
-            NavigationStack{
+            NavigationStack(path: $router.path) {
                 HomeView()
+                    .environmentObject(router)
             }
             .tabItem {
                 Image(systemName: "house.fill")

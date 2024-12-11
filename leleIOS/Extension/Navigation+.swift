@@ -7,39 +7,7 @@
 
 import SwiftUI
 
-// 定義枚舉，作為導航堆疊中的標識符
-enum NavigationPage: Hashable {
-    case home
-    case detail(id: Int, title: String)
-    case settings
-}
-
-//extension NavigationPath {
-//    mutating func popToTarget(_ target: NavigationPage) {
-//        // 將堆疊轉為數組
-//        var updatedStack = self.map { $0 as? NavigationPage }.compactMap { $0 }
-//
-//        let jim = self
-//
-//        // 遍歷堆疊並移除不匹配的頁面
-//        for currentPage in updatedStack.reversed() {
-//            if let page = currentPage as? NavigationPage, page == target {
-//                break // 找到目標頁面，停止移除
-//            }
-//            updatedStack.removeLast()
-//        }
-//
-//        // 使用處理後的數組重新構建 NavigationPath
-//        self = NavigationPath(updatedStack)
-//    }
-//    
-//    /// 返回堆疊中所有的 `NavigationPage` 元素
-//    func pages<T>() -> [T] {
-//        self.compactMap { $0 as? T }
-//    }
-//}
-
-import SwiftUI
+//MARK: - 自訂NavigationBar樣式 navigationBarStyle
 
 struct CustomNavigationBarStyle: ViewModifier {
     
@@ -110,3 +78,39 @@ extension View {
 //    Text("Content")
 //        .customNavigationBarStyle(title: "智慧對講", backgroundColor: .teal) // 使用自定義樣式
 //}
+
+
+//MARK: - NavigationPath pop 到指定頁面
+
+
+extension NavigationPath {
+    /// pop回指定view
+    mutating func popToTarget(_ target: AnyHashable) {
+        var allElements = self.allElements()
+        guard allElements.contains(target) else {
+            print("Target \(target) not found in NavigationPath")
+            return
+        }
+
+        while let last = allElements.last, last != target {
+            allElements.removeLast()
+            self.removeLast()
+        }
+    }
+    /// 拿到所有元素
+    func allElements() -> [AnyHashable] {
+        Mirror(reflecting: self)
+            .children
+            .compactMap { $0.value as? [AnyHashable] }
+            .flatMap { $0 }
+    }
+    /// 取得指定 NavigationPath
+    subscript(index: Int) -> AnyHashable? {
+        let elements = self.allElements()
+        guard index >= 0 && index < elements.count else { return nil }
+        return elements[index]
+    }
+}
+   
+
+

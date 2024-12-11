@@ -9,24 +9,7 @@ import SwiftUI
 
 // 各個頁面的基本結構
 struct HomeView: View {
-    let icons = [
-        ("雲對講", "phone.bubble.fill"),
-        ("郵務管理", "envelope.fill"),
-        ("社區公告", "megaphone.fill"),
-        ("報修", "doc.text.fill"),
-        ("住戶意見", "bubble.left.and.bubble.right.fill"),
-        ("訪客", "person.crop.circle.fill"),
-        ("公設", "building.columns.fill"),
-        ("投票", "hand.thumbsup.fill"),
-        ("規約", "doc.plaintext.fill"),
-        ("瓦斯", "flame.fill"),
-        ("行事曆", "calendar"),
-        ("管理費", "dollarsign.circle.fill"),
-        ("安控", "lock.shield.fill"),
-        ("相簿", "photo.on.rectangle"),
-        ("遠端關懷", "antenna.radiowaves.left.and.right"),
-        ("社區百問", "questionmark.circle.fill")
-    ]
+    @EnvironmentObject var router: NavigationManager
     
     var body: some View {
         VStack(spacing: 10) {
@@ -49,14 +32,16 @@ struct HomeView: View {
             .padding(.horizontal)
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 20) {
-                ForEach(icons, id: \.0) { icon in
-                    NavigationLink(destination: destinationView(for: icon.0)) {
+                ForEach(HomeView.pageModel, id: \.name) { item in
+                    Button(action: {
+                        router.path.append(item.navigationPage)
+                    }) {
                         VStack {
-                            Image(systemName: icon.1)
+                            Image(systemName: item.systemImageName)
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.teal)
-                            Text(icon.0)
+                            Text(item.name)
                                 .foregroundStyle(Color.black.opacity(0.7))
                                 .appFont(.subheadline)
                         }
@@ -74,61 +59,24 @@ struct HomeView: View {
             Spacer()
         }
         .navigationBarStyle(title: "首頁")
+        .navigationDestination(for: HomeNavigationPage.self) { destination in
+            destinationView(for: destination)
+        }
         //            .navigationBarHidden(true)
     }
-    
-    // 根據圖標名稱返回相應的視圖
-    @ViewBuilder
-    func destinationView(for iconName: String) -> some View {
-        switch iconName {
-        case "郵務管理":
-            PostalServiceView()
-        case "雲對講":
-            IntercomView()
-        case "安控":
-            SecurityControlView()
-        case "社區公告":
-            BulletinView()
-        case "規約":
-            RuleView()
-        
-        default:
-//            Text("\(iconName) 頁面")
-            DetailView()
-        }
-    }
 }
+
+
 #Preview {
-    NavigationStack {
+    @Previewable @StateObject var router = NavigationManager()
+    NavigationStack(path: $router.path) {
         HomeView()
+            .environmentObject(router)
     }
 }
 
+//                    NavigationLink(destination: destinationView(for: item.navigationPage)) {
+//                        Text("aa")
+//                    }
 
-struct DetailView: View {
-    @Environment(\.dismiss) var dismiss
-    @Environment(\.presentationMode) var presentationMode
-    
-    var body: some View {
-        VStack {
-            Text("這是詳細頁面")
-                .appFont(.largeTitle)
-                .padding()
 
-            Button(action: {
-                dismiss() // 點擊按鈕後返回上一頁
-            }) {
-                Text("返回")
-                    .appFont(.title2)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-        }
-        .padding()
-//        .navigationTitle("詳細信息")
-        .navigationBarStyle(title: "詳細信息")
-        
-    }
-}

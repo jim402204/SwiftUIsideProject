@@ -78,6 +78,7 @@
 		37E57C062D083A6800C9B5EF /* SwiftUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */; };
 		37E57C092D083FF700C9B5EF /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C082D083FF700C9B5EF /* RuleView.swift */; };
 		37E57C0D2D08401100C9B5EF /* RuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C0C2D08401100C9B5EF /* RuleViewModel.swift */; };
+		37E57C0F2D0934A800C9B5EF /* HomeView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C0E2D0934A800C9B5EF /* HomeView+.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,7 @@
 		37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextView.swift; sourceTree = "<group>"; };
 		37E57C082D083FF700C9B5EF /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
 		37E57C0C2D08401100C9B5EF /* RuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewModel.swift; sourceTree = "<group>"; };
+		37E57C0E2D0934A800C9B5EF /* HomeView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+.swift"; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
+				37E57C0E2D0934A800C9B5EF /* HomeView+.swift */,
 				37E57C072D083FA600C9B5EF /* Rule */,
 				377F99A12D08264A00BE818A /* Bulletin */,
 				377F99992D081D6400BE818A /* Security Control */,
@@ -657,6 +660,7 @@
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,
 				37C7F77C2CFD9A9900F32A5C /* NotificationViewModel.swift in Sources */,
 				374A5ED32D01361100A36375 /* IntercomView.swift in Sources */,
+				37E57C0F2D0934A800C9B5EF /* HomeView+.swift in Sources */,
 				375D8A6A2CFD4A6100A1E02B /* FeatureApi.swift in Sources */,
 				374A5EC92D0032E900A36375 /* MainTabViewModel.swift in Sources */,
 				374A5EC12CFEFAB600A36375 /* APPColor.swift in Sources */,
@@ -806,6 +810,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -841,6 +846,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
