@@ -19,18 +19,28 @@ struct GuestCell: View {
             RowData(title: "離場", value: viewModel.leaveTime)
     ]}
     
+    @State private var isImageLoaded: Bool = false // 加载状态
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0)  {
             
             KFImage(URL(string: viewModel.imageUrl))
                 .cacheOriginalImage()
                 .cancelOnDisappear(true)
-                .placeholder { // 占位符图片
+                .placeholder {
                     ProgressView()
+                }
+                .onFailure { _ in
+                    // 加载失败，将状态设为未加载
+                    isImageLoaded = false
+                }
+                .onSuccess { _ in
+                    // 加载成功，将状态设为已加载
+                    isImageLoaded = true
                 }
                 .resizable() // 允许图片调整大小
                 .aspectRatio(contentMode: .fit)
-//                .frame(height: 200)
+                .frame(maxHeight: isImageLoaded ? .infinity : 50)
                 .background(Color(.systemGray4))
             
             VStack(spacing: 4) {

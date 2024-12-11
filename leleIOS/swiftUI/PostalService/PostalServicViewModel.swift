@@ -23,10 +23,10 @@ class PostalServicViewModel: ObservableObject {
     
     func callAPI() {
         
-        loginAPI(bag: disposeBag) {
+//        loginAPI(bag: disposeBag) {
             
             self.intercomListAPI()
-        }
+//        }
     }
     
     func intercomListAPI() {
