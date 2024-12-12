@@ -19,7 +19,9 @@ struct GuestCell: View {
             RowData(title: "離場", value: viewModel.leaveTime)
     ]}
     
-    @State private var isImageLoaded: Bool = false // 加载状态
+    @State private var imageHeight: CGFloat = 50 // 預設高度
+    // 16 * 2 = 32
+    let cellWidth = (UIScreen.main.bounds.width - 32)
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0)  {
@@ -30,18 +32,15 @@ struct GuestCell: View {
                 .placeholder {
                     ProgressView()
                 }
-                .onFailure { _ in
-                    // 加载失败，将状态设为未加载
-                    isImageLoaded = false
+                .onSuccess { object in
+                    let image = object.image
+                    // 根據實際圖片計算最適高度
+                    imageHeight = image.size.height * (cellWidth / image.size.width)
                 }
-                .onSuccess { _ in
-                    // 加载成功，将状态设为已加载
-                    isImageLoaded = true
-                }
-                .resizable() // 允许图片调整大小
-                .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: isImageLoaded ? .infinity : 50)
-                .background(Color(.systemGray4))
+                .resizable()
+//                .aspectRatio(contentMode: .fit)
+                .frame(height: imageHeight)
+//                .background(Color(.systemGray4))
             
             VStack(spacing: 4) {
                 ForEach(rows) { row in
