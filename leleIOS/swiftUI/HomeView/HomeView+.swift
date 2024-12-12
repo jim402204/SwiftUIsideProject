@@ -8,11 +8,56 @@
 import Foundation
 import SwiftUI
 
-struct PageModel<T>: Identifiable where T: Hashable {
-    let id = UUID() // 唯一標識符
-    let name: String // 圖標名稱
-    let systemImageName: String // 系統圖標名稱
-    let navigationPage: T // 對應導航標識符
+enum UserRole: String, CaseIterable, Identifiable, Codable {
+    case 住戶
+    case 物管
+    case 商家
+    
+    var id: String { self.rawValue }
+}
+
+//var userRoleRoot: UserRole = .住戶
+
+struct PageModelFactory {
+    static func generatePageModel(for role: UserRole) -> [PageModel<HomeView.HomeNavigationPage>] {
+        switch role {
+        case .住戶:
+            return [
+                PageModel(name: "雲對講", systemImageName: "phone.bubble.fill", navigationPage: .intercom),
+                PageModel(name: "郵務管理", systemImageName: "envelope.fill", navigationPage: .postalService),
+                PageModel(name: "社區公告", systemImageName: "megaphone.fill", navigationPage: .bulletin),
+                PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .detail("報修")),
+                PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .detail("住戶意見")),
+                PageModel(name: "訪客", systemImageName: "person.crop.circle.fill", navigationPage: .guest),
+                PageModel(name: "公設", systemImageName: "building.columns.fill", navigationPage: .detail("公設")),
+                PageModel(name: "投票", systemImageName: "hand.thumbsup.fill", navigationPage: .detail("投票")),
+                PageModel(name: "規約", systemImageName: "doc.plaintext.fill", navigationPage: .rule),
+                PageModel(name: "瓦斯", systemImageName: "flame.fill", navigationPage: .detail("瓦斯")),
+                PageModel(name: "行事曆", systemImageName: "calendar", navigationPage: .detail("行事曆")),
+                PageModel(name: "管理費", systemImageName: "dollarsign.circle.fill", navigationPage: .detail("管理費")),
+                PageModel(name: "安控", systemImageName: "lock.shield.fill", navigationPage: .securityControl),
+                PageModel(name: "相簿", systemImageName: "photo.on.rectangle", navigationPage: .detail("相簿")),
+                PageModel(name: "遠端關懷", systemImageName: "antenna.radiowaves.left.and.right", navigationPage: .detail("遠端關懷")),
+                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問"))
+            ]
+        case .商家:
+            return [
+                PageModel(name: "便利生活", systemImageName: "cart.fill", navigationPage: .detail("便利生活"))
+            ]
+        case .物管:
+            return [
+                PageModel(name: "雲對講", systemImageName: "phone.bubble.fill", navigationPage: .intercom),
+                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問")),
+                PageModel(name: "郵務管理", systemImageName: "envelope.fill", navigationPage: .postalService),
+                PageModel(name: "寄放", systemImageName: "tray.and.arrow.down.fill", navigationPage: .detail("寄放")),
+                PageModel(name: "通知", systemImageName: "bell.fill", navigationPage: .detail("通知")),
+                PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .detail("住戶意見")),
+                PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .detail("報修")),
+                PageModel(name: "社區公告", systemImageName: "megaphone.fill", navigationPage: .bulletin),
+                PageModel(name: "行事曆", systemImageName: "calendar", navigationPage: .detail("行事曆"))
+            ]
+        }
+    }
 }
 
 extension HomeView {
@@ -28,27 +73,7 @@ extension HomeView {
         case detail(String) // 可以攜帶額外參數的頁面
     }
    
-    static var pageModel: [PageModel<HomeNavigationPage>] {
-        [
-            PageModel(name: "雲對講", systemImageName: "phone.bubble.fill", navigationPage: .intercom),
-            PageModel(name: "郵務管理", systemImageName: "envelope.fill", navigationPage: .postalService),
-            PageModel(name: "社區公告", systemImageName: "megaphone.fill", navigationPage: .bulletin),
-            PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .detail("報修")),
-            PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .detail("住戶意見")),
-            PageModel(name: "訪客", systemImageName: "person.crop.circle.fill", navigationPage: .guest),
-            PageModel(name: "公設", systemImageName: "building.columns.fill", navigationPage: .detail("公設")),
-            PageModel(name: "投票", systemImageName: "hand.thumbsup.fill", navigationPage: .detail("投票")),
-            PageModel(name: "規約", systemImageName: "doc.plaintext.fill", navigationPage: .rule),
-            PageModel(name: "瓦斯", systemImageName: "flame.fill", navigationPage: .detail("瓦斯")),
-            PageModel(name: "行事曆", systemImageName: "calendar", navigationPage: .detail("行事曆")),
-            PageModel(name: "管理費", systemImageName: "dollarsign.circle.fill", navigationPage: .detail("管理費")),
-            PageModel(name: "安控", systemImageName: "lock.shield.fill", navigationPage: .securityControl),
-            PageModel(name: "相簿", systemImageName: "photo.on.rectangle", navigationPage: .detail("相簿")),
-            PageModel(name: "遠端關懷", systemImageName: "antenna.radiowaves.left.and.right", navigationPage: .detail("遠端關懷")),
-            PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問"))
-        ]
-    }
-
+//    static var pageModel: [PageModel<HomeNavigationPage>]  = PageModelFactory.generatePageModel(for: userRoleRoot)
 
     @ViewBuilder
     func destinationView(for page: HomeNavigationPage) -> some View {
@@ -103,6 +128,11 @@ struct DetailView: View {
     }
 }
 
-
+struct PageModel<T>: Identifiable where T: Hashable {
+    let id = UUID() // 唯一標識符
+    let name: String // 圖標名稱
+    let systemImageName: String // 系統圖標名稱
+    let navigationPage: T // 對應導航標識符
+}
 
 

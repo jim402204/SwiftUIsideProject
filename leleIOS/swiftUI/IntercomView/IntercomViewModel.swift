@@ -8,14 +8,6 @@
 import RxSwift
 import SwiftUI
 
-enum UserRole {
-case 住戶
-case 物管
-case 商家
-}
-
-var userRole: UserRole = .住戶
-
 class IntercomViewModel: ObservableObject {
     var disposeBag = DisposeBag()
     
@@ -24,7 +16,7 @@ class IntercomViewModel: ObservableObject {
     
     let tabs = {
         var all = FeatureApi.IntercomList.Status.allCases.map { $0 }
-        if userRole == .物管 {
+        if UserDefaultsHelper.userRole == .物管 {
             all = all.filter { $0 != .戶戶 }
         }
         return all

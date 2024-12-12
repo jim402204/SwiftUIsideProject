@@ -10,6 +10,8 @@ import SwiftUI
 // 各個頁面的基本結構
 struct HomeView: View {
     @EnvironmentObject var router: NavigationManager
+    @State private var showRoleSelection = false
+    @State private var userRole: UserRole = UserDefaultsHelper.userRole
     
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -23,6 +25,20 @@ struct HomeView: View {
                         .lineLimit(1)
                     Text("功能選單")
                         .appFont(.title2)
+                    
+                    Button("角色切換") {
+                        showRoleSelection = true
+                    }
+                    .confirmationDialog("選擇角色", isPresented: $showRoleSelection) {
+                        ForEach(UserRole.allCases) { role in
+                            Button(role.rawValue) {
+                                userRole = role
+                                UserDefaultsHelper.userRole = role
+                            }
+                        }
+                        Button("取消", role: .cancel) {}
+                    }
+                    
                     Spacer()
                 }
                 .padding(.vertical,8)
@@ -33,7 +49,7 @@ struct HomeView: View {
                 .padding(.horizontal)
                 
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 20) {
-                    ForEach(HomeView.pageModel, id: \.name) { item in
+                    ForEach(PageModelFactory.generatePageModel(for: userRole), id: \.name) { item in
                         Button(action: {
                             router.path.append(item.navigationPage)
                         }) {

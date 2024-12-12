@@ -487,9 +487,9 @@
 		37C7F7762CFD91F300F32A5C /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				37E57C102D095DA000C9B5EF /* Guest */,
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
 				37E57C0E2D0934A800C9B5EF /* HomeView+.swift */,
+				37E57C102D095DA000C9B5EF /* Guest */,
 				37E57C072D083FA600C9B5EF /* Rule */,
 				377F99A12D08264A00BE818A /* Bulletin */,
 				377F99992D081D6400BE818A /* Security Control */,
