@@ -104,7 +104,6 @@
 		37E57C532D0AC03A00C9B5EF /* home_active.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C292D0AC03A00C9B5EF /* home_active.svg */; };
 		37E57C542D0AC03A00C9B5EF /* rules.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C3F2D0AC03A00C9B5EF /* rules.svg */; };
 		37E57C552D0AC03A00C9B5EF /* feedback.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C352D0AC03A00C9B5EF /* feedback.svg */; };
-		37E57C562D0AC03A00C9B5EF /* notify.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C2D2D0AC03A00C9B5EF /* notify.svg */; };
 		37E57C572D0AC03A00C9B5EF /* people_active.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C302D0AC03A00C9B5EF /* people_active.svg */; };
 		37E57C582D0AC03A00C9B5EF /* memo-1024.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C442D0AC03A00C9B5EF /* memo-1024.svg */; };
 		37E57C592D0AC03A00C9B5EF /* life.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C2B2D0AC03A00C9B5EF /* life.svg */; };
@@ -733,7 +732,6 @@
 				37E57C532D0AC03A00C9B5EF /* home_active.svg in Resources */,
 				37E57C542D0AC03A00C9B5EF /* rules.svg in Resources */,
 				37E57C552D0AC03A00C9B5EF /* feedback.svg in Resources */,
-				37E57C562D0AC03A00C9B5EF /* notify.svg in Resources */,
 				37E57C572D0AC03A00C9B5EF /* people_active.svg in Resources */,
 				37E57C582D0AC03A00C9B5EF /* memo-1024.svg in Resources */,
 				37E57C592D0AC03A00C9B5EF /* life.svg in Resources */,
