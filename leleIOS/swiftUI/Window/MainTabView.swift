@@ -50,10 +50,10 @@ struct MainTabView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             // 首頁
-            NavigationStack(path: $router.path) {
+//            NavigationStack(path: $router.path) {
                 HomeView()
                     .environmentObject(router)
-            }
+//            }
             .tabItem {
                 Image(systemName: "house.fill")
                 Text("首頁")
@@ -62,7 +62,7 @@ struct MainTabView: View {
             
             // 雲對講
             NavigationStack{
-                IntercomView()
+                IntercomView(isRootPage: true)
             }
             .tabItem {
                 Image(systemName: "phone.bubble.fill")
@@ -72,7 +72,7 @@ struct MainTabView: View {
             
             // 郵務管理
             NavigationStack {
-                PostalServiceView()
+                PostalServiceView(isRootPage: true)
             }
             .tabItem {
                 Image(systemName: "envelope.fill")

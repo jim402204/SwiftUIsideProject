@@ -63,7 +63,7 @@ struct ProfileView: View {
             .padding()
         }
         .background(Color(UIColor.systemGroupedBackground))
-        .navigationBarStyle(title: "個人")
+        .navigationBarStyle(title: "個人",isRootPage: true)
         .navigationBarItems(trailing:
                                 Button(action: {
             // 處理信息按鈕點擊

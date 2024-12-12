@@ -59,6 +59,7 @@ extension HomeView {
             PostalServiceView()
         case .bulletin:
             BulletinView()
+                
         case .rule:
             RuleView()
         case .securityControl:
@@ -67,6 +68,7 @@ extension HomeView {
             GuestView()
         case .detail(let message):
             DetailView()
+//            ChildView()
         }
     }
 
@@ -100,3 +102,7 @@ struct DetailView: View {
         
     }
 }
+
+
+
+

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IntercomView: View {
     @StateObject private var viewModel = IntercomViewModel()
+    var isRootPage: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -28,7 +29,7 @@ struct IntercomView: View {
                 }
             }
         }
-        .navigationBarStyle(title: "智慧對講")
+        .navigationBarStyle(title: "智慧對講", isRootPage: isRootPage)
         .navigationBarItems(trailing:
                                 Button(action: {
             // 設置按鈕動作

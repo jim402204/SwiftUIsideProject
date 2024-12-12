@@ -28,7 +28,7 @@ struct NotificationView: View {
                 }
             }
         }
-        .navigationBarStyle(title: "通知")
+        .navigationBarStyle(title: "通知",isRootPage: true)
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {
             viewModel.callAPI()
