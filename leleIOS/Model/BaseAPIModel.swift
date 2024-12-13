@@ -117,7 +117,7 @@ struct Community: Codable {
 }
 
 // MARK: - NotificationModel
-struct NotificationModel: Codable {
+struct NotificationModel: Codable, Identifiable {
     let id: String
     // 報修回覆 社區通知 退件通知 郵務通知
     let title: String

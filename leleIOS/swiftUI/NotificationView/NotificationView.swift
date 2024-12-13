@@ -22,8 +22,21 @@ struct NotificationView: View {
             // 通知列表
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach(viewModel.notifications, id: \.id) { notification in
+                    ForEach(viewModel.list, id: \.id) { notification in
                         NotificationCell(model: notification)
+                            .onAppear {
+                                viewModel.loadMoreIfNeeded(currentItem: notification)
+                            }
+                    }
+                    
+                    if viewModel.loadMoreManager.isLoading {
+                        ProgressView()
+                            .padding()
+                    } else if !viewModel.loadMoreManager.hasMoreData {
+                        Text("已加載全部內容")
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                            .padding()
                     }
                 }
             }
@@ -31,7 +44,7 @@ struct NotificationView: View {
         .navigationBarStyle(title: "通知",isRootPage: true)
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {
-            viewModel.callAPI()
+            viewModel.startAPI()
         }
     }
 }

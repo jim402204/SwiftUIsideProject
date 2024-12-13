@@ -116,6 +116,7 @@
 		37E57C602D0AC03A00C9B5EF /* notify_active.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C2E2D0AC03A00C9B5EF /* notify_active.svg */; };
 		37E57C612D0AC03A00C9B5EF /* intercom.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C382D0AC03A00C9B5EF /* intercom.svg */; };
 		37E57C622D0AC03A00C9B5EF /* lele_mic.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C2A2D0AC03A00C9B5EF /* lele_mic.svg */; };
+		37E57C652D0BCCEE00C9B5EF /* LoadMoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C642D0BCCEE00C9B5EF /* LoadMoreManager.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +226,7 @@
 		37E57C432D0AC03A00C9B5EF /* logo_outlined.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = logo_outlined.svg; sourceTree = "<group>"; };
 		37E57C442D0AC03A00C9B5EF /* memo-1024.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "memo-1024.svg"; sourceTree = "<group>"; };
 		37E57C452D0AC03A00C9B5EF /* menu.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = menu.svg; sourceTree = "<group>"; };
+		37E57C642D0BCCEE00C9B5EF /* LoadMoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreManager.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				374A5EAF2CFEF7E900A36375 /* refence swiftUI */,
 				375D8A542CFD4A6100A1E02B /* APPConfig */,
 				375D8A522CFD4A6100A1E02B /* Extension */,
+				37E57C632D0BCCE000C9B5EF /* Object */,
 				375D8A602CFD4A6100A1E02B /* APISevice */,
 				375D8A632CFD4A6100A1E02B /* Model */,
 				37C7F76D2CFD907700F32A5C /* swiftUI */,
@@ -626,6 +629,14 @@
 			path = svg;
 			sourceTree = "<group>";
 		};
+		37E57C632D0BCCE000C9B5EF /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C642D0BCCEE00C9B5EF /* LoadMoreManager.swift */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
 		81E1E02BE7B6D796B56403E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +863,7 @@
 				37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */,
 				375D8A672CFD4A6100A1E02B /* APIService.swift in Sources */,
 				377F99AA2D0834EE00BE818A /* BulletinDetailView.swift in Sources */,
+				37E57C652D0BCCEE00C9B5EF /* LoadMoreManager.swift in Sources */,
 				374A5EBD2CFEFA5A00A36375 /* UIColor+.swift in Sources */,
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
 				37E57C162D09676B00C9B5EF /* GuestViewModel.swift in Sources */,
