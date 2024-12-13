@@ -117,6 +117,7 @@
 		37E57C612D0AC03A00C9B5EF /* intercom.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C382D0AC03A00C9B5EF /* intercom.svg */; };
 		37E57C622D0AC03A00C9B5EF /* lele_mic.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57C2A2D0AC03A00C9B5EF /* lele_mic.svg */; };
 		37E57C652D0BCCEE00C9B5EF /* LoadMoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C642D0BCCEE00C9B5EF /* LoadMoreManager.swift */; };
+		37E57C672D0C144F00C9B5EF /* LoadMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C662D0C144F00C9B5EF /* LoadMoreView.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -227,6 +228,7 @@
 		37E57C442D0AC03A00C9B5EF /* memo-1024.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "memo-1024.svg"; sourceTree = "<group>"; };
 		37E57C452D0AC03A00C9B5EF /* menu.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = menu.svg; sourceTree = "<group>"; };
 		37E57C642D0BCCEE00C9B5EF /* LoadMoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreManager.swift; sourceTree = "<group>"; };
+		37E57C662D0C144F00C9B5EF /* LoadMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreView.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				37C7F7742CFD917B00F32A5C /* NotificationView.swift */,
 				37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */,
 				37C7F7802CFDBA5200F32A5C /* NotificationCell.swift */,
+				37E57C662D0C144F00C9B5EF /* LoadMoreView.swift */,
 			);
 			path = NotificationView;
 			sourceTree = "<group>";
@@ -851,6 +854,7 @@
 				374A5EE12D02F70F00A36375 /* View+.swift in Sources */,
 				377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */,
 				374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */,
+				37E57C672D0C144F00C9B5EF /* LoadMoreView.swift in Sources */,
 				374A5ECB2D00489C00A36375 /* ProfileOptionView.swift in Sources */,
 				374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */,
 				374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */,

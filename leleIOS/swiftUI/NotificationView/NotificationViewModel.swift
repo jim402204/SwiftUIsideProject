@@ -20,10 +20,10 @@ class NotificationViewModel: ObservableObject {
     
     @Published var selectedTab: NotifyApi.NotificationList.Status = .全部
     @Published var list: [NotificationModel] = []
-    var loadMoreManager = LoadMoreManager() // 用於管理分頁邏輯
-
+    @Published var loadMoreManager = LoadMoreManager() // 用於管理分頁邏輯
+    
     let tabs = NotifyApi.NotificationList.Status.allCases.map { $0 }
-
+    
     func tabChanged(to tab: NotifyApi.NotificationList.Status) {
         selectedTab = tab
         resetPagination()
@@ -49,9 +49,10 @@ extension NotificationViewModel {
                 guard let self = self else { return }
                 
                 self.list.append(contentsOf: models)
-                self.loadMoreManager.handleSuccess(models: models)
+                self.loadMoreManager.handleSuccess(models: self.list)
                 
             }, onFailure: { [weak self] error in
+
                 self?.loadMoreManager.handleFailure()
                 print("Error fetching notifications: \(error)")
             })

@@ -13,32 +13,24 @@ struct NotificationView: View {
     var body: some View {
         VStack(spacing: 0) {
             // 使用泛型版本的分段控制器
-//            SegmentedTabView(
-//                tabs: viewModel.tabs,
-//                selectedTab: viewModel.selectedTab,
-//                onTabChanged: viewModel.tabChanged
-//            )
+//            SegmentedTabView(tabs: viewModel.tabs,selectedTab: viewModel.selectedTab,onTabChanged: viewModel.tabChanged)
             
             // 通知列表
             ScrollView {
                 LazyVStack(spacing: 0) {
                     ForEach(viewModel.list, id: \.id) { notification in
                         NotificationCell(model: notification)
-                            .onAppear {
-                                viewModel.loadMoreIfNeeded(currentItem: notification)
-                            }
                     }
-                    
-                    if viewModel.loadMoreManager.isLoading {
-                        ProgressView()
-                            .padding()
-                    } else if !viewModel.loadMoreManager.hasMoreData {
-                        Text("已加載全部內容")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                            .padding()
+                    LoadMoreView(hasMoreData: viewModel.loadMoreManager.hasMoreData) {
+                        viewModel.loadMoreAPI()
                     }
                 }
+            }
+            .refreshable {
+                viewModel.startAPI()
+            }
+            .onChange(of: viewModel.loadMoreManager.hasMoreData) {
+                print("View hasMoreData: \(viewModel.loadMoreManager.hasMoreData)")
             }
         }
         .navigationBarStyle(title: "通知",isRootPage: true)

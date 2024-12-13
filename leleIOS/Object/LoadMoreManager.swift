@@ -7,11 +7,15 @@
 
 import SwiftUI
 // MARK: - LoadMoreManager  用於管理分頁邏輯
-/// 用於管理分頁邏輯
-class LoadMoreManager: ObservableObject {
-    @Published var currentPage: Int = 1
-    @Published var isLoading: Bool = false
-    @Published var hasMoreData: Bool = true
+/// 用於管理分頁邏輯  注意是struct結構 為了更新swiftUI
+struct LoadMoreManager {
+    var currentPage: Int = 1
+    var isLoading: Bool = false
+    var hasMoreData: Bool = true {
+        didSet {
+            print("LoadMoreManager hasMoreData changed to: \(hasMoreData)")
+        }
+    }
     
     private let pageSize: Int // 每頁的數量
     
@@ -23,14 +27,14 @@ class LoadMoreManager: ObservableObject {
     var loadedCount: Int { return (currentPage - 1) * pageSize }
 
     // 重置分頁
-    func reset() {
+    mutating func reset() {
         currentPage = 1
         isLoading = false
         hasMoreData = true
     }
 
     // 標記開始加載
-    func startLoading() { isLoading = true }
+    mutating func startLoading() { isLoading = true }
     
     // 加載下一頁的前置檢查
     func canLoadMore() -> Bool {
@@ -38,7 +42,7 @@ class LoadMoreManager: ObservableObject {
     }
 
     // 在成功获取数据后更新分页状态
-    func handleSuccess<Model>(models: [Model]) {
+    mutating func handleSuccess<Model>(models: [Model]) {
         isLoading = false
         if models.isEmpty {
             hasMoreData = false // 如果返回数组为空，标记无更多数据
@@ -48,9 +52,10 @@ class LoadMoreManager: ObservableObject {
     }
 
     // 處理加載失敗
-    func handleFailure() {
+    mutating func handleFailure() {
         isLoading = false
         hasMoreData = false
+        //因為是多層結構並需手動更新
     }
     
 }
@@ -67,7 +72,7 @@ protocol PaginatedLoadable: AnyObject {
 
 extension PaginatedLoadable {
     
-    /// 給cell 需要的更多API
+    /// 給cell 需要的更多API  掛在 cell  onAppear 下
     func loadMoreIfNeeded(currentItem: Item) {
         guard !items.isEmpty else { return }
         guard let currentIndex = items.firstIndex(where: { $0.id == currentItem.id }) else { return }
@@ -81,6 +86,7 @@ extension PaginatedLoadable {
             loadMoreAPI()
         }
     }
+    
     /// 第一次call API
     func startAPI() {
         resetPagination()
@@ -91,5 +97,15 @@ extension PaginatedLoadable {
         items.removeAll()
         loadMoreManager.reset()
     }
+    
+//    if viewModel.loadMoreManager.hasMoreData {
+//        ProgressView()
+//            .padding()
+//            .onAppear {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                    viewModel.loadMoreAPI()
+//                }
+//            }
+//    }
     
 }
