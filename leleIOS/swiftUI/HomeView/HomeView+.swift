@@ -38,16 +38,14 @@ struct PageModelFactory {
                 PageModel(name: "安控", systemImageName: "lock.shield.fill", navigationPage: .securityControl),
                 PageModel(name: "相簿", systemImageName: "photo.on.rectangle", navigationPage: .detail("相簿")),
                 PageModel(name: "遠端關懷", systemImageName: "antenna.radiowaves.left.and.right", navigationPage: .detail("遠端關懷")),
-                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問"))
+//                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問"))
             ]
         case .商家:
-            return [
-                PageModel(name: "便利生活", systemImageName: "cart.fill", navigationPage: .detail("便利生活"))
-            ]
+            return []
         case .物管:
             return [
                 PageModel(name: "雲對講", systemImageName: "phone.bubble.fill", navigationPage: .intercom),
-                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問")),
+//                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問")),
                 PageModel(name: "郵務管理", systemImageName: "envelope.fill", navigationPage: .postalService),
                 PageModel(name: "寄放", systemImageName: "tray.and.arrow.down.fill", navigationPage: .detail("寄放")),
                 PageModel(name: "通知", systemImageName: "bell.fill", navigationPage: .detail("通知")),

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoadMoreView: View {
     let hasMoreData: Bool
-    let onLoadMore: () -> Void
+    var onLoadMore: () -> Void = {}
     
     var body: some View {
         Group {

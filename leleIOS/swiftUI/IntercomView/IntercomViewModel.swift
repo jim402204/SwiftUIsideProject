@@ -17,7 +17,7 @@ class IntercomViewModel: ObservableObject {
     let tabs = {
         var all = FeatureApi.IntercomList.Status.allCases.map { $0 }
         if UserDefaultsHelper.userRole == .物管 {
-            all = all.filter { $0 != .戶戶 }
+            all = [.社區, .戶戶]
         }
         return all
     }()
@@ -45,7 +45,13 @@ class IntercomViewModel: ObservableObject {
                     
                     guard let self = self else { return }
                     
-                    self.intercomList = model.map { IntercomCellViewModel($0, status: currentTab) }
+                    var viewModels = model.map { IntercomCellViewModel($0, status: currentTab) }
+                    
+                    if selectedTab == .社區, UserDefaultsHelper.userRole == .住戶 {
+                        viewModels = viewModels.filter { $0.name == "管理中心" }
+                    }
+                    
+                    self.intercomList = viewModels
                 })
             .disposed(by: disposeBag)
         

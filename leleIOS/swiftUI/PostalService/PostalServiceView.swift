@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PostalServiceView: View {
     @StateObject private var viewModel = PostalServicViewModel()
-    var isRootPage: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -31,7 +30,7 @@ struct PostalServiceView: View {
                 }
             }
         }
-        .navigationBarStyle(title: "包裹寄物",isRootPage: isRootPage)
+        .navigationBarStyle(title: "包裹寄物")
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {
             viewModel.callAPI()

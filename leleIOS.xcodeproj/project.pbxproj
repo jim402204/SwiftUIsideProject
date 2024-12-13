@@ -485,7 +485,6 @@
 				37C7F7742CFD917B00F32A5C /* NotificationView.swift */,
 				37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */,
 				37C7F7802CFDBA5200F32A5C /* NotificationCell.swift */,
-				37E57C662D0C144F00C9B5EF /* LoadMoreView.swift */,
 			);
 			path = NotificationView;
 			sourceTree = "<group>";
@@ -508,6 +507,7 @@
 			children = (
 				37C7F77E2CFDB9F700F32A5C /* SegmentedTabView.swift */,
 				37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */,
+				37E57C662D0C144F00C9B5EF /* LoadMoreView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";

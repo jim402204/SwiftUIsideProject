@@ -30,7 +30,7 @@ struct NotificationView: View {
                 viewModel.startAPI()
             }
             .onChange(of: viewModel.loadMoreManager.hasMoreData) {
-                print("View hasMoreData: \(viewModel.loadMoreManager.hasMoreData)")
+                print("View hasMoreData changed: \(viewModel.loadMoreManager.hasMoreData)")
             }
         }
         .navigationBarStyle(title: "通知",isRootPage: true)

@@ -70,16 +70,6 @@ struct MainTabView: View {
             }
             .tag(1)
             
-            // 郵務管理
-            NavigationStack {
-                PostalServiceView(isRootPage: true)
-            }
-            .tabItem {
-                Image(systemName: "envelope.fill")
-                Text("郵務管理")
-            }
-            .tag(2)
-            
             // 通知
             NavigationStack {
                 NotificationView()
@@ -88,7 +78,7 @@ struct MainTabView: View {
                 Image(systemName: "bell.fill")
                 Text("通知")
             }
-            .tag(3)
+            .tag(2)
             
             // 個人
             NavigationStack {
@@ -98,7 +88,7 @@ struct MainTabView: View {
                 Image(systemName: "person.fill")
                 Text("個人")
             }
-            .tag(4)
+            .tag(3)
         }
     }
 }

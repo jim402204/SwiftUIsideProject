@@ -6,6 +6,15 @@
 //
 
 import SwiftUI
+protocol TabModel: Hashable {
+    var title: String { get }
+}
+
+extension TabModel {
+    var title: String {
+        return "\(self)"
+    }
+}
 
 // 泛型版本的分段控制器
 struct SegmentedTabView<T: Hashable>: View {
