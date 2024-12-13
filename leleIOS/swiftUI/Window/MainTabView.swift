@@ -48,20 +48,38 @@ struct MainTabView: View {
     }
     
     var body: some View {
-        TabView(selection: $selectedTab) {
+        
+        if UserDefaultsHelper.userRole == .商家 {
+            createStoreTabView(selectedTab: $selectedTab, router: router)
+        } else {
+            createTabView(selectedTab: $selectedTab, router: router)
+        }
+    }
+}
+
+// 預覽
+struct MainTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainTabView()
+            .environmentObject(AppState())
+    }
+}
+
+extension MainTabView {
+    
+    func createTabView(selectedTab: Binding<Int>, router: NavigationManager) -> some View {
+        TabView(selection: selectedTab) {
             // 首頁
-//            NavigationStack(path: $router.path) {
-                HomeView()
-                    .environmentObject(router)
-//            }
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("首頁")
-            }
-            .tag(0)
+            HomeView()
+                .environmentObject(router)
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("首頁")
+                }
+                .tag(0)
             
             // 雲對講
-            NavigationStack{
+            NavigationStack {
                 IntercomView(isRootPage: true)
             }
             .tabItem {
@@ -91,12 +109,31 @@ struct MainTabView: View {
             .tag(3)
         }
     }
-}
-
-// 預覽
-struct MainTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
-            .environmentObject(AppState())
+    
+    
+    func createStoreTabView(selectedTab: Binding<Int>, router: NavigationManager) -> some View {
+        TabView(selection: selectedTab) {
+            
+            // 雲對講
+            NavigationStack {
+                IntercomView(isRootPage: true)
+            }
+            .tabItem {
+                Image(systemName: "phone.bubble.fill")
+                Text("雲對講")
+            }
+            .tag(0)
+            
+            // 商家
+            NavigationStack {
+                ProfileView()
+            }
+            .tabItem {
+                Image(systemName: "person.fill")
+                Text("商家")
+            }
+            .tag(1)
+        }
     }
+
 }
