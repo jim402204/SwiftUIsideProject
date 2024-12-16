@@ -35,10 +35,7 @@ class IntercomViewModel: ObservableObject {
     
     func callAPI() {
         
-//        loginAPI(bag: disposeBag) {
-            
-            self.intercomListAPI()
-//        }
+        self.intercomListAPI()
     }
     
     func intercomListAPI() {

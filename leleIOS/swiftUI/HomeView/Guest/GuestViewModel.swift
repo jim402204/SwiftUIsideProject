@@ -15,7 +15,7 @@ class GuestViewModel: ObservableObject {
         callAPI()
     }
     
-    func callAPI() {
+    func callAPI1() {
         
         apiService.request(NotifyApi.GuestList())
             .sink { [weak self] model in
@@ -25,6 +25,28 @@ class GuestViewModel: ObservableObject {
                 self.list = models
                 
             }.store(in: &bag)
+    }
+    
+    func callAPI() {
+        
+//        performAsyncOperation { try await apiService.requestA(NotifyApi.GuestList()) } onSuccess: { model in
+//            let models = model.map { GuestCellViewModel(model: $0) }
+//            self.list = models
+//        }
+        
+        
+        Task {
+            do {
+                let model = try await apiService.requestA(NotifyApi.GuestList())
+                
+                await MainActor.run {
+                    let models = model.map { GuestCellViewModel(model: $0) }
+                    self.list = models
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
     
 }

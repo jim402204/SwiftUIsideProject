@@ -77,7 +77,7 @@ import RxSwift
 
 extension APIService {
     
-    func requestRx<Request: ApiTargetType>(_ request: Request, alerts: [ShowAlertMsg] = []) -> Single<Request.ResponseDataType> {
+    func requestRx<Request: ApiTargetType>(_ request: Request) -> Single<Request.ResponseDataType> {
         
         let target = MultiTarget.init(request)
         
@@ -89,7 +89,7 @@ extension APIService {
             
     }
     /// 直接回respone
-    func requestRxRaw<Request: ApiTargetType>(_ request: Request, alerts: [ShowAlertMsg] = []) -> Single<Moya.Response> {
+    func requestRxRaw<Request: ApiTargetType>(_ request: Request) -> Single<Moya.Response> {
         let target = MultiTarget.init(request)
         
         return provider.rx.request(target)
@@ -101,6 +101,14 @@ extension APIService {
 }
 
 extension PrimitiveSequence where Trait == SingleTrait, Element == Moya.Response {}
+
+extension APIService {
+    
+    
+    
+}
+
+
 
 import Alamofire
 import Foundation
