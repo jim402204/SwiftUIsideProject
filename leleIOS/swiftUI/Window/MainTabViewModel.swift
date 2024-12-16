@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import RxSwift
+import Combine
 
 class MainTabViewModel: ObservableObject {
-    var disposeBag = DisposeBag()
+    private var bag = Set<AnyCancellable>()
     
     init () {
         callAPI()
@@ -17,25 +17,24 @@ class MainTabViewModel: ObservableObject {
     
     func callAPI() {
         
-        apiService.request(LaunchApi.HouseholdList())
-            .subscribe(
-                onSuccess: { [weak self] respone in
-                    
-                    guard let self = self else { return }
-                    guard let model = respone.first else { return }
-                    
-                    let userInfo = CommunityInfo(
-                        id: model.community.id,
-                        name: model.community.name,
-                        building: model.building,
-                        doorPlate: model.doorPlate,
-                        floor: model.floor
-                    )
-                    
-                    UserDefaultsHelper.communityAdmin = model.community.id
-                    UserDefaultsHelper.userBuilding = userInfo
-                })
-            .disposed(by: disposeBag)
+        apiService.requestC(LaunchApi.HouseholdList())
+            .sink(onSuccess: { [weak self] respone in
+                guard let self = self else { return }
+                
+                guard let model = respone.first else { return }
+                
+                let userInfo = CommunityInfo(
+                    id: model.community.id,
+                    name: model.community.name,
+                    building: model.building,
+                    doorPlate: model.doorPlate,
+                    floor: model.floor
+                )
+                
+                UserDefaultsHelper.communityAdmin = model.community.id
+                UserDefaultsHelper.userBuilding = userInfo
+                
+            }).store(in: &bag)
         
     }
     
@@ -43,25 +42,23 @@ class MainTabViewModel: ObservableObject {
 
 // MARK: - 快速login API 測試用
 /// 給測試用
-func loginAPI(bag: DisposeBag, handle: (()->())? = nil) {
+func loginAPI(bag: inout Set<AnyCancellable>, handle: (()->())? = nil) {
     
-    apiService.request(UserApi.GetToken()).asObservable()
-        .flatMapLatest({ model in
-            
+    apiService.requestC(UserApi.GetToken())
+        .flatMapLatest { model in
             let token = model.Token
             let user = "0987654321"
             let pass = "135246"
             let digest = generateSHA256Digest(user: user, token: token, pass: pass)
-            
-            return apiService.request(UserApi.Login(user: user, digest: digest, token: token))
-        })
-        .subscribe { model in
+
+            return apiService.requestC(UserApi.Login(user: user, digest: digest, token: token))
+        }.sink { model in
             
             UserDefaultsHelper.token = model.jwtToken
             
             handle?()
             
-        }.disposed(by: bag)
+        }.store(in: &bag)
 }
 
 import CryptoKit

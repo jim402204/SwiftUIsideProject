@@ -6,8 +6,6 @@
 //
 
 import Moya
-import RxSwift
-import SwiftyJSON
 import RxMoya
 
 protocol BaseResponseCode {
@@ -27,21 +25,64 @@ var apiService = APIService.shared
 final class APIService {
     static let shared = APIService()
     
-    init() {} //開放對外是因為 需要用con
+    private init() {}
     lazy var provider = MoyaProvider<MultiTarget>(session: customSession(), plugins: [MyPlugin()])
     
-    let decoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-//        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return decoder
-    }()
+    
+    
+    
+}
+
+import Combine
+import CombineMoya
+
+extension APIService {
+    typealias CombinePublisher = AnyPublisher<Moya.Response, MoyaError>
+    
+    func requestC<Request: ApiTargetType>(_ request: Request) -> AnyPublisher<Request.ResponseDataType, MoyaError> {
+        let target = MultiTarget(request)
+        
+        return provider.requestPublisher(target)
+            .map(Request.ResponseDataType.self)
+            .handleEvents(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    self.onError(error) // 處理錯誤
+                }
+            })
+            .eraseToAnyPublisher() // 將結果轉換為 AnyPublisher
+    }
+    
+    func requestCRaw<Request: ApiTargetType>(_ request: Request) -> CombinePublisher {
+        let target = MultiTarget(request)
+        
+        return provider.requestPublisher(target)
+            .handleEvents(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    self.onError(error) // 處理錯誤
+                }
+            })
+            .eraseToAnyPublisher() // 將結果轉換為 AnyPublisher
+    }
+    /// 自定义错误信息
+    static func failWithMoyaError<T>(_ message: String, code: Int = -1) -> AnyPublisher<T, MoyaError> {
+        let error = MoyaError.underlying(NSError(domain: "error", code: code, userInfo: [NSLocalizedDescriptionKey: message]), nil)
+        return Fail<T, MoyaError>(error: error).eraseToAnyPublisher()
+    }
+    static func emptyPublisher<T>(type: T.Type = T.self) -> AnyPublisher<T, MoyaError> {
+        return Empty<T,MoyaError>().eraseToAnyPublisher()
+    }
+}
+
+import RxSwift
+
+extension APIService {
     
     func request<Request: ApiTargetType>(_ request: Request, alerts: [ShowAlertMsg] = []) -> Single<Request.ResponseDataType> {
         
         let target = MultiTarget.init(request)
         
         return provider.rx.request(target)
-            .map(Request.ResponseDataType.self, using: decoder)
+            .map(Request.ResponseDataType.self)
             .do(onError: { error in
                 self.onError(error)
             })
@@ -57,15 +98,9 @@ final class APIService {
             })
     }
     
-    /// 直接回respone  客制訊息用
-    func requestNoHandle<Request: ApiTargetType>(_ request: Request) -> Single<Moya.Response> {
-        let target = MultiTarget.init(request)
-        
-        return provider.rx.request(target)
-    }
-    
-    
 }
+
+extension PrimitiveSequence where Trait == SingleTrait, Element == Moya.Response {}
 
 import Alamofire
 import Foundation
@@ -94,11 +129,7 @@ extension APIService {
     
 }
 
-extension PrimitiveSequence where Trait == SingleTrait, Element == Moya.Response {
 
-    
- 
-}
 
 struct ShowAlertMsg {
     let code: Int
@@ -106,10 +137,6 @@ struct ShowAlertMsg {
 }
 
 extension Moya.Response { //測試時 要有respone 才會進呀
-
-   
-    
-      
     
 }
 

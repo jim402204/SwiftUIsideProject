@@ -5,12 +5,11 @@
 //  Created by 江俊瑩 on 2024/12/10.
 //
 
-import RxSwift
+import Combine
 import SwiftUI
 
 class RuleViewModel: ObservableObject {
-    var disposeBag = DisposeBag()
-    
+    private var bag = Set<AnyCancellable>()
     @Published var list: [BulletinCellViewModel] = []
     
     init() {
@@ -20,16 +19,14 @@ class RuleViewModel: ObservableObject {
     func callAPI() {
         
         
-        apiService.request(PublicFacilitiesApi.RulesList())
-            .subscribe(onSuccess: { [weak self] model in
-                    
+        apiService.requestC(PublicFacilitiesApi.RulesList())
+            .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 
                 let models: [RulesListModel] = model
                 self.list = models.map { BulletinCellViewModel($0) }
                 
-            }).disposed(by: disposeBag)
-        
+            }).store(in: &bag)
     }
     
 }

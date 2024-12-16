@@ -5,11 +5,11 @@
 //  Created by 江俊瑩 on 2024/12/5.
 //
 
-import RxSwift
+import Combine
 import SwiftUI
 
 class PostalServicViewModel: ObservableObject {
-    var disposeBag = DisposeBag()
+    private var bag = Set<AnyCancellable>()
     
     @Published var selectedTab: FeatureApi.PackageList.Status = .寄放
     @Published var list: [PostalServiceCellViewModel] = []
@@ -23,28 +23,21 @@ class PostalServicViewModel: ObservableObject {
     
     func callAPI() {
         
-//        loginAPI(bag: disposeBag) {
-            
-            self.intercomListAPI()
-//        }
+        self.intercomListAPI()
     }
     
     func intercomListAPI() {
         
         let currentTab = FeatureApi.PackageList.Status.allCases.first { $0 == selectedTab } ?? .未領取
         
-        apiService.request(FeatureApi.PackageList(status: currentTab))
-            .subscribe(
-                onSuccess: { [weak self] models in
-                    
-                    guard let self = self else { return }
-                    
-//                    let newModel: [IdentifiableModel<PackageModel>] = model.map { IdentifiableModel(model: $0) }
-                    
-                    let models = models.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
-                    self.list = models
-                })
-            .disposed(by: disposeBag)
+        apiService.requestC(FeatureApi.PackageList(status: currentTab))
+            .sink(onSuccess: { [weak self] model in
+                guard let self = self else { return }
+                
+                let models = model.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
+                self.list = models
+                
+            }).store(in: &bag)
         
     }
 }

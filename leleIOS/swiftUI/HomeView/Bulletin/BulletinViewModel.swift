@@ -5,11 +5,11 @@
 //  Created by 江俊瑩 on 2024/12/10.
 //
 
-import RxSwift
+import Combine
 import SwiftUI
 
 class BulletinViewModel: ObservableObject {
-    var disposeBag = DisposeBag()
+    private var bag = Set<AnyCancellable>()
     
     @Published var list: [BulletinCellViewModel] = []
     
@@ -19,20 +19,17 @@ class BulletinViewModel: ObservableObject {
     
     func callAPI() {
         
+        let api1 = apiService.requestC(FeatureApi.NewsList(top: .置頂))
+        let api2 = apiService.requestC(FeatureApi.NewsList(top: .一般))
         
-        let api1 = apiService.request(FeatureApi.NewsList(top: .置頂))
-        let api2 = apiService.request(FeatureApi.NewsList(top: .一般))
-        
-        Single.zip(api1, api2)
-            .subscribe(onSuccess: { [weak self] re1,re2 in
-                    
+        Publishers.Zip(api1, api2)
+            .sink(onSuccess: { [weak self] re1, re2 in
                 guard let self = self else { return }
                 
                 let models = re1.result + re2.result
                 self.list = models.map { BulletinCellViewModel($0) }
                 
-            }).disposed(by: disposeBag)
-        
+            }).store(in: &bag)
     }
     
 }

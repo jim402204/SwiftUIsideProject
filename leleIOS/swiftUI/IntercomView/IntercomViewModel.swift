@@ -5,12 +5,11 @@
 //  Created by 江俊瑩 on 2024/12/5.
 //
 
-import RxSwift
+import Combine
 import SwiftUI
 
 class IntercomViewModel: ObservableObject {
-    var disposeBag = DisposeBag()
-    
+    private var bag = Set<AnyCancellable>()
     @Published var selectedTab: FeatureApi.IntercomList.Status = .社區
     @Published var intercomList: [IntercomCellViewModel] = []
     
@@ -46,21 +45,20 @@ class IntercomViewModel: ObservableObject {
         
         let currentTab = FeatureApi.IntercomList.Status.allCases.first { $0 == selectedTab } ?? .社區
         
-        apiService.request(FeatureApi.IntercomList(status: currentTab))
-            .subscribe(
-                onSuccess: { [weak self] model in
-                    
-                    guard let self = self else { return }
-                    
-                    var viewModels = model.map { IntercomCellViewModel($0, status: currentTab) }
-                    
-                    if selectedTab == .社區, UserDefaultsHelper.userRole == .住戶 {
-                        viewModels = viewModels.filter { $0.name == "管理中心" }
-                    }
-                    
-                    self.intercomList = viewModels
-                })
-            .disposed(by: disposeBag)
+        apiService.requestC(FeatureApi.IntercomList(status: currentTab))
+            .sink(onSuccess: { [weak self] model in
+                guard let self = self else { return }
+            
+                var viewModels = model.map { IntercomCellViewModel($0, status: currentTab) }
+                
+                if selectedTab == .社區, UserDefaultsHelper.userRole == .住戶 {
+                    viewModels = viewModels.filter { $0.name == "管理中心" }
+                }
+                
+                self.intercomList = viewModels
+                
+            }).store(in: &bag)
+            
         
     }
 }

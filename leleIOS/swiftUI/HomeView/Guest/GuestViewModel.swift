@@ -4,12 +4,11 @@
 //
 //  Created by 江俊瑩 on 2024/12/11.
 //
-import RxSwift
 import SwiftUI
+import Combine
 
 class GuestViewModel: ObservableObject {
-    var disposeBag = DisposeBag()
-    
+    private var bag = Set<AnyCancellable>()
     @Published var list: [GuestCellViewModel] = []
     
     init() {
@@ -18,16 +17,14 @@ class GuestViewModel: ObservableObject {
     
     func callAPI() {
         
-        
-        apiService.request(NotifyApi.GuestList())
-            .subscribe(onSuccess: { [weak self] model in
-                    
+        apiService.requestC(NotifyApi.GuestList())
+            .sink { [weak self] model in
                 guard let self = self else { return }
                 
                 let models = model.map { GuestCellViewModel(model: $0) }
                 self.list = models
-
-            }).disposed(by: disposeBag)
+                
+            }.store(in: &bag)
     }
     
 }

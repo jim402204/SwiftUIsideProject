@@ -6,23 +6,8 @@
 //
 
 import Moya
-import RxSwift
 import SwiftyJSON
 import Foundation
-
-extension PrimitiveSequence where Trait == SingleTrait {
-    /// 處理 respone statusCode
-    func handleJsonCode() -> Single<Element> {
-        return self.do(onSuccess: { model in
-
-            if let model = model as? BaseResponseCode,
-               model.status == 300
-            {
-                print("300 重新登入")
-            }
-        })
-    }
-}
 
 extension UserApi {
     /// Postman Moke Server 模擬https code 200 401 404 500 503
@@ -35,26 +20,35 @@ extension UserApi {
     
 }
 
+import Combine
+
 extension APIService {
     
-    //模擬api 測試用
-    func requestTest<Model>(code: Int = 200, model: Model, respone: Bool = true,
-                            file: String = #file,
-                            method: String = #function,
-                            line: Int = #line) -> Single<BaseResponseData<Model>> {
-    
-        return Single<BaseResponseData<Model>>.create { single in
+    // 模拟 API 测试用
+    func requestTest<Model>(
+        code: Int = 200,
+        model: Model,
+        respone: Bool = true,
+        file: String = #file,
+        method: String = #function,
+        line: Int = #line
+    ) -> AnyPublisher<BaseResponseData<Model>, Error> {
+        
+        return Future<BaseResponseData<Model>, Error> { promise in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                
                 if respone {
-                    single(.success(BaseResponseData<Model>(status: code, data: model)))
+                    promise(.success(BaseResponseData<Model>(status: code, data: model)))
                 } else {
-                    single(.failure(NSError(domain: "\(file) \(method) \(line) api error", code: 0, userInfo: [:])))
+                    let error = NSError(
+                        domain: "\(file) \(method) \(line) api error",
+                        code: 0,
+                        userInfo: [:]
+                    )
+                    promise(.failure(error))
                 }
             }
-            
-            return Disposables.create {  }
         }
+        .eraseToAnyPublisher()
     }
     
     func onSuccess<apiTarget: ApiTargetType>(_ response: Response, input: apiTarget) {

@@ -1,6 +1,5 @@
 import SwiftUI
-import RxSwift
-import Moya
+import Combine
 
 extension NotificationViewModel: PaginatedLoadable {
     typealias Item = NotificationModel
@@ -16,7 +15,7 @@ extension NotificationViewModel: PaginatedLoadable {
 }
 
 class NotificationViewModel: ObservableObject {
-    private let disposeBag = DisposeBag()
+    private var bag = Set<AnyCancellable>()
     
     @Published var selectedTab: NotifyApi.NotificationList.Status = .全部
     @Published var list: [NotificationModel] = []
@@ -43,20 +42,20 @@ extension NotificationViewModel {
         let currentTab = NotifyApi.NotificationList.Status.allCases.first { $0 == selectedTab } ?? .全部
         let sk = loadMoreManager.loadedCount
         
-        apiService.request(NotifyApi.NotificationList(sk: sk, s: currentTab))
-            .observe(on: MainScheduler.instance)
-            .subscribe(onSuccess: { [weak self] (models: [NotificationModel]) in
+        apiService.requestC(NotifyApi.NotificationList(sk: sk, s: currentTab))
+            .receive(on: DispatchQueue.main)
+            .sink(onSuccess: { [weak self] (models: [NotificationModel]) in
                 guard let self = self else { return }
                 
                 self.list.append(contentsOf: models)
                 self.loadMoreManager.handleSuccess(models: self.list)
                 
             }, onFailure: { [weak self] error in
-
+                
                 self?.loadMoreManager.handleFailure()
                 print("Error fetching notifications: \(error)")
-            })
-            .disposed(by: disposeBag)
+
+            }).store(in: &bag)
     }
     
 }

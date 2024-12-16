@@ -1,9 +1,8 @@
 import Foundation
 import Combine
-import RxSwift
 
 class LoginViewModel: ObservableObject {
-    var disposeBag = DisposeBag()
+    private var bag = Set<AnyCancellable>()
     @Published var phoneNumber: String = "0987654321"
     @Published var password: String = "135246"
     @Published var isPasswordVisible: Bool = false
@@ -71,26 +70,23 @@ extension LoginViewModel {
         
         isLoading = true
         
-        apiService.request(UserApi.GetToken()).asObservable()
-            .flatMapLatest({ [unowned self] model in
-                
+        apiService.requestC(UserApi.GetToken())
+            .flatMapLatest { [unowned self] model in
                 let token = model.Token
                 let user = phoneNumber
-                let password = password
-                let digest = self.generateSHA256Digest(user: user, token: token, pass: password)
-                
-                return apiService.request(UserApi.Login(user: user, digest: digest, token: token))
-            })
-            .subscribe(onNext: { [weak self] model in
+                let pass = password
+                let digest = self.generateSHA256Digest(user: user, token: token, pass: pass)
+
+                return apiService.requestC(UserApi.Login(user: user, digest: digest, token: token))
+            }.sink(onSuccess: { [weak self] model in
                 
                 self?.appState?.logIn(token: model.jwtToken)
-                
                 handle?()
                 
-            }, onDisposed: {
-                self.isLoading = false
-            })
-            .disposed(by: disposeBag)
+            }, onCompletion: { [weak self] in
+                self?.isLoading = false
+                
+            }).store(in: &bag)
         
     }
     
