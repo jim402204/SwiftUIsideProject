@@ -24,6 +24,9 @@ struct SecurityControlView: View {
                 }
             }
         }
+        .refreshable {
+            viewModel.callAPI()
+        }
         .navigationBarStyle(title: "即時影像")
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {

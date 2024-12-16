@@ -17,6 +17,7 @@ struct IntercomView: View {
             SegmentedTabView(
                 tabs: viewModel.tabs,
                 selectedTab: viewModel.selectedTab,
+                titleMapping: viewModel.titleMapping,
                 onTabChanged: viewModel.tabChanged
             )
             

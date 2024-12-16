@@ -14,6 +14,13 @@ class IntercomViewModel: ObservableObject {
     @Published var selectedTab: FeatureApi.IntercomList.Status = .社區
     @Published var intercomList: [IntercomCellViewModel] = []
     
+    var titleMapping: [FeatureApi.IntercomList.Status : String] {
+        var type: [FeatureApi.IntercomList.Status : String] = [:]
+        if UserDefaultsHelper.userRole == .物管 {
+            type = [.戶戶 : "住戶"]
+        }
+        return type
+    }
     let tabs = {
         var all = FeatureApi.IntercomList.Status.allCases.map { $0 }
         if UserDefaultsHelper.userRole == .物管 {

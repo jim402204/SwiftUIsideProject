@@ -82,7 +82,7 @@ extension APIService {
     func customSession(timeout: Double = 20) -> Session {
         let configuration = URLSessionConfiguration.default
 
-        var defaultHeader = HTTPHeaders.default
+        let defaultHeader = HTTPHeaders.default
 //        defaultHeader.add(HTTPHeader.userAgent(new))
 //        print("configuration defaultHeader: \(defaultHeader)")
         

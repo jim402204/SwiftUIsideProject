@@ -20,6 +20,9 @@ struct GuestView: View {
                 }
             }
         }
+        .refreshable {
+            viewModel.callAPI()
+        }
         .navigationBarStyle(title: "訪客紀錄")
         .background(Color(UIColor.systemGroupedBackground))
     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @EnvironmentObject var appState: AppState
     @StateObject private var viewModel = LoginViewModel()
+    @State private var showRoleSelection = false
     
     var body: some View {
 //        NavigationStack {
@@ -29,6 +30,22 @@ struct LoginView: View {
                 .padding(.top, 50)
                 .onAppear {
                     viewModel.setApp(state: appState)
+                }
+                .overlay {
+                    VStack(spacing: 10) {
+                        Button("角色切換") {
+                            showRoleSelection = true
+                        }
+                        .confirmationDialog("選擇角色", isPresented: $showRoleSelection) {
+                            ForEach(UserRole.allCases) { role in
+                                Button(role.rawValue) {
+                                    UserDefaultsHelper.userRole = role
+                                }
+                            }
+                            Button("取消", role: .cancel) {}
+                        }
+                        Spacer()
+                    }
                 }
                 
                 // 輸入表單

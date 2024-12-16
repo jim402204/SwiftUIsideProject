@@ -89,4 +89,16 @@ extension ProfileViewModel {
             .disposed(by: disposeBag)
     }
     
+    func logoutAPI() {
+        
+        apiService.request(UserApi.Logout(uid: "uid"))
+            .subscribe(onSuccess: { [weak self] model in
+                
+                guard let self = self else { return }
+                
+                appState?.logOut()
+            })
+            .disposed(by: disposeBag)
+    }
+    
 }

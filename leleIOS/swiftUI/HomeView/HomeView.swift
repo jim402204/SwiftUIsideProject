@@ -26,19 +26,7 @@ struct HomeView: View {
                     Text("功能選單")
                         .appFont(.title2)
                     
-                    Button("角色切換") {
-                        showRoleSelection = true
-                    }
-                    .confirmationDialog("選擇角色", isPresented: $showRoleSelection) {
-                        ForEach(UserRole.allCases) { role in
-                            Button(role.rawValue) {
-                                userRole = role
-                                UserDefaultsHelper.userRole = role
-                            }
-                        }
-                        Button("取消", role: .cancel) {}
-                    }
-                    
+//                    testButton()
                     Spacer()
                 }
                 .padding(.vertical,8)
@@ -94,6 +82,21 @@ struct HomeView: View {
                 Text(item.name)
                     .foregroundStyle(Color.black.opacity(0.7))
             }
+        }
+    }
+    
+    func testButton() -> some View {
+        Button("角色切換") {
+            showRoleSelection = true
+        }
+        .confirmationDialog("選擇角色", isPresented: $showRoleSelection) {
+            ForEach(UserRole.allCases) { role in
+                Button(role.rawValue) {
+                    userRole = role
+                    UserDefaultsHelper.userRole = role
+                }
+            }
+            Button("取消", role: .cancel) {}
         }
     }
 }

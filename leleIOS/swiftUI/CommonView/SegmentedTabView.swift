@@ -21,18 +21,18 @@ struct SegmentedTabView<T: Hashable>: View {
     let tabs: [T]
     let selectedTab: T
     let onTabChanged: (T) -> Void
-//    let content: (T) -> Content
+    let titleMapping: [T: String]
     
     init(
         tabs: [T],
         selectedTab: T,
+        titleMapping: [T: String] = [:],
         onTabChanged: @escaping (T) -> Void
-//        @ViewBuilder content: @escaping (T) -> Content
     ) {
         self.tabs = tabs
         self.selectedTab = selectedTab
         self.onTabChanged = onTabChanged
-//        self.content = content
+        self.titleMapping = titleMapping
     }
     
     var body: some View {
@@ -42,7 +42,7 @@ struct SegmentedTabView<T: Hashable>: View {
                     onTabChanged(tab)
                 }) {
                     VStack(spacing: 0) {
-                        Text("\(tab)")
+                        Text(titleMapping[tab] ?? "\(tab)")
                             .frame(height: 34)
                             .appFont(.title3)
                             .foregroundColor(selectedTab == tab ? .teal : .gray)

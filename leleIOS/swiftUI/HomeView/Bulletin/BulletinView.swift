@@ -23,6 +23,9 @@ struct BulletinView: View {
                 }
             }
         }
+        .refreshable {
+            viewModel.callAPI()
+        }
         .navigationBarStyle(title: "社區公告")
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {

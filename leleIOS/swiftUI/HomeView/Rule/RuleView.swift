@@ -24,6 +24,9 @@ struct RuleView: View {
                 }
             }
         }
+        .refreshable {
+            viewModel.callAPI()
+        }
         .navigationBarStyle(title: "規約辦法")
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {
