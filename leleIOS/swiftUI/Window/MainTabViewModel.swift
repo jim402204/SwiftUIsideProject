@@ -41,7 +41,7 @@ class MainTabViewModel: ObservableObject {
     
 }
 
-
+// MARK: - 快速login API 測試用
 /// 給測試用
 func loginAPI(bag: DisposeBag, handle: (()->())? = nil) {
     
@@ -85,4 +85,24 @@ func generateSHA256Digest(user: String, token: String, pass: String) -> String {
     
     print("SHA256 Digest: \(digest)") // 可用於調試
     return digest
+}
+
+// MARK: - 給Preview用的賽login token 測試用
+
+struct PreviewTokenView<Content: View>: View {
+    let content: Content
+
+    init(content: @escaping () -> Content) {
+        // 在 Preview 中初始化前执行所需操作
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
+            UserDefaultsHelper.token = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzQ0MDQzMzMsInN1YiI6IjYzYmNkMWI3Y2I1ZWU0ZmVlYzBiMmEwZSJ9.FuZeI5z7wQ_H1sMV-h27gu2e-WEF7MKVFl49n_Id1EQWtvI0ViUg-hvonnaELf_upkcaAZi_VmGWMMD80xIuHQ"
+        }
+        #endif
+        self.content = content()
+    }
+
+    var body: some View {
+        content
+    }
 }

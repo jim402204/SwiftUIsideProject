@@ -20,6 +20,7 @@ struct BulletinView: View {
                             BulletinCell(viewModel: item)
                         }
                     }
+                    .background(Color.white)
                 }
             }
         }
@@ -35,7 +36,11 @@ struct BulletinView: View {
 }
 
 #Preview {
-    NavigationStack {
-        BulletinView()
+    PreviewTokenView {
+        NavigationStack {
+            BulletinView()
+        }
     }
 }
+
+

@@ -21,6 +21,7 @@ struct RuleView: View {
                             BulletinCell(viewModel: item)
                         }
                     }
+                    .background(Color.white)
                 }
             }
         }
