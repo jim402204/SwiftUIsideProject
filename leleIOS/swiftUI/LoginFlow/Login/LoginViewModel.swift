@@ -70,14 +70,14 @@ extension LoginViewModel {
         
         isLoading = true
         
-        apiService.requestC(UserApi.GetToken())
+        apiService.request(UserApi.GetToken())
             .flatMapLatest { [unowned self] model in
                 let token = model.Token
                 let user = phoneNumber
                 let pass = password
                 let digest = self.generateSHA256Digest(user: user, token: token, pass: pass)
 
-                return apiService.requestC(UserApi.Login(user: user, digest: digest, token: token))
+                return apiService.request(UserApi.Login(user: user, digest: digest, token: token))
             }.sink(onSuccess: { [weak self] model in
                 
                 self?.appState?.logIn(token: model.jwtToken)

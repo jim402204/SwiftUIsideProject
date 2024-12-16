@@ -17,7 +17,7 @@ class GuestViewModel: ObservableObject {
     
     func callAPI() {
         
-        apiService.requestC(NotifyApi.GuestList())
+        apiService.request(NotifyApi.GuestList())
             .sink { [weak self] model in
                 guard let self = self else { return }
                 

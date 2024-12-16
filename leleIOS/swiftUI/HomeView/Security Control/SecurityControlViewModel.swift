@@ -19,7 +19,7 @@ class SecurityControlViewModel: ObservableObject {
     
     func callAPI() {
         
-        apiService.requestC(FeatureApi.MediaList())
+        apiService.request(FeatureApi.MediaList())
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 

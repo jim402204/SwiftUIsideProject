@@ -42,7 +42,7 @@ extension NotificationViewModel {
         let currentTab = NotifyApi.NotificationList.Status.allCases.first { $0 == selectedTab } ?? .全部
         let sk = loadMoreManager.loadedCount
         
-        apiService.requestC(NotifyApi.NotificationList(sk: sk, s: currentTab))
+        apiService.request(NotifyApi.NotificationList(sk: sk, s: currentTab))
             .receive(on: DispatchQueue.main)
             .sink(onSuccess: { [weak self] (models: [NotificationModel]) in
                 guard let self = self else { return }

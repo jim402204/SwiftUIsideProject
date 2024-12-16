@@ -30,7 +30,7 @@ class PostalServicViewModel: ObservableObject {
         
         let currentTab = FeatureApi.PackageList.Status.allCases.first { $0 == selectedTab } ?? .未領取
         
-        apiService.requestC(FeatureApi.PackageList(status: currentTab))
+        apiService.request(FeatureApi.PackageList(status: currentTab))
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 

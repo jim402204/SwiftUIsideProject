@@ -19,8 +19,8 @@ class BulletinViewModel: ObservableObject {
     
     func callAPI() {
         
-        let api1 = apiService.requestC(FeatureApi.NewsList(top: .置頂))
-        let api2 = apiService.requestC(FeatureApi.NewsList(top: .一般))
+        let api1 = apiService.request(FeatureApi.NewsList(top: .置頂))
+        let api2 = apiService.request(FeatureApi.NewsList(top: .一般))
         
         Publishers.Zip(api1, api2)
             .sink(onSuccess: { [weak self] re1, re2 in

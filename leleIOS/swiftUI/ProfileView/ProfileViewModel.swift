@@ -45,8 +45,8 @@ extension ProfileViewModel {
 
     func callAPI() {
         
-        let api1 = apiService.requestC(LaunchApi.UserInfo())
-        let api2 = apiService.requestC(LaunchApi.HouseholdList())
+        let api1 = apiService.request(LaunchApi.UserInfo())
+        let api2 = apiService.request(LaunchApi.HouseholdList())
         
         Publishers.Zip(api1, api2)
             .sink(onSuccess: { [weak self] re1, re2 in
@@ -65,7 +65,7 @@ extension ProfileViewModel {
     
     func deviceInfoAPI() {
         
-        apiService.requestC(LaunchApi.DeviceInfo())
+        apiService.request(LaunchApi.DeviceInfo())
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 
@@ -75,7 +75,7 @@ extension ProfileViewModel {
     
     func pointAPI() {
         
-        apiService.requestC(NotifyApi.Point())
+        apiService.request(NotifyApi.Point())
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 
@@ -86,7 +86,7 @@ extension ProfileViewModel {
     
     func logoutAPI() {
         
-        apiService.requestC(UserApi.Logout(uid: "uid"))
+        apiService.request(UserApi.Logout(uid: "uid"))
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 

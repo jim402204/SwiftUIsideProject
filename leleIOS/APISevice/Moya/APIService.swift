@@ -39,7 +39,7 @@ import CombineMoya
 extension APIService {
     typealias CombinePublisher = AnyPublisher<Moya.Response, MoyaError>
     
-    func requestC<Request: ApiTargetType>(_ request: Request) -> AnyPublisher<Request.ResponseDataType, MoyaError> {
+    func request<Request: ApiTargetType>(_ request: Request) -> AnyPublisher<Request.ResponseDataType, MoyaError> {
         let target = MultiTarget(request)
         
         return provider.requestPublisher(target)
@@ -52,7 +52,7 @@ extension APIService {
             .eraseToAnyPublisher() // 將結果轉換為 AnyPublisher
     }
     
-    func requestCRaw<Request: ApiTargetType>(_ request: Request) -> CombinePublisher {
+    func requestRaw<Request: ApiTargetType>(_ request: Request) -> CombinePublisher {
         let target = MultiTarget(request)
         
         return provider.requestPublisher(target)
@@ -77,7 +77,7 @@ import RxSwift
 
 extension APIService {
     
-    func request<Request: ApiTargetType>(_ request: Request, alerts: [ShowAlertMsg] = []) -> Single<Request.ResponseDataType> {
+    func requestRx<Request: ApiTargetType>(_ request: Request, alerts: [ShowAlertMsg] = []) -> Single<Request.ResponseDataType> {
         
         let target = MultiTarget.init(request)
         
@@ -89,7 +89,7 @@ extension APIService {
             
     }
     /// 直接回respone
-    func requestRaw<Request: ApiTargetType>(_ request: Request, alerts: [ShowAlertMsg] = []) -> Single<Moya.Response> {
+    func requestRxRaw<Request: ApiTargetType>(_ request: Request, alerts: [ShowAlertMsg] = []) -> Single<Moya.Response> {
         let target = MultiTarget.init(request)
         
         return provider.rx.request(target)

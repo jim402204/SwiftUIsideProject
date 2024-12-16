@@ -17,7 +17,7 @@ class MainTabViewModel: ObservableObject {
     
     func callAPI() {
         
-        apiService.requestC(LaunchApi.HouseholdList())
+        apiService.request(LaunchApi.HouseholdList())
             .sink(onSuccess: { [weak self] respone in
                 guard let self = self else { return }
                 
@@ -44,14 +44,14 @@ class MainTabViewModel: ObservableObject {
 /// 給測試用
 func loginAPI(bag: inout Set<AnyCancellable>, handle: (()->())? = nil) {
     
-    apiService.requestC(UserApi.GetToken())
+    apiService.request(UserApi.GetToken())
         .flatMapLatest { model in
             let token = model.Token
             let user = "0987654321"
             let pass = "135246"
             let digest = generateSHA256Digest(user: user, token: token, pass: pass)
 
-            return apiService.requestC(UserApi.Login(user: user, digest: digest, token: token))
+            return apiService.request(UserApi.Login(user: user, digest: digest, token: token))
         }.sink { model in
             
             UserDefaultsHelper.token = model.jwtToken

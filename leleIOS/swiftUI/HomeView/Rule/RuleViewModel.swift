@@ -19,7 +19,7 @@ class RuleViewModel: ObservableObject {
     func callAPI() {
         
         
-        apiService.requestC(PublicFacilitiesApi.RulesList())
+        apiService.request(PublicFacilitiesApi.RulesList())
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 

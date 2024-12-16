@@ -45,7 +45,7 @@ class IntercomViewModel: ObservableObject {
         
         let currentTab = FeatureApi.IntercomList.Status.allCases.first { $0 == selectedTab } ?? .社區
         
-        apiService.requestC(FeatureApi.IntercomList(status: currentTab))
+        apiService.request(FeatureApi.IntercomList(status: currentTab))
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
             
