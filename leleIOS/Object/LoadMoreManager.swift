@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Observation
 // MARK: - LoadMoreManager  用於管理分頁邏輯
 /// 用於管理分頁邏輯  注意是struct結構 為了更新swiftUI
-struct LoadMoreManager {
+@Observable
+class LoadMoreManager {
     var currentPage: Int = 1
     var isLoading: Bool = false
     var hasMoreData: Bool = true {
@@ -27,14 +29,16 @@ struct LoadMoreManager {
     var loadedCount: Int { return (currentPage - 1) * pageSize }
 
     // 重置分頁
-    mutating func reset() {
+//    mutating
+    func reset() {
         currentPage = 1
         isLoading = false
         hasMoreData = true
     }
 
     // 標記開始加載
-    mutating func startLoading() { isLoading = true }
+//    mutating
+    func startLoading() { isLoading = true }
     
     // 加載下一頁的前置檢查
     func canLoadMore() -> Bool {
@@ -42,7 +46,8 @@ struct LoadMoreManager {
     }
 
     // 在成功获取数据后更新分页状态
-    mutating func handleSuccess<Model>(models: [Model]) {
+//    mutating
+    func handleSuccess<Model>(models: [Model]) {
         isLoading = false
         if models.isEmpty {
             hasMoreData = false // 如果返回数组为空，标记无更多数据
@@ -52,7 +57,8 @@ struct LoadMoreManager {
     }
 
     // 處理加載失敗
-    mutating func handleFailure() {
+//    mutating
+    func handleFailure() {
         isLoading = false
         hasMoreData = false
         //因為是多層結構並需手動更新

@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import Observation
 
 extension NotificationViewModel: PaginatedLoadable {
     typealias Item = NotificationModel
@@ -14,12 +15,13 @@ extension NotificationViewModel: PaginatedLoadable {
     }
 }
 
-class NotificationViewModel: ObservableObject {
+@Observable
+class NotificationViewModel {
     private var bag = Set<AnyCancellable>()
     
-    @Published var selectedTab: NotifyApi.NotificationList.Status = .全部
-    @Published var list: [NotificationModel] = []
-    @Published var loadMoreManager = LoadMoreManager() // 用於管理分頁邏輯
+    var selectedTab: NotifyApi.NotificationList.Status = .全部
+    var list: [NotificationModel] = []
+    var loadMoreManager = LoadMoreManager() // 用於管理分頁邏輯
     
     let tabs = NotifyApi.NotificationList.Status.allCases.map { $0 }
     

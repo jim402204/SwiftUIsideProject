@@ -7,11 +7,13 @@
 
 import Combine
 import SwiftUI
+import Observation
 
-class BulletinViewModel: ObservableObject {
+@Observable
+class BulletinViewModel {
     private var bag = Set<AnyCancellable>()
     
-    @Published var list: [BulletinCellViewModel] = []
+    var list: [BulletinCellViewModel] = []
     
     init() {
         callAPI()
@@ -30,6 +32,29 @@ class BulletinViewModel: ObservableObject {
                 self.list = models.map { BulletinCellViewModel($0) }
                 
             }).store(in: &bag)
+    }
+    
+    
+    func callAsyncAPI() {
+        
+        Task {
+            do {
+                async let model1 = apiService.requestA(FeatureApi.NewsList(top: .置頂))
+                async let model2 = apiService.requestA(FeatureApi.NewsList(top: .一般))
+                
+                // 等待两个请求的结果
+                let result1 = try await model1.result
+                let result2 = try await model2.result
+                let combineResults = result1 + result2
+                let viewModels = combineResults.map { BulletinCellViewModel($0) }
+                
+                await MainActor.run {
+                    self.list = viewModels
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
     
 }

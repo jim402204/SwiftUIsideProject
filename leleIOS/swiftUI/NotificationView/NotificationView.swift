@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotificationView: View {
-    @StateObject private var viewModel = NotificationViewModel()
+    @State private var viewModel = NotificationViewModel()
     
     var body: some View {
         VStack(spacing: 0) {

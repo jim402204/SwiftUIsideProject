@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BulletinView: View {
-    @StateObject private var viewModel = BulletinViewModel()
+    @State private var viewModel = BulletinViewModel()
     
     var body: some View {
         VStack(spacing: 0) {
