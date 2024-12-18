@@ -10,8 +10,8 @@ import Combine
 class ProfileViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
     
-    @Published var userName: String = "User"
-    @Published var accountID: String = "User phone"
+    @Published var userName: String = ""
+    @Published var accountID: String = ""
     @Published var shortAddress: String = ""
     @Published var building: String = ""
     @Published var point: String = "0"

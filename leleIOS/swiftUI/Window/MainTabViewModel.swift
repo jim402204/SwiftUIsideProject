@@ -93,7 +93,7 @@ struct PreviewTokenView<Content: View>: View {
         // 在 Preview 中初始化前执行所需操作
         #if DEBUG
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
-            UserDefaultsHelper.token = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzQ0MDQzMzMsInN1YiI6IjYzYmNkMWI3Y2I1ZWU0ZmVlYzBiMmEwZSJ9.FuZeI5z7wQ_H1sMV-h27gu2e-WEF7MKVFl49n_Id1EQWtvI0ViUg-hvonnaELf_upkcaAZi_VmGWMMD80xIuHQ"
+            UserDefaultsHelper.token = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzQ1MDc2NzgsInN1YiI6IjYzYmNkMWI3Y2I1ZWU0ZmVlYzBiMmEwZSJ9.AAWF0fPCrczNr2MtoZtbTXsRdoLdxHAotuk78s8cSaj9HZl1fJt_cxzKlHGasfTikf7a0britNibLSG6oi5zLg"
         }
         #endif
         self.content = content()

@@ -1,9 +1,4 @@
-//
-//  APIService.swift
-//  vxu
-//
-//  Created by 江俊瑩 on 2022/3/4.
-//
+
 
 import Moya
 import RxMoya

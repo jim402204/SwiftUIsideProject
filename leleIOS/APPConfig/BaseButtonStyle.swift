@@ -37,12 +37,13 @@ struct BaseButtonStyle: ViewModifier {
 // MARK: - cell
 
 struct TagStyle: ViewModifier {
+    var foregroundColor: Color
     var backgroundColor: Color
 
     func body(content: Content) -> some View {
         content
             .bold()
-            .foregroundColor(.white)
+            .foregroundColor(foregroundColor)
             .padding(4)
             .background(backgroundColor)
             .cornerRadius(10)
@@ -50,7 +51,12 @@ struct TagStyle: ViewModifier {
 }
 
 extension View {
-    func tagStyle(background: Color) -> some View {
-        self.modifier(TagStyle(backgroundColor: background))
+    func tagStyle(textColor: Color = .white, background: Color) -> some View {
+        self.modifier(
+            TagStyle(
+                foregroundColor: textColor,
+                backgroundColor: background
+            )
+        )
     }
 }

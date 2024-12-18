@@ -17,6 +17,8 @@ extension Date {
     
 }
 
+import Foundation
+
 struct DateUtils {
     /// 返回共享的 DateFormatter
     private static var dateFormatter: DateFormatter = {
@@ -27,9 +29,14 @@ struct DateUtils {
     }()
     
     /// 將 ISO8601 日期字符串轉換為指定格式的日期字符串
-    static func formatISO8601Date(_ isoDate: String, to format: String = "yyyy-MM-dd HH:mm") -> String {
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ" // ISO8601 格式
+    static func formatISO8601Date(
+        _ isoDate: String,
+        from inputFormat: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+        to format: String = "yyyy-MM-dd HH:mm"
+    ) -> String {
+        dateFormatter.dateFormat = inputFormat // ISO8601 格式
         guard let date = dateFormatter.date(from: isoDate) else {
+            print("无法解析 ISO8601 日期字符串 \(isoDate)")
             return isoDate // 如果無法解析，返回原字符串
         }
         

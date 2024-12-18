@@ -26,7 +26,7 @@ struct GuestCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0)  {
             
-            KFImage(URL(string: viewModel.imageUrl))
+            KFImage(viewModel.imageUrl)
                 .cacheOriginalImage()
                 .cancelOnDisappear(true)
                 .placeholder {

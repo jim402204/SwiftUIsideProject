@@ -29,7 +29,7 @@ struct PageModelFactory {
                 PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .detail("報修")),
                 PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .detail("住戶意見")),
                 PageModel(name: "訪客", systemImageName: "person.crop.circle.fill", navigationPage: .guest),
-                PageModel(name: "公設", systemImageName: "building.columns.fill", navigationPage: .detail("公設")),
+                PageModel(name: "公設", systemImageName: "building.columns.fill", navigationPage: .facility),
                 PageModel(name: "投票", systemImageName: "hand.thumbsup.fill", navigationPage: .detail("投票")),
                 PageModel(name: "規約", systemImageName: "doc.plaintext.fill", navigationPage: .rule),
                 PageModel(name: "瓦斯", systemImageName: "flame.fill", navigationPage: .detail("瓦斯")),
@@ -68,6 +68,7 @@ extension HomeView {
         case bulletin
         case rule
         case guest
+        case facility
         case detail(String) // 可以攜帶額外參數的頁面
     }
    
@@ -89,6 +90,8 @@ extension HomeView {
             SecurityControlView()
         case .guest:
             GuestView()
+        case .facility:
+            FacilityView()
         case .detail(let message):
             DetailView()
 //            ChildView()

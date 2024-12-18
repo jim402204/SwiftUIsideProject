@@ -53,7 +53,7 @@ class GuestViewModel: ObservableObject {
 
 class GuestCellViewModel {
     
-    let imageUrl: String
+    let imageUrl: URL?
     let visitTime: String
     let name: String
     let peopleCount: String
@@ -63,14 +63,10 @@ class GuestCellViewModel {
     
     init (model: GuestListModel) {
         
-        let info = UserDefaultsHelper.userBuilding
-        let communityID = UserDefaultsHelper.communityAdmin
-        let token = UserDefaultsHelper.token ?? ""
         let filepath = model.webCamFileName ?? ""
+        let imageUrl = URLBuilder(imageApiDomain: imageApiDomain).buildURL(id: model.id, filepath: filepath)
         
-        let url = imageApiDomain + "/user/community/\(communityID)/guest/\(model.id)/file?fn=\(filepath)&token=\(token)&b=\(info.building)&d=\(info.doorPlate)&f=\(info.floor)"
-        
-        self.imageUrl = url
+        self.imageUrl = imageUrl
         self.visitTime =  DateUtils.formatISO8601Date(model.visitTime)
         self.name = model.name ?? ""
         self.peopleCount = "\(model.peopleCount)"
@@ -79,6 +75,33 @@ class GuestCellViewModel {
         self.leaveTime = DateUtils.formatISO8601Date(model.leaveTime ?? "")
     }
 }
+
+import Foundation
+
+class URLBuilder {
+    private let imageApiDomain: String
+    static let defaultURL = URL(string: "www.google.com.tw")!
+    
+    
+    init(imageApiDomain: String) {
+        self.imageApiDomain = imageApiDomain
+    }
+
+    func buildURL(id: String, filepath: String) -> URL? {
+        
+        let info = UserDefaultsHelper.userBuilding
+        let communityID = UserDefaultsHelper.communityAdmin
+        let token = UserDefaultsHelper.token ?? ""
+        let featurePath = filepath.firstPathComponent()?.withLowercasedFirstLetter() ?? ""
+        
+        let url = imageApiDomain + "/user/community/\(communityID)/\(featurePath)/\(id)/file?fn=\(filepath)&token=\(token)&b=\(info.building)&d=\(info.doorPlate)&f=\(info.floor)"
+
+        return URL(string: url)
+    }
+    
+    
+}
+
 
 
 
