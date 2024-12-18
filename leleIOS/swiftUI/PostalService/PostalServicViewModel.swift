@@ -11,7 +11,7 @@ import SwiftUI
 class PostalServicViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
     
-    @Published var selectedTab: FeatureApi.PackageList.Status = .寄放
+    @Published var selectedTab: FeatureApi.PackageList.Status = .未領取
     @Published var list: [PostalServiceCellViewModel] = []
     
     let tabs = FeatureApi.PackageList.Status.allCases.map { $0 }

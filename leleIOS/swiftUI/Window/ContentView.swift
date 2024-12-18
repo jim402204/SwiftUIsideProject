@@ -15,7 +15,9 @@ struct ContentView: View {
             if appState.isLoggedIn {
                 MainTabView()
             } else {
-                LoginView()
+                NavigationStack{
+                    LoginView()
+                }
             }
         }
         .withLaunchScreen()

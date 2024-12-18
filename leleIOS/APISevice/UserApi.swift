@@ -58,8 +58,11 @@ enum UserApi {
         var task: Task { .requestParameters(parameters: [:], encoding: URLEncoding.default) }
     }
     
-    
-    
+    struct LoginDeviceList: BaseTargetType {
+        typealias ResponseDataType = [LoginDeviceListModel]
+
+        var path: String { return "user/login_device_list" }
+    }
     
     
     

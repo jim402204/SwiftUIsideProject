@@ -221,3 +221,15 @@ struct GuestListModel: Codable {
     }
 }
 
+struct LoginDeviceListModel: Codable {
+    let id: String
+    let user: String
+    let model, lastLogin: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case user = "User"
+        case model = "Model"
+        case lastLogin = "LastLogin"
+    }
+}

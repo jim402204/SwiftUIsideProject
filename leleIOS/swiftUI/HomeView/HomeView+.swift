@@ -26,15 +26,15 @@ struct PageModelFactory {
                 PageModel(name: "雲對講", systemImageName: "phone.bubble.fill", navigationPage: .intercom),
                 PageModel(name: "郵務管理", systemImageName: "envelope.fill", navigationPage: .postalService),
                 PageModel(name: "社區公告", systemImageName: "megaphone.fill", navigationPage: .bulletin),
-                PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .detail("報修")),
-                PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .detail("住戶意見")),
+                PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .feedback),
+                PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .opinions),
                 PageModel(name: "訪客", systemImageName: "person.crop.circle.fill", navigationPage: .guest),
                 PageModel(name: "公設", systemImageName: "building.columns.fill", navigationPage: .facility),
-                PageModel(name: "投票", systemImageName: "hand.thumbsup.fill", navigationPage: .detail("投票")),
+                PageModel(name: "投票", systemImageName: "hand.thumbsup.fill", navigationPage: .vote),
                 PageModel(name: "規約", systemImageName: "doc.plaintext.fill", navigationPage: .rule),
-                PageModel(name: "瓦斯", systemImageName: "flame.fill", navigationPage: .detail("瓦斯")),
+                PageModel(name: "瓦斯", systemImageName: "flame.fill", navigationPage: .gas),
                 PageModel(name: "行事曆", systemImageName: "calendar", navigationPage: .detail("行事曆")),
-                PageModel(name: "管理費", systemImageName: "dollarsign.circle.fill", navigationPage: .detail("管理費")),
+                PageModel(name: "管理費", systemImageName: "dollarsign.circle.fill", navigationPage: .manageFee),
                 PageModel(name: "安控", systemImageName: "lock.shield.fill", navigationPage: .securityControl),
                 PageModel(name: "相簿", systemImageName: "photo.on.rectangle", navigationPage: .detail("相簿")),
                 PageModel(name: "遠端關懷", systemImageName: "antenna.radiowaves.left.and.right", navigationPage: .detail("遠端關懷")),
@@ -69,6 +69,11 @@ extension HomeView {
         case rule
         case guest
         case facility
+        case gas
+        case manageFee
+        case vote
+        case feedback
+        case opinions
         case detail(String) // 可以攜帶額外參數的頁面
     }
    
@@ -83,7 +88,6 @@ extension HomeView {
             PostalServiceView()
         case .bulletin:
             BulletinView()
-                
         case .rule:
             RuleView()
         case .securityControl:
@@ -92,6 +96,16 @@ extension HomeView {
             GuestView()
         case .facility:
             FacilityView()
+        case .gas:
+            GasView()
+        case .manageFee:
+            ManageFeeView()
+        case .vote:
+            VoteView()
+        case .feedback:
+            FeedBackView(titlName: "住戶報修")
+        case .opinions:
+            FeedBackView(titlName: "住戶意見")
         case .detail(let message):
             DetailView()
 //            ChildView()

@@ -128,6 +128,16 @@
 		37E57C792D11672F00C9B5EF /* FacilityReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C782D11672F00C9B5EF /* FacilityReservationViewModel.swift */; };
 		37E57C7B2D11676900C9B5EF /* FacilityRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C7A2D11676900C9B5EF /* FacilityRecordViewModel.swift */; };
 		37E57C7D2D116BAD00C9B5EF /* FacilityBookingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C7C2D116BAD00C9B5EF /* FacilityBookingCell.swift */; };
+		37E57C802D12B3F900C9B5EF /* LoginRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C7F2D12B3F900C9B5EF /* LoginRecordView.swift */; };
+		37E57C822D12B47300C9B5EF /* LoginRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C812D12B47300C9B5EF /* LoginRecordViewModel.swift */; };
+		37E57C852D12B89200C9B5EF /* GasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C842D12B89200C9B5EF /* GasView.swift */; };
+		37E57C872D12B8A400C9B5EF /* GasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C862D12B8A400C9B5EF /* GasViewModel.swift */; };
+		37E57C8A2D12C2EF00C9B5EF /* ManageFeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C892D12C2EF00C9B5EF /* ManageFeeView.swift */; };
+		37E57C8C2D12C2FA00C9B5EF /* ManageFeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C8B2D12C2FA00C9B5EF /* ManageFeeViewModel.swift */; };
+		37E57C902D12CADC00C9B5EF /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C8F2D12CADC00C9B5EF /* VoteView.swift */; };
+		37E57C922D12CAEE00C9B5EF /* FeedBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C912D12CAEE00C9B5EF /* FeedBackView.swift */; };
+		37E57C942D12CAF700C9B5EF /* FeedBackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C932D12CAF700C9B5EF /* FeedBackViewModel.swift */; };
+		37E57C962D12CB0100C9B5EF /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C952D12CB0100C9B5EF /* VoteViewModel.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -249,6 +259,16 @@
 		37E57C782D11672F00C9B5EF /* FacilityReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityReservationViewModel.swift; sourceTree = "<group>"; };
 		37E57C7A2D11676900C9B5EF /* FacilityRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityRecordViewModel.swift; sourceTree = "<group>"; };
 		37E57C7C2D116BAD00C9B5EF /* FacilityBookingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityBookingCell.swift; sourceTree = "<group>"; };
+		37E57C7F2D12B3F900C9B5EF /* LoginRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRecordView.swift; sourceTree = "<group>"; };
+		37E57C812D12B47300C9B5EF /* LoginRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRecordViewModel.swift; sourceTree = "<group>"; };
+		37E57C842D12B89200C9B5EF /* GasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasView.swift; sourceTree = "<group>"; };
+		37E57C862D12B8A400C9B5EF /* GasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasViewModel.swift; sourceTree = "<group>"; };
+		37E57C892D12C2EF00C9B5EF /* ManageFeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFeeView.swift; sourceTree = "<group>"; };
+		37E57C8B2D12C2FA00C9B5EF /* ManageFeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFeeViewModel.swift; sourceTree = "<group>"; };
+		37E57C8F2D12CADC00C9B5EF /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		37E57C912D12CAEE00C9B5EF /* FeedBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackView.swift; sourceTree = "<group>"; };
+		37E57C932D12CAF700C9B5EF /* FeedBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewModel.swift; sourceTree = "<group>"; };
+		37E57C952D12CB0100C9B5EF /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewModel.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -492,6 +512,7 @@
 		37C7F7702CFD90F700F32A5C /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				37E57C7E2D12B3C100C9B5EF /* LoginRecordList */,
 				37C7F7712CFD912400F32A5C /* ProfileView.swift */,
 				374A5ECC2D00527F00A36375 /* UserInfoCardView.swift */,
 				374A5ECE2D0054A400A36375 /* CommunityInfoCardView.swift */,
@@ -516,6 +537,10 @@
 			children = (
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
 				37E57C0E2D0934A800C9B5EF /* HomeView+.swift */,
+				37E57C8E2D12CACF00C9B5EF /* Vote */,
+				37E57C8D2D12C97E00C9B5EF /* FeedBack */,
+				37E57C882D12C2D700C9B5EF /* ManageFee */,
+				37E57C832D12B87E00C9B5EF /* Gas */,
 				37E57C6C2D1129C500C9B5EF /* Facility */,
 				37E57C102D095DA000C9B5EF /* Guest */,
 				37E57C072D083FA600C9B5EF /* Rule */,
@@ -684,6 +709,51 @@
 				37E57C7C2D116BAD00C9B5EF /* FacilityBookingCell.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		37E57C7E2D12B3C100C9B5EF /* LoginRecordList */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C7F2D12B3F900C9B5EF /* LoginRecordView.swift */,
+				37E57C812D12B47300C9B5EF /* LoginRecordViewModel.swift */,
+			);
+			path = LoginRecordList;
+			sourceTree = "<group>";
+		};
+		37E57C832D12B87E00C9B5EF /* Gas */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C842D12B89200C9B5EF /* GasView.swift */,
+				37E57C862D12B8A400C9B5EF /* GasViewModel.swift */,
+			);
+			path = Gas;
+			sourceTree = "<group>";
+		};
+		37E57C882D12C2D700C9B5EF /* ManageFee */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C892D12C2EF00C9B5EF /* ManageFeeView.swift */,
+				37E57C8B2D12C2FA00C9B5EF /* ManageFeeViewModel.swift */,
+			);
+			path = ManageFee;
+			sourceTree = "<group>";
+		};
+		37E57C8D2D12C97E00C9B5EF /* FeedBack */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C912D12CAEE00C9B5EF /* FeedBackView.swift */,
+				37E57C932D12CAF700C9B5EF /* FeedBackViewModel.swift */,
+			);
+			path = FeedBack;
+			sourceTree = "<group>";
+		};
+		37E57C8E2D12CACF00C9B5EF /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C8F2D12CADC00C9B5EF /* VoteView.swift */,
+				37E57C952D12CB0100C9B5EF /* VoteViewModel.swift */,
+			);
+			path = Vote;
 			sourceTree = "<group>";
 		};
 		81E1E02BE7B6D796B56403E8 /* Pods */ = {
@@ -862,6 +932,7 @@
 				375D8A6E2CFD4A6100A1E02B /* PublicFacilitiesApi.swift in Sources */,
 				374A5ECD2D00527F00A36375 /* UserInfoCardView.swift in Sources */,
 				37E57C142D095F5000C9B5EF /* GuestCell.swift in Sources */,
+				37E57C962D12CB0100C9B5EF /* VoteViewModel.swift in Sources */,
 				37C7F77F2CFDB9F700F32A5C /* SegmentedTabView.swift in Sources */,
 				37E57C702D1129F200C9B5EF /* FacilityCell.swift in Sources */,
 				37C7F7812CFDBA5200F32A5C /* NotificationCell.swift in Sources */,
@@ -886,13 +957,17 @@
 				375D8A702CFD4A6100A1E02B /* BaseAPIModel.swift in Sources */,
 				374A5EAD2CFEEC1100A36375 /* Register.swift in Sources */,
 				37E57C772D1166A500C9B5EF /* FacilityRecordView.swift in Sources */,
+				37E57C852D12B89200C9B5EF /* GasView.swift in Sources */,
 				37E57C7D2D116BAD00C9B5EF /* FacilityBookingCell.swift in Sources */,
 				375D8A462CFD48C800A1E02B /* ContentView.swift in Sources */,
 				37E57C722D112A0000C9B5EF /* FacilityViewModel.swift in Sources */,
 				374A5EBF2CFEFA8900A36375 /* String+.swift in Sources */,
 				374A5EE52D06D22F00A36375 /* PostalServiceCellViewModel.swift in Sources */,
+				37E57C8A2D12C2EF00C9B5EF /* ManageFeeView.swift in Sources */,
+				37E57C942D12CAF700C9B5EF /* FeedBackViewModel.swift in Sources */,
 				375D8A6B2CFD4A6100A1E02B /* HomeApi.swift in Sources */,
 				374A5ECF2D0054A400A36375 /* CommunityInfoCardView.swift in Sources */,
+				37E57C802D12B3F900C9B5EF /* LoginRecordView.swift in Sources */,
 				374A5ED72D0138F600A36375 /* IntercomViewModel.swift in Sources */,
 				37C7F7892CFED2FF00F32A5C /* LoginViewModel.swift in Sources */,
 				37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */,
@@ -913,7 +988,10 @@
 				374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */,
 				374A5EB92CFEF90E00A36375 /* JimTextFieldStyle.swift in Sources */,
 				374A5EBA2CFEF90E00A36375 /* ButtonTextStyle.swift in Sources */,
+				37E57C902D12CADC00C9B5EF /* VoteView.swift in Sources */,
 				37E57C7B2D11676900C9B5EF /* FacilityRecordViewModel.swift in Sources */,
+				37E57C822D12B47300C9B5EF /* LoginRecordViewModel.swift in Sources */,
+				37E57C8C2D12C2FA00C9B5EF /* ManageFeeViewModel.swift in Sources */,
 				374A5EE32D067C7D00A36375 /* AppText.swift in Sources */,
 				374A5ED52D0138DA00A36375 /* IntercomCell.swift in Sources */,
 				374A5EBB2CFEF90E00A36375 /* BaseTextStyle.swift in Sources */,
@@ -927,7 +1005,9 @@
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
 				37E57C162D09676B00C9B5EF /* GuestViewModel.swift in Sources */,
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,
+				37E57C872D12B8A400C9B5EF /* GasViewModel.swift in Sources */,
 				37C7F77C2CFD9A9900F32A5C /* NotificationViewModel.swift in Sources */,
+				37E57C922D12CAEE00C9B5EF /* FeedBackView.swift in Sources */,
 				37E57C6B2D1019F100C9B5EF /* APIService+Async.swift in Sources */,
 				374A5ED32D01361100A36375 /* IntercomView.swift in Sources */,
 				37E57C0F2D0934A800C9B5EF /* HomeView+.swift in Sources */,

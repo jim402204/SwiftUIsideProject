@@ -235,7 +235,7 @@ enum PublicFacilitiesApi {
     //MARK: - 意見回報 跟 住戶報修
     struct FeedbackList: BaseTargetType {
         typealias ResponseDataType = [FeedbackListModel]
-        enum Status: String {
+        enum Status: String, CaseIterable {
             case 全部 = ""
             case 等待回覆 = "0"
             case 已經回覆 = "1"
@@ -357,7 +357,7 @@ extension PublicFacilitiesApi {
             communityAdmin: String = UserDefaultsHelper.communityAdmin,
             communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
             apiModelInfo: ApiModelInfo = ApiModelInfo(),
-            tab: Tab = .截止
+            tab: Tab = .進行中
         ) {
             self.communityAdmin = communityAdmin
             

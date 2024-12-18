@@ -46,7 +46,7 @@ struct UserInfoCardView: View {
                 }
                 Divider()
                 
-                NavigationLink(destination: Text("已登入的裝置")) {
+                NavigationLink(destination: LoginRecordView()) {
                     ProfileOptionView(title: "已登入的裝置")
                 }
                
