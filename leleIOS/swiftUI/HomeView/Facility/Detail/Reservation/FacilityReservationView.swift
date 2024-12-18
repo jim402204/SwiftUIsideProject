@@ -18,6 +18,11 @@ struct FacilityReservationView: View {
                 LazyVStack(spacing: 0) {
                     ForEach(Array(viewModel.list.enumerated()), id: \.offset) { _, item in
                         FacilityBookingCell(viewModel: item)
+                        
+                        NavigationLink(destination: Text("ddd")) {
+                            FacilityBookingCell(viewModel: item)
+                        }
+                        
                     }
                 }
             }

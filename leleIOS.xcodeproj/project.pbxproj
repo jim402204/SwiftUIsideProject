@@ -138,6 +138,8 @@
 		37E57C922D12CAEE00C9B5EF /* FeedBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C912D12CAEE00C9B5EF /* FeedBackView.swift */; };
 		37E57C942D12CAF700C9B5EF /* FeedBackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C932D12CAF700C9B5EF /* FeedBackViewModel.swift */; };
 		37E57C962D12CB0100C9B5EF /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C952D12CB0100C9B5EF /* VoteViewModel.swift */; };
+		37E57C982D12D2AF00C9B5EF /* FacilityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C972D12D2AF00C9B5EF /* FacilityDetailView.swift */; };
+		37E57C9D2D12D2F600C9B5EF /* FacilityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C9C2D12D2F600C9B5EF /* FacilityDetailViewModel.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -269,6 +271,8 @@
 		37E57C912D12CAEE00C9B5EF /* FeedBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackView.swift; sourceTree = "<group>"; };
 		37E57C932D12CAF700C9B5EF /* FeedBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewModel.swift; sourceTree = "<group>"; };
 		37E57C952D12CB0100C9B5EF /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewModel.swift; sourceTree = "<group>"; };
+		37E57C972D12D2AF00C9B5EF /* FacilityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDetailView.swift; sourceTree = "<group>"; };
+		37E57C9C2D12D2F600C9B5EF /* FacilityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDetailViewModel.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -537,11 +541,11 @@
 			children = (
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
 				37E57C0E2D0934A800C9B5EF /* HomeView+.swift */,
+				37E57C6C2D1129C500C9B5EF /* Facility */,
 				37E57C8E2D12CACF00C9B5EF /* Vote */,
 				37E57C8D2D12C97E00C9B5EF /* FeedBack */,
 				37E57C882D12C2D700C9B5EF /* ManageFee */,
 				37E57C832D12B87E00C9B5EF /* Gas */,
-				37E57C6C2D1129C500C9B5EF /* Facility */,
 				37E57C102D095DA000C9B5EF /* Guest */,
 				37E57C072D083FA600C9B5EF /* Rule */,
 				377F99A12D08264A00BE818A /* Bulletin */,
@@ -702,10 +706,9 @@
 		37E57C732D11668100C9B5EF /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				37E57C742D11669300C9B5EF /* FacilityReservationView.swift */,
-				37E57C782D11672F00C9B5EF /* FacilityReservationViewModel.swift */,
-				37E57C762D1166A500C9B5EF /* FacilityRecordView.swift */,
-				37E57C7A2D11676900C9B5EF /* FacilityRecordViewModel.swift */,
+				37E57C9B2D12D2D600C9B5EF /* DetailPage */,
+				37E57C9A2D12D2C400C9B5EF /* Record */,
+				37E57C992D12D2B800C9B5EF /* Reservation */,
 				37E57C7C2D116BAD00C9B5EF /* FacilityBookingCell.swift */,
 			);
 			path = Detail;
@@ -754,6 +757,33 @@
 				37E57C952D12CB0100C9B5EF /* VoteViewModel.swift */,
 			);
 			path = Vote;
+			sourceTree = "<group>";
+		};
+		37E57C992D12D2B800C9B5EF /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C742D11669300C9B5EF /* FacilityReservationView.swift */,
+				37E57C782D11672F00C9B5EF /* FacilityReservationViewModel.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		37E57C9A2D12D2C400C9B5EF /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C762D1166A500C9B5EF /* FacilityRecordView.swift */,
+				37E57C7A2D11676900C9B5EF /* FacilityRecordViewModel.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		37E57C9B2D12D2D600C9B5EF /* DetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C972D12D2AF00C9B5EF /* FacilityDetailView.swift */,
+				37E57C9C2D12D2F600C9B5EF /* FacilityDetailViewModel.swift */,
+			);
+			path = DetailPage;
 			sourceTree = "<group>";
 		};
 		81E1E02BE7B6D796B56403E8 /* Pods */ = {
@@ -964,6 +994,7 @@
 				374A5EBF2CFEFA8900A36375 /* String+.swift in Sources */,
 				374A5EE52D06D22F00A36375 /* PostalServiceCellViewModel.swift in Sources */,
 				37E57C8A2D12C2EF00C9B5EF /* ManageFeeView.swift in Sources */,
+				37E57C982D12D2AF00C9B5EF /* FacilityDetailView.swift in Sources */,
 				37E57C942D12CAF700C9B5EF /* FeedBackViewModel.swift in Sources */,
 				375D8A6B2CFD4A6100A1E02B /* HomeApi.swift in Sources */,
 				374A5ECF2D0054A400A36375 /* CommunityInfoCardView.swift in Sources */,
@@ -1012,6 +1043,7 @@
 				374A5ED32D01361100A36375 /* IntercomView.swift in Sources */,
 				37E57C0F2D0934A800C9B5EF /* HomeView+.swift in Sources */,
 				375D8A6A2CFD4A6100A1E02B /* FeatureApi.swift in Sources */,
+				37E57C9D2D12D2F600C9B5EF /* FacilityDetailViewModel.swift in Sources */,
 				374A5EC92D0032E900A36375 /* MainTabViewModel.swift in Sources */,
 				374A5EC12CFEFAB600A36375 /* APPColor.swift in Sources */,
 				374A5EDB2D01994F00A36375 /* PostalServicViewModel.swift in Sources */,
