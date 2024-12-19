@@ -15,7 +15,9 @@ struct FacilityView: View {
             ScrollView {
                 LazyVStack(spacing: 0) {
                     ForEach(Array(viewModel.list.enumerated()), id: \.offset) { _, item in
-                        FacilityCell(viewModel: item)
+                        NavigationLink(destination: Text("ddd")) {
+                            FacilityCell(viewModel: item)
+                        }
                     }
                 }
             }

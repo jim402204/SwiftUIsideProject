@@ -221,6 +221,7 @@ struct GuestListModel: Codable {
     }
 }
 
+// MARK: - LoginDeviceListModel
 struct LoginDeviceListModel: Codable {
     let id: String
     let user: String
@@ -232,4 +233,14 @@ struct LoginDeviceListModel: Codable {
         case model = "Model"
         case lastLogin = "LastLogin"
     }
+}
+
+// MARK: - ChatMessageModel
+struct ChatMessageModel: Codable {
+    let id: String?
+    let output: String
+    let action: String?
+    let eventType: String?
+    let parse: Bool
+    let url: String
 }

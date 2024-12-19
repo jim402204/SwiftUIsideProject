@@ -45,7 +45,7 @@ struct PageModelFactory {
         case .物管:
             return [
                 PageModel(name: "雲對講", systemImageName: "phone.bubble.fill", navigationPage: .intercom),
-//                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問")),
+                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .awsBedrock),
                 PageModel(name: "郵務管理", systemImageName: "envelope.fill", navigationPage: .postalService),
                 PageModel(name: "寄放", systemImageName: "tray.and.arrow.down.fill", navigationPage: .detail("寄放")),
 //                PageModel(name: "通知", systemImageName: "bell.fill", navigationPage: .detail("通知")),
@@ -74,6 +74,7 @@ extension HomeView {
         case vote
         case feedback
         case opinions
+        case awsBedrock
         case detail(String) // 可以攜帶額外參數的頁面
     }
    
@@ -106,6 +107,9 @@ extension HomeView {
             FeedBackView(titlName: "住戶報修")
         case .opinions:
             FeedBackView(titlName: "住戶意見")
+        case .awsBedrock:
+            ChatView()
+            
         case .detail(let message):
             DetailView()
 //            ChildView()

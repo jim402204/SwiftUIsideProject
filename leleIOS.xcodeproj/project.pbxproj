@@ -140,6 +140,8 @@
 		37E57C962D12CB0100C9B5EF /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C952D12CB0100C9B5EF /* VoteViewModel.swift */; };
 		37E57C982D12D2AF00C9B5EF /* FacilityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C972D12D2AF00C9B5EF /* FacilityDetailView.swift */; };
 		37E57C9D2D12D2F600C9B5EF /* FacilityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C9C2D12D2F600C9B5EF /* FacilityDetailViewModel.swift */; };
+		37E57CA02D13B68A00C9B5EF /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57C9F2D13B68A00C9B5EF /* ChatView.swift */; };
+		37E57CA22D13B6A100C9B5EF /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57CA12D13B6A100C9B5EF /* ChatViewModel.swift */; };
 		45D1AD1448C41279421CE9DE /* Pods_leleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -273,6 +275,8 @@
 		37E57C952D12CB0100C9B5EF /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewModel.swift; sourceTree = "<group>"; };
 		37E57C972D12D2AF00C9B5EF /* FacilityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDetailView.swift; sourceTree = "<group>"; };
 		37E57C9C2D12D2F600C9B5EF /* FacilityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDetailViewModel.swift; sourceTree = "<group>"; };
+		37E57C9F2D13B68A00C9B5EF /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		37E57CA12D13B6A100C9B5EF /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		59D5F575136CEC3C6D599C30 /* Pods_leleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BB34326F99139345CBE16E /* Pods-leleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.debug.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		80A033F1573240CAE6B57967 /* Pods-leleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leleIOS.release.xcconfig"; path = "Target Support Files/Pods-leleIOS/Pods-leleIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -541,6 +545,7 @@
 			children = (
 				37C7F7772CFD91FC00F32A5C /* HomeView.swift */,
 				37E57C0E2D0934A800C9B5EF /* HomeView+.swift */,
+				37E57C9E2D13B67500C9B5EF /* ChatView */,
 				37E57C6C2D1129C500C9B5EF /* Facility */,
 				37E57C8E2D12CACF00C9B5EF /* Vote */,
 				37E57C8D2D12C97E00C9B5EF /* FeedBack */,
@@ -786,6 +791,15 @@
 			path = DetailPage;
 			sourceTree = "<group>";
 		};
+		37E57C9E2D13B67500C9B5EF /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				37E57C9F2D13B68A00C9B5EF /* ChatView.swift */,
+				37E57CA12D13B6A100C9B5EF /* ChatViewModel.swift */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
 		81E1E02BE7B6D796B56403E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -995,6 +1009,7 @@
 				374A5EE52D06D22F00A36375 /* PostalServiceCellViewModel.swift in Sources */,
 				37E57C8A2D12C2EF00C9B5EF /* ManageFeeView.swift in Sources */,
 				37E57C982D12D2AF00C9B5EF /* FacilityDetailView.swift in Sources */,
+				37E57CA22D13B6A100C9B5EF /* ChatViewModel.swift in Sources */,
 				37E57C942D12CAF700C9B5EF /* FeedBackViewModel.swift in Sources */,
 				375D8A6B2CFD4A6100A1E02B /* HomeApi.swift in Sources */,
 				374A5ECF2D0054A400A36375 /* CommunityInfoCardView.swift in Sources */,
@@ -1006,6 +1021,7 @@
 				375D8A712CFD4A6100A1E02B /* FeatureModel.swift in Sources */,
 				37E57C752D11669300C9B5EF /* FacilityReservationView.swift in Sources */,
 				374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */,
+				37E57CA02D13B68A00C9B5EF /* ChatView.swift in Sources */,
 				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
 				37E57C092D083FF700C9B5EF /* RuleView.swift in Sources */,
 				37E57C122D095DCA00C9B5EF /* GuestView.swift in Sources */,

@@ -117,7 +117,35 @@ enum NotifyApi {
         }
     }
     
-    
-    
+    //MARK: - BedrockChatBot 聊天AI
+    struct BedrockChatBotGet: BaseTargetType {
+        typealias ResponseDataType = ChatMessageModel
+        
+        var baseURL: URL { return URL(string: "https://bheypo5vuh.execute-api.ap-northeast-1.amazonaws.com")!   }
+        var path: String { return "prod/voice-bot" }
+        
+        var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.default) }
+        private var parameters: [String:Any] = [:]
+        
+        init(message: String) {
+            parameters["message"] = message
+        }
+    }
+
+    //MARK: - BedrockChatBot 聊天AI
+    struct BedrockChatBot: BaseTargetType {
+        typealias ResponseDataType = ChatMessageModel
+        
+        var method: Moya.Method { return .post }
+        var baseURL: URL { return URL(string: "https://bheypo5vuh.execute-api.ap-northeast-1.amazonaws.com")!   }
+        var path: String { return "prod/voice-bot" }
+        
+        var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.default) }
+        private var parameters: [String:Any] = [:]
+        
+        init(message: String) {
+            parameters["message"] = message
+        }
+    }
     
 }

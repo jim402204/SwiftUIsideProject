@@ -26,7 +26,7 @@ struct HomeView: View {
                     Text("功能選單")
                         .appFont(.title2)
                     
-//                    testButton()
+                    testButton()
                     Spacer()
                 }
                 .padding(.vertical,8)
