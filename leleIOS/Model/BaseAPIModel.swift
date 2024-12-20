@@ -244,3 +244,8 @@ struct ChatMessageModel: Codable {
     let parse: Bool
     let url: String
 }
+
+// MARK: - PackageIdModel
+struct PackageIdModel: Codable {
+    let id: Int
+}

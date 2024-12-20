@@ -31,14 +31,12 @@ struct IntercomView: View {
             }
         }
         .navigationBarStyle(title: "智慧對講", isRootPage: isRootPage)
-        .navigationBarItems(trailing:
-                                Button(action: {
-            // 設置按鈕動作
-        }) {
-            Image(systemName: "gearshapeX")
-                .foregroundColor(.primary)
-        }
-        )
+        .toolbar(content: {
+            NavigationLink(destination: Text("ddd")) {
+                Image(systemName: "gearshapeX")
+                    .foregroundStyle(.white)
+            }
+        })
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {
             viewModel.callAPI()

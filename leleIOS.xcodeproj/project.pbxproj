@@ -64,6 +64,8 @@
 		377F99A52D08268100BE818A /* BulletinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99A42D08268100BE818A /* BulletinCell.swift */; };
 		377F99A72D08269400BE818A /* BulletinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99A62D08269400BE818A /* BulletinViewModel.swift */; };
 		377F99AA2D0834EE00BE818A /* BulletinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99A92D0834EE00BE818A /* BulletinDetailView.swift */; };
+		37C091022D155AFA00E5A7CE /* PostalServiceEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091012D155AFA00E5A7CE /* PostalServiceEntryView.swift */; };
+		37C091042D1568A900E5A7CE /* PostalServiceEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091032D1568A900E5A7CE /* PostalServiceEntryViewModel.swift */; };
 		37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F76B2CFD905200F32A5C /* MainTabView.swift */; };
 		37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7712CFD912400F32A5C /* ProfileView.swift */; };
 		37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7742CFD917B00F32A5C /* NotificationView.swift */; };
@@ -200,6 +202,8 @@
 		377F99A42D08268100BE818A /* BulletinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinCell.swift; sourceTree = "<group>"; };
 		377F99A62D08269400BE818A /* BulletinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinViewModel.swift; sourceTree = "<group>"; };
 		377F99A92D0834EE00BE818A /* BulletinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinDetailView.swift; sourceTree = "<group>"; };
+		37C091012D155AFA00E5A7CE /* PostalServiceEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalServiceEntryView.swift; sourceTree = "<group>"; };
+		37C091032D1568A900E5A7CE /* PostalServiceEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalServiceEntryViewModel.swift; sourceTree = "<group>"; };
 		37C7F76B2CFD905200F32A5C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		37C7F7712CFD912400F32A5C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		37C7F7742CFD917B00F32A5C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -463,6 +467,7 @@
 		377F99A02D081F5000BE818A /* PostalService */ = {
 			isa = PBXGroup;
 			children = (
+				37C091002D155A7A00E5A7CE /* 登記 */,
 				374A5ED82D018F0500A36375 /* PostalServiceView.swift */,
 				374A5EDA2D01994F00A36375 /* PostalServicViewModel.swift */,
 				374A5EDC2D019A9B00A36375 /* PostalServiceCell.swift */,
@@ -488,6 +493,15 @@
 				377F99A92D0834EE00BE818A /* BulletinDetailView.swift */,
 			);
 			path = BulletinDetail;
+			sourceTree = "<group>";
+		};
+		37C091002D155A7A00E5A7CE /* 登記 */ = {
+			isa = PBXGroup;
+			children = (
+				37C091012D155AFA00E5A7CE /* PostalServiceEntryView.swift */,
+				37C091032D1568A900E5A7CE /* PostalServiceEntryViewModel.swift */,
+			);
+			path = "登記";
 			sourceTree = "<group>";
 		};
 		37C7F76D2CFD907700F32A5C /* swiftUI */ = {
@@ -1021,6 +1035,7 @@
 				375D8A712CFD4A6100A1E02B /* FeatureModel.swift in Sources */,
 				37E57C752D11669300C9B5EF /* FacilityReservationView.swift in Sources */,
 				374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */,
+				37C091042D1568A900E5A7CE /* PostalServiceEntryViewModel.swift in Sources */,
 				37E57CA02D13B68A00C9B5EF /* ChatView.swift in Sources */,
 				37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */,
 				37E57C092D083FF700C9B5EF /* RuleView.swift in Sources */,
@@ -1032,6 +1047,7 @@
 				37E57C672D0C144F00C9B5EF /* LoadMoreView.swift in Sources */,
 				374A5ECB2D00489C00A36375 /* ProfileOptionView.swift in Sources */,
 				374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */,
+				37C091022D155AFA00E5A7CE /* PostalServiceEntryView.swift in Sources */,
 				374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */,
 				374A5EB92CFEF90E00A36375 /* JimTextFieldStyle.swift in Sources */,
 				374A5EBA2CFEF90E00A36375 /* ButtonTextStyle.swift in Sources */,

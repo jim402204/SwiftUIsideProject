@@ -18,15 +18,19 @@ class PostalServicViewModel: ObservableObject {
     
     func tabChanged(_ tab: FeatureApi.PackageList.Status) {
         selectedTab = tab
-        intercomListAPI()
+        callAPI()
     }
     
     func callAPI() {
         
-        self.intercomListAPI()
+        if UserDefaultsHelper.userRole == .住戶 {
+            packageListAPI()
+        } else if UserDefaultsHelper.userRole == .物管 {
+            managePackageListAPI()
+        }
     }
     
-    func intercomListAPI() {
+    func packageListAPI() {
         
         let currentTab = FeatureApi.PackageList.Status.allCases.first { $0 == selectedTab } ?? .未領取
         
@@ -40,4 +44,20 @@ class PostalServicViewModel: ObservableObject {
             }).store(in: &bag)
         
     }
+    
+    func managePackageListAPI() {
+        
+        let currentTab = FeatureApi.PackageList.Status.allCases.first { $0 == selectedTab } ?? .未領取
+        
+        apiService.request(FeatureApi.MPackageList(status: currentTab))
+            .sink(onSuccess: { [weak self] model in
+                guard let self = self else { return }
+                
+                let models = model.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
+                self.list = models
+                
+            }).store(in: &bag)
+        
+    }
+    
 }

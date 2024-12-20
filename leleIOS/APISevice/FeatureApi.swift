@@ -64,6 +64,36 @@ enum FeatureApi {
         }
     }
     
+    //MARK: - 包裹資訊
+    struct MPackageList: BaseTargetType {
+        typealias ResponseDataType = [PackageModel]//PackageModelWrapper
+        
+        var path: String { return "user/community/\(communityAdmin)/package_list" }
+        var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.default) }
+        private var parameters: [String:Any] = [:]
+        private var communityAdmin: String
+        
+        init(
+            communityAdmin: String = UserDefaultsHelper.communityAdmin,
+            communityInfo: CommunityInfo = UserDefaultsHelper.userBuilding,
+            apiModelInfo: ApiModelInfo = ApiModelInfo(),
+            status: PackageList.Status = .寄放
+        ) {
+            self.communityAdmin = communityAdmin
+            parameters["b"] = communityInfo.building
+            parameters["d"] = communityInfo.doorPlate
+            parameters["f"] = communityInfo.floor
+            
+            parameters["s"] = 2
+            parameters["sd"] = 1
+            // 有沒有p 對應 respone result or array
+            parameters["p"] = 1
+            parameters["pp"] = 10
+            //調整排序
+            parameters["sb"] = ""
+        }
+    }
+    
     //MARK: - 對講機列表
     struct IntercomList: BaseTargetType {
         typealias ResponseDataType = [IntercomListModel]

@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct PackageModelWrapper: Codable {
+    let result: [PackageModel]
+}
+
 // MARK: - PackageModel
 struct PackageModel: Codable {
     let id: String
@@ -30,6 +34,8 @@ struct PackageModel: Codable {
     let shippingFrom: NameDescModel?
     let isRefrigeration: Bool?
     let recipientCustomName: String?
+    /// 物業 放置包裹的地點
+    let place: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -49,6 +55,7 @@ struct PackageModel: Codable {
         case isRefrigeration = "IsRefrigeration"
         case recipientCustomName = "RecipientCustomName"
         case deposit = "DepositData"
+        case place = "Place"
     }
     
     // 寄物

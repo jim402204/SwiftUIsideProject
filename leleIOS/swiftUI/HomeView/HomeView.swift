@@ -21,6 +21,7 @@ struct HomeView: View {
                 
                 HStack {
                     Text(UserDefaultsHelper.userBuilding.name)
+//                    Text("家家測試社區")
                         .appFont(.size(24),color: .teal)
                         .lineLimit(1)
                     Text("功能選單")
@@ -89,6 +90,7 @@ struct HomeView: View {
         Button("角色切換") {
             showRoleSelection = true
         }
+        .appFont(.subheadline)
         .confirmationDialog("選擇角色", isPresented: $showRoleSelection) {
             ForEach(UserRole.allCases) { role in
                 Button(role.rawValue) {

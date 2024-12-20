@@ -32,6 +32,12 @@ struct PostalServiceView: View {
         }
         .navigationBarStyle(title: "包裹寄物")
         .background(Color(UIColor.systemGroupedBackground))
+        .toolbar(content: {
+            NavigationLink(destination: PostalServiceEntryView()) {
+                Image(systemName: "mail.stack.fill")
+                    .foregroundStyle(.white)
+            }
+        })
         .onAppear {
             viewModel.callAPI()
         }

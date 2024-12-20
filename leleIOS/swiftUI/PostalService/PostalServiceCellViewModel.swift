@@ -26,6 +26,8 @@ class PostalServiceCellViewModel {
     var shippingProvider: String? = nil
     let mark: String?
     var checkTime: String? = nil
+    /// 物業 放置包裹的地點
+    var place: String?
     
     init(model: PackageModel, type: FeatureApi.PackageList.Status) {
         self.id = model.id
@@ -69,6 +71,8 @@ class PostalServiceCellViewModel {
         if let checkTime = model.checkTime {
             self.checkTime = DateUtils.formatISO8601Date(checkTime)
         }
+        
+        self.place = model.place
         
     }
 }

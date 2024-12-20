@@ -64,14 +64,12 @@ struct ProfileView: View {
         }
         .background(Color(UIColor.systemGroupedBackground))
         .navigationBarStyle(title: "個人",isRootPage: true)
-        .navigationBarItems(trailing:
-                                Button(action: {
-            // 處理信息按鈕點擊
-        }) {
-            Image(systemName: "info.circleX")
-                .foregroundColor(.primary)
-        }
-        )//navigationBarItems
+        .toolbar(content: {
+            NavigationLink(destination: Text("ddd")) {
+                Image(systemName: "info.circleX")
+                    .foregroundStyle(.white)
+            }
+        })
         .onAppear {
             viewModel.setAppState(appState)
             viewModel.pointAPI()
