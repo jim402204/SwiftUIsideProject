@@ -8,70 +8,77 @@
 import SwiftUI
 
 struct PostalServiceEntryView: View {
-    
+    @State private var isSheetPresented = false
     @State private var viewModel = PostalServiceEntryViewModel()
-    
-    @State private var packageType: String = ""
-    @State private var type = "普通"
-//    @State private var isRefrigerated = false
-//    @State private var isFrozen = false
-    @State private var household = "選擇戶別"
-    @State private var recipient = ""
-    @State private var otherRecipient = ""
-    @State private var notes = ""
-    @State private var location = "位置"
 
     var body: some View {
         Form {
             
-//            Section(header: Text("冷藏/冷凍選項")) {
-//                Toggle("冷藏", isOn: $isRefrigerated)
-//                Toggle("冷凍", isOn: $isFrozen)
-//            }
-            
             Section(header: Text("包裹類型")) {
-                Picker("包裹類型", selection: $packageType) {
-                    Text("包裹類型").tag("包裹類型")
-                    Text("掛號").tag("掛號")
-                    Text("包裹").tag("包裹")
-                    Text("公家機關").tag("公家機關")
+                Picker("包裹類型", selection: $viewModel.packageType) {
+                    Text("包裹類型").tag(nil as String?) // 空选项
+                    ForEach(viewModel.cInfoViewModel.packageType, id: \.desc) { model in
+                        Text(model.desc)
+                    }
                 }
+//                Text("packageType: \(viewModel.packageType)")
             }
             
             Section(header: Text("冷藏/冷凍選項")) {
-                Picker("", selection: $type) {
+                Picker("", selection: $viewModel.optionType) {
                     Text("普通").tag("普通")
                     Text("冷藏").tag("冷藏")
                     Text("冷凍").tag("冷凍")
                 }
                 .pickerStyle(SegmentedPickerStyle())
+//                Text("type: \(viewModel.optionType)")
             }
 
             Section(header: Text("戶別")) {
-                Picker("戶別", selection: $household) {
-                    Text("戶別").tag("戶別")
-                    Text("戶別1").tag("戶別1")
-                    Text("戶別2").tag("戶別2")
-                    Text("戶別3").tag("戶別3")
+                HStack(spacing: 6) {
+                    Text("戶別")
+                        .backgroundStyle(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        
+                    Spacer()
+                    Text(viewModel.pickerViewModel.selectedResult)
+                        .foregroundColor(.gray)
+                    Image(systemName: "chevron.down")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 10, height: 10)
+                        .foregroundColor(.gray)
                 }
+                .onTapGesture {
+                    isSheetPresented = true
+                }
+//                Text("戶別: \(viewModel.pickerViewModel.getSelectedResult)")
             }
             
             Section(header: Text("位置")) {
-                Picker("位置", selection: $location) {
-                    Text("位置").tag("位置")
-                    Text("管理室").tag("管理室")
-                    Text("冰箱").tag("冰箱")
-                    Text("信箱").tag("信箱")
+                Picker("位置", selection: $viewModel.location) {
+                    Text("位置").tag(nil as String?)
+                    ForEach(viewModel.packagePlaceModels, id: \.name) { model in
+                        Text(model.name)
+                    }
                 }
+//                Text("location: \(viewModel.location)")
             }
 
             Section(header: Text("收件人")) {
-                TextField("收件人", text: $recipient)
-                TextField("其他收件人", text: $otherRecipient)
+                Picker("收件人", selection: $viewModel.recipient) {
+                    Text("收件人").tag(nil as String?)
+                    ForEach(viewModel.householdUserModels, id: \.name) { model in
+                        Text(model.name)
+                    }
+                }
+//                Text("recipient: \(viewModel.recipient)")
             }
 
-            Section(header: Text("備註")) {
-                TextField("備註", text: $notes)
+            Section(header: Text("其他收件人/備註")) {
+                TextField("其他收件人", text: $viewModel.otherRecipient)
+                TextField("備註", text: $viewModel.notes)
             }
             
 
@@ -84,10 +91,16 @@ struct PostalServiceEntryView: View {
         }
         .navigationBarStyle(title: "包裹登記")
         .onAppear {
-            viewModel.callAsyncAPI()
+            viewModel.callAPI()
         }
         .onDisappear {
             viewModel.releaseAPI()
+        }
+        .sheet(isPresented: $isSheetPresented) {
+            PickerSheetView(
+                pickerVM: $viewModel.pickerViewModel,
+                isPresented: $isSheetPresented
+            )
         }
     }
 }

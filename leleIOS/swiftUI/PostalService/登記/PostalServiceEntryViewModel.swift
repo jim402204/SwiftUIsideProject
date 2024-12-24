@@ -10,67 +10,108 @@ import Observation
 import Foundation
 
 @Observable
+class CommunityInfoViewModel {
+    
+    // 包裹類型
+    var packageType: [DefaultCommunityType] = []
+    // 寄送廠商
+    var shippingFrom: [DefaultCommunityType] = []
+    // 物流廠商
+    var shippingProvider: [DefaultCommunityType] = []
+    // 所有戶別棟別
+    var houseHoldData: [HouseHoldDatum] = []
+    
+    init (_ model: CommunityInfoModel) {
+
+        self.packageType = model.defaultPackageType
+        self.shippingFrom = model.defaultPackageType
+        self.shippingProvider = model.defaultPackageType
+        self.houseHoldData = model.houseHoldData
+    }
+    
+    init() {}
+    
+}
+
+@Observable
 class PostalServiceEntryViewModel {
     
-    var model: GasHistoryModel? = nil
-    var list: [GasHistoryModel] = []
+    var pickerViewModel = PickerSelection()
     
-    //    init() {
-    //        callAsyncAPI()
-    //    }
+    // input
+    var packageType: String = ""
+    var optionType = "普通"
+    var location = ""
     
+    var recipient = ""
+    var otherRecipient = ""
+    var notes = ""
+    
+    // output
+    var cInfoViewModel = CommunityInfoViewModel()
+    var packagePlaceModels = [PackagePlaceListModel]()
+    var householdUserModels = [MHouseholdModel.User]()
     var packageID: Int? = nil
     
     
     func callAPI() {
         
-        Task {
-            guard let models = try? await apiService.requestA(FeatureApi.GasHistory()) else { return }
-            
-            await MainActor.run {
-                self.list = models
-                self.model = models.first
-            }
-        }
+//        callTestAPI()
+        callAsyncAPI()
     }
     
-    func releaseAPI() {
+    func callTestAPI() {
         
         Task {
-            guard let packageID = packageID else { return }
-            do {
-                try await apiService.requestARow(NotifyApi.ReleasePackageID(id: packageID))
-            } catch {
-                print(error)
+            guard let model = try? await apiService.requestA(CommunityManagerApi.CommunityInfoData()) else { return }
+            
+            await MainActor.run {
+                self.cInfoViewModel = CommunityInfoViewModel(model)
             }
         }
     }
-
-
     
     func callAsyncAPI() {
         
         Task {
             do {
-                async let model1 = apiService.requestARow(NotifyApi.PackagePlaceList())
-                async let model2 = apiService.requestARow(NotifyApi.MHouseholdList())
-                async let model3 = apiService.requestA(NotifyApi.GeneratePackageID())
-                
-                
-                self.packageID = try await model3.id
+                async let sendAPI1 = apiService.requestA(CommunityManagerApi.PackagePlaceList())
+                async let sendAPI2 = apiService.requestA(CommunityManagerApi.MHouseholdList())
+                async let sendAPI3 = apiService.requestA(CommunityManagerApi.GeneratePackageID())
+                async let sendAPI4 = apiService.requestA(CommunityManagerApi.CommunityInfoData())
                 
                 // 等待两个请求的结果
-//                let result1 = try await model1.result
-//                let result2 = try await model2.result
-//                let combineResults = result1 + result2
-//                let viewModels = combineResults.map { BulletinCellViewModel($0) }
+                let model1 = try await sendAPI1
+                let model2 = try await sendAPI2
+                let model3 = try await sendAPI3
+                let model4 = try await sendAPI4
                 
                 await MainActor.run {
-//                    self.list = viewModels
+                    self.packagePlaceModels = model1
+                    self.householdUserModels = model2.user
+                    self.packageID = model3.id
+                    self.cInfoViewModel = CommunityInfoViewModel(model4)
+                    
+                    self.pickerViewModel = PickerSelection(households: self.cInfoViewModel.houseHoldData)
                 }
             } catch {
                 print(error)
             }
         }
     }
+    
+    
+    func releaseAPI() {
+        
+        Task {
+            guard let packageID = packageID else { return }
+            do {
+               let _ = try await apiService.requestARow(CommunityManagerApi.ReleasePackageID(id: packageID))
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    
 }

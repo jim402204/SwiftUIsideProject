@@ -249,3 +249,68 @@ struct ChatMessageModel: Codable {
 struct PackageIdModel: Codable {
     let id: Int
 }
+
+
+// MARK: - PackagePlaceListModel
+struct PackagePlaceListModel: Codable {
+    let id: String
+    let community: String
+    let index: Int
+    let name: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case index = "Index"
+        case community = "Community"
+        case name = "Name"
+    }
+}
+
+// MARK: - MHouseholdModel 物業的棟別資訊
+struct MHouseholdModel: Codable {
+    let rent: Bool
+    let building: String
+    // 主要是要住戶資訊
+    let user: [User]
+    let doorPlate, id: String
+    let card: [Card]
+    let floor: String
+
+    enum CodingKeys: String, CodingKey {
+        case rent = "Rent"
+        case building = "Building"
+        case user = "User"
+        case doorPlate = "DoorPlate"
+        case id
+        case card = "Card"
+        case floor = "Floor"
+    }
+    
+    // MARK: - Card
+    struct Card: Codable {
+        let id, uid: String
+        let user: String?
+        let createTime: String
+
+        enum CodingKeys: String, CodingKey {
+            case id
+            case uid = "UID"
+            case user = "User"
+            case createTime = "CreateTime"
+        }
+    }
+
+    // MARK: - User
+    struct User: Codable {
+        let privateNotify: Bool?
+        let name, id: String
+
+        enum CodingKeys: String, CodingKey {
+            case privateNotify = "PrivateNotify"
+            case name = "Name"
+            case id
+        }
+    }
+}
+
+
