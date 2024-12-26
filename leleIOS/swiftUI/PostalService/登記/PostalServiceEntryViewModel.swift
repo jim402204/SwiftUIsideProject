@@ -63,10 +63,10 @@ class PostalServiceEntryViewModel {
     func callTestAPI() {
         
         Task {
-            guard let model = try? await apiService.requestA(CommunityManagerApi.CommunityInfoData()) else { return }
+            guard let model = try? await apiService.requestA(CommunityManagerApi.MHouseholdList()) else { return }
             
             await MainActor.run {
-                self.cInfoViewModel = CommunityInfoViewModel(model)
+//                self.cInfoViewModel = CommunityInfoViewModel(model)
             }
         }
     }
@@ -100,6 +100,34 @@ class PostalServiceEntryViewModel {
         }
     }
     
+    func registerPackageAPI() {
+        
+        guard let packageID = self.packageID else { return }
+        
+        guard !self.recipient.isEmpty else { return }
+        guard !self.packageType.isEmpty else { return }
+        
+        let other: String? = otherRecipient.isEmpty ? nil : otherRecipient
+    
+        let userList = householdUserModels.map { FacilityTypeModel(id: $0.id, name: $0.name, desc: $0.name) }
+        
+        
+        Task {
+            do {
+                let _ = try await apiService.requestA(
+                    CommunityManagerApi.RegisterPackage(
+                        packageID: packageID,
+                        recipient: recipient,
+                        type: packageType,
+                        other: other,
+                        userList: userList
+                    )
+                )
+            } catch {
+                print(error)
+            }
+        }
+    }
     
     func releaseAPI() {
         

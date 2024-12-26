@@ -18,10 +18,10 @@ struct PostalServiceEntryView: View {
                 Picker("包裹類型", selection: $viewModel.packageType) {
                     Text("包裹類型").tag(nil as String?) // 空选项
                     ForEach(viewModel.cInfoViewModel.packageType, id: \.desc) { model in
-                        Text(model.desc)
+                        Text(model.desc).tag(model.name)
                     }
                 }
-//                Text("packageType: \(viewModel.packageType)")
+                Text("packageType: \(viewModel.packageType)")
             }
             
             Section(header: Text("冷藏/冷凍選項")) {
@@ -70,10 +70,10 @@ struct PostalServiceEntryView: View {
                 Picker("收件人", selection: $viewModel.recipient) {
                     Text("收件人").tag(nil as String?)
                     ForEach(viewModel.householdUserModels, id: \.name) { model in
-                        Text(model.name)
+                        Text(model.name).tag(model.id)
                     }
                 }
-//                Text("recipient: \(viewModel.recipient)")
+                Text("recipient: \(viewModel.recipient)")
             }
 
             Section(header: Text("其他收件人/備註")) {
@@ -84,6 +84,7 @@ struct PostalServiceEntryView: View {
 
             Button(action: {
                 // 發送API請求的邏輯
+                viewModel.registerPackageAPI()
             }) {
                 Text("登記")
                     .frame(maxWidth: .infinity, alignment: .center)
