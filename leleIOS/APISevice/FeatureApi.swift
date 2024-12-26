@@ -66,9 +66,9 @@ enum FeatureApi {
     
     //MARK: - 包裹資訊
     struct MPackageList: BaseTargetType {
-        typealias ResponseDataType = [PackageModel]//PackageModelWrapper
+        typealias ResponseDataType = PackageModelWrapper//[PackageModel]//PackageModelWrapper
         
-        var path: String { return "user/community/\(communityAdmin)/package_list" }
+        var path: String { return "community/\(communityAdmin)/package_list" }
         var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.default) }
         private var parameters: [String:Any] = [:]
         private var communityAdmin: String
@@ -85,12 +85,22 @@ enum FeatureApi {
             parameters["f"] = communityInfo.floor
             
             parameters["s"] = 2
+            //可能跟過濾有關係
             parameters["sd"] = 1
             // 有沒有p 對應 respone result or array
             parameters["p"] = 1
             parameters["pp"] = 10
             //調整排序
             parameters["sb"] = ""
+//            parameters["st"] = ""
+//            parameters["et"] = ""
+//            parameters["stc"] = ""
+//            parameters["etc"] = ""
+//            parameters["pt"] = ""
+//            parameters["cm"] = ""
+//            parameters["bc"] = ""
+//            parameters["ptcn"] = ""
+//            parameters["pc"] = ""
         }
     }
     

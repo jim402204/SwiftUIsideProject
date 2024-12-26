@@ -10,7 +10,8 @@ import SwiftUI
 struct PostalServiceEntryView: View {
     @State private var isSheetPresented = false
     @State private var viewModel = PostalServiceEntryViewModel()
-
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         Form {
             
@@ -21,7 +22,7 @@ struct PostalServiceEntryView: View {
                         Text(model.desc).tag(model.name)
                     }
                 }
-                Text("packageType: \(viewModel.packageType)")
+//                Text("packageType: \(viewModel.packageType)")
             }
             
             Section(header: Text("冷藏/冷凍選項")) {
@@ -73,7 +74,7 @@ struct PostalServiceEntryView: View {
                         Text(model.name).tag(model.id)
                     }
                 }
-                Text("recipient: \(viewModel.recipient)")
+//                Text("recipient: \(viewModel.recipient)")
             }
 
             Section(header: Text("其他收件人/備註")) {
@@ -102,6 +103,10 @@ struct PostalServiceEntryView: View {
                 pickerVM: $viewModel.pickerViewModel,
                 isPresented: $isSheetPresented
             )
+        }
+        .onChange(of: viewModel.isPopPage) { new , _ in
+            guard !new else { return }
+            self.dismiss()
         }
     }
 }

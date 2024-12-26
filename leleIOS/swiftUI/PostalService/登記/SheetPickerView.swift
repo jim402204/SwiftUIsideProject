@@ -25,18 +25,46 @@ class PickerSelection {
         selectedResult = getSelectedResult
     }
     
+    // 获取结果字符串
     var getSelectedResult: String {
         // 检查索引范围并生成拼接结果
-        if households.indices.contains(selectedHousehold),
-           households[selectedHousehold].doorPlate.indices.contains(selectedDoorPlate),
-           households[selectedHousehold].doorPlate[selectedDoorPlate].floor.indices.contains(selectedFloor) {
-            let household = households[selectedHousehold].name
-            let doorPlate = households[selectedHousehold].doorPlate[selectedDoorPlate].name
-            let floor = households[selectedHousehold].doorPlate[selectedDoorPlate].floor[selectedFloor].name
-            return "\(household) / \(doorPlate) / \(floor)"
+        if let household = currentHousehold,
+           let doorPlate = currentDoorPlate,
+           let floor = currentFloor {
+            return "\(household.name) / \(doorPlate.name) / \(floor.name)"
         } else {
             return "選擇戶別"
         }
+    }
+    
+    var selectedModel: HouseHold? {
+        guard let household = currentHousehold?.name else { return nil }
+        guard let doorPlate = currentDoorPlate?.name else { return nil }
+        guard let floor = currentFloor?.name else { return nil }
+        return HouseHold(building: household, doorPlate: doorPlate, floor: floor)
+    }
+    
+    // 计算属性：当前选择的棟
+    var currentHousehold: HouseHoldDatum? {
+        households.indices.contains(selectedHousehold) ? households[selectedHousehold] : nil
+    }
+    
+    // 计算属性：当前选择的號
+    var currentDoorPlate: HouseHoldDatum.DoorPlate? {
+        guard let household = currentHousehold,
+              household.doorPlate.indices.contains(selectedDoorPlate) else {
+            return nil
+        }
+        return household.doorPlate[selectedDoorPlate]
+    }
+    
+    // 计算属性：当前选择的樓
+    var currentFloor: HouseHoldDatum.Floor? {
+        guard let doorPlate = currentDoorPlate,
+              doorPlate.floor.indices.contains(selectedFloor) else {
+            return nil
+        }
+        return doorPlate.floor[selectedFloor]
     }
     
     func reset() {

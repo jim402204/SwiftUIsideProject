@@ -53,7 +53,7 @@ class PostalServicViewModel: ObservableObject {
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 
-                let models = model.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
+                let models = model.result.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
                 self.list = models
                 
             }).store(in: &bag)

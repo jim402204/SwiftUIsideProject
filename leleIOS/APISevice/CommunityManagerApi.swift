@@ -82,64 +82,14 @@ enum CommunityManagerApi {
         }
     }
     
-//    //MARK: - 登記 儲存包裹(通知住戶) | savePackage
-//    struct RegisterPackage: BaseTargetType {
-//        typealias ResponseDataType = [HouseholdListModel]
-//
-//        var method: Moya.Method { .post }
-//        var path: String { return "community/\(communityAdmin)/package" }
-//        var task: Task { .requestParameters(parameters: parameters, encoding: JSONEncoding.default) }
-//        private var parameters: [String:Any] = [:]
-//        private var communityAdmin: String
-//        
-//        init(
-//            communityAdmin: String = UserDefaultsHelper.communityAdmin,
-//            packageID: Int,
-//            recipient: String?,
-//            type: String,
-//            other: String?,
-//            userList: [FacilityTypeModel]
-//        ) {
-//            self.communityAdmin = communityAdmin
-//            
-//            let houseHold: [String: String] = [
-//                "Building": "A1棟",
-//                "DoorPlate": "1號",
-//                "Floor": "1樓"
-//            ]
-//            self.parameters["HouseHold"] = houseHold
-//            self.parameters["PackageID"] = packageID
-//            self.parameters["Type"] = type
-//            self.parameters["Status"] = 2
-//            
-//            // 转换 userList 为字典数组
-//            let userModelList: [[String: String]] = userList.map { user in
-//                return [
-//                    "id": user.id,
-//                    "Name": user.name,
-//                    "Desc": user.desc
-//                ]
-//            }
-//            
-//            self.parameters["HouseHolderUserList"] = userModelList
-//            
-//            if let recipient = recipient {
-//                self.parameters["Recipient"] = recipient
-//            } else if let other = other {
-//                self.parameters["RecipientCustomName"] = other
-//            } else {
-//                fatalError("recipient & other nil")
-//            }
-//        }
-//    }
-    struct RegisterPackage: BaseTargetType {
-        typealias ResponseDataType = [HouseholdListModel]
+    struct RegisterPackage: BaseTargetType { //有點久
+        typealias ResponseDataType = String
 
         var method: Moya.Method { .post }
         var path: String { return "community/\(communityAdmin)/package" }
         var task: Task { .requestJSONEncodable(requestBody) } // 使用 requestJSONEncodable
         private var communityAdmin: String
-        private var requestBody: [Package]
+        private var requestBody: [PackageAPIModel]
 
         init(
             communityAdmin: String = UserDefaultsHelper.communityAdmin,
@@ -147,24 +97,16 @@ enum CommunityManagerApi {
             recipient: String?,
             type: String,
             other: String?,
-            userList: [FacilityTypeModel]
+            userList: [MHouseholdModel.User],
+            houseHold: HouseHold
         ) {
             self.communityAdmin = communityAdmin
-
-            // 构造 HouseHold 对象
-            let houseHold = HouseHold(
-                building: "A1棟",
-                doorPlate: "1號",
-                floor: "1樓"
-            )
-
-            // 转换 userList 为 UserModel 数组
+            
             let userModelList = userList.map { user in
-                UserModel(id: user.id, name: user.name, desc: user.desc)
+                PackageAPIModel.UserModel(id: user.id, name: user.name, desc: user.name)
             }
 
-            // 构造单个 Package 对象
-            let package = Package(
+            let package = PackageAPIModel(
                 houseHold: houseHold,
                 packageID: packageID,
                 type: type,
@@ -175,21 +117,24 @@ enum CommunityManagerApi {
             )
 
             // 构造顶级请求对象
-            self.requestBody = [package] // PackageRequest(payload: [package])
+            self.requestBody = [package]
         }
     }
-
+    
+//            if let recipient = recipient {
+//                self.parameters["Recipient"] = recipient
+//            } else if let other = other {
+//                self.parameters["RecipientCustomName"] = other
+//            } else {
+//                fatalError("recipient & other nil")
+//            }
     
     
 }
 
 import Foundation
-
-struct PackageRequest: Encodable {
-    let payload: [Package]
-}
-
-struct Package: Encodable {
+// send to server model
+struct PackageAPIModel: Encodable {
     let houseHold: HouseHold
     let packageID: Int
     let type: String
@@ -197,16 +142,12 @@ struct Package: Encodable {
     let houseHolderUserList: [UserModel]
     let recipient: String?
     let recipientCustomName: String?
+    
+    struct UserModel: Encodable {
+        let id: String
+        let name: String
+        let desc: String
+    }
 }
 
-//struct HouseHold: Encodable {
-//    let building: String
-//    let doorPlate: String
-//    let floor: String
-//}
 
-struct UserModel: Encodable {
-    let id: String
-    let name: String
-    let desc: String
-}

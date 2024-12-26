@@ -52,7 +52,7 @@ class PostalServiceEntryViewModel {
     var packagePlaceModels = [PackagePlaceListModel]()
     var householdUserModels = [MHouseholdModel.User]()
     var packageID: Int? = nil
-    
+    var isPopPage: Bool = false
     
     func callAPI() {
         
@@ -104,25 +104,27 @@ class PostalServiceEntryViewModel {
         
         guard let packageID = self.packageID else { return }
         
-        guard !self.recipient.isEmpty else { return }
+        guard let houseHold = pickerViewModel.selectedModel else { return }
+        
         guard !self.packageType.isEmpty else { return }
         
         let other: String? = otherRecipient.isEmpty ? nil : otherRecipient
-    
-        let userList = householdUserModels.map { FacilityTypeModel(id: $0.id, name: $0.name, desc: $0.name) }
         
         
         Task {
             do {
-                let _ = try await apiService.requestA(
+                let _ = try await apiService.requestARow(
                     CommunityManagerApi.RegisterPackage(
                         packageID: packageID,
                         recipient: recipient,
                         type: packageType,
                         other: other,
-                        userList: userList
+                        userList: householdUserModels,
+                        houseHold: houseHold
                     )
                 )
+                self.isPopPage = true
+                
             } catch {
                 print(error)
             }
