@@ -148,12 +148,9 @@ enum NotifyApi {
         }
     }
     
-    
-    
-    
     //MARK: - 圖像識別 | labelIdentific
     struct BedrockLabelIdentific: BaseTargetType {
-        typealias ResponseDataType = BaseResponseData<String>
+        typealias ResponseDataType = LabelIdentificModel
         
         var method: Moya.Method { return .post }
         var baseURL: URL { return URL(string: "https://bheypo5vuh.execute-api.ap-northeast-1.amazonaws.com")!   }

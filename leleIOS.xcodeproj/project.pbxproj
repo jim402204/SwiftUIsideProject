@@ -71,6 +71,11 @@
 		37C0910A2D194A8800E5A7CE /* TextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091092D194A8800E5A7CE /* TextPicker.swift */; };
 		37C0910C2D1953BF00E5A7CE /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C0910B2D1953BF00E5A7CE /* Array+.swift */; };
 		37C0910E2D1957DD00E5A7CE /* SheetPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C0910D2D1957DD00E5A7CE /* SheetPickerView.swift */; };
+		37C091122D1D067800E5A7CE /* FastRegisterPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091112D1D067800E5A7CE /* FastRegisterPackageView.swift */; };
+		37C091142D1D070E00E5A7CE /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091132D1D070E00E5A7CE /* CameraView.swift */; };
+		37C091162D1D097500E5A7CE /* FastRegisterPackageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091152D1D097500E5A7CE /* FastRegisterPackageViewModel.swift */; };
+		37C0911D2D1D279D00E5A7CE /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C0911C2D1D279D00E5A7CE /* UIImage+.swift */; };
+		37C0911F2D1D471A00E5A7CE /* testPackage.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C0911E2D1D471A00E5A7CE /* testPackage.png */; };
 		37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F76B2CFD905200F32A5C /* MainTabView.swift */; };
 		37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7712CFD912400F32A5C /* ProfileView.swift */; };
 		37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7742CFD917B00F32A5C /* NotificationView.swift */; };
@@ -214,6 +219,11 @@
 		37C091092D194A8800E5A7CE /* TextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPicker.swift; sourceTree = "<group>"; };
 		37C0910B2D1953BF00E5A7CE /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		37C0910D2D1957DD00E5A7CE /* SheetPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPickerView.swift; sourceTree = "<group>"; };
+		37C091112D1D067800E5A7CE /* FastRegisterPackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastRegisterPackageView.swift; sourceTree = "<group>"; };
+		37C091132D1D070E00E5A7CE /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		37C091152D1D097500E5A7CE /* FastRegisterPackageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastRegisterPackageViewModel.swift; sourceTree = "<group>"; };
+		37C0911C2D1D279D00E5A7CE /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		37C0911E2D1D471A00E5A7CE /* testPackage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testPackage.png; sourceTree = "<group>"; };
 		37C7F76B2CFD905200F32A5C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		37C7F7712CFD912400F32A5C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		37C7F7742CFD917B00F32A5C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -407,6 +417,7 @@
 				374A5EE02D02F70F00A36375 /* View+.swift */,
 				37E57C682D1006DB00C9B5EF /* Publisher+.swift */,
 				37C0910B2D1953BF00E5A7CE /* Array+.swift */,
+				37C0911C2D1D279D00E5A7CE /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -480,6 +491,7 @@
 		377F99A02D081F5000BE818A /* PostalService */ = {
 			isa = PBXGroup;
 			children = (
+				37C091102D1D061A00E5A7CE /* 快速登記 */,
 				37C091002D155A7A00E5A7CE /* 登記 */,
 				374A5ED82D018F0500A36375 /* PostalServiceView.swift */,
 				374A5EDA2D01994F00A36375 /* PostalServicViewModel.swift */,
@@ -525,6 +537,15 @@
 				37C091092D194A8800E5A7CE /* TextPicker.swift */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		37C091102D1D061A00E5A7CE /* 快速登記 */ = {
+			isa = PBXGroup;
+			children = (
+				37C091112D1D067800E5A7CE /* FastRegisterPackageView.swift */,
+				37C091152D1D097500E5A7CE /* FastRegisterPackageViewModel.swift */,
+			);
+			path = "快速登記";
 			sourceTree = "<group>";
 		};
 		37C7F76D2CFD907700F32A5C /* swiftUI */ = {
@@ -602,6 +623,7 @@
 				37C7F77E2CFDB9F700F32A5C /* SegmentedTabView.swift */,
 				37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */,
 				37E57C662D0C144F00C9B5EF /* LoadMoreView.swift */,
+				37C091132D1D070E00E5A7CE /* CameraView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -666,6 +688,7 @@
 		37E57C1D2D0ABFEF00C9B5EF /* 雜圖 */ = {
 			isa = PBXGroup;
 			children = (
+				37C0911E2D1D471A00E5A7CE /* testPackage.png */,
 				37E57C1E2D0ABFFD00C9B5EF /* banner.png */,
 				37E57C202D0AC02100C9B5EF /* demoAD.jpg */,
 				37E57C212D0AC02100C9B5EF /* gas.png */,
@@ -936,6 +959,7 @@
 				37E57C4C2D0AC03A00C9B5EF /* calendar.svg in Resources */,
 				37E57C4D2D0AC03A00C9B5EF /* guest.svg in Resources */,
 				37E57C4E2D0AC03A00C9B5EF /* people.svg in Resources */,
+				37C0911F2D1D471A00E5A7CE /* testPackage.png in Resources */,
 				37E57C4F2D0AC03A00C9B5EF /* news.svg in Resources */,
 				37E57C502D0AC03A00C9B5EF /* life_active.svg in Resources */,
 				37E57C512D0AC03A00C9B5EF /* logo.svg in Resources */,
@@ -1048,6 +1072,7 @@
 				37E57C8A2D12C2EF00C9B5EF /* ManageFeeView.swift in Sources */,
 				37E57C982D12D2AF00C9B5EF /* FacilityDetailView.swift in Sources */,
 				37C0910E2D1957DD00E5A7CE /* SheetPickerView.swift in Sources */,
+				37C091162D1D097500E5A7CE /* FastRegisterPackageViewModel.swift in Sources */,
 				37E57CA22D13B6A100C9B5EF /* ChatViewModel.swift in Sources */,
 				37E57C942D12CAF700C9B5EF /* FeedBackViewModel.swift in Sources */,
 				375D8A6B2CFD4A6100A1E02B /* HomeApi.swift in Sources */,
@@ -1069,9 +1094,11 @@
 				374A5EE12D02F70F00A36375 /* View+.swift in Sources */,
 				377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */,
 				374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */,
+				37C0911D2D1D279D00E5A7CE /* UIImage+.swift in Sources */,
 				37E57C672D0C144F00C9B5EF /* LoadMoreView.swift in Sources */,
 				374A5ECB2D00489C00A36375 /* ProfileOptionView.swift in Sources */,
 				374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */,
+				37C091142D1D070E00E5A7CE /* CameraView.swift in Sources */,
 				37C091022D155AFA00E5A7CE /* PostalServiceEntryView.swift in Sources */,
 				374A5EC52CFF0A3D00A36375 /* BaseButtonContent.swift in Sources */,
 				374A5EB92CFEF90E00A36375 /* JimTextFieldStyle.swift in Sources */,
@@ -1101,6 +1128,7 @@
 				37E57C922D12CAEE00C9B5EF /* FeedBackView.swift in Sources */,
 				37E57C6B2D1019F100C9B5EF /* APIService+Async.swift in Sources */,
 				374A5ED32D01361100A36375 /* IntercomView.swift in Sources */,
+				37C091122D1D067800E5A7CE /* FastRegisterPackageView.swift in Sources */,
 				37E57C0F2D0934A800C9B5EF /* HomeView+.swift in Sources */,
 				375D8A6A2CFD4A6100A1E02B /* FeatureApi.swift in Sources */,
 				37E57C9D2D12D2F600C9B5EF /* FacilityDetailViewModel.swift in Sources */,
@@ -1249,9 +1277,11 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = leleIOS/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "是否允許此App使用相機，以便上傳圖片";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1285,9 +1315,11 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = leleIOS/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "是否允許此App使用相機，以便上傳圖片";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

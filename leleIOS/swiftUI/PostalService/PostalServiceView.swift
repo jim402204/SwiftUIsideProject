@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct PostalServiceView: View {
+    
     @StateObject private var viewModel = PostalServicViewModel()
+    @State var fastViewModel = FastRegisterPackageViewModel()
+    @State private var isCameraPresented = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -37,8 +40,23 @@ struct PostalServiceView: View {
                 Image(systemName: "mail.stack.fill")
                     .foregroundStyle(.white)
             }
+            Button(action: {
+                isCameraPresented = true
+            }) {
+                Image(systemName: "bolt.circle")
+                    .foregroundStyle(.white)
+            }
         })
         .onAppear {
+            viewModel.callAPI()
+        }
+        .sheet(isPresented: $isCameraPresented) {
+            CameraView(
+                isPresented: $isCameraPresented,
+                capturedImageDate: $fastViewModel.imageData
+            )
+        }
+        .onChange(of: fastViewModel.reflushList) {
             viewModel.callAPI()
         }
     }

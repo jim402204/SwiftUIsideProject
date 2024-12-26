@@ -22,7 +22,7 @@ struct PostalServiceEntryView: View {
                         Text(model.desc).tag(model.name)
                     }
                 }
-//                Text("packageType: \(viewModel.packageType)")
+                Text("packageType: \(viewModel.packageType)")
             }
             
             Section(header: Text("冷藏/冷凍選項")) {
@@ -104,7 +104,7 @@ struct PostalServiceEntryView: View {
                 isPresented: $isSheetPresented
             )
         }
-        .onChange(of: viewModel.isPopPage) { new , _ in
+        .onChange(of: viewModel.isPopPage) { _ , new in
             guard !new else { return }
             self.dismiss()
         }

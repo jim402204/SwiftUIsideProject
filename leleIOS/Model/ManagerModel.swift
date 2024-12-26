@@ -108,3 +108,9 @@ struct HouseHoldDatum: Codable {
         }
     }
 }
+
+// MARK: - LabelIdentificModel
+struct LabelIdentificModel: Codable {
+    let houseHold, address, name, phone: String
+}
+
