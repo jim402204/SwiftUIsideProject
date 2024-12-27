@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
+    @FocusState private var isTextFieldFocused: Bool
     @State private var viewModel = ChatViewModel()
     private let presetQuestions = ["我想填瓦斯度數", "最近社區有什麼活動？", "大型垃圾要怎麼處理？", "問題4", "問題5"]
     
@@ -19,6 +20,9 @@ struct ChatView: View {
                         ChatBubble(message: item.msg, isMyMsg: item.isMyMsg)
                     }
                 }
+            }
+            .onTapGesture {
+                isTextFieldFocused = false
             }
             
             ScrollView(.horizontal, showsIndicators: false) {
@@ -53,6 +57,7 @@ struct ChatView: View {
                 TextField("訊問樂樂管家！", text: $viewModel.message)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
+                    .focused($isTextFieldFocused)
                 Button(action: {
                     viewModel.sendMsg()
                 }) {

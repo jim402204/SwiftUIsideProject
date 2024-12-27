@@ -22,7 +22,7 @@ struct PostalServiceEntryView: View {
                         Text(model.desc).tag(model.name)
                     }
                 }
-                Text("packageType: \(viewModel.packageType)")
+//                Text("packageType: \(viewModel.packageType)")
             }
             
             Section(header: Text("冷藏/冷凍選項")) {
