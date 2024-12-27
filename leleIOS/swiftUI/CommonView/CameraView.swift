@@ -22,6 +22,7 @@ struct CameraView: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let image = info[.originalImage] as? UIImage {
                 parent.capturedImageDate = resizeAndCompressImage(image: image, targetSizeInBytes: 200_000)
+//                parent.capturedImageDate = getPNG(image: image)
             }
             parent.isPresented = false // 关闭相机视图
         }
@@ -30,12 +31,12 @@ struct CameraView: UIViewControllerRepresentable {
             parent.isPresented = false // 关闭相机视图
         }
         
-        func resizeAndCompressImage(image: UIImage, targetSizeInBytes: Int, maxDimension: CGFloat = 1024) -> Data? {
+        func resizeAndCompressImage(image: UIImage, targetSizeInBytes: Int, maxDimension: CGFloat = 512) -> Data? {
             // 缩小图片到指定最大宽/高
             let resizedImage = resizeImage(image: image, maxDimension: maxDimension)
             
             // 尝试压缩
-            var compressionQuality: CGFloat = 0.5
+            var compressionQuality: CGFloat = 0.7
             var compressedData = resizedImage.jpegData(compressionQuality: compressionQuality)
             
             while let data = compressedData, data.count > targetSizeInBytes, compressionQuality > 0.1 {
@@ -53,6 +54,13 @@ struct CameraView: UIViewControllerRepresentable {
                 print("Compression failed")
                 return nil
             }
+        }
+        
+        func getPNG(image: UIImage,  maxDimension: CGFloat = 1024) -> Data? {
+            // 缩小图片到指定最大宽/高
+            let resizedImage = resizeImage(image: image, maxDimension: maxDimension)
+            
+            return resizedImage.pngData()
         }
 
         func resizeImage(image: UIImage, maxDimension: CGFloat) -> UIImage {

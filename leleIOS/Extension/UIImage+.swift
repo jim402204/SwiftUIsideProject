@@ -74,20 +74,32 @@ extension UIImage {
 }
 
 
-func loadImageData(named fileName: String, fileType: String = "png") -> Data? {
-    // 获取图片的路径
-    guard let filePath = Bundle.main.path(forResource: fileName, ofType: fileType) else {
+func validateAndConvertToPNG(named fileName: String) -> Data? {
+    guard let filePath = Bundle.main.path(forResource: fileName, ofType: "png") else {
         print("文件路径不存在")
         return nil
     }
     
-    // 将图片文件转换为 Data
     let fileURL = URL(fileURLWithPath: filePath)
     do {
-        let data = try Data(contentsOf: fileURL)
-        return data
+        let originalData = try Data(contentsOf: fileURL)
+        
+        // 验证是否能被 UIImage 正确解析
+        guard let image = UIImage(data: originalData) else {
+            print("文件数据无法解析为 UIImage")
+            return nil
+        }
+        
+        // 确保转为 PNG 格式
+        guard let pngData = image.pngData() else {
+            print("无法将 UIImage 转换为 PNG 格式")
+            return nil
+        }
+        
+        return pngData
     } catch {
         print("读取文件失败: \(error)")
         return nil
     }
 }
+

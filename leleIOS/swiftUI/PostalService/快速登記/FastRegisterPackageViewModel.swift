@@ -5,14 +5,12 @@
 //  Created by 江俊瑩 on 2024/12/26.
 //
 
-//import Combine
 import UIKit
 import Observation
 import Foundation
 
 @Observable
 class FastRegisterPackageViewModel {
-//    private var cancellables = Set<AnyCancellable>()
     
     var reflushList: Bool = false
     
@@ -122,7 +120,7 @@ extension FastRegisterPackageViewModel {
         var imageDataTest = Data()
         
         // 示例：读取 testPackage.png 图片
-        if let pngData = loadImageData(named: "testPackage") {
+        if let pngData = validateAndConvertToPNG(named: "testPackage") {
             print("图片数据加载成功，大小为: \(pngData.count) 字节")
             if let jpegData = convertToJPEG(data: pngData) {
                 imageDataTest = jpegData
