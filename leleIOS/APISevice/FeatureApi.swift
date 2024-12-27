@@ -8,7 +8,16 @@
 import Moya
 import Foundation
 
-struct CommunityInfo: Codable  {
+struct UserIDInfo: Codable {
+    /// 使用者id
+    var uid: String = ""
+    /// 社區id
+    var cid: String = ""
+    /// 房屋id xx棟x號x樓
+    var hid: String = ""
+}
+
+struct CommunityInfo: Codable {
 //    var building: String = "A1棟"
 //    var doorPlate: String = "1號"
 //    var floor: String = "1樓"

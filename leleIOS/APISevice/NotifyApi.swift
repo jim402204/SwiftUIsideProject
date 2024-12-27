@@ -140,11 +140,26 @@ enum NotifyApi {
         var baseURL: URL { return URL(string: "https://bheypo5vuh.execute-api.ap-northeast-1.amazonaws.com")!   }
         var path: String { return "prod/voice-bot" }
         
-        var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.default) }
+        var task: Task { .requestCompositeParameters(bodyParameters: parameters, bodyEncoding: JSONEncoding.default, urlParameters: messagePara) }
         private var parameters: [String:Any] = [:]
+        private var messagePara: [String:String] = [:]
         
-        init(message: String) {
-            parameters["message"] = message
+        init(message: String, userID: UserIDInfo = UserDefaultsHelper.UserIdInfo) {
+            messagePara["message"] = message
+            
+            self.parameters = [
+                "saveHistory": false,
+                "user": [
+                    "cid": userID.cid,
+                    "hid": userID.hid,
+                    "uid": userID.uid
+                ]
+//                ,"voiceOutput": true,
+//                "demo": false,
+            ]
+//            "cid": "63b9b8452cb6973afe2b988f",
+//            "hid": "63d9f5dd12fff80e525c0c55",
+//            "uid": "63bcd1b7cb5ee4feec0b2a0e"
         }
     }
     

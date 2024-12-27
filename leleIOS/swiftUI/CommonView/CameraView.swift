@@ -99,9 +99,5 @@ struct CameraView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
 }
 
-//#Preview {
-//    CameraView(isPresented: <#Binding<Bool>#>, capturedImage: <#Binding<UIImage?>#>)
-//}
-
 
 

@@ -49,8 +49,8 @@ struct PageModelFactory {
                 PageModel(name: "郵務管理", systemImageName: "envelope.fill", navigationPage: .postalService),
                 PageModel(name: "寄放", systemImageName: "tray.and.arrow.down.fill", navigationPage: .detail("寄放")),
 //                PageModel(name: "通知", systemImageName: "bell.fill", navigationPage: .detail("通知")),
-                PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .detail("住戶意見")),
-                PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .detail("報修")),
+                PageModel(name: "住戶意見", systemImageName: "bubble.left.and.bubble.right.fill", navigationPage: .opinions),
+                PageModel(name: "報修", systemImageName: "doc.text.fill", navigationPage: .feedback),
                 PageModel(name: "社區公告", systemImageName: "megaphone.fill", navigationPage: .bulletin),
                 PageModel(name: "行事曆", systemImageName: "calendar", navigationPage: .detail("行事曆"))
             ]

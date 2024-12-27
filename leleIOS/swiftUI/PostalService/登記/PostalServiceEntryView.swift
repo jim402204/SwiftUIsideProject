@@ -81,7 +81,6 @@ struct PostalServiceEntryView: View {
                 TextField("其他收件人", text: $viewModel.otherRecipient)
                 TextField("備註", text: $viewModel.notes)
             }
-            
 
             Button(action: {
                 // 發送API請求的邏輯

@@ -18,7 +18,7 @@ class ChatViewModel {
     private var statusObserver: NSKeyValueObservation?
     
     func sendMsg() {
-        callAPI(message: message)
+        callBestAPI(message: message)
     }
     
     func refresh() {
@@ -32,6 +32,20 @@ class ChatViewModel {
 extension ChatViewModel {
     
     func callAPI(message: String) {
+        
+        Task {
+            guard let model = try? await apiService.requestA(NotifyApi.BedrockChatBotGet(message: message)) else { return }
+            
+            let viewModel = ChatCellViewModel(model: model)
+            
+            await MainActor.run {
+                self.list.append(viewModel)
+                self.play(load: viewModel.voiceURL)
+            }
+        }
+    }
+    
+    func callBestAPI(message: String) {
         
         Task {
             guard let model = try? await apiService.requestA(NotifyApi.BedrockChatBot(message: message)) else { return }

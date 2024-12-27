@@ -9,17 +9,18 @@ import SwiftUI
 import Combine
 
 class MainTabViewModel: ObservableObject {
-    private var bag = Set<AnyCancellable>()
     
     init () {
-        callAPI()
+        householdListAPI()
+        
+        callUserInfo()
     }
     
-    func callAPI() {
+    func householdListAPI() {
         
-        apiService.request(LaunchApi.HouseholdList())
-            .sink(onSuccess: { [weak self] respone in
-                guard let self = self else { return }
+        Task {
+            do {
+                let respone = try await apiService.requestA(LaunchApi.HouseholdList())
                 
                 guard let model = respone.first else { return }
                 
@@ -34,8 +35,28 @@ class MainTabViewModel: ObservableObject {
                 UserDefaultsHelper.communityAdmin = model.community.id
                 UserDefaultsHelper.userBuilding = userInfo
                 
-            }).store(in: &bag)
+            } catch {
+                print("HouseholdList: error: \(error)")
+            }
+        }
         
+    }
+    
+    func callUserInfo() {
+        
+        Task {
+            
+            do {
+                let model = try await apiService.requestA(LaunchApi.UserInfo())
+                
+                guard let cid = model.communityAdmin.first else { return  }
+                
+                UserDefaultsHelper.UserIdInfo = UserIDInfo(uid: model.id, cid: cid, hid: model.defaultHouseHold)
+                
+            } catch {
+                print("UserInfo: error: \(error)")
+            }
+        }
     }
     
 }
