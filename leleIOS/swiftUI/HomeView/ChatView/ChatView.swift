@@ -8,21 +8,35 @@
 import SwiftUI
 
 struct ChatView: View {
+    private let presetQuestions =
+    ["我想填瓦斯度數", "最近社區有什麼活動？", "大型垃圾要怎麼處理？", "問題4", "問題5"]
+    
     @FocusState private var isTextFieldFocused: Bool
     @State private var viewModel = ChatViewModel()
-    private let presetQuestions = ["我想填瓦斯度數", "最近社區有什麼活動？", "大型垃圾要怎麼處理？", "問題4", "問題5"]
     
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView {
-                LazyVStack(spacing: 0) {
-                    ForEach(Array(viewModel.list.enumerated()), id: \.offset) { _, item in
-                        ChatBubble(message: item.msg, isMyMsg: item.isMyMsg)
+            
+            ScrollViewReader { proxy in
+                ScrollView {
+                    LazyVStack(spacing: 0) {
+                        ForEach(Array(viewModel.list.enumerated()), id: \.offset) { index, item in
+                            ChatBubble(message: item.msg, isMyMsg: item.isMyMsg)
+                                .id(index) // 給每條訊息設置唯一標識符
+                        }
                     }
                 }
-            }
-            .onTapGesture {
-                isTextFieldFocused = false
+                .onTapGesture {
+                    isTextFieldFocused = false
+                }
+                .onChange(of: viewModel.list.count) {
+                    // 滾動到最新的訊息
+                    if let lastIndex = viewModel.list.indices.last {
+                        withAnimation {
+                            proxy.scrollTo(lastIndex, anchor: .bottom)
+                        }
+                    }
+                }
             }
             
             ScrollView(.horizontal, showsIndicators: false) {
@@ -76,6 +90,7 @@ struct ChatView: View {
         }
         .navigationBarStyle(title: "社區百問")
         .background(Color(UIColor.systemGroupedBackground))
+//        .loadingOverlay(isLoading: $viewModel.loadingManager.isLoading)
         .onDisappear {
             viewModel.player.stop()
         }
@@ -85,7 +100,7 @@ struct ChatView: View {
 #Preview {
     PreviewTokenView {
 //        NavigationStack {
-            ChatView()
+        ChatView()
 //        }
     }
 }

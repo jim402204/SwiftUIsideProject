@@ -104,7 +104,7 @@ struct PostalServiceEntryView: View {
             )
         }
         .onChange(of: viewModel.isPopPage) { _ , new in
-            guard !new else { return }
+            guard new else { return }
             self.dismiss()
         }
     }

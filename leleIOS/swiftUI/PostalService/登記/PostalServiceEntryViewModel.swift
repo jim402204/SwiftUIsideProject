@@ -54,6 +54,8 @@ class PostalServiceEntryViewModel {
     var packageID: Int? = nil
     var isPopPage: Bool = false
     
+    var loadingManager = LoadingManager.shared
+    
     func callAPI() {
         
 //        callTestAPI()
@@ -111,6 +113,8 @@ class PostalServiceEntryViewModel {
         let other: String? = otherRecipient.isEmpty ? nil : otherRecipient
         
         
+        loadingManager.isLoading = true
+        
         Task {
             do {
                 let _ = try await apiService.requestARow(
@@ -123,9 +127,11 @@ class PostalServiceEntryViewModel {
                         houseHold: houseHold
                     )
                 )
+                loadingManager.isLoading = false
                 self.isPopPage = true
                 
             } catch {
+                loadingManager.isLoading = false
                 print(error)
             }
         }

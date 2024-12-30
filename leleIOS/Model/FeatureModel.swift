@@ -625,7 +625,7 @@ struct FacilityModel: Codable {
     let name, desc: String
     let enableTime: [EnableTime]
     let maxBookingEachTime, eachBookingTime: Int
-    let photo: [String]
+    let photo: [String]?
     let enableBooking: Bool
     let maxBooking, bookingCanCancelTime: Int
     let canBookingTime: Int?

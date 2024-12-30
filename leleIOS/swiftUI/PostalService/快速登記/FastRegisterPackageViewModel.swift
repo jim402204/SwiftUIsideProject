@@ -12,6 +12,7 @@ import Foundation
 @Observable
 class FastRegisterPackageViewModel {
     
+    var loadingManager = LoadingManager.shared
     var reflushList: Bool = false
     
     var imageData: Data? {
@@ -27,8 +28,13 @@ class FastRegisterPackageViewModel {
     func callAPI(imageData: Data) {
 //        var imageDataTest = testImagePNG()
         
+        loadingManager.isLoading = true
+        
         Task {
-            guard let model = try? await apiService.requestA(NotifyApi.BedrockLabelIdentific(imageData: imageData)) else { return }
+            guard let model = try? await apiService.requestA(NotifyApi.BedrockLabelIdentific(imageData: imageData)) else {
+                loadingManager.isLoading = false
+                return
+            }
             self.labelIdModel = model
             
             self.registerPackageAPI()
@@ -47,9 +53,15 @@ class FastRegisterPackageViewModel {
         
 //        guard let packageID = self.packageID else { return }
         
-        guard let labelIdModel = self.labelIdModel else { return }
+        guard let labelIdModel = self.labelIdModel else {
+            loadingManager.isLoading = false
+            return
+        }
         
-        guard let result = extractBuildingInfo(from: labelIdModel.houseHold) else { return }
+        guard let result = extractBuildingInfo(from: labelIdModel.houseHold) else {
+            loadingManager.isLoading = false
+            return
+        }
         print("棟: \(result.棟), 號: \(result.號), 樓: \(result.樓)")
         
         let houseHold = HouseHold(building: result.棟, doorPlate: result.號, floor: result.樓)
@@ -75,8 +87,10 @@ class FastRegisterPackageViewModel {
                 )
                 
                 reflushList.toggle()
+                loadingManager.isLoading = false
                 
             } catch {
+                loadingManager.isLoading = false
                 print(error)
             }
         }

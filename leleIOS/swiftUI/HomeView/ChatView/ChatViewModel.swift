@@ -15,6 +15,7 @@ class ChatViewModel {
     var list: [ChatCellViewModel] = []
     var message: String = ""
     let player = AudioPlayerManager()
+    var loadingManager = LoadingManager.shared
     
     func sendMsg() {
         
@@ -52,14 +53,21 @@ extension ChatViewModel {
     
     func callBestAPI(message: String) {
         
+        loadingManager.isLoading = true
+        
         Task {
-            guard let model = try? await apiService.requestA(NotifyApi.BedrockChatBot(message: message)) else { return }
+            guard let model = try? await apiService.requestA(NotifyApi.BedrockChatBot(message: message)) else {
+                loadingManager.isLoading = false
+                return
+            }
             
             let viewModel = ChatCellViewModel(model: model)
             
             await MainActor.run {
                 self.list.append(viewModel)
                 self.player.play(from: viewModel.voiceURL)
+                
+                loadingManager.isLoading = false
             }
         }
     }

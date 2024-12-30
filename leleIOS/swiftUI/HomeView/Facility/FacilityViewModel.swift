@@ -43,7 +43,7 @@ class FacilityCellViewModel {
         self.name = model.name
         self.tagText = model.type.desc
         
-        let filepath = model.photo.first ?? ""
+        let filepath = model.photo?.first ?? ""
         let photo = URLBuilder(imageApiDomain: imageApiDomain).buildURL(id: model.id, filepath: filepath)
         self.imageUrl = photo
         

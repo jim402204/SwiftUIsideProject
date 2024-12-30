@@ -11,10 +11,12 @@ import SwiftUI
 struct leleIOSApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var appState = AppState()
-
+    @State var loadingManager = LoadingManager.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .loadingOverlay(isLoading: $loadingManager.isLoading)
                 .environmentObject(appState)
         }
     }

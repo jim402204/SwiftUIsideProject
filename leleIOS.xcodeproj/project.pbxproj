@@ -79,6 +79,8 @@
 		37C091212D1E8C3300E5A7CE /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091202D1E8C3300E5A7CE /* ChatBubbleCell.swift */; };
 		37C091232D1E8FE600E5A7CE /* ChatCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091222D1E8FE600E5A7CE /* ChatCellViewModel.swift */; };
 		37C091252D1E917500E5A7CE /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091242D1E917500E5A7CE /* AudioPlayerManager.swift */; };
+		37C091282D1EA80100E5A7CE /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 37C091272D1EA80100E5A7CE /* ActivityIndicatorView */; };
+		37C0912A2D1EB08100E5A7CE /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C091292D1EB08100E5A7CE /* LoadingOverlay.swift */; };
 		37C7F76C2CFD905200F32A5C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F76B2CFD905200F32A5C /* MainTabView.swift */; };
 		37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7712CFD912400F32A5C /* ProfileView.swift */; };
 		37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7F7742CFD917B00F32A5C /* NotificationView.swift */; };
@@ -230,6 +232,7 @@
 		37C091202D1E8C3300E5A7CE /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
 		37C091222D1E8FE600E5A7CE /* ChatCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellViewModel.swift; sourceTree = "<group>"; };
 		37C091242D1E917500E5A7CE /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
+		37C091292D1EB08100E5A7CE /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		37C7F76B2CFD905200F32A5C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		37C7F7712CFD912400F32A5C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		37C7F7742CFD917B00F32A5C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				375D8A7F2CFD4BA900A1E02B /* RxMoya in Frameworks */,
+				37C091282D1EA80100E5A7CE /* ActivityIndicatorView in Frameworks */,
 				37C7F7842CFE9E7600F32A5C /* SegmentedPicker in Frameworks */,
 				375D8A772CFD4B5000A1E02B /* SwiftyJSON in Frameworks */,
 				375D8A742CFD4B4400A1E02B /* RxSwift in Frameworks */,
@@ -630,6 +634,7 @@
 				37E57C052D083A6800C9B5EF /* SwiftUITextView.swift */,
 				37E57C662D0C144F00C9B5EF /* LoadMoreView.swift */,
 				37C091132D1D070E00E5A7CE /* CameraView.swift */,
+				37C091292D1EB08100E5A7CE /* LoadingOverlay.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -904,6 +909,7 @@
 				375D8A7E2CFD4BA900A1E02B /* RxMoya */,
 				37C7F7832CFE9E7600F32A5C /* SegmentedPicker */,
 				37E57C182D0970D700C9B5EF /* Kingfisher */,
+				37C091272D1EA80100E5A7CE /* ActivityIndicatorView */,
 			);
 			productName = leleIOS;
 			productReference = 375D8A402CFD48C800A1E02B /* leleIOS.app */;
@@ -939,6 +945,7 @@
 				375D8A782CFD4B8700A1E02B /* XCRemoteSwiftPackageReference "Moya" */,
 				37C7F7822CFE9E7600F32A5C /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
 				37E57C172D0970D700C9B5EF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				37C091262D1EA80100E5A7CE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 			);
 			productRefGroup = 375D8A412CFD48C800A1E02B /* Products */;
 			projectDirPath = "";
@@ -1149,6 +1156,7 @@
 				374A5EDB2D01994F00A36375 /* PostalServicViewModel.swift in Sources */,
 				37C7F7752CFD917B00F32A5C /* NotificationView.swift in Sources */,
 				375D8A442CFD48C800A1E02B /* leleIOSApp.swift in Sources */,
+				37C0912A2D1EB08100E5A7CE /* LoadingOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1398,6 +1406,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		37C091262D1EA80100E5A7CE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
 		37C7F7822CFE9E7600F32A5C /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/KazaiMazai/SwiftySegmentedPicker.git";
@@ -1441,6 +1457,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 375D8A782CFD4B8700A1E02B /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		37C091272D1EA80100E5A7CE /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37C091262D1EA80100E5A7CE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
 		};
 		37C7F7832CFE9E7600F32A5C /* SegmentedPicker */ = {
 			isa = XCSwiftPackageProductDependency;
