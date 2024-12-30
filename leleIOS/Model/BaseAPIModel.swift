@@ -242,7 +242,7 @@ struct ChatMessageModel: Codable {
     let action: String?
     let eventType: String?
     let parse: Bool
-    let url: String
+    let url: String?
 }
 
 // MARK: - PackageIdModel

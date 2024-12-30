@@ -16,6 +16,8 @@ class ChatViewModel {
     var message: String = ""
     let player = AudioPlayerManager()
     var loadingManager = LoadingManager.shared
+    /// 第一次要到就會不變了
+    var msgID: String? = nil
     
     func sendMsg() {
         
@@ -56,12 +58,13 @@ extension ChatViewModel {
         loadingManager.isLoading = true
         
         Task {
-            guard let model = try? await apiService.requestA(NotifyApi.BedrockChatBot(message: message)) else {
+            guard let model = try? await apiService.requestA(NotifyApi.BedrockChatBot(msgID: msgID, message: message)) else {
                 loadingManager.isLoading = false
                 return
             }
             
             let viewModel = ChatCellViewModel(model: model)
+            self.msgID = model.id
             
             await MainActor.run {
                 self.list.append(viewModel)

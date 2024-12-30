@@ -144,11 +144,15 @@ enum NotifyApi {
         private var parameters: [String:Any] = [:]
         private var messagePara: [String:String] = [:]
         
-        init(message: String, userID: UserIDInfo = UserDefaultsHelper.UserIdInfo) {
+        init(
+            msgID: String? = nil,
+            message: String,
+            userID: UserIDInfo = UserDefaultsHelper.UserIdInfo
+        ) {
             messagePara["message"] = message
             
             self.parameters = [
-                "saveHistory": false,
+                "saveHistory": true,
                 "user": [
                     "cid": userID.cid,
                     "hid": userID.hid,
@@ -157,6 +161,10 @@ enum NotifyApi {
 //                ,"voiceOutput": true,
 //                "demo": false,
             ]
+            
+            if let msgID = msgID {
+                self.parameters["id"] = msgID
+            }
 //            "cid": "63b9b8452cb6973afe2b988f",
 //            "hid": "63d9f5dd12fff80e525c0c55",
 //            "uid": "63bcd1b7cb5ee4feec0b2a0e"

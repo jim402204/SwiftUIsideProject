@@ -20,7 +20,7 @@ class ChatCellViewModel {
     init (model: ChatMessageModel) {
         self.msg = model.output
         self.isParse = model.parse
-        self.voiceURL = model.url
+        self.voiceURL = model.url ?? ""
         self.isMyMsg = false
     }
     
