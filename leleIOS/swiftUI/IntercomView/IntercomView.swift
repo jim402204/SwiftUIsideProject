@@ -16,16 +16,14 @@ struct IntercomView: View {
             
             SegmentedTabView(
                 tabs: viewModel.tabs,
-                selectedTab: viewModel.selectedTab,
-                titleMapping: viewModel.titleMapping,
-                onTabChanged: viewModel.tabChanged
+                selectedTab: $viewModel.selectedTab,
+                titleMapping: viewModel.titleMapping
             )
             
             PageTabView(
                 tabs: viewModel.tabs,
                 selectedTab: $viewModel.selectedTab,
                 allList: viewModel.allList,
-                onChange: viewModel.tabChanged,
                 cellBuilder: { item in
                     IntercomCell(viewModel: item)
                 }
@@ -40,7 +38,7 @@ struct IntercomView: View {
         })
         .background(Color(UIColor.systemGroupedBackground))
         .onAppear {
-            viewModel.callAPI()
+            
         }
     }
 }

@@ -18,7 +18,7 @@ struct PostalServiceView: View {
             // 分段控制器
             SegmentedTabView(
                 tabs: viewModel.tabs,
-                selectedTab: viewModel.selectedTab,
+                selectedTab: $viewModel.selectedTab,
                 onTabChanged: viewModel.tabChanged
             )
             

@@ -32,14 +32,12 @@ class PostalServicViewModel: ObservableObject {
     
     func packageListAPI() {
         
-        let currentTab = FeatureApi.PackageList.Status.allCases.first { $0 == selectedTab } ?? .未領取
-        
-        apiService.request(FeatureApi.PackageList(status: currentTab))
+        apiService.request(FeatureApi.PackageList(status: selectedTab))
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 
                 let models = model.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
-                self.allList[currentTab] = models
+                self.allList[selectedTab] = models
                 
             }).store(in: &bag)
         
@@ -47,14 +45,12 @@ class PostalServicViewModel: ObservableObject {
     
     func managePackageListAPI() {
         
-        let currentTab = FeatureApi.PackageList.Status.allCases.first { $0 == selectedTab } ?? .未領取
-        
-        apiService.request(FeatureApi.MPackageList(status: currentTab))
+        apiService.request(FeatureApi.MPackageList(status: selectedTab))
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 
                 let models = model.result.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
-                self.allList[currentTab] = models
+                self.allList[selectedTab] = models
                 
             }).store(in: &bag)
         

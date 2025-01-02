@@ -28,35 +28,44 @@ class IntercomViewModel: ObservableObject {
         return all
     }()
     
-    func tabChanged(_ tab: FeatureApi.IntercomList.Status) {
-        selectedTab = tab
-        intercomListAPI()
+    init () { binding() }
+    
+    // 监听 selectedTab 的变化并触发 API 请求
+    private func binding() {
+        $selectedTab
+            .removeDuplicates()
+            .print("$selectedTab")
+            .sink { [weak self] tab in
+                self?.loadTabDataIfNeeded(for: tab)
+            }
+            .store(in: &bag)
+    }
+    
+    // 加载数据，仅当该 Tab 的数据未加载时触发 API
+    private func loadTabDataIfNeeded(for tab: FeatureApi.IntercomList.Status) {
+        guard allList[tab] == nil else { return } // 如果已有数据，直接返回
+        
+        intercomListAPI(tab)
     }
     
     func callAPI() {
-        
-        self.intercomListAPI()
+        intercomListAPI(self.selectedTab)
     }
     
-    func intercomListAPI() {
-        
-        let currentTab = FeatureApi.IntercomList.Status.allCases.first { $0 == selectedTab } ?? .社區
-        
-        apiService.request(FeatureApi.IntercomList(status: currentTab))
+    func intercomListAPI(_ tabType: FeatureApi.IntercomList.Status) {
+
+        apiService.request(FeatureApi.IntercomList(status: tabType))
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
             
-                var viewModels = model.map { IntercomCellViewModel($0, status: currentTab) }
+                var viewModels = model.map { IntercomCellViewModel($0, status: tabType) }
                 
-                if selectedTab == .社區, UserDefaultsHelper.userRole == .住戶 {
+                if tabType == .社區, UserDefaultsHelper.userRole == .住戶 {
                     viewModels = viewModels.filter { $0.name == "管理中心" }
                 }
-                
-                self.allList[currentTab] = viewModels
+                self.allList[tabType] = viewModels
                 
             }).store(in: &bag)
-            
-        
     }
 }
 

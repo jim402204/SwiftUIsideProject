@@ -14,7 +14,7 @@ struct ManageFeeView: View {
         VStack(spacing: 0) {
             SegmentedTabView(
                 tabs: viewModel.tabs,
-                selectedTab: viewModel.selectedTab,
+                selectedTab: $viewModel.selectedTab,
                 onTabChanged: viewModel.tabChanged
             )
             

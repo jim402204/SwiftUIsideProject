@@ -27,10 +27,8 @@ class FeedBackViewModel {
     
     func callAPI() {
         
-        let currentTab = PublicFacilitiesApi.FeedbackList.Status.allCases.first { $0 == selectedTab } ?? .等待回覆
-        
         Task {
-            guard let models = try? await apiService.requestA(PublicFacilitiesApi.FeedbackList(type: currentTab)) else { return }
+            guard let models = try? await apiService.requestA(PublicFacilitiesApi.FeedbackList(type: selectedTab)) else { return }
         
             await MainActor.run {
                 self.list = models

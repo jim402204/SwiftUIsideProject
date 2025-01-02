@@ -12,7 +12,7 @@ struct PageTabView<Item, CellView: View, T: Hashable>: View {
     var tabs: [T]
     @Binding var selectedTab: T
     var allList: [T: [Item]]
-    var onChange: (T) -> Void
+    var onChange: (T) -> Void = {_ in }
     var cellBuilder: (Item) -> CellView
 
     var body: some View {
@@ -33,8 +33,8 @@ struct PageTabView<Item, CellView: View, T: Hashable>: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never)) // 隱藏內建指示器
-        .onChange(of: selectedTab) {
-            onChange($1)
-        }
+//        .onChange(of: selectedTab) {
+//            onChange($1)
+//        }//本身TabView 會更改 $selectedTab 有綁定就不需要例外寫onChange
     }
 }

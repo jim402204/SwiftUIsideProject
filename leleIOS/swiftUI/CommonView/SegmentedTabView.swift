@@ -10,27 +10,16 @@ import SwiftUI
 // 泛型版本的分段控制器
 struct SegmentedTabView<T: Hashable>: View {
     let tabs: [T]
-    let selectedTab: T
-    let onTabChanged: (T) -> Void
-    let titleMapping: [T: String]
-    
-    init(
-        tabs: [T],
-        selectedTab: T,
-        titleMapping: [T: String] = [:],
-        onTabChanged: @escaping (T) -> Void
-    ) {
-        self.tabs = tabs
-        self.selectedTab = selectedTab
-        self.onTabChanged = onTabChanged
-        self.titleMapping = titleMapping
-    }
+    @Binding var selectedTab: T
+    var onTabChanged: (T) -> Void = { _ in }
+    var titleMapping: [T: String] = [:]
     
     var body: some View {
         HStack(spacing: 0) {
             ForEach(tabs, id: \.self) { tab in
                 Button(action: {
                     onTabChanged(tab)
+                    selectedTab = tab
                 }) {
                     VStack(spacing: 0) {
                         Text(titleMapping[tab] ?? "\(tab)")
@@ -53,9 +42,11 @@ struct SegmentedTabView<T: Hashable>: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
+    @Previewable @State var selectedTab = "Tab2"
+    
     SegmentedTabView(
         tabs: ["Tab1", "Tab2", "Tab3"],
-        selectedTab: "Tab2",
-        onTabChanged: { _ in }
+        selectedTab: $selectedTab,
+        onTabChanged: { _ in }, titleMapping: [:]
     )
 }

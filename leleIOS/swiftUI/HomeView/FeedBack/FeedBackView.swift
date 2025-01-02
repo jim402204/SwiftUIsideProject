@@ -16,7 +16,7 @@ struct FeedBackView: View {
             
             SegmentedTabView(
                 tabs: viewModel.tabs,
-                selectedTab: viewModel.selectedTab,
+                selectedTab: $viewModel.selectedTab,
                 onTabChanged: viewModel.tabChanged
             )
             
