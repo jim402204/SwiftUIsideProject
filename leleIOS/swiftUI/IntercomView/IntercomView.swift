@@ -13,7 +13,7 @@ struct IntercomView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // 分段控制器
+            
             SegmentedTabView(
                 tabs: viewModel.tabs,
                 selectedTab: viewModel.selectedTab,
@@ -21,14 +21,15 @@ struct IntercomView: View {
                 onTabChanged: viewModel.tabChanged
             )
             
-            // 對講列表
-            ScrollView {
-                LazyVStack(spacing: 0) {
-                    ForEach(viewModel.intercomList, id: \.id) { item in
-                        IntercomCell(viewModel: item)
-                    }
+            PageTabView(
+                tabs: viewModel.tabs,
+                selectedTab: $viewModel.selectedTab,
+                allList: viewModel.allList,
+                onChange: viewModel.tabChanged,
+                cellBuilder: { item in
+                    IntercomCell(viewModel: item)
                 }
-            }
+            )
         }
         .navigationBarStyle(title: "智慧對講", isRootPage: isRootPage)
         .toolbar(content: {
@@ -49,3 +50,5 @@ struct IntercomView: View {
         IntercomView()
     }
 }
+
+

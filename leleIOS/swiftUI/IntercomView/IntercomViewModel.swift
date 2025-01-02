@@ -11,7 +11,7 @@ import SwiftUI
 class IntercomViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
     @Published var selectedTab: FeatureApi.IntercomList.Status = .社區
-    @Published var intercomList: [IntercomCellViewModel] = []
+    @Published var allList: [FeatureApi.IntercomList.Status:[IntercomCellViewModel]] = [:]
     
     var titleMapping: [FeatureApi.IntercomList.Status : String] {
         var type: [FeatureApi.IntercomList.Status : String] = [:]
@@ -52,7 +52,7 @@ class IntercomViewModel: ObservableObject {
                     viewModels = viewModels.filter { $0.name == "管理中心" }
                 }
                 
-                self.intercomList = viewModels
+                self.allList[currentTab] = viewModels
                 
             }).store(in: &bag)
             
@@ -60,7 +60,7 @@ class IntercomViewModel: ObservableObject {
     }
 }
 
-class IntercomCellViewModel {
+class IntercomCellViewModel: Identifiable {
     let id: String
     let name: String
     var isEnable: Bool = false

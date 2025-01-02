@@ -22,16 +22,15 @@ struct PostalServiceView: View {
                 onTabChanged: viewModel.tabChanged
             )
             
-            // 對講列表
-            ScrollView {
-                LazyVStack(spacing: 0) {
-                    ForEach(Array(viewModel.list.enumerated()), id: \.0) {
-                        index,
-                        item in
-                        PostalServiceCell(viewModel: item)
-                    }
+            PageTabView(
+                tabs: viewModel.tabs,
+                selectedTab: $viewModel.selectedTab,
+                allList: viewModel.allList,
+                onChange: viewModel.tabChanged,
+                cellBuilder: { item in
+                    PostalServiceCell(viewModel: item)
                 }
-            }
+            )
         }
         .navigationBarStyle(title: "包裹寄物")
         .background(Color(UIColor.systemGroupedBackground))

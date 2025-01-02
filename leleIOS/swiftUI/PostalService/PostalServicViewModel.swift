@@ -12,7 +12,7 @@ class PostalServicViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
     
     @Published var selectedTab: FeatureApi.PackageList.Status = .未領取
-    @Published var list: [PostalServiceCellViewModel] = []
+    @Published var allList: [FeatureApi.PackageList.Status:[PostalServiceCellViewModel]] = [:]
     
     let tabs = FeatureApi.PackageList.Status.allCases.map { $0 }
     
@@ -39,7 +39,7 @@ class PostalServicViewModel: ObservableObject {
                 guard let self = self else { return }
                 
                 let models = model.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
-                self.list = models
+                self.allList[currentTab] = models
                 
             }).store(in: &bag)
         
@@ -54,7 +54,7 @@ class PostalServicViewModel: ObservableObject {
                 guard let self = self else { return }
                 
                 let models = model.result.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
-                self.list = models
+                self.allList[currentTab] = models
                 
             }).store(in: &bag)
         
