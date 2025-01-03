@@ -38,7 +38,7 @@ struct PageModelFactory {
                 PageModel(name: "安控", systemImageName: "lock.shield.fill", navigationPage: .securityControl),
                 PageModel(name: "相簿", systemImageName: "photo.on.rectangle", navigationPage: .detail("相簿")),
                 PageModel(name: "遠端關懷", systemImageName: "antenna.radiowaves.left.and.right", navigationPage: .detail("遠端關懷")),
-//                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .detail("社區百問"))
+                PageModel(name: "社區百問", systemImageName: "questionmark.circle.fill", navigationPage: .awsBedrock)
             ]
         case .商家:
             return []

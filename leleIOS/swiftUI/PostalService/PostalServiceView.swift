@@ -18,15 +18,13 @@ struct PostalServiceView: View {
             // 分段控制器
             SegmentedTabView(
                 tabs: viewModel.tabs,
-                selectedTab: $viewModel.selectedTab,
-                onTabChanged: viewModel.tabChanged
+                selectedTab: $viewModel.selectedTab
             )
             
             PageTabView(
                 tabs: viewModel.tabs,
                 selectedTab: $viewModel.selectedTab,
                 allList: viewModel.allList,
-                onChange: viewModel.tabChanged,
                 cellBuilder: { item in
                     PostalServiceCell(viewModel: item)
                 }

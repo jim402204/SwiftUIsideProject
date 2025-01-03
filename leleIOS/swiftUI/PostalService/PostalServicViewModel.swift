@@ -16,9 +16,22 @@ class PostalServicViewModel: ObservableObject {
     
     let tabs = FeatureApi.PackageList.Status.allCases.map { $0 }
     
-    func tabChanged(_ tab: FeatureApi.PackageList.Status) {
-        selectedTab = tab
-        callAPI()
+    init () { binding() }
+    
+    // 监听 selectedTab 的变化并触发 API 请求
+    private func binding() {
+        $selectedTab
+            .removeDuplicates()
+            .print("$selectedTab")
+            .sink { [weak self ] tab in
+                // 延遲讓selectedTab (直接取用還沒變) 更新在call api
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    self?.callAPI()
+                    print("selectedTab: \(String(describing: self?.selectedTab))\ntab: \(tab)")
+                }
+                print("selectedTab: \(String(describing: self?.selectedTab))\ntab: \(tab)")
+            }
+            .store(in: &bag)
     }
     
     func callAPI() {
