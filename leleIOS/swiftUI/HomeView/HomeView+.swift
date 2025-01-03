@@ -153,5 +153,3 @@ struct PageModel<T>: Identifiable where T: Hashable {
     let systemImageName: String // 系統圖標名稱
     let navigationPage: T // 對應導航標識符
 }
-
-

@@ -58,6 +58,7 @@
 		375D8A7F2CFD4BA900A1E02B /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 375D8A7E2CFD4BA900A1E02B /* RxMoya */; };
 		375DC54D2D2663A700980984 /* easySegmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC54C2D2663A700980984 /* easySegmentObject.swift */; };
 		375DC54F2D267A9A00980984 /* PageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC54E2D267A9A00980984 /* PageTabView.swift */; };
+		375DC5512D27E87C00980984 /* testInsturctment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC5502D27E87C00980984 /* testInsturctment.swift */; };
 		377F99972D08101500BE818A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99962D08101500BE818A /* LaunchScreenView.swift */; };
 		377F999B2D081D9000BE818A /* SecurityControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999A2D081D9000BE818A /* SecurityControlView.swift */; };
 		377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999C2D081DE400BE818A /* SecurityControlCell.swift */; };
@@ -212,6 +213,7 @@
 		375D8A622CFD4A6100A1E02B /* FeatureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
 		375DC54C2D2663A700980984 /* easySegmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easySegmentObject.swift; sourceTree = "<group>"; };
 		375DC54E2D267A9A00980984 /* PageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabView.swift; sourceTree = "<group>"; };
+		375DC5502D27E87C00980984 /* testInsturctment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testInsturctment.swift; sourceTree = "<group>"; };
 		377F99962D08101500BE818A /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		377F99982D08125000BE818A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		377F999A2D081D9000BE818A /* SecurityControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityControlView.swift; sourceTree = "<group>"; };
@@ -771,6 +773,7 @@
 				37E57C642D0BCCEE00C9B5EF /* LoadMoreManager.swift */,
 				37C091242D1E917500E5A7CE /* AudioPlayerManager.swift */,
 				375DC54C2D2663A700980984 /* easySegmentObject.swift */,
+				375DC5502D27E87C00980984 /* testInsturctment.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -1105,6 +1108,7 @@
 				37C7F7722CFD912400F32A5C /* ProfileView.swift in Sources */,
 				374A5EDD2D019A9B00A36375 /* PostalServiceCell.swift in Sources */,
 				375D8A712CFD4A6100A1E02B /* FeatureModel.swift in Sources */,
+				375DC5512D27E87C00980984 /* testInsturctment.swift in Sources */,
 				37E57C752D11669300C9B5EF /* FacilityReservationView.swift in Sources */,
 				375DC54F2D267A9A00980984 /* PageTabView.swift in Sources */,
 				374A5EC72D00070700A36375 /* ProfileViewModel.swift in Sources */,
