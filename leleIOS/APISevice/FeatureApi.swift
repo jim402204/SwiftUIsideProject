@@ -67,7 +67,7 @@ enum FeatureApi {
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
-            parameters["l"] = apiModelInfo.l
+            parameters["l"] = 30//apiModelInfo.l
             parameters["sk"] = apiModelInfo.sk
             parameters["s"] = status.rawValue
         }
@@ -98,7 +98,7 @@ enum FeatureApi {
             parameters["sd"] = 1
             // 有沒有p 對應 respone result or array
             parameters["p"] = 1
-            parameters["pp"] = 10
+            parameters["pp"] = 100
             //調整排序
             parameters["sb"] = ""
 //            parameters["st"] = ""
