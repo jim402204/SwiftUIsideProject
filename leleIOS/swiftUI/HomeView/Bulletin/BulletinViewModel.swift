@@ -76,7 +76,7 @@ class BulletinCellViewModel {
         self.type = model.type
         self.title = model.title
         self.date = String(DateUtils.formatISO8601Date(model.create).prefix(10))
-        self.content = model.desc
+        self.content = model.desc ?? ""
         self.isTop = model.top ?? false
     }
     

@@ -207,7 +207,7 @@ struct NewContainerModel: Codable {
         let top: Bool?
         let startTime: String
         let show: Bool
-        let desc: String
+        let desc: String?
         let file: [String]?
         let image: [String]?
         //沒資料不知道做什麼
@@ -626,8 +626,8 @@ struct FacilityModel: Codable {
     let enableTime: [EnableTime]
     let maxBookingEachTime, eachBookingTime: Int
     let photo: [String]?
-    let enableBooking: Bool
-    let maxBooking, bookingCanCancelTime: Int
+    let enableBooking: Bool?
+    let maxBooking, bookingCanCancelTime: Int?
     let canBookingTime: Int?
     let index: Int
     let needPoint, bookingNeedPoint, cancelBookingReturnPoint, pointByHousehold: Bool?

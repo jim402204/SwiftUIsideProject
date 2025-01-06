@@ -29,9 +29,9 @@ struct BulletinView: View {
         }
         .navigationBarStyle(title: "社區公告")
         .background(Color(UIColor.systemGroupedBackground))
-        .onAppear {
-            viewModel.callAPI()
-        }
+//        .onAppear {
+//            viewModel.callAPI()
+//        }
     }
 }
 
