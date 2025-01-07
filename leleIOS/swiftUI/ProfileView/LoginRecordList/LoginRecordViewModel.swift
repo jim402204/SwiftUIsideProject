@@ -12,9 +12,10 @@ import Foundation
 class LoginRecordViewModel {
     var list: [LoginDeviceListModel] = []
     
-    init() {
-        callAPI()
-    }
+    // swfitUI view上不能 init call api 會在view產生時 init viewModel
+//    init() {
+//        callAPI()
+//    }
     
     func callAPI() {
         

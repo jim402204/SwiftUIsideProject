@@ -14,6 +14,8 @@ class MainTabViewModel: ObservableObject {
         householdListAPI()
         
         callUserInfo()
+        
+        callDeviceInfo()
     }
     
     func householdListAPI() {
@@ -51,7 +53,20 @@ class MainTabViewModel: ObservableObject {
                 
                 guard let cid = model.communityAdmin.first else { return  }
                 
-                UserDefaultsHelper.UserIdInfo = UserIDInfo(uid: model.id, cid: cid, hid: model.defaultHouseHold)
+                UserDefaultsHelper.userIdInfo = UserIDInfo(uid: model.id, cid: cid, hid: model.defaultHouseHold)
+                
+            } catch {
+                print("UserInfo: error: \(error)")
+            }
+        }
+    }
+    
+    func callDeviceInfo() {
+        
+        Task {
+            do {
+                let model = try await apiService.requestA(LaunchApi.DeviceInfo())
+                UserDefaultsHelper.deviceID = model.ID
                 
             } catch {
                 print("UserInfo: error: \(error)")

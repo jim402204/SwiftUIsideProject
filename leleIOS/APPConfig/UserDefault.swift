@@ -15,7 +15,9 @@ struct UserDefaultsHelper {
     @UserDefaultValue(key: "communityInfo", defaultValue: CommunityInfo()) static var userBuilding: CommunityInfo
     @UserDefaultValue(key: "communityAdmin", defaultValue: "") static var communityAdmin: String
     @UserDefaultValue(key: "userRole", defaultValue: UserRole.住戶) static var userRole: UserRole
-    @UserDefaultValue(key: "UserIdInfo", defaultValue: UserIDInfo()) static var UserIdInfo: UserIDInfo
+    @UserDefaultValue(key: "UserIdInfo", defaultValue: UserIDInfo()) static var userIdInfo: UserIDInfo
+    //用App IDFV跟server換 deviceID
+    @UserDefault(key: "deviceID") static var deviceID: String?
 }
 
 @propertyWrapper

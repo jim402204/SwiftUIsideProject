@@ -28,6 +28,9 @@ struct LoginRecordView: View {
         }
         .navigationBarStyle(title: "已登入的裝置")
         .background(Color(UIColor.systemGroupedBackground))
+        .onAppear() {
+            viewModel.callAPI()
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 import Moya
 import Foundation
 import UIKit
+import DeviceKit
 
 enum LaunchApi {
     
@@ -29,9 +30,11 @@ enum LaunchApi {
         private var parameters: [String:Any] = [:]
     
         init() {
-            parameters["UID"] = UUID().uuidString
+            let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+            
+            parameters["UID"] = uuid
             parameters["Type"] = "iOS"
-            parameters["Model"] = "iPhone"
+            parameters["Model"] = DeviceObject.shared.deviceName
             parameters["Version"] = UIDevice.current.systemVersion
             parameters["FCM"] = "FCM token"
             parameters["Lat"] = Double.zero

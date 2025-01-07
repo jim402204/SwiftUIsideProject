@@ -147,7 +147,7 @@ enum NotifyApi {
         init(
             msgID: String? = nil,
             message: String,
-            userID: UserIDInfo = UserDefaultsHelper.UserIdInfo
+            userID: UserIDInfo = UserDefaultsHelper.userIdInfo
         ) {
             messagePara["message"] = message
             

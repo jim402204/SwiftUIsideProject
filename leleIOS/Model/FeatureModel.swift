@@ -134,16 +134,16 @@ struct IntercomListModel: Codable {
         case doorPlate = "DoorPlate"
         case floor = "Floor"
     }
-}
+    
+    //// MARK: - Device
+    struct Device: Codable {
+        let id: String
+        let intercomSetting: IntercomSettingModel
 
-// MARK: - Device
-struct Device: Codable {
-    let id: String
-    let intercomSetting: IntercomSettingModel
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case intercomSetting = "IntercomSetting"
+        enum CodingKeys: String, CodingKey {
+            case id
+            case intercomSetting = "IntercomSetting"
+        }
     }
 }
 

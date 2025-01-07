@@ -33,15 +33,22 @@ struct PostalServiceView: View {
         .navigationBarStyle(title: "包裹寄物")
         .background(Color(UIColor.systemGroupedBackground))
         .toolbar(content: {
-            NavigationLink(destination: PostalServiceEntryView()) {
-                Image(systemName: "mail.stack.fill")
-                    .foregroundStyle(.white)
-            }
-            Button(action: {
-                isCameraPresented = true
-            }) {
-                Image(systemName: "bolt.circle")
-                    .foregroundStyle(.white)
+            if UserDefaultsHelper.userRole == .物管 {
+                NavigationLink(destination: PostalServiceEntryView()) {
+                    Image(systemName: "mail.stack.fill")
+                        .foregroundStyle(.white)
+                }
+                Button(action: {
+                    isCameraPresented = true
+                }) {
+                    Image(systemName: "bolt.circle")
+                        .foregroundStyle(.white)
+                }
+            } else if UserDefaultsHelper.userRole == .住戶 {
+                NavigationLink(destination: QRCodeScanView()) {
+                    Image(systemName: "qrcode")
+                        .foregroundStyle(.white)
+                }
             }
         })
         .onAppear {
