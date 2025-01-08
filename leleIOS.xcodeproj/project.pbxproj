@@ -64,6 +64,7 @@
 		375DC55C2D2D060E00980984 /* DeviceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC55B2D2D060E00980984 /* DeviceObject.swift */; };
 		375DC55F2D2D1B7D00980984 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC55E2D2D1B7D00980984 /* QRCodeView.swift */; };
 		375DC5612D2D1CE400980984 /* QRCodeScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC5602D2D1CE400980984 /* QRCodeScanViewModel.swift */; };
+		375DC5632D2E154900980984 /* NotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC5622D2E154900980984 /* NotificationDetailView.swift */; };
 		377F99972D08101500BE818A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99962D08101500BE818A /* LaunchScreenView.swift */; };
 		377F999B2D081D9000BE818A /* SecurityControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999A2D081D9000BE818A /* SecurityControlView.swift */; };
 		377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999C2D081DE400BE818A /* SecurityControlCell.swift */; };
@@ -222,6 +223,7 @@
 		375DC55B2D2D060E00980984 /* DeviceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceObject.swift; sourceTree = "<group>"; };
 		375DC55E2D2D1B7D00980984 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		375DC5602D2D1CE400980984 /* QRCodeScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewModel.swift; sourceTree = "<group>"; };
+		375DC5622D2E154900980984 /* NotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailView.swift; sourceTree = "<group>"; };
 		377F99962D08101500BE818A /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		377F99982D08125000BE818A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		377F999A2D081D9000BE818A /* SecurityControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityControlView.swift; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 				37C7F7742CFD917B00F32A5C /* NotificationView.swift */,
 				37C7F77B2CFD9A9900F32A5C /* NotificationViewModel.swift */,
 				37C7F7802CFDBA5200F32A5C /* NotificationCell.swift */,
+				375DC5622D2E154900980984 /* NotificationDetailView.swift */,
 			);
 			path = NotificationView;
 			sourceTree = "<group>";
@@ -1174,6 +1177,7 @@
 				37C7F7782CFD91FC00F32A5C /* HomeView.swift in Sources */,
 				375D8A672CFD4A6100A1E02B /* APIService.swift in Sources */,
 				377F99AA2D0834EE00BE818A /* BulletinDetailView.swift in Sources */,
+				375DC5632D2E154900980984 /* NotificationDetailView.swift in Sources */,
 				37C091252D1E917500E5A7CE /* AudioPlayerManager.swift in Sources */,
 				37E57C652D0BCCEE00C9B5EF /* LoadMoreManager.swift in Sources */,
 				374A5EBD2CFEFA5A00A36375 /* UIColor+.swift in Sources */,

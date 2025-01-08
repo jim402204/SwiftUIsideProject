@@ -63,16 +63,6 @@ extension ProfileViewModel {
             }).store(in: &bag)
     }
     
-    func deviceInfoAPI() {
-        
-        apiService.request(LaunchApi.DeviceInfo())
-            .sink(onSuccess: { [weak self] model in
-                guard let self = self else { return }
-                
-                
-            }).store(in: &bag)
-    }
-    
     func pointAPI() {
         
         apiService.request(NotifyApi.Point())
@@ -86,7 +76,9 @@ extension ProfileViewModel {
     
     func logoutAPI() {
         
-        apiService.request(UserApi.Logout(uid: "uid"))
+        guard let uid = UserDefaultsHelper.deviceID else { return }
+        
+        apiService.request(UserApi.Logout(uid: uid))
             .sink(onSuccess: { [weak self] model in
                 guard let self = self else { return }
                 

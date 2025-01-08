@@ -19,7 +19,11 @@ struct NotificationView: View {
             ScrollView {
                 LazyVStack(spacing: 0) {
                     ForEach(viewModel.list, id: \.id) { notification in
-                        NotificationCell(model: notification)
+                        
+                        NavigationLink(destination: NotificationDetailView(notification: notification)) {
+                            NotificationCell(model: notification)
+                                .foregroundColor(.black)
+                        }
                     }
                     LoadMoreView(hasMoreData: viewModel.loadMoreManager.hasMoreData) {
                         viewModel.loadMoreAPI()
