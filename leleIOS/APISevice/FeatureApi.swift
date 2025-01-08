@@ -34,7 +34,7 @@ struct CommunityInfo: Codable {
 
 struct ApiModelInfo {
     //可能是list length
-    var l: Int = 20
+    var l: Int = 30
     //可能是list index
     var sk: Int = 0
 }
@@ -67,9 +67,12 @@ enum FeatureApi {
             parameters["d"] = communityInfo.doorPlate
             parameters["f"] = communityInfo.floor
             
-            parameters["l"] = 30//apiModelInfo.l
+            parameters["l"] = apiModelInfo.l
             parameters["sk"] = apiModelInfo.sk
             parameters["s"] = status.rawValue
+            //排序降序  默認是原DB排序
+            parameters["sd"] = 2
+            parameters["all"] = true
         }
     }
     

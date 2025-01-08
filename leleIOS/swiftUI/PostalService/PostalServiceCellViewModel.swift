@@ -40,8 +40,18 @@ class PostalServiceCellViewModel {
         switch type {
         case .未領取: self.tagLabel = "待領取"
         case .已領取: self.tagLabel = "已領取"
-        case .退貨: self.tagLabel = "待退貨"
-        case .寄放: self.tagLabel = "已領取"
+        case .退貨:
+            if model.status == 4 {
+                self.tagLabel = "待退貨"
+            } else if model.status == 5 {
+                self.tagLabel = "已退貨"
+            }
+        case .寄放:
+            if model.status == 6 {
+                self.tagLabel = "待領取"
+            } else if model.status == 7 {
+                self.tagLabel = "已領取"
+            }
         }
         
         let buildingText = UserDefaultsHelper.userBuilding.buildingText
@@ -50,7 +60,7 @@ class PostalServiceCellViewModel {
         // sender
         let senderText = model.deposit?.senderOtherName ?? model.deposit?.senderDetail?.name ?? model.deposit?.senderProvider ?? senderDefault
         // receiver
-        let receiverText = model.recipientDetail?.name ?? model.deposit?.receiverOtherName ?? model.deposit?.receiverProvider ?? model.deposit?.receiverDetail?.name ??  receiverDefault
+        let receiverText = model.recipientDetail?.name ?? model.recipientCustomName ?? model.deposit?.receiverOtherName ?? model.deposit?.receiverProvider ?? model.deposit?.receiverDetail?.name ??  receiverDefault
         // package
         let depositPackage = model.deposit?.typeCustomName ?? "現金：\(model.deposit?.cashCount ?? 0)元"
     
