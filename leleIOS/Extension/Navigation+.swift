@@ -16,6 +16,7 @@ struct CustomNavigationBarStyle: ViewModifier {
     var displayMode: NavigationBarItem.TitleDisplayMode
     var backgroundColor: Color
     var isRootPage: Bool
+    var hasTitleIcon: Bool
     
     func body(content: Content) -> some View {
         content
@@ -24,9 +25,18 @@ struct CustomNavigationBarStyle: ViewModifier {
             .navigationBarTitleDisplayMode(displayMode)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text(title)
-                        .appFont(.size(24))
-                        .foregroundStyle(.white) // 設置標題樣式
+                    if hasTitleIcon {
+                        NavigationLink(destination: QRCodeScanView()) {
+                            HStack {
+                                Image("Icon-App-1024x1024")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                initTitleView()
+                            }
+                        }
+                    } else {
+                        initTitleView()
+                    }
                 }
             }// 隱藏並自製backBar
             .navigationBarBackButtonHidden(true)
@@ -45,6 +55,13 @@ struct CustomNavigationBarStyle: ViewModifier {
                     }
                 }
             }
+    }
+    
+    
+    func initTitleView() -> some View {
+        Text(title)
+            .appFont(.size(24))
+            .foregroundStyle(.white) // 設置標題樣式
     }
 }
 
@@ -66,14 +83,16 @@ extension View {
         title: String,
         backgroundColor: Color = .teal,
         displayMode: NavigationBarItem.TitleDisplayMode = .inline,
-        isRootPage: Bool = false
+        isRootPage: Bool = false,
+        hasTitleIcon: Bool = false
     ) -> some View {
         self.modifier(
             CustomNavigationBarStyle(
                 title: title,
                 displayMode: displayMode,
                 backgroundColor: backgroundColor,
-                isRootPage: isRootPage
+                isRootPage: isRootPage,
+                hasTitleIcon: hasTitleIcon
             )
         )
     }

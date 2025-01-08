@@ -30,7 +30,10 @@ struct PostalServiceView: View {
                 }
             )
         }
-        .navigationBarStyle(title: "包裹寄物")
+        .navigationBarStyle(
+            title: "包裹寄物",
+            hasTitleIcon: false
+        )
         .background(Color(UIColor.systemGroupedBackground))
         .toolbar(content: {
             if UserDefaultsHelper.userRole == .物管 {

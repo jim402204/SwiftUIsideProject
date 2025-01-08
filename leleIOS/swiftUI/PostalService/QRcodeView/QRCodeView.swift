@@ -58,7 +58,7 @@ struct QRCodeScanView: View {
         }
         .padding(.horizontal)
         .padding()
-        .navigationBarStyle(title: "掃碼專區")
+        .navigationBarStyle(title: "掃碼專區", hasTitleIcon: false)
     }
 }
 
