@@ -37,6 +37,21 @@ class PostalServiceCellViewModel {
         self.initTime = DateUtils.formatISO8601Date(model.initTime)
         self.barCode = model.barCode
         
+        let emptyText = "-" //UserDefaultsHelper.userBuilding.buildingText
+        let senderDefault = (type == .寄放) ? "其他" : nil
+        let receiverDefault = (type == .寄放) ? "其他" : emptyText
+        // sender
+        let senderText = model.deposit?.senderOtherName ?? model.deposit?.senderDetail?.name ?? model.deposit?.senderProvider ?? senderDefault
+        // package
+        let depositPackage = model.deposit?.typeCustomName ?? "現金：\(model.deposit?.cashCount ?? 0)元"
+        // receiver
+        var receiverText: String = receiverDefault
+        if type != .寄放 {
+            receiverText = model.recipientDetail?.name ?? model.recipientCustomName ?? receiverDefault
+        } else {
+            receiverText = model.deposit?.receiverDetail?.name ?? model.deposit?.receiverOtherName ?? model.deposit?.receiverProvider ?? receiverDefault
+        }
+        
         switch type {
         case .未領取: self.tagLabel = "待領取"
         case .已領取: self.tagLabel = "已領取"
@@ -54,16 +69,6 @@ class PostalServiceCellViewModel {
             }
         }
         
-        let buildingText = UserDefaultsHelper.userBuilding.buildingText
-        let senderDefault = (type == .寄放) ? "其他" : nil
-        let receiverDefault = (type == .寄放) ? "其他" : buildingText
-        // sender
-        let senderText = model.deposit?.senderOtherName ?? model.deposit?.senderDetail?.name ?? model.deposit?.senderProvider ?? senderDefault
-        // receiver
-        let receiverText = model.recipientDetail?.name ?? model.recipientCustomName ?? model.deposit?.receiverOtherName ?? model.deposit?.receiverProvider ?? model.deposit?.receiverDetail?.name ??  receiverDefault
-        // package
-        let depositPackage = model.deposit?.typeCustomName ?? "現金：\(model.deposit?.cashCount ?? 0)元"
-    
         self.sender = senderText
         self.receiver = receiverText
         self.packageContent = type != .寄放 ? model.type?.desc : depositPackage
