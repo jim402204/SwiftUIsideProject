@@ -26,6 +26,7 @@ struct NotificationDetailView: View {
                 fontSize: 20,
                 lineBreakMode: .byCharWrapping
             )
+            
         }
         .padding(.horizontal)
         .navigationBarStyle(title: "通知內容")

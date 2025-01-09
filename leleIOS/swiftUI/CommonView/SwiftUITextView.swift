@@ -16,6 +16,7 @@ struct SwiftUITextView: UIViewRepresentable {
         let textView = UITextView()
         textView.isEditable = false
         textView.isScrollEnabled = true
+//        textView.isScrollEnabled = false
         textView.backgroundColor = .clear
         textView.textContainer.lineBreakMode = lineBreakMode
         textView.font = UIFont.systemFont(ofSize: fontSize)
@@ -24,6 +25,10 @@ struct SwiftUITextView: UIViewRepresentable {
 
     func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
+        
+        // 調整高度以適應內容
+//        uiView.sizeToFit()
+//        uiView.layoutIfNeeded()
     }
 }
 

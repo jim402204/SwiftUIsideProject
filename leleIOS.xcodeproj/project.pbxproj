@@ -65,6 +65,7 @@
 		375DC55F2D2D1B7D00980984 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC55E2D2D1B7D00980984 /* QRCodeView.swift */; };
 		375DC5612D2D1CE400980984 /* QRCodeScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC5602D2D1CE400980984 /* QRCodeScanViewModel.swift */; };
 		375DC5632D2E154900980984 /* NotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC5622D2E154900980984 /* NotificationDetailView.swift */; };
+		375DC5652D2FCF7B00980984 /* FileWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC5642D2FCF7B00980984 /* FileWebView.swift */; };
 		377F99972D08101500BE818A /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99962D08101500BE818A /* LaunchScreenView.swift */; };
 		377F999B2D081D9000BE818A /* SecurityControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999A2D081D9000BE818A /* SecurityControlView.swift */; };
 		377F999D2D081DE400BE818A /* SecurityControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F999C2D081DE400BE818A /* SecurityControlCell.swift */; };
@@ -224,6 +225,7 @@
 		375DC55E2D2D1B7D00980984 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		375DC5602D2D1CE400980984 /* QRCodeScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewModel.swift; sourceTree = "<group>"; };
 		375DC5622D2E154900980984 /* NotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailView.swift; sourceTree = "<group>"; };
+		375DC5642D2FCF7B00980984 /* FileWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWebView.swift; sourceTree = "<group>"; };
 		377F99962D08101500BE818A /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		377F99982D08125000BE818A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		377F999A2D081D9000BE818A /* SecurityControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityControlView.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 				37E57C662D0C144F00C9B5EF /* LoadMoreView.swift */,
 				37C091132D1D070E00E5A7CE /* CameraView.swift */,
 				37C091292D1EB08100E5A7CE /* LoadingOverlay.swift */,
+				375DC5642D2FCF7B00980984 /* FileWebView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -1183,6 +1186,7 @@
 				374A5EBD2CFEFA5A00A36375 /* UIColor+.swift in Sources */,
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
 				37E57C162D09676B00C9B5EF /* GuestViewModel.swift in Sources */,
+				375DC5652D2FCF7B00980984 /* FileWebView.swift in Sources */,
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,
 				37C091082D19146400E5A7CE /* ManagerModel.swift in Sources */,
 				37E57C872D12B8A400C9B5EF /* GasViewModel.swift in Sources */,

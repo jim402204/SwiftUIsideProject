@@ -65,6 +65,7 @@ class GuestCellViewModel {
         
         let filepath = model.webCamFileName ?? ""
         let imageUrl = URLBuilder(imageApiDomain: imageApiDomain).buildURL(id: model.id, filepath: filepath)
+//        let imageUrl = URLBuilder().build1URL(filepath: filepath)
         
         self.imageUrl = imageUrl
         self.visitTime =  DateUtils.formatISO8601Date(model.visitTime)
@@ -83,7 +84,7 @@ class URLBuilder {
     static let defaultURL = URL(string: "www.google.com.tw")!
     
     
-    init(imageApiDomain: String) {
+    init(imageApiDomain: String = "") {
         self.imageApiDomain = imageApiDomain
     }
 
@@ -99,6 +100,29 @@ class URLBuilder {
         return URL(string: url)
     }
     
+    func build1URL(filepath: String) -> URL? {
+        
+        let imageApiDomain = "https://go.lelelink.com"
+        
+        let info = UserDefaultsHelper.userBuilding
+        let communityID = UserDefaultsHelper.communityAdmin
+        let token = UserDefaultsHelper.token ?? ""
+        
+        let url = imageApiDomain + "/user/community/\(communityID)/file?f=\(filepath)&token=\(token)&b=\(info.building)&d=\(info.doorPlate)&f=\(info.floor)"
+
+        return URL(string: url)
+    }
+    
+    func buildGoURL(filepath: String) -> URL? {
+        
+        let communityID = UserDefaultsHelper.communityAdmin
+        let token = UserDefaultsHelper.token ?? ""
+        let imageApiDomain = "https://go.lelelink.com"
+        
+        let url = imageApiDomain + "/user/community/\(communityID)/file?f=\(filepath)&token=\(token)"
+
+        return URL(string: url)
+    }
     
 }
 

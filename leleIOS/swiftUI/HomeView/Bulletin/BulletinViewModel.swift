@@ -69,7 +69,11 @@ class BulletinCellViewModel {
     // 規章用
     var updateDate: String? = nil
     // app 不能用要Date
-    var filePath: String = ""
+    var file: String? = nil
+    var fileData: Data? = nil
+    
+    var image: URL? = nil
+    var images: [URL] = []
     
     init (_ model: NewContainerModel.NewModel) {
         self.id = model.id
@@ -78,6 +82,18 @@ class BulletinCellViewModel {
         self.date = String(DateUtils.formatISO8601Date(model.create).prefix(10))
         self.content = model.desc ?? ""
         self.isTop = model.top ?? false
+        
+        let filepath = model.image?[safe: 0] ?? ""
+        let imageUrl = URLBuilder().buildGoURL(filepath: filepath)
+        self.image = imageUrl
+        
+        let urls = model.image?.compactMap({ filepath in
+            URLBuilder().buildGoURL(filepath: filepath)
+        }) ?? []
+        
+        self.images = urls
+        
+        self.file = model.file?.first
     }
     
     init (type: String, title: String, date: String, content: String, isTop: Bool) {

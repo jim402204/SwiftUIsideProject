@@ -26,14 +26,21 @@ struct CustomNavigationBarStyle: ViewModifier {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     if hasTitleIcon {
-                        NavigationLink(destination: QRCodeScanView()) {
+//                        NavigationLink(destination: QRCodeScanView()) {
                             HStack {
-                                Image("Icon-App-1024x1024")
+//                                Image("Icon-App-1024x1024")
+                                Image("barIcon")
                                     .resizable()
-                                    .frame(width: 30, height: 30)
+                                    .frame(width: 36, height: 36)
+                                    .cornerRadius(10)
+                                    .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.white, lineWidth: 1) // 邊線顏色與寬度
+                                        )
+                                
                                 initTitleView()
                             }
-                        }
+//                        }
                     } else {
                         initTitleView()
                     }
@@ -84,7 +91,7 @@ extension View {
         backgroundColor: Color = .teal,
         displayMode: NavigationBarItem.TitleDisplayMode = .inline,
         isRootPage: Bool = false,
-        hasTitleIcon: Bool = false
+        hasTitleIcon: Bool = true
     ) -> some View {
         self.modifier(
             CustomNavigationBarStyle(

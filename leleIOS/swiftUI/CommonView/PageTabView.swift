@@ -14,6 +14,9 @@ struct PageTabView<Item, CellView: View, T: Hashable>: View {
     var allList: [T: [Item]]
     var onChange: (T) -> Void = { _ in }
     var cellBuilder: (Item) -> CellView
+    
+    var isLoadMore: Bool = false
+    var loadMoreAPI: () -> Void = { }
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -30,6 +33,9 @@ struct PageTabView<Item, CellView: View, T: Hashable>: View {
                     }
                 }
                 .tag(tab) // 設定對應的標籤，確保切換正確
+            }
+            LoadMoreView(hasMoreData: isLoadMore) {
+                loadMoreAPI()
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never)) // 隱藏內建指示器
