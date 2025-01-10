@@ -43,16 +43,7 @@ struct BulletinDetailView: View {
                     .appFont(.size(20))
                     .lineLimit(nil)
                 
-//                SwiftUITextView(
-//                    text: viewModel.content,
-//                    fontSize: 20,
-//                    lineBreakMode: .byCharWrapping
-//                )
-//                .frame(maxHeight: .infinity) 
-
-                
                 if !viewModel.images.isEmpty {
-//                if true {
                 
                     Divider()
                     Text("公告圖片")
@@ -72,22 +63,24 @@ struct BulletinDetailView: View {
                     }
                 }
                 
-                if viewModel.file != nil {
-//                if true {
+                if !viewModel.files.isEmpty {
                 
                     Divider()
                     Text("公告附檔")
                         .foregroundStyle(Color(.systemBlue))
-                    Button(action: {
-                        
-                    }) {
-                        Text("點開附件")
-                            .foregroundColor(.teal)
-                            .padding(.vertical,8)
-                            .padding(.horizontal)
-                            .background()
-                            .cornerRadius(20)
-                            .applyShadow()
+                    
+                    VStack(spacing: 10) {
+                        ForEach(viewModel.files, id: \.self) { url in
+                            NavigationLink(destination: FileWebView(url: url)) {
+                                Text("點開附件")
+                                    .foregroundColor(.teal)
+                                    .padding(.vertical,8)
+                                    .padding(.horizontal)
+                                    .background()
+                                    .cornerRadius(20)
+                                    .applyShadow()
+                            }
+                        }
                     }
                 }
                 

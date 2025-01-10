@@ -69,10 +69,9 @@ class BulletinCellViewModel {
     // 規章用
     var updateDate: String? = nil
     // app 不能用要Date
-    var file: String? = nil
-    var fileData: Data? = nil
-    
-    var image: URL? = nil
+    // 附件
+    var files: [URL] = []
+    // 圖片
     var images: [URL] = []
     
     init (_ model: NewContainerModel.NewModel) {
@@ -83,17 +82,16 @@ class BulletinCellViewModel {
         self.content = model.desc ?? ""
         self.isTop = model.top ?? false
         
-        let filepath = model.image?[safe: 0] ?? ""
-        let imageUrl = URLBuilder().buildGoURL(filepath: filepath)
-        self.image = imageUrl
-        
         let urls = model.image?.compactMap({ filepath in
             URLBuilder().buildGoURL(filepath: filepath)
         }) ?? []
-        
         self.images = urls
         
-        self.file = model.file?.first
+        let files: [URL] = model.file?.compactMap({ filepath in
+            let url = URLBuilder().buildGoURL(supportDocsViewer: true, filepath: filepath)
+            return url
+        }) ?? []
+        self.files = files
     }
     
     init (type: String, title: String, date: String, content: String, isTop: Bool) {
@@ -118,4 +116,10 @@ class BulletinCellViewModel {
         self.updateDate = String(DateUtils.formatISO8601Date(model.update ?? "").prefix(10))
     }
     
+    /// 原本要提供給外部的
+    func openURL(_ url: URL) {
+        print("openURL: \(url)")
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }

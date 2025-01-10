@@ -8,43 +8,29 @@
 import SwiftUI
 import WebKit
 
-struct FileWebView: UIViewRepresentable {
+struct FileWebView: View {
+    @State private var progress: Double = 0.0
     let url: URL
 
-    func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
-        webView.scrollView.isScrollEnabled = true // 啟用滾動
-        webView.scrollView.bounces = false
-        webView.navigationDelegate = context.coordinator
-
-        // 設置縮放
-        webView.configuration.preferences.javaScriptEnabled = true
-        webView.load(URLRequest(url: url))
-        return webView
-    }
-
-    func updateUIView(_ webView: WKWebView, context: Context) {}
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
-    }
-
-    class Coordinator: NSObject, WKNavigationDelegate {
-        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            // 設置內容自適應大小
-            webView.evaluateJavaScript("""
-            var meta = document.createElement('meta');
-            meta.name = 'viewport';
-            meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes';
-            document.getElementsByTagName('head')[0].appendChild(meta);
-            """, completionHandler: nil)
+    var body: some View {
+        VStack {
+            // 進度條
+            ProgressView(value: progress)
+                .progressViewStyle(LinearProgressViewStyle())
+                .opacity(progress < 1.0 ? 1.0 : 0.0) // 完成時隱藏
+            
+            // WebView
+            LeLeWebView(url: url, progress: $progress)
+                .edgesIgnoringSafeArea(.all)
         }
+        .navigationBarStyle(title: "")
     }
 }
 
-struct Conten11View: View {
-    var body: some View {
-        FileWebView(url: URL(string: "https://example.com/sample.xlsx")!)
-            .edgesIgnoringSafeArea(.all) // 全屏顯示
+#Preview {
+    PreviewTokenView {
+        NavigationStack {
+            FileWebView(url: URL(string: "https://www.google.com")!)
+        }
     }
 }
