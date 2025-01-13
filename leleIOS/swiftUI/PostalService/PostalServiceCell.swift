@@ -82,23 +82,23 @@ struct PostalServiceCell: View {
                     }
                 }
                 
-                if let shippingProvider = viewModel.shippingProvider {
-                    HStack() {
-                        HStack {
-                            Text("物流:")
-                            Spacer()
-                        }.frame(width: spacerWith)
-                        Text(shippingProvider)
-                    }
-                }
+//                if let shippingProvider = viewModel.shippingProvider {
+//                    HStack() {
+//                        HStack {
+//                            Text("物流:")
+//                            Spacer()
+//                        }.frame(width: spacerWith)
+//                        Text(shippingProvider)
+//                    }
+//                }
                 
-                HStack() {
-                    HStack {
-                        Text("條碼:")
-                        Spacer()
-                    }.frame(width: spacerWith)
-                    Text(viewModel.barCode)
-                }
+//                HStack() {
+//                    HStack {
+//                        Text("條碼:")
+//                        Spacer()
+//                    }.frame(width: spacerWith)
+//                    Text(viewModel.barCode)
+//                }
                 
                 if let mark = viewModel.mark {
                     HStack() {
