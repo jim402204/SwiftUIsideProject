@@ -52,6 +52,8 @@ class PostalServicViewModel: ObservableObject {
                 let models = model.map { PostalServiceCellViewModel(model: $0,type: self.selectedTab) }
                 self.allList[selectedTab] = models
                 
+                print("models count: \(models.count)")
+                
             }).store(in: &bag)
         
     }

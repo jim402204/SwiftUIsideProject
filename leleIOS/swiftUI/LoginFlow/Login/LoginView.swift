@@ -59,10 +59,7 @@ struct LoginView: View {
                         .keyboardType(.numberPad)
                 }
                 .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                )
+                .roundedBackground()
                 .frame(height: 50)
                 
                 // 密碼輸入框
@@ -85,10 +82,7 @@ struct LoginView: View {
                     }
                 }
                 .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                )
+                .roundedBackground()
                 .frame(height: 50)
             }
             

@@ -69,7 +69,7 @@ enum LaunchApi {
     struct Register: BaseTargetType {
         typealias ResponseDataType = String
         
-        var baseURL: URL { return leleApiURL }
+//        var baseURL: URL { return leleApiURL }
         var method: Moya.Method { .post }
         var path: String { return "user" }
         var task: Task { .requestCompositeParameters(bodyParameters: parameters, bodyEncoding: JSONEncoding.default, urlParameters: urlParameters) }
@@ -88,13 +88,13 @@ enum LaunchApi {
         }
     }
     
-    //MARK: - 驗證碼 不能用
+    //MARK: - 驗證碼
     struct SendSms: BaseTargetType {
         typealias ResponseDataType = String
         
-        var baseURL: URL { return leleApiURL }
+        var baseURL: URL { return leleApiURL } //現在有時間過程的問題 超過20分還是無法重新打
         var method: Moya.Method { .post }
-        var path: String { return "sendsms/" }
+        var path: String { return "sendsms/" } //必須要加/不然會跳到轉址 且url拼接是sendsms?p=0920217339
  
         var task: Task { .requestCompositeParameters(bodyParameters: [:], bodyEncoding: JSONEncoding.default, urlParameters: parameters) }
         private var parameters: [String:Any] = [:]

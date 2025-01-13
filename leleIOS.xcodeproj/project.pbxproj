@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		37186C3A2D34E400009B12BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37186C392D34E400009B12BD /* GoogleService-Info.plist */; };
-		374A5EAD2CFEEC1100A36375 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EAC2CFEEC1100A36375 /* Register.swift */; };
+		37186C3C2D34EE4E009B12BD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186C3B2D34EE4E009B12BD /* RegisterViewModel.swift */; };
+		374A5EAD2CFEEC1100A36375 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EAC2CFEEC1100A36375 /* RegisterView.swift */; };
 		374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB52CFEF90E00A36375 /* NewPasswordViewModel.swift */; };
 		374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB42CFEF90E00A36375 /* NewPasswordView.swift */; };
 		374A5EB92CFEF90E00A36375 /* JimTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB22CFEF90E00A36375 /* JimTextFieldStyle.swift */; };
@@ -179,7 +180,8 @@
 
 /* Begin PBXFileReference section */
 		37186C392D34E400009B12BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		374A5EAC2CFEEC1100A36375 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		37186C3B2D34EE4E009B12BD /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		374A5EAC2CFEEC1100A36375 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		374A5EB02CFEF90E00A36375 /* BaseTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextStyle.swift; sourceTree = "<group>"; };
 		374A5EB12CFEF90E00A36375 /* ButtonTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextStyle.swift; sourceTree = "<group>"; };
 		374A5EB22CFEF90E00A36375 /* JimTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimTextFieldStyle.swift; sourceTree = "<group>"; };
@@ -368,7 +370,8 @@
 		374A5EAB2CFEEC0800A36375 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				374A5EAC2CFEEC1100A36375 /* Register.swift */,
+				374A5EAC2CFEEC1100A36375 /* RegisterView.swift */,
+				37186C3B2D34EE4E009B12BD /* RegisterViewModel.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1122,6 +1125,7 @@
 				37E57C962D12CB0100C9B5EF /* VoteViewModel.swift in Sources */,
 				37C7F77F2CFDB9F700F32A5C /* SegmentedTabView.swift in Sources */,
 				37E57C702D1129F200C9B5EF /* FacilityCell.swift in Sources */,
+				37186C3C2D34EE4E009B12BD /* RegisterViewModel.swift in Sources */,
 				37C7F7812CFDBA5200F32A5C /* NotificationCell.swift in Sources */,
 				377F99A52D08268100BE818A /* BulletinCell.swift in Sources */,
 				375D8A652CFD4A6100A1E02B /* UserDefault.swift in Sources */,
@@ -1144,7 +1148,7 @@
 				375D8A6F2CFD4A6100A1E02B /* UserApi.swift in Sources */,
 				375D8A682CFD4A6100A1E02B /* ApiService+.swift in Sources */,
 				375D8A702CFD4A6100A1E02B /* BaseAPIModel.swift in Sources */,
-				374A5EAD2CFEEC1100A36375 /* Register.swift in Sources */,
+				374A5EAD2CFEEC1100A36375 /* RegisterView.swift in Sources */,
 				37E57C772D1166A500C9B5EF /* FacilityRecordView.swift in Sources */,
 				37E57C852D12B89200C9B5EF /* GasView.swift in Sources */,
 				375DC5672D31041E00980984 /* LeLeWebView.swift in Sources */,
