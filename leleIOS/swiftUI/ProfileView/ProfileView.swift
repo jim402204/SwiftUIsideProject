@@ -24,8 +24,10 @@ struct ProfileView: View {
                     .cornerRadius(cardCornerRadius)
                     .applyShadow()
                 
-                // 社區資訊卡片
-                CommunityInfoCardView(viewModel: viewModel, cardCornerRadius: cardCornerRadius)
+                if viewModel.isCommunityOpening {
+                    // 社區資訊卡片
+                    CommunityInfoCardView(viewModel: viewModel, cardCornerRadius: cardCornerRadius)
+                }
                 
                 VStack(spacing: 10) {
                     Text("產品資訊")

@@ -52,7 +52,7 @@ struct MainTabView: View {
         if UserDefaultsHelper.userRole == .商家 {
             createStoreTabView(selectedTab: $selectedTab, router: router)
         } else {
-            createTabView(selectedTab: $selectedTab, router: router)
+            createTabView(selectedTab: $selectedTab, router: router, viewModel: viewModel)
         }
     }
 }
@@ -67,16 +67,26 @@ struct MainTabView_Previews: PreviewProvider {
 
 extension MainTabView {
     
-    func createTabView(selectedTab: Binding<Int>, router: NavigationManager) -> some View {
+    func createTabView(selectedTab: Binding<Int>, router: NavigationManager, viewModel: MainTabViewModel) -> some View {
         TabView(selection: selectedTab) {
+            
             // 首頁
-            HomeView()
-                .environmentObject(router)
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("首頁")
+            ZStack {
+                HomeView()
+                
+                if !viewModel.isCommunityOpening {
+                    NavigationView {
+                        QRCodeScanView(isRootPage: true)
+                            .transition(.opacity) // 可选：添加淡入淡出动画
+                    }
                 }
-                .tag(0)
+            }
+            .environmentObject(router)
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("首頁")
+            }
+            .tag(0)
             
             // 雲對講
             NavigationStack {

@@ -61,6 +61,8 @@ struct RegisterView: View {
                             .foregroundColor(.gray)
                         TextField("輸入驗證碼", text: $viewModel.verificationCode)
                             .padding(8)
+                            .textContentType(.oneTimeCode)
+                            .keyboardType(.numberPad)
                         
                         Button("取得驗證碼") {
                             viewModel.getVerificationCode()

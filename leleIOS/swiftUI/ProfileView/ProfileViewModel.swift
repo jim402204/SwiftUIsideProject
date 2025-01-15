@@ -12,24 +12,28 @@ class ProfileViewModel: ObservableObject {
     
     @Published var userName: String = ""
     @Published var accountID: String = ""
+    
     @Published var shortAddress: String = ""
     @Published var building: String = ""
     @Published var point: String = "0"
     
     @Published var receiveNotifications = true
-    
-    // navigation To VC
-//    @Published var pushToProfile: Bool = false
-//    @Published var pushToChangePassword: Bool = false
-//    @Published var pushToLoggedDevices: Bool = false
-//    @Published var pushToCommunity: Bool = false
-//    @Published var pushToPointsManagement: Bool = false
+    /// 社區開通
+    @Published var isCommunityOpening = false
     
     private var appState: AppState?
 
     
     init () {
         callAPI()
+        binding()
+    }
+    
+    func binding() {
+        
+        CommunityBindingState.shared.$isOpening
+            .receive(on: RunLoop.main)
+            .assign(to: &$isCommunityOpening)
     }
     
     func setAppState(_ appState: AppState) {
@@ -37,7 +41,9 @@ class ProfileViewModel: ObservableObject {
     }
     
     func logout() {
-        appState?.logOut()
+//        appState?.logOut()
+
+        CommunityBindingState.shared.isOpening.toggle()
     }
 }
 
@@ -64,6 +70,8 @@ extension ProfileViewModel {
     }
     
     func pointAPI() {
+        
+        guard isCommunityOpening else { return }
         
         apiService.request(NotifyApi.Point())
             .sink(onSuccess: { [weak self] model in

@@ -10,12 +10,23 @@ import Combine
 
 class MainTabViewModel: ObservableObject {
     
+    @Published var isCommunityOpening: Bool = false
+    
     init () {
         householdListAPI()
         
         callUserInfo()
         
         callDeviceInfo()
+        
+        binding()
+    }
+    
+    func binding() {
+        
+        CommunityBindingState.shared.$isOpening
+            .receive(on: RunLoop.main)
+            .assign(to: &$isCommunityOpening)
     }
     
     func householdListAPI() {
@@ -24,18 +35,11 @@ class MainTabViewModel: ObservableObject {
             do {
                 let respone = try await apiService.requestA(LaunchApi.HouseholdList())
                 
-                guard let model = respone.first else { return }
-                
-                let userInfo = CommunityInfo(
-                    id: model.community.id,
-                    name: model.community.name,
-                    building: model.building,
-                    doorPlate: model.doorPlate,
-                    floor: model.floor
-                )
-                
-                UserDefaultsHelper.communityAdmin = model.community.id
-                UserDefaultsHelper.userBuilding = userInfo
+                guard let model = respone.first else {
+                    CommunityBindingState.shared.reset()
+                    return
+                }
+                CommunityBindingState.shared.saveCommunityInfo(model: model)
                 
             } catch {
                 print("HouseholdList: error: \(error)")
@@ -51,9 +55,10 @@ class MainTabViewModel: ObservableObject {
             do {
                 let model = try await apiService.requestA(LaunchApi.UserInfo())
                 
-                guard let cid = model.communityAdmin.first else { return  }
+                guard let cid = model.communityAdmin?.first else { return  }
+                let hid = model.defaultHouseHold ?? ""
                 
-                UserDefaultsHelper.userIdInfo = UserIDInfo(uid: model.id, cid: cid, hid: model.defaultHouseHold)
+                UserDefaultsHelper.userIdInfo = UserIDInfo(uid: model.id, cid: cid, hid: hid)
                 
             } catch {
                 print("UserInfo: error: \(error)")
@@ -70,6 +75,29 @@ class MainTabViewModel: ObservableObject {
                 
             } catch {
                 print("UserInfo: error: \(error)")
+            }
+        }
+    }
+    
+    /// 測試多筆api可能閃退的問題
+    func testError() {
+        
+        for i in 1...100 {
+            print("Starting callUserInfo for iteration \(i)")
+            Task {
+                do {
+                    let model = try await apiService.requestA(LaunchApi.UserInfo())
+                    print("Iteration \(i) succeeded: \(model)")
+                    
+                    guard let cid = model.communityAdmin?.first else { return }
+                    let hid = model.defaultHouseHold ?? ""
+                    
+                    DispatchQueue.main.async {
+                        UserDefaultsHelper.userIdInfo = UserIDInfo(uid: model.id, cid: cid, hid: hid)
+                    }
+                } catch {
+                    print("Iteration \(i) failed with error: \(error)")
+                }
             }
         }
     }

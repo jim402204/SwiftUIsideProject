@@ -11,6 +11,8 @@ struct QRCodeScanView: View {
     @StateObject private var viewModel = QRCodeScanViewModel()
     @State private var inputCode: String = ""
     
+    var isRootPage = false
+    
     var body: some View {
         VStack(spacing: 20) {
             
@@ -58,7 +60,7 @@ struct QRCodeScanView: View {
         }
         .padding(.horizontal)
         .padding()
-        .navigationBarStyle(title: "掃碼專區")
+        .navigationBarStyle(title: "掃碼專區", isRootPage: isRootPage)
     }
 }
 
