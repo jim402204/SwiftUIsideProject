@@ -19,10 +19,10 @@ var apiService = APIService.shared
 
 final class APIService {
     static let shared = APIService()
-    
     private init() {}
-    lazy var provider = MoyaProvider<MultiTarget>(session: customSession(), plugins: [MyPlugin()])
-    
+
+    //不能用 lazy customSession 會被創建多次 不是我想要的
+    var provider = MoyaProvider<MultiTarget>(session: APIService.customSession(), plugins: [MyPlugin()])
     
     
     
@@ -109,30 +109,32 @@ import Alamofire
 import Foundation
 
 extension APIService {
-    func customSession<T: ApiTargetType>(request: T) -> Session {
+    
+    static func customSession<T: ApiTargetType>(request: T) -> Session {
         let configuration = URLSessionConfiguration.default
         configuration.headers = .default
         configuration.timeoutIntervalForRequest = request.timeout
         configuration.timeoutIntervalForResource = request.timeout
         return Session(configuration: configuration, startRequestsImmediately: false)
     }
+    
     // 一般使用統一
-    func customSession(timeout: Double = 20) -> Session {
+    static func customSession(timeout: Double = 20) -> Session {
         let configuration = URLSessionConfiguration.default
-
-        let defaultHeader = HTTPHeaders.default
-//        defaultHeader.add(HTTPHeader.userAgent(new))
-//        print("configuration defaultHeader: \(defaultHeader)")
+    
+//        print("httpMaximumConnectionsPerHost: \(configuration.httpMaximumConnectionsPerHost)")
+        configuration.httpMaximumConnectionsPerHost = 30
+//        print("httpMaximumConnectionsPerHost: \(configuration.httpMaximumConnectionsPerHost)")
         
+        let defaultHeader = HTTPHeaders.default
+    //        defaultHeader.add(HTTPHeader.userAgent(new))
+    //        print("configuration defaultHeader: \(defaultHeader)")
         configuration.headers = defaultHeader
         configuration.timeoutIntervalForRequest = timeout
         configuration.timeoutIntervalForResource = timeout
         return Session(configuration: configuration, startRequestsImmediately: false)
     }
-    
 }
-
-
 
 struct ShowAlertMsg {
     let code: Int
