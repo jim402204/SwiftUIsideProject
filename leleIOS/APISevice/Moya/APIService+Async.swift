@@ -55,7 +55,32 @@ extension MoyaProvider {
         guard (200...299).contains(response.statusCode) else {
             throw MoyaError.statusCode(response)
         }
+        
+//        print("requestAsync response.data: \(String(data: response.data, encoding: .utf8) ?? "")")
+        
+        // 检查数据是否为空或为 "null"
+        if response.data.isEmpty || response.data == Data("null".utf8) {
+            if let optionalType = T.self as? OptionalProtocol.Type {
+                return optionalType.wrappedTypeNilValue as! T
+            } else {
+                throw DecodingError.dataCorrupted(DecodingError.Context(
+                    codingPath: [],
+                    debugDescription: "Response data is null but ResponseDataType is not optional."
+                ))
+            }
+        }
+        
         return try decoder.decode(T.self, from: response.data)
+    }
+}
+
+protocol OptionalProtocol {
+    static var wrappedTypeNilValue: Any? { get }
+}
+
+extension Optional: OptionalProtocol {
+    static var wrappedTypeNilValue: Any? {
+        return nil
     }
 }
 

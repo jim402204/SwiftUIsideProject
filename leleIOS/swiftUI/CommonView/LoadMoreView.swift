@@ -23,10 +23,7 @@ struct LoadMoreView: View {
                         }
                     }
             } else {
-                Text("已加載全部內容")
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-                    .padding()
+                emptyView()
             }
         }
     }

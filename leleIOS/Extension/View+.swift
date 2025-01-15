@@ -34,3 +34,17 @@ extension View {
     }
 }
 
+// MMARK: - EmptyView
+
+extension View {
+    
+    /// Text 已加載全部內容
+    @ViewBuilder
+    func emptyView() -> some View {
+        Text("已加載全部內容")
+            .font(.footnote)
+            .foregroundColor(.gray)
+            .padding()
+    }
+    
+}
