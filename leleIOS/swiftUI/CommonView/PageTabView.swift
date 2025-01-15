@@ -22,13 +22,17 @@ struct PageTabView<Item, CellView: View, T: Hashable>: View {
         TabView(selection: $selectedTab) {
             ForEach(tabs, id: \.self) { tab in
                 ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(
-                            Array((allList[tab] ?? []).enumerated()),
-                            id: \.offset
-                        ) { index, item in
-                            cellBuilder(item)
-                                .id(index)
+                    if (allList[tab]?.isEmpty ?? true) {
+                        emptyView()
+                    } else {
+                        LazyVStack(spacing: 0) {
+                            ForEach(
+                                Array((allList[tab] ?? []).enumerated()),
+                                id: \.offset
+                            ) { index, item in
+                                cellBuilder(item)
+                                    .id(index)
+                            }
                         }
                     }
                 }

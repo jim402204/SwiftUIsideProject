@@ -16,7 +16,6 @@ enum LaunchApi {
     struct UserInfo: BaseTargetType {
         typealias ResponseDataType = UserInfoModel
 
-        var baseURL: URL { return leleApiURL }
         var path: String { return "user/info" }
     }
     
@@ -60,18 +59,17 @@ enum LaunchApi {
     struct HouseholdList: BaseTargetType {
         typealias ResponseDataType = [HouseholdListModel]
 
-        var baseURL: URL { return leleApiURL }
         var path: String { return "user/household_list" }
     }
     
     
-    //MARK: - 註冊 不能用
-    struct Register: BaseTargetType {
+    //MARK: - 註冊 不能用 head 不要帶 "Authorization": "Bearer "
+    struct Register: NoBearerTargetType {
         typealias ResponseDataType = String
         
-//        var baseURL: URL { return leleApiURL }
+        var baseURL: URL { return leleApiURL }
         var method: Moya.Method { .post }
-        var path: String { return "user" }
+        var path: String { return "user/" }
         var task: Task { .requestCompositeParameters(bodyParameters: parameters, bodyEncoding: JSONEncoding.default, urlParameters: urlParameters) }
 
         private var parameters: [String:Any] = [:]
@@ -89,7 +87,7 @@ enum LaunchApi {
     }
     
     //MARK: - 驗證碼
-    struct SendSms: BaseTargetType {
+    struct SendSms: NoBearerTargetType {
         typealias ResponseDataType = String
         
         var baseURL: URL { return leleApiURL } //現在有時間過程的問題 超過20分還是無法重新打

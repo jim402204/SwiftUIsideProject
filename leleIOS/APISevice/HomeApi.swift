@@ -34,3 +34,19 @@ extension BaseTargetType {
 enum HomeApi {
     
 }
+
+protocol NoBearerTargetType: ApiTargetType {}
+
+/// 共用參數
+extension NoBearerTargetType {
+        
+    var headers: [String : String]? {
+        return [
+            "Content-Type" : "application/json",
+            "Device-Type" : deviceType,
+            "Accept" : "application/json"
+        ]
+    }
+    
+    typealias defaultModel = [String:String]
+}

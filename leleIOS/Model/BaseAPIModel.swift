@@ -27,11 +27,12 @@ struct UserInfoModel: Codable {
     let id, name, accountID, email: String
     let password: String
     let community: String?
-    let communityAdmin: [String]
-    let communityAdminRole: [String: String]
-    let communityAdminRoleStatus: [String: RoleStatus]
+    let communityAdmin: [String]?
+    let communityAdminRole: [String: String]?
+    let communityAdminRoleStatus: [String: RoleStatus]?
     let active: Bool
-    let created, lastLogin, defaultHouseHold: String
+    let created, lastLogin: String
+    let defaultHouseHold: String?
     let privateNotify: Bool?
 
     enum CodingKeys: String, CodingKey {
