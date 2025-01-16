@@ -69,6 +69,10 @@ struct HomeView: View {
             .navigationDestination(for: HomeNavigationPage.self) { destination in
                 destinationView(for: destination)
             }
+            .onAppear {
+                print("HomeView onAppear")
+//                CommunityBindingState.shared.isOpening.toggle()
+            }
         } //NavigationStack
     }
     

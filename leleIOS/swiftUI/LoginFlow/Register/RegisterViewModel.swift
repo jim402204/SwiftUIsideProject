@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import CombineExt
 
 class RegisterViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
@@ -12,6 +13,9 @@ class RegisterViewModel: ObservableObject {
     @Published var confirmPassword: String = ""
     
     @Published var isValidButtonEnable: Bool = false
+    @Published var isRegisterButtonEnable: Bool = false
+    
+    var registerColor: Color { isRegisterButtonEnable ? Color.teal : .init(uiColor: .systemGray2) }
     
     init() {
         binging()
@@ -25,15 +29,25 @@ class RegisterViewModel: ObservableObject {
             .assign(to: \.isValidButtonEnable, on: self)
             .store(in: &bag)
         
-        $phoneNumber
-            .scan("") { _, newValue in
-                let filtered = String(newValue.prefix(10)) // 截断超出长度的字符
-                return filtered
+        
+        [
+            $realName.map { !$0.isEmpty },
+            $email.map { !$0.isEmpty },
+            $phoneNumber.map { !$0.isEmpty },
+            $verificationCode.map { !$0.isEmpty },
+            $password.map { !$0.isEmpty },
+            $confirmPassword.map { !$0.isEmpty }
+        ]
+            .combineLatest() // CombineExt 提供的扩展方法
+            .map { values -> Bool in
+                let allFieldsFilled = values.allSatisfy { $0 }
+                let passwordsMatch = self.password == self.confirmPassword
+                let isPhoneNumber = self.phoneNumber.count >= 10
+                
+                return allFieldsFilled && passwordsMatch && isPhoneNumber
             }
             .removeDuplicates()
-            .receive(on: RunLoop.main) // 确保在主线程更新
-            .sink { [unowned self] in self.phoneNumber = $0 }
-            .store(in: &bag)
+            .assign(to: &$isRegisterButtonEnable)
         
     }
     

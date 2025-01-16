@@ -10,6 +10,7 @@
 		37186C3A2D34E400009B12BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37186C392D34E400009B12BD /* GoogleService-Info.plist */; };
 		37186C3C2D34EE4E009B12BD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186C3B2D34EE4E009B12BD /* RegisterViewModel.swift */; };
 		37186C3E2D3769EA009B12BD /* CommunityBindingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186C3D2D3769EA009B12BD /* CommunityBindingState.swift */; };
+		37186C412D37A9A5009B12BD /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 37186C402D37A9A5009B12BD /* CombineExt */; };
 		374A5EAD2CFEEC1100A36375 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EAC2CFEEC1100A36375 /* RegisterView.swift */; };
 		374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB52CFEF90E00A36375 /* NewPasswordViewModel.swift */; };
 		374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB42CFEF90E00A36375 /* NewPasswordView.swift */; };
@@ -354,6 +355,7 @@
 				37C091282D1EA80100E5A7CE /* ActivityIndicatorView in Frameworks */,
 				375DC5712D34E28900980984 /* FirebaseMessaging in Frameworks */,
 				375D8A772CFD4B5000A1E02B /* SwiftyJSON in Frameworks */,
+				37186C412D37A9A5009B12BD /* CombineExt in Frameworks */,
 				375DC55A2D2D011500980984 /* DeviceKit in Frameworks */,
 				375D8A742CFD4B4400A1E02B /* RxSwift in Frameworks */,
 				375DC5572D2BC5ED00980984 /* WebRTC in Frameworks */,
@@ -977,6 +979,7 @@
 				375DC56C2D34E28900980984 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				375DC56E2D34E28900980984 /* FirebaseCrashlytics */,
 				375DC5702D34E28900980984 /* FirebaseMessaging */,
+				37186C402D37A9A5009B12BD /* CombineExt */,
 			);
 			productName = leleIOS;
 			productReference = 375D8A402CFD48C800A1E02B /* leleIOS.app */;
@@ -1015,6 +1018,7 @@
 				375DC5552D2BC5ED00980984 /* XCRemoteSwiftPackageReference "Specs" */,
 				375DC5582D2D011500980984 /* XCRemoteSwiftPackageReference "DeviceKit" */,
 				375DC56B2D34E28900980984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				37186C3F2D37A9A5009B12BD /* XCRemoteSwiftPackageReference "CombineExt" */,
 			);
 			productRefGroup = 375D8A412CFD48C800A1E02B /* Products */;
 			projectDirPath = "";
@@ -1464,6 +1468,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		37186C3F2D37A9A5009B12BD /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.1;
+			};
+		};
 		375D8A722CFD4B4400A1E02B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -1531,6 +1543,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		37186C402D37A9A5009B12BD /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37186C3F2D37A9A5009B12BD /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
 		375D8A732CFD4B4400A1E02B /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 375D8A722CFD4B4400A1E02B /* XCRemoteSwiftPackageReference "RxSwift" */;

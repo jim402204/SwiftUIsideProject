@@ -109,7 +109,7 @@ class MainTabViewModel: ObservableObject {
 func loginAPI(bag: inout Set<AnyCancellable>, handle: (()->())? = nil) {
     
     apiService.request(UserApi.GetToken())
-        .flatMapLatest { model in
+        .cFlatMapLatest { model in
             let token = model.Token
             let user = "0987654321"
             let pass = "135246"

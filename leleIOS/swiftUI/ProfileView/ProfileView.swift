@@ -27,6 +27,9 @@ struct ProfileView: View {
                 if viewModel.isCommunityOpening {
                     // 社區資訊卡片
                     CommunityInfoCardView(viewModel: viewModel, cardCornerRadius: cardCornerRadius)
+                } else {
+                    Text("尚未加入社區")
+                        .appFont(.title3, color: .gray)
                 }
                 
                 VStack(spacing: 10) {

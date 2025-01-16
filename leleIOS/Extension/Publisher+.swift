@@ -26,7 +26,7 @@ extension Publisher {
 }
 
 extension Publisher {
-    func flatMapLatest<T: Publisher>(
+    func cFlatMapLatest<T: Publisher>(
         _ transform: @escaping (Output) -> T
     ) -> AnyPublisher<T.Output, Failure> where T.Failure == Failure {
         map(transform) // 将上游的每个值映射为新的 Publisher

@@ -9,12 +9,14 @@ import SwiftUI
 
 struct BaseButtonStyle: ViewModifier {
     var height: CGFloat
-
+    var backgroundColor: Color = .teal
+    
     func body(content: Content) -> some View {
         content
             .padding(.horizontal)
             .frame(maxWidth: .infinity, minHeight: height, maxHeight: height)
-            .background(RoundedRectangle(cornerRadius: (height/2)).fill(Color.teal))
+            .background(RoundedRectangle(cornerRadius: (height/2))
+            .fill(backgroundColor))
             .foregroundColor(.white)
             .applyShadow()
     }

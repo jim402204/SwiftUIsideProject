@@ -41,9 +41,14 @@ class ProfileViewModel: ObservableObject {
     }
     
     func logout() {
-//        appState?.logOut()
+        
+        appState?.logOut()
 
-        CommunityBindingState.shared.isOpening.toggle()
+//        if  CommunityBindingState.shared.isOpening {
+//            CommunityBindingState.shared.reset()
+//        } else {
+//            CommunityBindingState.shared.saveCommunityInfo(model: HouseholdListModel(id: "", community: Community(id: "", name: "", contact: "", phone: "", email: "", city: "", district: "", tel: "", address: "", lat: 0, lng: 0, module: []), building: "building", doorPlate: "doorPlate", floor: "floor"))
+//        }
     }
 }
 

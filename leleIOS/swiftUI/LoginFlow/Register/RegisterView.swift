@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct RegisterView: View {
     @StateObject private var viewModel = RegisterViewModel()
@@ -52,7 +53,8 @@ struct RegisterView: View {
                         iconName: "phone.fill",
                         keyboardType: .phonePad,
                         iconSize: iconSize,
-                        itemFrame: itemFrame
+                        itemFrame: itemFrame,
+                        shouldLimit: true
                     )
                     
                     HStack(spacing: 0) {
@@ -83,6 +85,7 @@ struct RegisterView: View {
                             .foregroundColor(.gray)
                         if isPasswordVisible {
                             TextField("請輸入密碼", text: $viewModel.password)
+                                .keyboardType(.asciiCapable)
                         } else {
                             SecureField("請輸入密碼", text: $viewModel.password)
                         }
@@ -104,6 +107,7 @@ struct RegisterView: View {
                             .foregroundColor(.gray)
                         if isConfirmPasswordVisible {
                             TextField("請再次輸入密碼", text: $viewModel.confirmPassword)
+                                .keyboardType(.asciiCapable)
                         } else {
                             SecureField("請再次輸入密碼", text: $viewModel.confirmPassword)
                         }
@@ -125,12 +129,23 @@ struct RegisterView: View {
                 } label: {
                     Text("註冊")
                         .appFont(.title2)
-                        .modifier(BaseButtonStyle(height: 44))
+                        .modifier(
+                            BaseButtonStyle(
+                                height: 44,
+                                backgroundColor: viewModel.registerColor
+                            )
+                        )
                 }
+                .disabled(!viewModel.isRegisterButtonEnable)
+                .animation(.easeInOut, value: viewModel.isValidButtonEnable)
             }
             .padding()
             .navigationBarStyle(title: "註冊帳號")
         }
+        .onTapGesture {
+            hideKeyboard()
+        }
+        
     }//body
 }
 
@@ -141,27 +156,7 @@ struct RegisterView: View {
 }
 
 
-struct RoundedBackgroundModifier: ViewModifier {
-    let cornerRadius: CGFloat
-    let strokeColor: Color
-    let lineWidth: CGFloat
-
-    func body(content: Content) -> some View {
-        content
-            .background(
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(strokeColor, lineWidth: lineWidth)
-            )
-    }
-}
-
-extension View {
-    func roundedBackground(cornerRadius: CGFloat = 10,
-                           strokeColor: Color = Color.gray.opacity(0.3),
-                           lineWidth: CGFloat = 1) -> some View {
-        self.modifier(RoundedBackgroundModifier(cornerRadius: cornerRadius, strokeColor: strokeColor, lineWidth: lineWidth))
-    }
-}
+// MMARK: - RoundedTextFieldView
 
 struct RoundedTextFieldView: View {
     @Binding var text: String
@@ -170,8 +165,9 @@ struct RoundedTextFieldView: View {
     var keyboardType: UIKeyboardType = .default
     let iconSize: CGFloat
     let itemFrame: CGFloat
+    var shouldLimit: Bool = false
+    var limitCount = 10
     
-
     var body: some View {
         HStack(spacing: 0) {
             Image(systemName: iconName)
@@ -180,10 +176,15 @@ struct RoundedTextFieldView: View {
             TextField(placeholder, text: $text)
                 .padding(8)
                 .keyboardType(keyboardType)
+                .limitInputLength(value: $text, length: limitCount, shouldLimit: shouldLimit)
+//                .limitInputLength(value: $text, length: 10)
         }
         .padding(.horizontal, 8)
         .frame(height: itemFrame)
         .roundedBackground()
     }
 }
+
+
+
 

@@ -46,7 +46,7 @@ struct LoginView: View {
                     }
                     Spacer()
                 }
-//                .hidden()
+                .hidden()
             }
             
             // 輸入表單
