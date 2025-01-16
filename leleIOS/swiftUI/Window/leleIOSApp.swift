@@ -24,6 +24,8 @@ struct leleIOSApp: App {
 
 // MARK: - AppDelegate 支援 UIApplicationDelegate
 import FirebaseCore
+import UserNotifications
+import FirebaseMessaging
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -31,12 +33,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
 
+        // 設定通知
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("通知授權失敗：\(error)")
+            }
+        }
+        application.registerForRemoteNotifications()
+                
+        
         return true
       }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         
         return .portrait
+    }
+    
+    // 註冊設備 Token
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("遠程通知註冊失敗：\(error)")
     }
 }
 

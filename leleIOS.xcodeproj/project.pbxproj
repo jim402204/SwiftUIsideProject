@@ -184,6 +184,7 @@
 		37186C3B2D34EE4E009B12BD /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		37186C3D2D3769EA009B12BD /* CommunityBindingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityBindingState.swift; sourceTree = "<group>"; };
 		37186C422D38FF94009B12BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		37186C442D39095A009B12BD /* leleIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = leleIOS.entitlements; sourceTree = "<group>"; };
 		374A5EAC2CFEEC1100A36375 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		374A5EB02CFEF90E00A36375 /* BaseTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextStyle.swift; sourceTree = "<group>"; };
 		374A5EB12CFEF90E00A36375 /* ButtonTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextStyle.swift; sourceTree = "<group>"; };
@@ -432,6 +433,7 @@
 		375D8A422CFD48C800A1E02B /* leleIOS */ = {
 			isa = PBXGroup;
 			children = (
+				37186C442D39095A009B12BD /* leleIOS.entitlements */,
 				37E57C1A2D0ABF7F00C9B5EF /* asset sourse */,
 				377F99982D08125000BE818A /* Info.plist */,
 				37186C422D38FF94009B12BD /* GoogleService-Info.plist */,
@@ -1374,6 +1376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = leleIOS/leleIOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"leleIOS/Preview Content\"";
@@ -1412,6 +1415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = leleIOS/leleIOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"leleIOS/Preview Content\"";
