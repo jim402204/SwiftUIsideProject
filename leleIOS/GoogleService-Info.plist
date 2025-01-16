@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCPX5nVqI9_MDQZ-bwEuR5kE9Mn-WPml0c</string>
+	<string>AIzaSyD8fkTttSjRrX38T6VTp7aecCmr5QVMY8w</string>
 	<key>GCM_SENDER_ID</key>
-	<string>54550116733</string>
+	<string>452792472658</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>avance.leleIOS</string>
+	<string>avance.lele</string>
 	<key>PROJECT_ID</key>
-	<string>leleios</string>
+	<string>avancelele</string>
 	<key>STORAGE_BUCKET</key>
-	<string>leleios.firebasestorage.app</string>
+	<string>avancelele.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:54550116733:ios:ca5d9fe8b23c1726737414</string>
+	<string>1:452792472658:ios:ebe419396b25f1858b3b8b</string>
 </dict>
 </plist>

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37186C3A2D34E400009B12BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37186C392D34E400009B12BD /* GoogleService-Info.plist */; };
 		37186C3C2D34EE4E009B12BD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186C3B2D34EE4E009B12BD /* RegisterViewModel.swift */; };
 		37186C3E2D3769EA009B12BD /* CommunityBindingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186C3D2D3769EA009B12BD /* CommunityBindingState.swift */; };
 		37186C412D37A9A5009B12BD /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 37186C402D37A9A5009B12BD /* CombineExt */; };
+		37186C432D38FF94009B12BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37186C422D38FF94009B12BD /* GoogleService-Info.plist */; };
 		374A5EAD2CFEEC1100A36375 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EAC2CFEEC1100A36375 /* RegisterView.swift */; };
 		374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB52CFEF90E00A36375 /* NewPasswordViewModel.swift */; };
 		374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB42CFEF90E00A36375 /* NewPasswordView.swift */; };
@@ -181,9 +181,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		37186C392D34E400009B12BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37186C3B2D34EE4E009B12BD /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		37186C3D2D3769EA009B12BD /* CommunityBindingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityBindingState.swift; sourceTree = "<group>"; };
+		37186C422D38FF94009B12BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		374A5EAC2CFEEC1100A36375 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		374A5EB02CFEF90E00A36375 /* BaseTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextStyle.swift; sourceTree = "<group>"; };
 		374A5EB12CFEF90E00A36375 /* ButtonTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextStyle.swift; sourceTree = "<group>"; };
@@ -434,7 +434,7 @@
 			children = (
 				37E57C1A2D0ABF7F00C9B5EF /* asset sourse */,
 				377F99982D08125000BE818A /* Info.plist */,
-				37186C392D34E400009B12BD /* GoogleService-Info.plist */,
+				37186C422D38FF94009B12BD /* GoogleService-Info.plist */,
 				374A5EAF2CFEF7E900A36375 /* refence swiftUI */,
 				375D8A542CFD4A6100A1E02B /* APPConfig */,
 				375D8A522CFD4A6100A1E02B /* Extension */,
@@ -1040,7 +1040,7 @@
 				37E57C252D0AC02100C9B5EF /* gas.png in Resources */,
 				37E57C262D0AC02100C9B5EF /* login-background.jpg in Resources */,
 				37E57C272D0AC02100C9B5EF /* demoAD.jpg in Resources */,
-				37186C3A2D34E400009B12BD /* GoogleService-Info.plist in Resources */,
+				37186C432D38FF94009B12BD /* GoogleService-Info.plist in Resources */,
 				37E57C472D0AC03A00C9B5EF /* menu.svg in Resources */,
 				37E57C482D0AC03A00C9B5EF /* home.svg in Resources */,
 				37E57C492D0AC03A00C9B5EF /* notify.svg in Resources */,
@@ -1377,7 +1377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"leleIOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 5LFNW732DV;
+				DEVELOPMENT_TEAM = HQ697DP27J;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1394,7 +1394,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = avance.leleIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = avance.lele;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1415,7 +1415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"leleIOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 5LFNW732DV;
+				DEVELOPMENT_TEAM = HQ697DP27J;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1432,7 +1432,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = avance.leleIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = avance.lele;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
