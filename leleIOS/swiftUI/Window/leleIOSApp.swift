@@ -31,17 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
+        
+        setFirebase()
 
-        // 設定通知
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if let error = error {
-                print("通知授權失敗：\(error)")
-            }
-        }
-        application.registerForRemoteNotifications()
-                
+        registerForRemoteNotifications(application)
         
         return true
       }
@@ -51,13 +44,83 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return .portrait
     }
     
-    // 註冊設備 Token
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().apnsToken = deviceToken
+    
+}
+
+//MARK: - 推播設定 setting
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func registerForRemoteNotifications(_ application: UIApplication) {
+        
+        // 設定通知
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("通知授權失敗：\(error)")
+                return
+            }
+            
+            if granted {
+                print("授權成功")
+            } else {
+                print("用户未授予通知权限")
+            }
+        }
+        /// 不論是否同意都註冊 firebase sdk會攔截
+        /// didRegisterForRemoteNotificationsWithDeviceToken
+        /// didFailToRegisterForRemoteNotificationsWithError
+        application.registerForRemoteNotifications()
     }
     
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("遠程通知註冊失敗：\(error)")
+    // 前景收到
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // 取得推播內容
+        let userInfo = notification.request.content.userInfo
+        print("前景收到推播通知: \(userInfo)")
+        
+        // 指定要顯示的通知樣式 (如 .banner, .sound, .badge)
+        completionHandler([.banner, .sound, .badge])
+    }
+    // 背景收到 點擊進去才算
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        // 取得推播內容
+        let userInfo = response.notification.request.content.userInfo
+        print("用戶點擊通知: \(userInfo)")
+        
+        // 根據推播內容執行特定邏輯 (例如導航到特定頁面)
+        completionHandler()
+    }
+    
+    // 直接從sdk 獲取token 不需要傳遞
+    func getFCMToken() {
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("FCM registration token: \(token)")
+          }
+        }
+    }
+    
+}
+
+
+//MARK: - firebase refresh_token
+extension AppDelegate: MessagingDelegate {
+    /// set firebase for FCM => 推波
+    func setFirebase() {
+
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+    }
+
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase fcmToken: \(String(describing: fcmToken ?? ""))")
     }
 }
 

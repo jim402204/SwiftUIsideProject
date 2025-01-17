@@ -28,14 +28,14 @@ enum LaunchApi {
         var task: Task { .requestParameters(parameters: parameters, encoding: JSONEncoding.default) }
         private var parameters: [String:Any] = [:]
     
-        init() {
+        init(fcmToken: String) {
             let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
             
             parameters["UID"] = uuid
             parameters["Type"] = "iOS"
             parameters["Model"] = DeviceObject.shared.deviceName
             parameters["Version"] = UIDevice.current.systemVersion
-            parameters["FCM"] = "FCM token"
+            parameters["FCM"] = fcmToken
             parameters["Lat"] = Double.zero
             parameters["Lng"] = Double.zero
             parameters["GeoTime"] = Date().ISO8601Format()

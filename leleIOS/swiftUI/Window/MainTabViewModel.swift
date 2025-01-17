@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import FirebaseMessaging
 
 class MainTabViewModel: ObservableObject {
     
@@ -17,7 +18,7 @@ class MainTabViewModel: ObservableObject {
         
         callUserInfo()
         
-        callDeviceInfo()
+        getFCMTokenAndCallDeviceAPI()
         
         binding()
     }
@@ -27,6 +28,21 @@ class MainTabViewModel: ObservableObject {
         CommunityBindingState.shared.$isOpening
             .receive(on: RunLoop.main)
             .assign(to: &$isCommunityOpening)
+    }
+    /// 前提是登入了
+    func getFCMTokenAndCallDeviceAPI() {
+        //等待firebase api回來 才有內容 不然會在 firebase call api之前就檢查了
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            Messaging.messaging().token { token, error in
+                if let error = error {
+                    print("Error fetching FCM registration token: \(error)")
+                    self.callDeviceInfo(fcmToken: "")
+                } else if let token = token {
+                    print("uploading FCM token: \(token)")
+                    self.callDeviceInfo(fcmToken: token)
+                }
+            }
+        }
     }
     
     func householdListAPI() {
@@ -66,11 +82,11 @@ class MainTabViewModel: ObservableObject {
         }
     }
     
-    func callDeviceInfo() {
+    func callDeviceInfo(fcmToken: String) {
         
         Task {
             do {
-                let model = try await apiService.requestA(LaunchApi.DeviceInfo())
+                let model = try await apiService.requestA(LaunchApi.DeviceInfo(fcmToken: fcmToken))
                 UserDefaultsHelper.deviceID = model.ID
                 
             } catch {
