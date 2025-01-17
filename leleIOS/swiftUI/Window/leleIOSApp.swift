@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         registerForRemoteNotifications(application)
         
+        simulateIncomingCall()
+        
         return true
       }
     
@@ -45,6 +47,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+}
+
+//MARK: - 測試callkit
+extension AppDelegate {
+    //需要一直 hold住
+    static var callHandler = CallHandler()
+    
+    /// 測試系統 callkit
+    func simulateIncomingCall() {
+        // 模擬來電
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            print("Triggering simulated call...")
+            AppDelegate.callHandler.simulateIncomingCall()
+        }
+    }
 }
 
 //MARK: - 推播設定 setting

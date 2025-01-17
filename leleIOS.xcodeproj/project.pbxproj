@@ -11,6 +11,8 @@
 		37186C3E2D3769EA009B12BD /* CommunityBindingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186C3D2D3769EA009B12BD /* CommunityBindingState.swift */; };
 		37186C412D37A9A5009B12BD /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 37186C402D37A9A5009B12BD /* CombineExt */; };
 		37186C432D38FF94009B12BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37186C422D38FF94009B12BD /* GoogleService-Info.plist */; };
+		37186C472D3A2B86009B12BD /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186C462D3A2B86009B12BD /* CallManager.swift */; };
+		37186C492D3A2BD5009B12BD /* CallHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186C482D3A2BD5009B12BD /* CallHandler.swift */; };
 		374A5EAD2CFEEC1100A36375 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EAC2CFEEC1100A36375 /* RegisterView.swift */; };
 		374A5EB72CFEF90E00A36375 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB52CFEF90E00A36375 /* NewPasswordViewModel.swift */; };
 		374A5EB82CFEF90E00A36375 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5EB42CFEF90E00A36375 /* NewPasswordView.swift */; };
@@ -185,6 +187,8 @@
 		37186C3D2D3769EA009B12BD /* CommunityBindingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityBindingState.swift; sourceTree = "<group>"; };
 		37186C422D38FF94009B12BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37186C442D39095A009B12BD /* leleIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = leleIOS.entitlements; sourceTree = "<group>"; };
+		37186C462D3A2B86009B12BD /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
+		37186C482D3A2BD5009B12BD /* CallHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHandler.swift; sourceTree = "<group>"; };
 		374A5EAC2CFEEC1100A36375 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		374A5EB02CFEF90E00A36375 /* BaseTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextStyle.swift; sourceTree = "<group>"; };
 		374A5EB12CFEF90E00A36375 /* ButtonTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextStyle.swift; sourceTree = "<group>"; };
@@ -372,6 +376,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37186C452D3A2B72009B12BD /* callKit */ = {
+			isa = PBXGroup;
+			children = (
+				37186C462D3A2B86009B12BD /* CallManager.swift */,
+				37186C482D3A2BD5009B12BD /* CallHandler.swift */,
+			);
+			path = callKit;
+			sourceTree = "<group>";
+		};
 		374A5EAB2CFEEC0800A36375 /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,6 +839,7 @@
 		37E57C632D0BCCE000C9B5EF /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				37186C452D3A2B72009B12BD /* callKit */,
 				37E57C642D0BCCEE00C9B5EF /* LoadMoreManager.swift */,
 				37C091242D1E917500E5A7CE /* AudioPlayerManager.swift */,
 				375DC54C2D2663A700980984 /* easySegmentObject.swift */,
@@ -1169,6 +1183,7 @@
 				37E57C8A2D12C2EF00C9B5EF /* ManageFeeView.swift in Sources */,
 				37E57C982D12D2AF00C9B5EF /* FacilityDetailView.swift in Sources */,
 				37C0910E2D1957DD00E5A7CE /* SheetPickerView.swift in Sources */,
+				37186C492D3A2BD5009B12BD /* CallHandler.swift in Sources */,
 				37C091162D1D097500E5A7CE /* FastRegisterPackageViewModel.swift in Sources */,
 				37E57CA22D13B6A100C9B5EF /* ChatViewModel.swift in Sources */,
 				37E57C942D12CAF700C9B5EF /* FeedBackViewModel.swift in Sources */,
@@ -1226,6 +1241,7 @@
 				375D8A6C2CFD4A6100A1E02B /* LaunchApi.swift in Sources */,
 				37E57C162D09676B00C9B5EF /* GuestViewModel.swift in Sources */,
 				375DC5652D2FCF7B00980984 /* FileWebView.swift in Sources */,
+				37186C472D3A2B86009B12BD /* CallManager.swift in Sources */,
 				375D8A692CFD4A6100A1E02B /* MyPlugin.swift in Sources */,
 				37C091082D19146400E5A7CE /* ManagerModel.swift in Sources */,
 				37186C3E2D3769EA009B12BD /* CommunityBindingState.swift in Sources */,
@@ -1387,6 +1403,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = leleIOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "是否允許此App使用相機，以便上傳圖片";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "需要使用麥克風進行通話";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1426,6 +1443,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = leleIOS/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "是否允許此App使用相機，以便上傳圖片";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "需要使用麥克風進行通話";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
