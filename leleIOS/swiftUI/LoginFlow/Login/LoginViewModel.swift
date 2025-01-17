@@ -3,11 +3,11 @@ import Combine
 
 class LoginViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
-//    @Published var phoneNumber: String = "0987654321"
-//    @Published var password: String = "135246"
+    @Published var phoneNumber: String = "0987654321"
+    @Published var password: String = "135246"
     
-    @Published var phoneNumber: String = "0920217338"
-    @Published var password: String = "402204jim"
+//    @Published var phoneNumber: String = "0920217338"
+//    @Published var password: String = "402204jim"
     
     @Published var isPasswordVisible: Bool = false
     

@@ -64,7 +64,7 @@ extension MyPlugin {
         case .success(let response):
             
             let statusCode = response.statusCode
-        
+            // jim
             ifDebug {
                 let json = JSON(response.data)
                 if let requestURL = response.request?.url {

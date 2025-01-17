@@ -13,6 +13,10 @@ struct RegisterView: View {
     @State private var isPasswordVisible = false
     @State private var isConfirmPasswordVisible = false
     
+    @FocusState var isFocusedVerify: Bool // 检测焦点状态
+    @FocusState var isFocusedPaseword: Bool // 检测焦点状态
+    @FocusState var isFocusedPaseword2: Bool // 检测焦点状态
+    
     let iconSize: CGFloat = 32
     let itemFrame: CGFloat = 50
     
@@ -85,6 +89,7 @@ struct RegisterView: View {
                             .foregroundColor(.gray)
                         if isPasswordVisible {
                             TextField("請輸入密碼", text: $viewModel.password)
+                                .focused($isFocusedVerify)
                                 .keyboardType(.asciiCapable)
                         } else {
                             SecureField("請輸入密碼", text: $viewModel.password)
@@ -147,6 +152,11 @@ struct RegisterView: View {
         }
         
     }//body
+    
+    func foundColor(_ isFocused: Bool) -> Color {
+        isFocused ? .teal : sideLinesGray
+    }
+    
 }
 
 #Preview {
@@ -160,12 +170,16 @@ struct RegisterView: View {
 
 struct RoundedTextFieldView: View {
     @Binding var text: String
+    @FocusState var isFocused: Bool // 检测焦点状态
+
     let placeholder: String
     let iconName: String
     var keyboardType: UIKeyboardType = .default
     let iconSize: CGFloat
     let itemFrame: CGFloat
+    /// 是否限制文字
     var shouldLimit: Bool = false
+    /// 是否數量
     var limitCount = 10
     
     var body: some View {
@@ -174,17 +188,14 @@ struct RoundedTextFieldView: View {
                 .frame(width: iconSize, height: iconSize)
                 .foregroundColor(.gray)
             TextField(placeholder, text: $text)
+                .focused($isFocused)
                 .padding(8)
                 .keyboardType(keyboardType)
                 .limitInputLength(value: $text, length: limitCount, shouldLimit: shouldLimit)
-//                .limitInputLength(value: $text, length: 10)
         }
         .padding(.horizontal, 8)
         .frame(height: itemFrame)
-        .roundedBackground()
+        .roundedBackground(strokeColor: isFocused ? .teal : sideLinesGray)
     }
 }
-
-
-
 

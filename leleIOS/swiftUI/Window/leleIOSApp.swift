@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         registerForRemoteNotifications(application)
         
-        simulateIncomingCall()
+//        simulateIncomingCall()
         
         return true
       }

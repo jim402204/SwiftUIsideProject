@@ -96,10 +96,12 @@ extension View {
     }
 }
 
+let sideLinesGray = Color.gray.opacity(0.3)
+
 // MMARK: - 新增圓角background
 extension View {
     func roundedBackground(cornerRadius: CGFloat = 10,
-                           strokeColor: Color = Color.gray.opacity(0.3),
+                           strokeColor: Color = sideLinesGray,
                            lineWidth: CGFloat = 1) -> some View {
         self.modifier(RoundedBackgroundModifier(cornerRadius: cornerRadius, strokeColor: strokeColor, lineWidth: lineWidth))
     }
@@ -119,4 +121,36 @@ struct RoundedBackgroundModifier: ViewModifier {
     }
 }
 
+// MMARK: - TextField取得焦點
+/// TextField取得焦點 提供雙向綁定
+/// 提供雙向綁定
+struct FocusedState: ViewModifier {
+    @FocusState private var isFocused: Bool
+    // swiftUI 變化 綁定給viewModel
+    @Binding var externalFocus: Bool?
+    
+    init(externalFocus: Binding<Bool?>? = nil) {
+        self._externalFocus = externalFocus ?? .constant(nil) // 如果未绑定，使用 `nil`
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .focused($isFocused)
+            .onChange(of: isFocused) {
+                externalFocus = $1 // 绑定到外部
+            }
+    }
+}
 
+extension View {
+    func focusedState(
+        binding: Binding<Bool?>
+    ) -> some View where Self == TextField<Text> {
+        self.modifier(FocusedState(externalFocus: binding))
+    }
+    
+    func focusedState() -> some View where Self == TextField<Text> {
+        
+        self.modifier(FocusedState())
+    }
+}
