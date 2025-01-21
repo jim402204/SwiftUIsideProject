@@ -28,9 +28,9 @@ struct RegisterView: View {
             
             VStack(alignment: .center, spacing: 20) {
                 
-                Image("banner")
+                Image("Logo")
                     .resizable()
-                    .frame(width: 160, height: 50)
+                    .frame(width: 50, height: 50)
                 
                 VStack(spacing: 15) {
                     
@@ -69,6 +69,7 @@ struct RegisterView: View {
                             .padding(8)
                             .textContentType(.oneTimeCode)
                             .keyboardType(.numberPad)
+                            .focused($isFocusedVerify)
                         
                         Button("取得驗證碼") {
                             viewModel.getVerificationCode()
@@ -81,7 +82,7 @@ struct RegisterView: View {
                     }
                     .padding(.horizontal, 8)
                     .frame(height: itemFrame)
-                    .roundedBackground()
+                    .roundedBackground(strokeColor: isFocusedVerify ? .teal : sideLinesGray)
                     
                     HStack(spacing: 0) {
                         Image(systemName: "lock.fill")
@@ -89,10 +90,11 @@ struct RegisterView: View {
                             .foregroundColor(.gray)
                         if isPasswordVisible {
                             TextField("請輸入密碼", text: $viewModel.password)
-                                .focused($isFocusedVerify)
+                                .focused($isFocusedPaseword)
                                 .keyboardType(.asciiCapable)
                         } else {
                             SecureField("請輸入密碼", text: $viewModel.password)
+                                .focused($isFocusedPaseword)
                         }
                         Button(action: {
                             isPasswordVisible.toggle()
@@ -104,7 +106,7 @@ struct RegisterView: View {
                     }
                     .padding(.horizontal, 8)
                     .frame(height: itemFrame)
-                    .roundedBackground()
+                    .roundedBackground(strokeColor: isFocusedPaseword ? .teal : sideLinesGray)
                     
                     HStack(spacing: 0) {
                         Image(systemName: "lock.fill")
@@ -113,8 +115,10 @@ struct RegisterView: View {
                         if isConfirmPasswordVisible {
                             TextField("請再次輸入密碼", text: $viewModel.confirmPassword)
                                 .keyboardType(.asciiCapable)
+                                .focused($isFocusedPaseword2)
                         } else {
                             SecureField("請再次輸入密碼", text: $viewModel.confirmPassword)
+                                .focused($isFocusedPaseword2)
                         }
                         Button(action: {
                             isConfirmPasswordVisible.toggle()
@@ -126,7 +130,7 @@ struct RegisterView: View {
                     }
                     .padding(.horizontal, 8)
                     .frame(height: itemFrame)
-                    .roundedBackground()
+                    .roundedBackground(strokeColor: isFocusedPaseword2 ? .teal : sideLinesGray)
                 }
                 
                 Button {

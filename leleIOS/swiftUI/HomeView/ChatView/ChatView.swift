@@ -68,7 +68,7 @@ struct ChatView: View {
             .padding(.vertical,5)
             
             HStack(spacing: 0) {
-                TextField("訊問樂樂管家！", text: $viewModel.message)
+                TextField("訊問管家！", text: $viewModel.message)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
                     .focused($isTextFieldFocused)

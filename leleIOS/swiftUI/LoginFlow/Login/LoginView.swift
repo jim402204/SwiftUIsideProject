@@ -12,6 +12,9 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @State private var showRoleSelection = false
     
+    @FocusState var isFocusedPhone: Bool
+    @FocusState var isFocusedPassword: Bool
+    
     var body: some View {
         
         VStack(spacing: 20) {
@@ -23,7 +26,7 @@ struct LoginView: View {
                     .frame(width: 60, height: 60)
                     .foregroundColor(.teal)
                 
-                Text("樂樂")
+                Text("")
                     .appFont(.largeTitle)
                     .foregroundColor(.gray)
             }
@@ -57,9 +60,10 @@ struct LoginView: View {
                         .foregroundColor(.gray)
                     TextField("請輸入手機號碼", text: $viewModel.phoneNumber)
                         .keyboardType(.numberPad)
+                        .focused($isFocusedPhone)
                 }
                 .padding()
-                .roundedBackground()
+                .roundedBackground(strokeColor: isFocusedPhone ? .teal : sideLinesGray)
                 .frame(height: 50)
                 
                 // 密碼輸入框
@@ -73,6 +77,7 @@ struct LoginView: View {
                             SecureField("請輸入密碼", text: $viewModel.password)
                         }
                     }
+                    .focused($isFocusedPassword)
                     
                     Button(action: {
                         viewModel.isPasswordVisible.toggle()
@@ -82,7 +87,7 @@ struct LoginView: View {
                     }
                 }
                 .padding()
-                .roundedBackground()
+                .roundedBackground(strokeColor: isFocusedPassword ? .teal : sideLinesGray)
                 .frame(height: 50)
             }
             
@@ -119,7 +124,7 @@ struct LoginView: View {
             Spacer()
             
             // 版本號
-            Text("樂樂 v1.0.0")
+            Text("v1.0.0")
                 .appFont(.size(16))
                 .foregroundColor(.black)
                 .padding(.bottom)
@@ -143,6 +148,9 @@ struct LoginView: View {
         }
         .navigationDestination(isPresented: $viewModel.pushToForgotPassword) {
             ForgotPasswordView()
+        }
+        .onTapGesture {
+            hideKeyboard()
         }
     }
     
