@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>top-level-items</key>
+	<array>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>54</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>53</string>
+					<key>Timestamp</key>
+					<string>758778513.134394</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>leleIOS/leleIOS/swiftUI/Window/MainTabViewModel.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                guard let model = respone.first else {
+</string>
+				<key>leading</key>
+				<string>                let respone = try await apiService.requestA(LaunchApi.HouseholdList())
+                
+</string>
+				<key>trailing</key>
+				<string>                    CommunityBindingState.shared.reset()
+                    return
+                }
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>5</string>
+					<key>EndingLineNumber</key>
+					<string>51</string>
+					<key>StartingColumnNumber</key>
+					<string>4</string>
+					<key>StartingLineNumber</key>
+					<string>42</string>
+					<key>Timestamp</key>
+					<string>758624768.998492</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>leleIOS/leleIOS/swiftUI/ProfileView/ProfileViewModel.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>func logout() {
+        
+        appState?.logOut()
+
+//        if  CommunityBindingState.shared.isOpening {
+//            CommunityBindingState.shared.reset()
+//        } else {
+//            CommunityBindingState.shared.saveCommunityInfo(model: HouseholdListModel(id: "", community: Community(id: "", name: "", contact: "", phone: "", email: "", city: "", district: "", tel: "", address: "", lat: 0, lng: 0, module: []), building: "building", doorPlate: "doorPlate", floor: "floor"))
+//        }
+    }</string>
+				<key>leading</key>
+				<string>    }
+    
+    </string>
+				<key>trailing</key>
+				<string>
+}
+
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+	</array>
+</dict>
+</plist>
