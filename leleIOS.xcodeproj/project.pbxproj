@@ -65,7 +65,6 @@
 		375DC54D2D2663A700980984 /* easySegmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC54C2D2663A700980984 /* easySegmentObject.swift */; };
 		375DC54F2D267A9A00980984 /* PageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC54E2D267A9A00980984 /* PageTabView.swift */; };
 		375DC5512D27E87C00980984 /* testInsturctment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC5502D27E87C00980984 /* testInsturctment.swift */; };
-		375DC5572D2BC5ED00980984 /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 375DC5562D2BC5ED00980984 /* WebRTC */; };
 		375DC55A2D2D011500980984 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 375DC5592D2D011500980984 /* DeviceKit */; };
 		375DC55C2D2D060E00980984 /* DeviceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC55B2D2D060E00980984 /* DeviceObject.swift */; };
 		375DC55F2D2D1B7D00980984 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DC55E2D2D1B7D00980984 /* QRCodeView.swift */; };
@@ -363,7 +362,6 @@
 				37186C412D37A9A5009B12BD /* CombineExt in Frameworks */,
 				375DC55A2D2D011500980984 /* DeviceKit in Frameworks */,
 				375D8A742CFD4B4400A1E02B /* RxSwift in Frameworks */,
-				375DC5572D2BC5ED00980984 /* WebRTC in Frameworks */,
 				375DC56D2D34E28900980984 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				37E57C192D0970D700C9B5EF /* Kingfisher in Frameworks */,
 				375DC56F2D34E28900980984 /* FirebaseCrashlytics in Frameworks */,
@@ -990,7 +988,6 @@
 				375D8A7E2CFD4BA900A1E02B /* RxMoya */,
 				37E57C182D0970D700C9B5EF /* Kingfisher */,
 				37C091272D1EA80100E5A7CE /* ActivityIndicatorView */,
-				375DC5562D2BC5ED00980984 /* WebRTC */,
 				375DC5592D2D011500980984 /* DeviceKit */,
 				375DC56C2D34E28900980984 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				375DC56E2D34E28900980984 /* FirebaseCrashlytics */,
@@ -1031,7 +1028,6 @@
 				375D8A782CFD4B8700A1E02B /* XCRemoteSwiftPackageReference "Moya" */,
 				37E57C172D0970D700C9B5EF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				37C091262D1EA80100E5A7CE /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
-				375DC5552D2BC5ED00980984 /* XCRemoteSwiftPackageReference "Specs" */,
 				375DC5582D2D011500980984 /* XCRemoteSwiftPackageReference "DeviceKit" */,
 				375DC56B2D34E28900980984 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				37186C3F2D37A9A5009B12BD /* XCRemoteSwiftPackageReference "CombineExt" */,
@@ -1522,14 +1518,6 @@
 				minimumVersion = 15.0.3;
 			};
 		};
-		375DC5552D2BC5ED00980984 /* XCRemoteSwiftPackageReference "Specs" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/webrtc-sdk/Specs";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 125.6422.6;
-			};
-		};
 		375DC5582D2D011500980984 /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devicekit/DeviceKit";
@@ -1594,11 +1582,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 375D8A782CFD4B8700A1E02B /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
-		};
-		375DC5562D2BC5ED00980984 /* WebRTC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 375DC5552D2BC5ED00980984 /* XCRemoteSwiftPackageReference "Specs" */;
-			productName = WebRTC;
 		};
 		375DC5592D2D011500980984 /* DeviceKit */ = {
 			isa = XCSwiftPackageProductDependency;
